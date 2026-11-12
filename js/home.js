@@ -221,23 +221,69 @@ function setUpStickyCanvas() {
     else paint(sections[0]);
   });
 
-  if (typeof IntersectionObserver !== 'function') {
-    show(sections[0]);
-    return;
+  /*
+   * Which section the canvas should be showing is decided by a probe line
+   * drawn just below the canvas itself, rather than by whichever section
+   * covers most of the viewport.
+   *
+   * That distinction matters on narrow screens. There the canvas is a band
+   * pinned to the top, so the content a reader is actually looking at
+   * starts below it — measuring from the middle of the viewport picks the
+   * section after the one being read. Measuring from under the band gives
+   * the right answer in both layouts, because on wide screens the band is
+   * the full height of the column and the probe lands at its middle.
+   */
+  const container = canvas.closest('.split__canvas') || canvas;
+
+  const probeLine = () => {
+    const band = container.getBoundingClientRect();
+    const viewport = window.innerHeight;
+
+    // A tall canvas is the full-height column beside the content: the
+    // reading area is the whole viewport, so probe its middle. A short one
+    // is the band pinned above the content: the reading area is what is
+    // left below it, so probe the middle of that.
+    if (band.height > viewport * 0.6) return viewport / 2;
+    return (Math.max(band.bottom, 0) + viewport) / 2;
+  };
+
+  const pick = () => {
+    const line = probeLine();
+    let best = sections[0];
+    for (const section of sections) {
+      const box = section.getBoundingClientRect();
+      if (box.top <= line && box.bottom > line) return section;
+      // Past the last section, hold on to the last one.
+      if (box.top <= line) best = section;
+    }
+    return best;
+  };
+
+  /*
+   * The update is driven from two places, because neither is reliable on
+   * its own. Scroll events are coalesced, and can be delivered sparsely
+   * when the page is being painted slowly; an IntersectionObserver still
+   * fires as each section crosses the viewport even then. Running both and
+   * recomputing from the probe either way means the canvas keeps up
+   * whichever one arrives.
+   *
+   * The work is reading six rectangles, so it is done directly rather than
+   * deferred to an animation frame, which is itself throttled in exactly
+   * the situations where scroll events go missing.
+   */
+  const update = () => show(pick());
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+
+  if (typeof IntersectionObserver === 'function') {
+    const observer = new IntersectionObserver(update, {
+      threshold: [0, 0.1, 0.25, 0.5, 0.75, 0.9, 1]
+    });
+    sections.forEach((section) => observer.observe(section));
   }
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (visible) show(visible.target);
-    },
-    { rootMargin: '-35% 0px -35% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] }
-  );
-
-  sections.forEach((section) => observer.observe(section));
-  show(sections[0]);
+  update();
 }
 
 /* ------------------------------------------------------------------ *
