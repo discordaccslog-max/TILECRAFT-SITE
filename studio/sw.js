@@ -18,7 +18,18 @@
  * anywhere, and no request is made to any other server.
  */
 
-const VERSION = 'tilecraft-studio-v1';
+/*
+ * BUILD is a hash of every file in the SHELL list below, written here by
+ * tools/build.mjs. It matters more than it looks: a browser only installs a
+ * new service worker when this file's own bytes change, and the precache is
+ * only refilled on install. Without a stamp that moves when the site moves,
+ * a returning visitor would be pinned to the version they first loaded and
+ * would never receive a fix. Run `npm run build` after changing any file in
+ * the list.
+ */
+const BUILD = '04a5b39299dc538e';
+
+const VERSION = 'tilecraft-studio-' + BUILD;
 const SHELL_CACHE = VERSION + '-shell';
 const RUNTIME_CACHE = VERSION + '-runtime';
 

@@ -15,6 +15,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
 
 import { PRODUCTS, TIERS, productBySlug, hasCheckout, anyCheckout } from '../js/products.js';
 import { SITE, hasSupportEmail } from '../js/site-config.js';
@@ -656,4 +657,67 @@ test('no support address is shown while none is configured', () => {
   for (const page of pages) {
     assert.ok(!page.html.includes('mailto:'), page.url + ' shows a mailto link with no address set');
   }
+});
+
+/* ------------------------------------------------------------------ *
+ * The service worker
+ *
+ * A browser installs a new service worker only when sw.js itself changes,
+ * and the Studio's precache is only refilled on install. If the worker's
+ * stamp ever stops tracking the files it caches, a returning visitor is
+ * pinned to the version they first loaded and never receives a fix. This
+ * is the check that stops that happening quietly.
+ * ------------------------------------------------------------------ */
+
+test('the service worker precaches only files that exist', () => {
+  const worker = fs.readFileSync(path.join(root, 'studio', 'sw.js'), 'utf8');
+  const list = /const SHELL = \[([\s\S]*?)\];/.exec(worker);
+  assert.ok(list, 'sw.js should declare a SHELL list');
+
+  const urls = [...list[1].matchAll(/'([^']+)'/g)].map((m) => m[1]);
+  assert.ok(urls.length > 10, 'the shell should cover the Studio and its modules');
+
+  for (const url of urls) {
+    assert.ok(resolves(url), 'sw.js precaches ' + url + ', which does not exist');
+  }
+});
+
+test('the service worker caches every script the Studio loads', () => {
+  const worker = fs.readFileSync(path.join(root, 'studio', 'sw.js'), 'utf8');
+  const studio = fs.readFileSync(path.join(root, 'studio', 'studio.js'), 'utf8');
+
+  // Every module studio.js imports from js/ has to be in the precache, or
+  // the Studio cannot start offline.
+  const imported = [...studio.matchAll(/from '\.\.\/js\/([\w-]+\.js)'/g)].map((m) => '/js/' + m[1]);
+  assert.ok(imported.length >= 8, 'expected the Studio to import several modules');
+
+  for (const url of new Set(imported)) {
+    assert.ok(worker.includes("'" + url + "'"), 'sw.js does not precache ' + url);
+  }
+});
+
+test('the service worker stamp matches the files it precaches', () => {
+  const workerPath = path.join(root, 'studio', 'sw.js');
+  const worker = fs.readFileSync(workerPath, 'utf8');
+
+  const declared = /const BUILD = '([^']*)';/.exec(worker);
+  assert.ok(declared, 'sw.js should carry a BUILD stamp');
+
+  const urls = [.../const SHELL = \[([\s\S]*?)\];/.exec(worker)[1].matchAll(/'([^']+)'/g)].map(
+    (m) => m[1]
+  );
+
+  const hash = createHash('sha256');
+  for (const url of urls.slice().sort()) {
+    const relative = url.replace(/^\//, '').replace(/\/$/, '/index.html');
+    hash.update(url);
+    hash.update(fs.readFileSync(path.join(root, relative)));
+  }
+  hash.update(worker.replace(/const BUILD = '[^']*';/, ''));
+
+  assert.equal(
+    declared[1],
+    hash.digest('hex').slice(0, 16),
+    'the service worker stamp is stale — run `npm run build`'
+  );
 });

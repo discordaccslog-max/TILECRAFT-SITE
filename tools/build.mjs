@@ -22,6 +22,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
 
 import { SITE } from '../js/site-config.js';
 import { PRODUCTS } from '../js/products.js';
@@ -163,6 +164,55 @@ writeFile('CNAME', SITE.domain + '\n');
  * ------------------------------------------------------------------ */
 
 writeFile('.nojekyll', '');
+
+/* ------------------------------------------------------------------ *
+ * Stamp the service worker
+ *
+ * A browser installs a new service worker only when sw.js itself changes,
+ * and the Studio's precache is only refilled on install. So the worker
+ * carries a hash of everything it precaches: change any of those files and
+ * the worker changes with them, which is what makes a deployed fix actually
+ * reach someone who has used the Studio before.
+ * ------------------------------------------------------------------ */
+
+const workerPath = path.join(root, 'studio', 'sw.js');
+let worker = fs.readFileSync(workerPath, 'utf8');
+
+const shellList = /const SHELL = \[([\s\S]*?)\];/.exec(worker);
+if (!shellList) throw new Error('build: could not find the SHELL list in studio/sw.js');
+
+const shellFiles = [...shellList[1].matchAll(/'([^']+)'/g)].map((match) => match[1]);
+
+const hash = createHash('sha256');
+const missing = [];
+
+for (const url of shellFiles.sort()) {
+  const relative = url.replace(/^\//, '').replace(/\/$/, '/index.html');
+  const file = path.join(root, relative);
+  if (!fs.existsSync(file)) {
+    missing.push(url);
+    continue;
+  }
+  hash.update(url);
+  hash.update(fs.readFileSync(file));
+}
+
+if (missing.length) {
+  throw new Error('build: studio/sw.js precaches files that do not exist: ' + missing.join(', '));
+}
+
+// The worker's own source, minus the stamp, is part of what it caches.
+hash.update(worker.replace(/const BUILD = '[^']*';/, ''));
+
+const stamp = hash.digest('hex').slice(0, 16);
+const stamped = worker.replace(/const BUILD = '[^']*';/, "const BUILD = '" + stamp + "';");
+
+if (stamped !== worker) {
+  fs.writeFileSync(workerPath, stamped);
+  written++;
+}
+
+console.log('Service worker stamped ' + stamp + ' over ' + shellFiles.length + ' precached files.');
 
 console.log('Built ' + written + ' files.');
 console.log('  ' + allPages.length + ' pages (' + sitemapPaths.length + ' in the sitemap)');
