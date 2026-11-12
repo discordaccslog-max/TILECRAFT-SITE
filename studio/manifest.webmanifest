@@ -1,0 +1,27 @@
+{
+  "name": "Tilecraft Studio",
+  "short_name": "Tilecraft",
+  "description": "Open your Tilecraft Digital Collections and Studio Editions. Everything runs in your browser.",
+  "id": "/studio/",
+  "start_url": "/studio/",
+  "scope": "/studio/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f7f2e8",
+  "theme_color": "#f7f2e8",
+  "categories": ["graphics", "design", "productivity"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

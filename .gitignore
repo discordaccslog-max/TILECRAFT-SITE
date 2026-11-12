@@ -1,0 +1,12 @@
+# Nothing here is needed to build or serve the site, which has no
+# dependencies. These are only ever local working files.
+
+node_modules/
+.playwright-mcp/
+*.log
+
+# Editor and operating system noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

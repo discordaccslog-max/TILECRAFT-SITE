@@ -1,0 +1,659 @@
+/*
+ * The built site.
+ *
+ * These tests read the generated HTML off disk and check the things that
+ * would otherwise only be caught by clicking everything: that the catalog is
+ * coherent, that every internal link resolves, that no placeholder text was
+ * left behind, that every public page carries its own metadata, and that the
+ * confirmation pages stay out of search results and the sitemap.
+ */
+
+import '../tests/helpers/environment.mjs';
+
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+import { PRODUCTS, TIERS, productBySlug, hasCheckout, anyCheckout } from '../js/products.js';
+import { SITE, hasSupportEmail } from '../js/site-config.js';
+import { ALPHABET } from '../js/license.js';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+
+/* ------------------------------------------------------------------ *
+ * Reading the built site
+ * ------------------------------------------------------------------ */
+
+const SKIP_DIRECTORIES = new Set(['.git', 'node_modules', 'tests', 'tools', '.playwright-mcp', '.claude']);
+
+function walk(directory, found = []) {
+  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    if (entry.name.startsWith('.') && entry.name !== '.nojekyll') continue;
+    if (SKIP_DIRECTORIES.has(entry.name)) continue;
+    const full = path.join(directory, entry.name);
+    if (entry.isDirectory()) walk(full, found);
+    else found.push(full);
+  }
+  return found;
+}
+
+const allFiles = walk(root);
+const htmlFiles = allFiles.filter((file) => file.endsWith('.html'));
+
+const pages = htmlFiles.map((file) => ({
+  file,
+  url: '/' + path.relative(root, file).split(path.sep).join('/'),
+  html: fs.readFileSync(file, 'utf8')
+}));
+
+for (const page of pages) {
+  page.isThankYou = page.url.startsWith('/thank-you/');
+  page.is404 = page.url === '/404.html';
+  page.isPublic = !page.isThankYou && !page.is404;
+  page.path = page.url.replace(/index\.html$/, '');
+}
+
+const attribute = (html, pattern) => {
+  const match = pattern.exec(html);
+  return match ? match[1] : null;
+};
+
+const titleOf = (html) => attribute(html, /<title>([\s\S]*?)<\/title>/);
+const descriptionOf = (html) =>
+  attribute(html, /<meta name="description" content="([^"]*)"/);
+
+/** Does a site-absolute path exist as a file on disk? */
+function resolves(urlPath) {
+  const clean = urlPath.split('#')[0].split('?')[0];
+  if (!clean || clean === '/') return fs.existsSync(path.join(root, 'index.html'));
+  const relative = clean.replace(/^\//, '');
+  const direct = path.join(root, relative);
+  if (fs.existsSync(direct) && fs.statSync(direct).isFile()) return true;
+  const asDirectory = path.join(root, relative.replace(/\/$/, ''), 'index.html');
+  return fs.existsSync(asDirectory);
+}
+
+/* ------------------------------------------------------------------ *
+ * The build produced what it should have
+ * ------------------------------------------------------------------ */
+
+test('the site was built', () => {
+  assert.ok(pages.length >= 30, 'expected at least 30 pages, found ' + pages.length);
+  assert.ok(fs.existsSync(path.join(root, 'index.html')));
+  assert.ok(fs.existsSync(path.join(root, '404.html')));
+  assert.ok(fs.existsSync(path.join(root, 'sitemap.xml')));
+  assert.ok(fs.existsSync(path.join(root, 'robots.txt')));
+  assert.ok(fs.existsSync(path.join(root, 'favicon.svg')));
+  assert.ok(fs.existsSync(path.join(root, 'CNAME')));
+  assert.ok(fs.existsSync(path.join(root, 'studio', 'index.html')));
+  assert.ok(fs.existsSync(path.join(root, 'MODULES.md')));
+});
+
+test('every product has a page and a confirmation page', () => {
+  for (const product of PRODUCTS) {
+    assert.ok(
+      fs.existsSync(path.join(root, 'products', product.slug, 'index.html')),
+      'missing product page for ' + product.slug
+    );
+    assert.ok(
+      fs.existsSync(path.join(root, 'thank-you', product.slug, 'index.html')),
+      'missing confirmation page for ' + product.slug
+    );
+  }
+});
+
+test('the custom domain is configured for GitHub Pages', () => {
+  assert.equal(fs.readFileSync(path.join(root, 'CNAME'), 'utf8').trim(), SITE.domain);
+  assert.ok(fs.existsSync(path.join(root, '.nojekyll')));
+});
+
+/* ------------------------------------------------------------------ *
+ * The catalog
+ * ------------------------------------------------------------------ */
+
+test('the catalog is coherent', () => {
+  const slugs = new Set();
+  const codes = new Set();
+
+  for (const product of PRODUCTS) {
+    assert.match(product.slug, /^[a-z0-9-]+$/, product.name + ' has an odd slug');
+    assert.ok(!slugs.has(product.slug), 'duplicate slug ' + product.slug);
+    slugs.add(product.slug);
+
+    assert.ok(!codes.has(product.code), 'duplicate product code ' + product.code);
+    codes.add(product.code);
+    for (const character of product.code) {
+      assert.ok(ALPHABET.includes(character), product.slug + ' code uses ' + character);
+    }
+
+    assert.ok(TIERS[product.tier], product.slug + ' is in an unknown tier');
+    assert.ok(typeof product.price === 'number' && product.price > 0, product.slug + ' price');
+    assert.ok(product.name.length > 2, product.slug + ' name');
+    assert.ok(product.short.length > 20, product.slug + ' short description');
+    assert.ok(product.full.length >= 2, product.slug + ' needs a full description');
+    assert.ok(product.features.length >= 5, product.slug + ' needs a feature list');
+    assert.ok(product.forWhom.length >= 3, product.slug + ' needs a "who it is for"');
+    assert.ok(product.notForWhom.length >= 3, product.slug + ' needs a "who it is not for"');
+    assert.equal(product.thankYouPath, '/thank-you/' + product.slug + '/');
+    assert.equal(typeof product.checkoutUrl, 'string', product.slug + ' needs a checkoutUrl field');
+  }
+});
+
+test('the catalog matches the prices and tiers the business set', () => {
+  const expected = {
+    'geometric-essentials': ['collection', 10],
+    'textures-and-grain': ['collection', 12],
+    'botanical-linework': ['collection', 14],
+    'mid-century-shapes': ['collection', 16],
+    'tile-and-terrazzo': ['collection', 19],
+    'essentials-bundle': ['collection', 49],
+    'pattern-generator-studio': ['studio-edition', 35],
+    'repeat-builder': ['studio-edition', 45],
+    'production-studio': ['studio-edition', 75]
+  };
+
+  assert.equal(PRODUCTS.length, Object.keys(expected).length);
+
+  for (const [slug, [tier, price]] of Object.entries(expected)) {
+    const product = productBySlug(slug);
+    assert.ok(product, 'missing ' + slug);
+    assert.equal(product.tier, tier, slug + ' tier');
+    assert.equal(product.price, price, slug + ' price');
+  }
+});
+
+test('the bundle costs less than the Collections bought separately', () => {
+  const separately = PRODUCTS.filter(
+    (product) => product.tier === 'collection' && product.slug !== 'essentials-bundle'
+  ).reduce((total, product) => total + product.price, 0);
+
+  assert.ok(productBySlug('essentials-bundle').price < separately);
+});
+
+test('no product states a pattern count', () => {
+  const counting = /\b\d+\s*(patterns|repeats|tiles|textures|designs|motifs|files)\b/i;
+
+  for (const product of PRODUCTS) {
+    const text = [product.short, ...product.full, ...product.features].join(' ');
+    const match = counting.exec(text);
+    assert.equal(match, null, product.slug + ' states a count: ' + (match && match[0]));
+  }
+});
+
+/* ------------------------------------------------------------------ *
+ * Checkout
+ * ------------------------------------------------------------------ */
+
+test('a product with no checkout link renders no buy button and no checkbox', () => {
+  if (anyCheckout()) return; // once links are added this check no longer applies
+
+  for (const product of PRODUCTS) {
+    assert.equal(hasCheckout(product), false, product.slug + ' has a checkout link');
+    const html = fs.readFileSync(path.join(root, 'products', product.slug, 'index.html'), 'utf8');
+    assert.ok(!/I agree to the/.test(html), product.slug + ' shows an agreement checkbox');
+    assert.ok(!/Buy /.test(html), product.slug + ' shows a buy button');
+  }
+});
+
+test('the price and its four facts are on every product page', () => {
+  for (const product of PRODUCTS) {
+    const html = fs.readFileSync(path.join(root, 'products', product.slug, 'index.html'), 'utf8');
+    assert.ok(html.includes('$' + product.price), product.slug + ' is missing its price');
+    for (const fact of [
+      'Instant access',
+      'Commercial license included',
+      '14-day refund policy',
+      'Applicable taxes are shown at checkout.'
+    ]) {
+      assert.ok(html.includes(fact), product.slug + ' is missing: ' + fact);
+    }
+  }
+});
+
+/* ------------------------------------------------------------------ *
+ * Links
+ * ------------------------------------------------------------------ */
+
+test('every internal link resolves to a page that exists', () => {
+  const broken = [];
+
+  for (const page of pages) {
+    for (const match of page.html.matchAll(/(?:href|src)="([^"]+)"/g)) {
+      const target = match[1];
+      if (/^(https?:|mailto:|tel:|data:|#)/.test(target)) continue;
+      if (!target.startsWith('/')) continue;
+      if (!resolves(target)) broken.push(page.url + ' -> ' + target);
+    }
+  }
+
+  assert.deepEqual(broken, [], 'broken links:\n' + broken.join('\n'));
+});
+
+test('every link into the site from JavaScript resolves too', () => {
+  const scripts = allFiles.filter((file) => file.endsWith('.js'));
+  const section =
+    '(?:products|thank-you|studio|license|about|faq|contact|terms|privacy|refunds|' +
+    'delivery|disclaimer|consumer-rights|accessibility)';
+  const pattern = new RegExp("['\"](/" + section + "[^'\"#?]*)['\"]", 'g');
+
+  // A path built by concatenation, such as '/products/' + slug + '/', shows
+  // up here as the bare prefix. Those are checked against every product
+  // rather than on their own.
+  const prefixes = new Set(['/products/', '/thank-you/']);
+  const broken = [];
+
+  for (const file of scripts) {
+    const source = fs.readFileSync(file, 'utf8');
+    const where = path.relative(root, file);
+
+    for (const match of source.matchAll(pattern)) {
+      const target = match[1];
+
+      if (prefixes.has(target)) {
+        for (const product of PRODUCTS) {
+          const full = target + product.slug + '/';
+          if (!resolves(full)) broken.push(where + ' -> ' + full);
+        }
+        continue;
+      }
+
+      if (!resolves(target)) broken.push(where + ' -> ' + target);
+    }
+  }
+
+  assert.deepEqual([...new Set(broken)], [], 'broken links in scripts:\n' + broken.join('\n'));
+});
+
+test('every on-page anchor points at an element that exists', () => {
+  const broken = [];
+
+  for (const page of pages) {
+    const ids = new Set([...page.html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]));
+    for (const match of page.html.matchAll(/href="#([^"]+)"/g)) {
+      if (!ids.has(match[1])) broken.push(page.url + ' -> #' + match[1]);
+    }
+  }
+
+  // The home page's product anchors are created from the catalog at runtime.
+  const unexplained = broken.filter((entry) => !/#product-|#collections|#studio-editions/.test(entry));
+  assert.deepEqual(unexplained, [], 'dangling anchors:\n' + unexplained.join('\n'));
+});
+
+test('nothing is loaded from another server', () => {
+  const offenders = [];
+
+  for (const page of pages) {
+    for (const match of page.html.matchAll(/(?:href|src)="(https?:\/\/[^"]+)"/g)) {
+      const url = match[1];
+      // Canonical and Open Graph tags name our own URL, which is not a load.
+      const context = page.html.slice(Math.max(0, match.index - 120), match.index);
+      if (/rel="canonical"|property="og:|name="twitter:/.test(context)) continue;
+      if (url.startsWith(SITE.origin)) continue;
+      offenders.push(page.url + ' -> ' + url);
+    }
+  }
+
+  assert.deepEqual(offenders, [], 'external resources:\n' + offenders.join('\n'));
+});
+
+test('no page links to a confirmation page', () => {
+  const offenders = [];
+
+  for (const page of pages) {
+    if (page.isThankYou) continue;
+    for (const match of page.html.matchAll(/href="([^"]*thank-you[^"]*)"/g)) {
+      offenders.push(page.url + ' -> ' + match[1]);
+    }
+  }
+
+  assert.deepEqual(offenders, [], 'confirmation pages must not be linked');
+});
+
+/* ------------------------------------------------------------------ *
+ * Nothing left unfinished
+ * ------------------------------------------------------------------ */
+
+test('no placeholder text was left anywhere in the site', () => {
+  const forbidden = [
+    /\bTODO\b/,
+    /\bFIXME\b/,
+    /\bTBD\b/,
+    /\bXXX\b/,
+    /lorem ipsum/i,
+    /coming soon/i,
+    /\bplaceholder text\b/i,
+    /\bdummy (text|content)\b/i,
+    /\bexample\.com\b/,
+    /\byour-?(email|domain|name here)\b/i,
+    /\bINSERT [A-Z ]+\b/,
+    /\[\s*(insert|add|your)\b[^\]]*\]/i
+  ];
+
+  const sources = allFiles.filter((file) =>
+    /\.(html|css|js|mjs|json|xml|txt|webmanifest)$/.test(file)
+  );
+
+  const offenders = [];
+  for (const file of sources) {
+    const text = fs.readFileSync(file, 'utf8');
+    for (const pattern of forbidden) {
+      const match = pattern.exec(text);
+      if (match) offenders.push(path.relative(root, file) + ': ' + match[0]);
+    }
+  }
+
+  assert.deepEqual(offenders, [], 'placeholder text found:\n' + offenders.join('\n'));
+});
+
+test('no contact details were invented anywhere', () => {
+  // With no support address configured, no email address of any kind should
+  // appear on the site, and no phone number, postal address, or jurisdiction.
+  const sources = allFiles.filter((file) => /\.(html|css|js|mjs|json|xml|txt)$/.test(file));
+  const offenders = [];
+
+  for (const file of sources) {
+    const text = fs.readFileSync(file, 'utf8');
+    const relative = path.relative(root, file);
+
+    if (!hasSupportEmail()) {
+      for (const match of text.matchAll(/[\w.+-]+@[\w-]+\.[\w.-]+/g)) {
+        // The module contract documents a mailto example in prose only.
+        if (match[0].startsWith('noreply@')) continue;
+        offenders.push(relative + ': email ' + match[0]);
+      }
+    }
+
+    for (const match of text.matchAll(/\+\d[\d\s().-]{8,}\d/g)) {
+      offenders.push(relative + ': phone ' + match[0]);
+    }
+
+    for (const pattern of [
+      /\bgoverned by the laws of\b/i,
+      /\bexclusive jurisdiction\b/i,
+      /\bcourts of\b/i
+    ]) {
+      const match = pattern.exec(text);
+      if (match) offenders.push(relative + ': jurisdiction "' + match[0] + '"');
+    }
+  }
+
+  assert.deepEqual(offenders, [], 'invented contact or legal details:\n' + offenders.join('\n'));
+});
+
+test('the Terms of Service has no governing law clause', () => {
+  const terms = fs.readFileSync(path.join(root, 'terms', 'index.html'), 'utf8');
+  for (const pattern of [/governing law/i, /jurisdiction/i, /applicable law of/i]) {
+    assert.equal(pattern.exec(terms), null, 'the Terms should not set a jurisdiction');
+  }
+});
+
+test('the copy rules are kept', () => {
+  const forbidden = [
+    [/\bhand-?drawn\b/i, 'the patterns must never be called hand-drawn'],
+    [/\bbest\s?sell(er|ing)\b/i, 'no bestseller claims'],
+    [/\btrending\b/i, 'no trend claims'],
+    [/\blimited time\b/i, 'no urgency'],
+    [/\bhurry\b/i, 'no urgency'],
+    [/\bonly \d+ left\b/i, 'no scarcity'],
+    [/\bsale ends\b/i, 'no countdowns'],
+    [/\b\d+[,\d]*\s*(customers|happy customers|sales|downloads|users)\b/i, 'no user or sales counts'],
+    [/\b\d(\.\d)?\s*(out of 5|stars)\b/i, 'no ratings'],
+    [/\btestimonial\b/i, 'no testimonials'],
+    [/\baward-?winning\b/i, 'no awards'],
+    [/\bcolor[- ]accurate\b/i, 'no color accuracy claims'],
+    [/\bPantone\b/i, 'no brand names'],
+    [/\bPhotoshop\b/i, 'no software names'],
+    [/\bIllustrator\b/i, 'no software names'],
+    [/\bProcreate\b/i, 'no software names'],
+    [/\bEtsy\b/i, 'no marketplace names'],
+    [/\bRedbubble\b/i, 'no marketplace names'],
+    [/\bSociety6\b/i, 'no marketplace names'],
+    [/\bSpoonflower\b/i, 'no marketplace names'],
+    [/\bPrintful\b/i, 'no marketplace names'],
+    [/\bShopify\b/i, 'no platform names'],
+    [/\bAmazon\b/i, 'no platform names'],
+    [/\bStripe\b/i, 'no payment provider names'],
+    [/\bPayPal\b/i, 'no payment provider names']
+  ];
+
+  const offenders = [];
+  for (const page of pages) {
+    const text = page.html.replace(/<[^>]+>/g, ' ');
+    for (const [pattern, why] of forbidden) {
+      const match = pattern.exec(text);
+      if (match) offenders.push(page.url + ': "' + match[0] + '" — ' + why);
+    }
+  }
+
+  assert.deepEqual(offenders, [], 'copy rule breaches:\n' + offenders.join('\n'));
+});
+
+test('the site uses no photographs', () => {
+  const offenders = [];
+  for (const page of pages) {
+    for (const match of page.html.matchAll(/<img\b[^>]*>/g)) offenders.push(page.url + ': ' + match[0]);
+  }
+  assert.deepEqual(offenders, []);
+
+  const raster = allFiles.filter((file) => /\.(jpg|jpeg|png|gif|webp|avif)$/i.test(file));
+  const unexpected = raster.filter((file) => !/og\.png$/.test(file));
+  assert.deepEqual(
+    unexpected.map((file) => path.relative(root, file)),
+    [],
+    'the only raster image should be the social card'
+  );
+});
+
+/* ------------------------------------------------------------------ *
+ * Metadata
+ * ------------------------------------------------------------------ */
+
+test('every page has a unique title and description', () => {
+  const titles = new Map();
+  const descriptions = new Map();
+
+  for (const page of pages) {
+    const title = titleOf(page.html);
+    const description = descriptionOf(page.html);
+
+    assert.ok(title && title.length > 10, page.url + ' needs a title');
+    assert.ok(title.includes('Tilecraft Digital'), page.url + ' title should name the business');
+    assert.ok(description && description.length > 40, page.url + ' needs a description');
+    assert.ok(description.length < 300, page.url + ' description is too long');
+
+    assert.ok(!titles.has(title), 'duplicate title on ' + page.url + ' and ' + titles.get(title));
+    titles.set(title, page.url);
+
+    assert.ok(
+      !descriptions.has(description),
+      'duplicate description on ' + page.url + ' and ' + descriptions.get(description)
+    );
+    descriptions.set(description, page.url);
+  }
+});
+
+test('every public page has Open Graph tags and a canonical URL', () => {
+  for (const page of pages) {
+    if (!page.isPublic) continue;
+
+    assert.ok(page.html.includes('property="og:title"'), page.url + ' og:title');
+    assert.ok(page.html.includes('property="og:description"'), page.url + ' og:description');
+    assert.ok(page.html.includes('property="og:url"'), page.url + ' og:url');
+    assert.ok(page.html.includes('property="og:image"'), page.url + ' og:image');
+    assert.ok(page.html.includes('property="og:type"'), page.url + ' og:type');
+    assert.ok(page.html.includes('name="twitter:card"'), page.url + ' twitter:card');
+
+    const canonical = attribute(page.html, /<link rel="canonical" href="([^"]+)"/);
+    assert.ok(canonical, page.url + ' needs a canonical URL');
+    assert.equal(canonical, SITE.origin + page.path, page.url + ' canonical is wrong');
+  }
+});
+
+test('every page declares the character set, the viewport, and the favicon', () => {
+  for (const page of pages) {
+    assert.ok(page.html.includes('<meta charset="utf-8">'), page.url);
+    assert.ok(page.html.includes('name="viewport"'), page.url);
+    assert.ok(page.html.includes('rel="icon"'), page.url);
+    assert.ok(page.html.startsWith('<!doctype html>'), page.url);
+    assert.ok(page.html.includes('<html lang="en">'), page.url);
+  }
+});
+
+test('every page has exactly one h1 and a skip link', () => {
+  for (const page of pages) {
+    const h1s = (page.html.match(/<h1\b/g) || []).length;
+    // The Studio renders its heading from the module it opens.
+    if (page.url === '/studio/index.html') {
+      assert.ok(page.html.includes('class="skip-link"'), page.url + ' needs a skip link');
+      continue;
+    }
+    assert.equal(h1s, 1, page.url + ' has ' + h1s + ' h1 elements');
+    assert.ok(page.html.includes('class="skip-link"'), page.url + ' needs a skip link');
+  }
+});
+
+test('static heading levels never skip a step', () => {
+  for (const page of pages) {
+    const levels = [...page.html.matchAll(/<h([1-6])\b/g)].map((m) => Number(m[1]));
+    let previous = 0;
+    for (const level of levels) {
+      if (previous !== 0) {
+        assert.ok(level <= previous + 1, page.url + ': h' + previous + ' is followed by h' + level);
+      }
+      previous = level;
+    }
+  }
+});
+
+/* ------------------------------------------------------------------ *
+ * Confirmation pages stay private
+ * ------------------------------------------------------------------ */
+
+test('confirmation pages are noindex and have no canonical or social tags', () => {
+  for (const page of pages) {
+    if (!page.isThankYou) continue;
+    assert.ok(
+      /<meta name="robots" content="noindex, nofollow">/.test(page.html),
+      page.url + ' must be noindex'
+    );
+    assert.ok(!page.html.includes('rel="canonical"'), page.url + ' should have no canonical');
+    assert.ok(!page.html.includes('property="og:'), page.url + ' should have no social tags');
+  }
+});
+
+test('the 404 page is noindex and matches the site design', () => {
+  const notFound = pages.find((page) => page.is404);
+  assert.ok(/<meta name="robots" content="noindex/.test(notFound.html));
+  assert.ok(notFound.html.includes('/css/style.css'));
+  assert.ok(notFound.html.includes('class="site-header"'));
+  assert.ok(notFound.html.includes('class="site-footer"'));
+});
+
+test('the sitemap lists every public page and no private one', () => {
+  const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+  const listed = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+
+  assert.ok(sitemap.startsWith('<?xml version="1.0" encoding="UTF-8"?>'));
+  assert.ok(sitemap.includes('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"'));
+
+  for (const page of pages) {
+    const url = SITE.origin + page.path;
+    if (page.isPublic) assert.ok(listed.includes(url), 'sitemap is missing ' + page.path);
+    else assert.ok(!listed.includes(url), 'sitemap must not list ' + page.path);
+  }
+
+  assert.equal(new Set(listed).size, listed.length, 'the sitemap repeats a URL');
+  for (const url of listed) {
+    assert.ok(url.startsWith(SITE.origin), url + ' is not on this site');
+    assert.ok(resolves(url.slice(SITE.origin.length)), url + ' does not exist');
+  }
+});
+
+test('robots.txt keeps crawlers out of the confirmation pages', () => {
+  const robots = fs.readFileSync(path.join(root, 'robots.txt'), 'utf8');
+  assert.ok(robots.includes('User-agent: *'));
+  assert.ok(robots.includes('Disallow: /thank-you/'));
+  assert.ok(robots.includes('Sitemap: ' + SITE.origin + '/sitemap.xml'));
+});
+
+/* ------------------------------------------------------------------ *
+ * Policies and disclosure
+ * ------------------------------------------------------------------ */
+
+test('every policy page is dated', () => {
+  for (const slug of ['terms', 'privacy', 'refunds', 'delivery', 'disclaimer', 'consumer-rights']) {
+    const html = fs.readFileSync(path.join(root, slug, 'index.html'), 'utf8');
+    assert.ok(
+      html.includes('Last updated: ' + SITE.lastUpdated),
+      '/' + slug + '/ is missing its date'
+    );
+  }
+});
+
+test('the AI disclosure appears on every product page, the License page, and the FAQ', () => {
+  const phrase = 'created with AI assistance and generated in code';
+
+  for (const product of PRODUCTS) {
+    const html = fs.readFileSync(path.join(root, 'products', product.slug, 'index.html'), 'utf8');
+    // Product pages render their body from the catalog at runtime, so the
+    // disclosure is checked in the module that builds it.
+    assert.ok(html.includes('/js/product-page.js'), product.slug + ' must load the renderer');
+  }
+
+  const renderer = fs.readFileSync(path.join(root, 'js', 'product-page.js'), 'utf8');
+  assert.ok(renderer.includes('AI_DISCLOSURE'), 'product pages must render the disclosure');
+
+  for (const slug of ['license', 'faq']) {
+    const html = fs.readFileSync(path.join(root, slug, 'index.html'), 'utf8');
+    assert.ok(html.includes(phrase), '/' + slug + '/ is missing the AI disclosure');
+  }
+
+  const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  assert.ok(home.includes(phrase), 'the home page should carry it too');
+});
+
+test('every policy sends people to the Contact page rather than an address', () => {
+  for (const slug of ['terms', 'privacy', 'refunds', 'delivery', 'disclaimer', 'consumer-rights']) {
+    const html = fs.readFileSync(path.join(root, slug, 'index.html'), 'utf8');
+    assert.ok(html.includes('href="/contact/"'), '/' + slug + '/ should link to Contact');
+  }
+});
+
+test('the footer carries the required links on every page', () => {
+  const required = [
+    '/license/',
+    '/terms/',
+    '/privacy/',
+    '/refunds/',
+    '/delivery/',
+    '/disclaimer/',
+    '/contact/'
+  ];
+
+  for (const page of pages) {
+    if (page.url === '/studio/index.html') continue; // the Studio has its own chrome
+    for (const link of required) {
+      assert.ok(page.html.includes('href="' + link + '"'), page.url + ' is missing ' + link);
+    }
+    assert.ok(page.html.includes('Tilecraft Digital'), page.url + ' should name the business');
+    assert.ok(page.html.includes('data-year'), page.url + ' needs the copyright year');
+  }
+});
+
+test('the header carries the tiers, the License, the FAQ, and the Studio', () => {
+  for (const page of pages) {
+    if (page.url === '/studio/index.html') continue;
+    for (const link of ['/#collections', '/#studio-editions', '/license/', '/faq/', '/studio/']) {
+      assert.ok(page.html.includes('href="' + link + '"'), page.url + ' header is missing ' + link);
+    }
+  }
+});
+
+test('no support address is shown while none is configured', () => {
+  if (hasSupportEmail()) return;
+  for (const page of pages) {
+    assert.ok(!page.html.includes('mailto:'), page.url + ' shows a mailto link with no address set');
+  }
+});

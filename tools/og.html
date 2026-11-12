@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tilecraft Digital — social card source</title>
+<!--
+  The source for /og.png, the image social platforms show when a page from
+  this site is shared.
+
+  Those platforms will not render SVG, so this page is captured once as a
+  1200x630 PNG and the result committed as /og.png. To regenerate it, serve
+  the repository and screenshot this page at exactly 1200x630:
+
+      node tools/serve.mjs 8123
+      # then capture http://localhost:8123/tools/og.html at 1200x630
+
+  Nothing here is part of the published site. It is not linked, it is not in
+  the sitemap, and it carries a noindex tag.
+-->
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+  }
+
+  body::before { display: none; }
+
+  .og {
+    position: relative;
+    width: 1200px;
+    height: 630px;
+    background: #f7f2e8;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .og__inks {
+    position: absolute;
+    inset: 0 0 0 330px;
+    z-index: 0;
+  }
+
+  .og__inks canvas {
+    position: absolute;
+    inset: 0;
+    width: 870px;
+    height: 630px;
+    mix-blend-mode: multiply;
+  }
+
+  .og__grain {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)' opacity='0.42'/%3E%3C/svg%3E");
+  }
+
+  .og__bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 18px;
+    z-index: 3;
+  }
+
+  .og__bar--top { top: 0; background: #ef3c80; }
+  .og__bar--top2 { top: 10px; background: #00b2ad; mix-blend-mode: multiply; }
+  .og__bar--bottom { bottom: 0; background: #00b2ad; }
+  .og__bar--bottom2 { bottom: 10px; background: #ef3c80; mix-blend-mode: multiply; }
+
+  .og__body {
+    position: relative;
+    z-index: 4;
+    padding: 76px 80px;
+    height: 630px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  .og__brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 26px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #14172a;
+  }
+
+  .og__brand svg { width: 40px; height: 40px; }
+
+  .og__title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 104px;
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+    color: #14172a;
+    max-width: 15ch;
+    position: relative;
+  }
+
+  .og__title span {
+    position: relative;
+    display: inline-block;
+  }
+
+  .og__title span::before,
+  .og__title span::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    mix-blend-mode: multiply;
+  }
+
+  .og__title span::before { color: #ef3c80; transform: translate(6px, 4px); }
+  .og__title span::after { color: #00b2ad; transform: translate(-5px, -3px); }
+
+  .og__foot {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .og__lede {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 27px;
+    line-height: 1.4;
+    color: #3b3f52;
+    max-width: 30ch;
+  }
+
+  .og__domain {
+    font-family: 'Space Mono', monospace;
+    font-size: 22px;
+    letter-spacing: 0.05em;
+    color: #14172a;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<div class="og">
+  <div class="og__inks">
+    <canvas id="ink-a" width="870" height="630"></canvas>
+    <canvas id="ink-b" width="870" height="630"></canvas>
+  </div>
+  <div class="og__grain"></div>
+
+  <div class="og__bar og__bar--top"></div>
+  <div class="og__bar og__bar--top2"></div>
+  <div class="og__bar og__bar--bottom"></div>
+  <div class="og__bar og__bar--bottom2"></div>
+
+  <div class="og__body">
+    <div class="og__brand">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="3" y="3" width="13" height="13" fill="#ef3c80" style="mix-blend-mode:multiply"></rect>
+        <path d="M16 3h13v13z" fill="#00b2ad" style="mix-blend-mode:multiply"></path>
+        <rect x="16" y="16" width="13" height="13" fill="#00b2ad" style="mix-blend-mode:multiply"></rect>
+        <circle cx="9.5" cy="22.5" r="6.5" fill="#ef3c80" style="mix-blend-mode:multiply"></circle>
+        <circle cx="9.5" cy="22.5" r="3" fill="#f7f2e8"></circle>
+      </svg>
+      <span>Tilecraft Digital</span>
+    </div>
+
+    <h1 class="og__title"><span data-text="Patterns that tile exactly.">Patterns that tile exactly.</span></h1>
+
+    <div class="og__foot">
+      <p class="og__lede">Original seamless patterns and textures, delivered in a browser Studio. Commercial license included.</p>
+      <p class="og__domain">tilecraftdigital.art</p>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  import { drawInkLayer } from '/js/riso.js';
+
+  drawInkLayer(document.getElementById('ink-a'), { ink: 'pink', seed: 'og-pink', alpha: 0.78 });
+  drawInkLayer(document.getElementById('ink-b'), { ink: 'teal', seed: 'og-teal-2', alpha: 0.78 });
+
+  await document.fonts.ready;
+  document.documentElement.dataset.ready = 'true';
+</script>
+
+</body>
+</html>

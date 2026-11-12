@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accessibility — Tilecraft Digital</title>
+<meta name="description" content="What has been done to make the Tilecraft Digital site and Studio usable with a keyboard, a screen reader, reduced motion, and at larger text sizes — and how to report a problem.">
+<meta name="theme-color" content="#f7f2e8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://tilecraftdigital.art/accessibility/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tilecraft Digital">
+<meta property="og:title" content="Accessibility — Tilecraft Digital">
+<meta property="og:description" content="What has been done to make the Tilecraft Digital site and Studio usable with a keyboard, a screen reader, reduced motion, and at larger text sizes — and how to report a problem.">
+<meta property="og:url" content="https://tilecraftdigital.art/accessibility/">
+<meta property="og:image" content="https://tilecraftdigital.art/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tilecraft Digital — original seamless patterns and textures.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Accessibility — Tilecraft Digital">
+<meta name="twitter:description" content="What has been done to make the Tilecraft Digital site and Studio usable with a keyboard, a screen reader, reduced motion, and at larger text sizes — and how to report a problem.">
+<meta name="twitter:image" content="https://tilecraftdigital.art/og.png">
+<link rel="preload" href="/fonts/hanken-grotesk-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/bricolage-grotesque-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to the main content</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/">
+        <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="3" y="3" width="13" height="13" fill="var(--pink)" style="mix-blend-mode:var(--blend)"></rect>
+          <path d="M16 3h13v13z" fill="var(--teal)" style="mix-blend-mode:var(--blend)"></path>
+          <rect x="16" y="16" width="13" height="13" fill="var(--teal)" style="mix-blend-mode:var(--blend)"></rect>
+          <circle cx="9.5" cy="22.5" r="6.5" fill="var(--pink)" style="mix-blend-mode:var(--blend)"></circle>
+          <circle cx="9.5" cy="22.5" r="3" fill="var(--paper)"></circle>
+        </svg>
+        <span class="logo__text">Tilecraft Digital</span>
+      </a>
+
+      <button type="button" class="nav__toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+
+      <nav class="nav" id="site-nav" data-nav aria-label="Main">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="/#collections">Collections</a></li>
+          <li><a class="nav__link" href="/#studio-editions">Studio Editions</a></li>
+          <li><a class="nav__link" href="/license/">License</a></li>
+          <li><a class="nav__link" href="/faq/">FAQ</a></li>
+        </ul>
+        <div class="nav__extras">
+          <a class="nav__studio" href="/studio/">Studio</a>
+          <button type="button" class="theme-toggle" data-theme-toggle aria-label="Change color theme"></button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+<main id="main">
+  <div class="page-head">
+    <div class="wrap page-head__inner">
+      <p class="eyebrow">Accessibility</p>
+      <h1><span class="overprint" data-text="Accessibility">Accessibility</span></h1>
+      <p class="lede">What has been done, what is known, and how to tell us about a problem.</p>
+      <p class="updated">Last updated: 12 November 2026</p>
+    </div>
+  </div>
+
+  <div class="prose">
+    <div class="wrap wrap--narrow">
+
+      <h2>The aim</h2>
+      <p>This site and the Studio are built to meet WCAG 2.1 Level AA. That is the target the design and the code were written against, and it is checked as part of building each page.</p>
+
+      <h2>What that means in practice</h2>
+      <ul>
+        <li><strong>Keyboard.</strong> Everything on the site and in the Studio can be operated with a keyboard alone. Focus is always visible, and a skip link at the top of every page jumps past the header.</li>
+        <li><strong>Contrast.</strong> All running text meets AA contrast against its background, in both light and dark modes. The two fluorescent inks are used for graphics and large display type only, never for body text, because they do not clear AA at small sizes.</li>
+        <li><strong>Motion.</strong> If your system is set to reduce motion, every animation and transition on the site stops. The Studio also has its own motion setting, so you can reduce motion here without changing your system setting.</li>
+        <li><strong>Text size.</strong> Text scales with your browser's font size and the layout holds together when it does. The Studio additionally offers a larger interface setting.</li>
+        <li><strong>Structure.</strong> Pages use semantic HTML with headings in order, landmarks, and labeled form controls, so a screen reader can move through them properly.</li>
+        <li><strong>Narrow screens.</strong> The layout works down to 360 pixels wide without horizontal scrolling.</li>
+        <li><strong>Decoration.</strong> The abstract compositions across the site are decorative and are hidden from screen readers rather than being announced as meaningless images.</li>
+      </ul>
+
+      <h2>Known limits</h2>
+      <p>Two things are worth stating honestly.</p>
+      <p>The Studio needs JavaScript. It cannot work without it, because running everything in your browser is what keeps your work off a server. Every other page on the site reads perfectly well with scripting switched off.</p>
+      <p>Pattern work is visual. The Studio's interface — its controls, its labels, its settings — is built to be operated without sight, but judging a pattern is not something an interface can do for you.</p>
+
+      <h2>Telling us about a problem</h2>
+      <p>If something here is difficult or impossible for you to use, tell us through the <a href="/contact/">Contact page</a>. Say what you were trying to do, what got in the way, and what you were using — browser, assistive technology, and device, if you know them.</p>
+      <p>Accessibility problems are treated as faults, not as feature requests, and they are fixed.</p>
+    </div>
+  </div>
+</main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="site-footer__grid">
+
+        <div>
+          <h2>Tilecraft Digital</h2>
+          <p class="site-footer__contact">Original seamless patterns and textures, delivered in a browser Studio.</p>
+
+          <p class="site-footer__contact"><a href="/contact/">Contact us through the Contact page</a>.</p>
+        </div>
+
+        <div>
+          <h3>Products</h3>
+          <ul>
+            <li><a href="/#collections">Collections</a></li>
+            <li><a href="/#studio-editions">Studio Editions</a></li>
+            <li><a href="/studio/">Studio</a></li>
+            <li><a href="/about/">About</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Buying</h3>
+          <ul>
+            <li><a href="/license/">License</a></li>
+            <li><a href="/refunds/">Refunds</a></li>
+            <li><a href="/delivery/">Delivery</a></li>
+            <li><a href="/faq/">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="/terms/">Terms of Service</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/disclaimer/">Disclaimer</a></li>
+            <li><a href="/consumer-rights/">Consumer rights</a></li>
+            <li><a href="/accessibility/">Accessibility</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="site-footer__legal">
+        <span>&copy; <span data-year>2026</span> Tilecraft Digital. All rights reserved.</span>
+        <span>All prices in US dollars. Applicable taxes are shown at checkout.</span>
+      </div>
+    </div>
+  </footer>
+
+<script type="module" src="/js/site.js"></script>
+
+</body>
+</html>

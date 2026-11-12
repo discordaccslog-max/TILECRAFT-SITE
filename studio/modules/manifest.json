@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "updated": "2026-11-12",
+  "comment": "Product modules are listed here. The Studio reads this file to find out which products have a workspace installed, and loads a module only when that product is opened. Each entry needs a slug matching a product in js/products.js and an entry path relative to /studio/. See MODULES.md at the root of the repository for the full contract.",
+  "modules": []
+}

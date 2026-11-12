@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studio — Tilecraft Digital</title>
+<meta name="description" content="The Tilecraft Studio: open your Collections and Studio Editions, activate a license, manage your certificates, and keep a backup. Everything runs in your browser.">
+<meta name="theme-color" content="#f7f2e8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/studio/manifest.webmanifest">
+<link rel="canonical" href="https://tilecraftdigital.art/studio/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tilecraft Digital">
+<meta property="og:title" content="Studio — Tilecraft Digital">
+<meta property="og:description" content="Open your Collections and Studio Editions, activate a license, and keep a backup. Everything runs in your browser.">
+<meta property="og:url" content="https://tilecraftdigital.art/studio/">
+<meta property="og:image" content="https://tilecraftdigital.art/og.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/fonts/hanken-grotesk-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/studio/studio.css">
+</head>
+<body class="studio-body">
+
+<a class="skip-link" href="#workspace">Skip to the workspace</a>
+
+<div class="studio">
+
+  <header class="studio__bar">
+    <a class="studio__home" href="/">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" fill="none"></rect>
+        <rect x="3" y="3" width="12" height="12" fill="#ef3c80"></rect>
+        <rect x="17" y="17" width="12" height="12" fill="#00b2ad"></rect>
+        <path d="M17 3h12v12z" fill="#14172a"></path>
+        <circle cx="9" cy="23" r="6" fill="none" stroke="#14172a" stroke-width="2.5"></circle>
+      </svg>
+      <span>Tilecraft</span>
+    </a>
+    <span class="studio__label">Studio</span>
+
+    <div class="studio__bar-actions">
+      <button type="button" class="icon-button" data-studio-theme>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2"></circle>
+          <path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"></path>
+        </svg>
+        <span class="icon-button__text" data-studio-theme-label>System</span>
+      </button>
+
+      <button type="button" class="icon-button" data-open-settings>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="3.2"></circle>
+          <path d="M19.4 14.5a1.6 1.6 0 0 0 .32 1.77l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.6 1.6 0 0 0-1.77-.32 1.6 1.6 0 0 0-1 1.47V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-1.05-1.46 1.6 1.6 0 0 0-1.77.32l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.6 1.6 0 0 0 .32-1.77 1.6 1.6 0 0 0-1.47-1H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.46-1.05 1.6 1.6 0 0 0-.32-1.77l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.6 1.6 0 0 0 1.77.32H9a1.6 1.6 0 0 0 1-1.47V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.47 1.6 1.6 0 0 0 1.77-.32l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.6 1.6 0 0 0-.32 1.77V9a1.6 1.6 0 0 0 1.47 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1.5z"></path>
+        </svg>
+        <span class="icon-button__text">Settings</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="studio__body">
+    <nav class="studio__sidebar" aria-label="Products" data-sidebar></nav>
+    <main class="studio__workspace" id="workspace" tabindex="-1" data-workspace></main>
+  </div>
+
+</div>
+
+<div class="toasts" data-toasts aria-live="polite" aria-atomic="false"></div>
+
+<!-- Settings -->
+<dialog class="sheet-dialog" data-settings-dialog aria-labelledby="settings-title">
+  <div class="sheet-dialog__inner">
+    <div class="sheet-dialog__head">
+      <h2 id="settings-title">Settings</h2>
+      <button type="button" class="icon-button sheet-dialog__close" data-close-settings>Close</button>
+    </div>
+
+    <div class="sheet-dialog__body">
+
+      <section class="settings-group" aria-labelledby="settings-licenses">
+        <h3 id="settings-licenses">Licenses on this device</h3>
+        <p>Every license activated in this browser. Removing one here does not cancel it — you can activate it again with the same code.</p>
+        <div data-license-list></div>
+
+        <form data-settings-activate class="activate-form" novalidate>
+          <label for="settings-activate-code" class="setting-row__label">Activate another license</label>
+          <div class="input-row">
+            <input type="text" id="settings-activate-code" name="code" placeholder="TILE-XXXX-XXXXXX-XX" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-describedby="settings-activate-status">
+            <button type="submit" class="button button--small">Activate</button>
+          </div>
+          <p class="status" id="settings-activate-status" data-settings-activate-status role="status"></p>
+        </form>
+      </section>
+
+      <section class="settings-group" aria-labelledby="settings-display">
+        <h3 id="settings-display">Display</h3>
+
+        <div class="setting-row">
+          <span class="setting-row__label" id="label-theme">Theme</span>
+          <div class="segmented" role="group" aria-labelledby="label-theme" data-setting-theme>
+            <button type="button" data-value="system" aria-pressed="true">System</button>
+            <button type="button" data-value="light" aria-pressed="false">Light</button>
+            <button type="button" data-value="dark" aria-pressed="false">Dark</button>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <span class="setting-row__label" id="label-scale">Interface size</span>
+          <div class="segmented" role="group" aria-labelledby="label-scale" data-setting-scale>
+            <button type="button" data-value="normal" aria-pressed="true">Normal</button>
+            <button type="button" data-value="large" aria-pressed="false">Larger</button>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <span class="setting-row__label" id="label-motion">Motion</span>
+          <div class="segmented" role="group" aria-labelledby="label-motion" data-setting-motion>
+            <button type="button" data-value="system" aria-pressed="true">Follow system</button>
+            <button type="button" data-value="reduce" aria-pressed="false">Reduce</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="settings-group" aria-labelledby="settings-backup">
+        <h3 id="settings-backup">Backup and storage</h3>
+        <p>Your licenses and saved work exist only in this browser. Nothing is held on a server, so nobody can restore them for you. A backup file covers everything at once.</p>
+
+        <div class="setting-row">
+          <span class="setting-row__label">Backup</span>
+          <button type="button" class="button button--small" data-export-backup>Export a backup</button>
+          <label class="button button--small button--ghost" for="import-backup">Import a backup</label>
+          <input type="file" id="import-backup" accept="application/json,.json" data-import-backup class="visually-hidden">
+        </div>
+
+        <div class="setting-row">
+          <span class="setting-row__label">Keep data in this browser</span>
+          <button type="button" class="button button--small button--ghost" data-request-persist>Request persistent storage</button>
+        </div>
+
+        <p class="empty-note" data-storage-state role="status">Checking how this browser is storing your data.</p>
+      </section>
+
+      <section class="settings-group" aria-labelledby="settings-about">
+        <h3 id="settings-about">About the Studio</h3>
+        <p>Version <span class="mono" data-studio-version>1.0.0</span>. The Studio works offline once it has loaded, and can be installed from your browser.</p>
+        <div class="setting-row">
+          <span class="setting-row__label">Walkthrough</span>
+          <button type="button" class="button button--small button--ghost" data-replay-walkthrough>Show the walkthrough again</button>
+        </div>
+        <p class="empty-note" data-support-slot hidden></p>
+        <p class="empty-note"><a href="/faq/">Read the FAQ</a> &middot; <a href="/license/">License</a> &middot; <a href="/contact/">Contact</a></p>
+      </section>
+
+    </div>
+  </div>
+</dialog>
+
+<!-- First-time walkthrough -->
+<dialog class="walkthrough" data-walkthrough aria-labelledby="walkthrough-title">
+  <div class="walkthrough__inner">
+    <p class="walkthrough__step" data-walkthrough-step>Step 1 of 4</p>
+    <h2 id="walkthrough-title" data-walkthrough-title>Welcome</h2>
+    <p data-walkthrough-body></p>
+    <div class="walkthrough__dots" data-walkthrough-dots aria-hidden="true"></div>
+    <div class="walkthrough__actions">
+      <button type="button" class="button" data-walkthrough-next>Next</button>
+      <button type="button" class="button button--ghost" data-walkthrough-skip>Skip</button>
+    </div>
+  </div>
+</dialog>
+
+<noscript>
+  <div style="padding:2rem;max-width:40rem;margin:0 auto">
+    <h1>The Studio needs JavaScript</h1>
+    <p>The Studio runs entirely in your browser — that is how your patterns, your saved work, and your images stay on your own device instead of being sent to a server. It needs JavaScript switched on to do that.</p>
+    <p>Everything else on the site reads normally without it: <a href="/">the products</a>, <a href="/license/">the license</a>, <a href="/faq/">the FAQ</a>, and <a href="/contact/">how to get in touch</a>.</p>
+  </div>
+</noscript>
+
+<script type="module" src="/studio/studio.js"></script>
+</body>
+</html>

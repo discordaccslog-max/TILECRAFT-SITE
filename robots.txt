@@ -1,0 +1,9 @@
+# Tilecraft Digital
+# Confirmation pages are private to the buyer who reaches them from the
+# payment provider. They are not linked anywhere and carry a noindex tag.
+
+User-agent: *
+Allow: /
+Disallow: /thank-you/
+
+Sitemap: https://tilecraftdigital.art/sitemap.xml

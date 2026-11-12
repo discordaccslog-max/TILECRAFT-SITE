@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Tilecraft Digital">
+  <title>Tilecraft Digital</title>
+  <rect width="512" height="512" fill="#f7f2e8"/>
+  <g transform="translate(106 106) scale(9.375)" style="mix-blend-mode:multiply">
+    <rect x="0" y="0" width="13" height="13" fill="#ef3c80"/>
+    <rect x="13" y="13" width="13" height="13" fill="#00b2ad"/>
+    <path d="M13 0h13v13z" fill="#00b2ad"/>
+    <circle cx="6.5" cy="19.5" r="6.5" fill="#ef3c80"/>
+    <circle cx="6.5" cy="19.5" r="3" fill="#f7f2e8"/>
+  </g>
+  <path d="M0 248h512v16H0z" fill="#14172a"/>
+</svg>
