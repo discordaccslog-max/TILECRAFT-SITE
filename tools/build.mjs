@@ -7,8 +7,9 @@
  * js/products.js, the configuration in js/site-config.js, the license terms
  * in js/license-terms.js, and the page content under tools/content/.
  *
- * The generated HTML is committed to the repository and is what GitHub Pages
- * serves. Nothing is built at request time.
+ * The generated HTML is committed to the repository. The host runs this
+ * script as its build step and serves the repository root, so nothing is
+ * built at request time.
  *
  * What a page's HTML actually contains:
  *   - Prose pages carry their full text, so they read with scripting off.
@@ -152,18 +153,6 @@ Sitemap: ${ORIGIN}/sitemap.xml
 `;
 
 writeFile('robots.txt', robots);
-
-/* ------------------------------------------------------------------ *
- * CNAME, so GitHub Pages serves the custom domain
- * ------------------------------------------------------------------ */
-
-writeFile('CNAME', SITE.domain + '\n');
-
-/* ------------------------------------------------------------------ *
- * .nojekyll, so GitHub Pages serves every file as-is
- * ------------------------------------------------------------------ */
-
-writeFile('.nojekyll', '');
 
 /* ------------------------------------------------------------------ *
  * Stamp the service worker

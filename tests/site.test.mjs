@@ -87,7 +87,6 @@ test('the site was built', () => {
   assert.ok(fs.existsSync(path.join(root, 'sitemap.xml')));
   assert.ok(fs.existsSync(path.join(root, 'robots.txt')));
   assert.ok(fs.existsSync(path.join(root, 'favicon.svg')));
-  assert.ok(fs.existsSync(path.join(root, 'CNAME')));
   assert.ok(fs.existsSync(path.join(root, 'studio', 'index.html')));
   assert.ok(fs.existsSync(path.join(root, 'MODULES.md')));
 });
@@ -105,9 +104,26 @@ test('every product has a page and a confirmation page', () => {
   }
 });
 
-test('the custom domain is configured for GitHub Pages', () => {
-  assert.equal(fs.readFileSync(path.join(root, 'CNAME'), 'utf8').trim(), SITE.domain);
-  assert.ok(fs.existsSync(path.join(root, '.nojekyll')));
+test('the host is configured to build and serve the repository root', () => {
+  const config = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'));
+  assert.equal(config.buildCommand, 'npm run build');
+  assert.equal(config.outputDirectory, '.', 'the built site is the repository root');
+  assert.equal(config.trailingSlash, true, 'every internal link uses a trailing slash');
+
+  // Nothing from the previous host should be left behind to confuse things.
+  assert.ok(!fs.existsSync(path.join(root, 'CNAME')), 'the CNAME file should be gone');
+});
+
+test('the absolute URLs point at where the site is actually served', () => {
+  assert.ok(SITE.origin.startsWith('https://'), 'the origin must be https');
+  assert.ok(!SITE.origin.endsWith('/'), 'the origin must not have a trailing slash');
+  assert.equal(SITE.origin, 'https://' + SITE.domain, 'origin and domain must agree');
+
+  // Canonical URLs, the sitemap, and the activation links printed on every
+  // certificate are all built from this, so a stale value is not cosmetic.
+  const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+  assert.ok(sitemap.includes('<loc>' + SITE.origin + '/</loc>'), 'the sitemap must use the live origin');
+  assert.ok(!sitemap.includes('tilecraftdigital.art'), 'the sitemap still names the old domain');
 });
 
 /* ------------------------------------------------------------------ *
@@ -720,4 +736,32 @@ test('the service worker stamp matches the files it precaches', () => {
     hash.digest('hex').slice(0, 16),
     'the service worker stamp is stale — run `npm run build`'
   );
+});
+
+test('every URL named in a meta tag is on this site and exists', () => {
+  // A social image that 404s is invisible until someone shares a link, so
+  // the meta tags are resolved against disk the same way links are.
+  const broken = [];
+  const foreign = [];
+
+  for (const page of pages) {
+    const urls = [
+      ...page.html.matchAll(/<meta (?:property|name)="(og:image|og:url|twitter:image)" content="([^"]+)"/g)
+    ].map((m) => ({ tag: m[1], url: m[2] }));
+
+    const canonical = attribute(page.html, /<link rel="canonical" href="([^"]+)"/);
+    if (canonical) urls.push({ tag: 'canonical', url: canonical });
+
+    for (const { tag, url } of urls) {
+      if (!url.startsWith(SITE.origin)) {
+        foreign.push(page.url + ' ' + tag + ' -> ' + url);
+        continue;
+      }
+      const pathname = url.slice(SITE.origin.length) || '/';
+      if (!resolves(pathname)) broken.push(page.url + ' ' + tag + ' -> ' + url);
+    }
+  }
+
+  assert.deepEqual(foreign, [], 'meta tags naming another origin:\n' + foreign.join('\n'));
+  assert.deepEqual(broken, [], 'meta tags naming a file that does not exist:\n' + broken.join('\n'));
 });

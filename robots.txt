@@ -6,4 +6,4 @@ User-agent: *
 Allow: /
 Disallow: /thank-you/
 
-Sitemap: https://tilecraftdigital.art/sitemap.xml
+Sitemap: https://tilecraft-site.vercel.app/sitemap.xml

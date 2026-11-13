@@ -13,6 +13,7 @@ import { ECC, encodeText, toSvg, toRuns, numDataCodewords } from '../js/qrcode.j
 import { decode, syndromesAreZero, readSecondFormatCopy, readVersionBits } from './helpers/qr-decode.mjs';
 import { generateCode, activationUrl } from '../js/license.js';
 import { PRODUCTS } from '../js/products.js';
+import { SITE } from '../js/site-config.js';
 
 const LEVELS = Object.entries(ECC);
 
@@ -24,7 +25,7 @@ test('short, medium, and long content survives a round trip at every level', () 
   const samples = [
     'A',
     'hello world',
-    'https://tilecraftdigital.art/',
+    SITE.origin + '/',
     'x'.repeat(100),
     'y'.repeat(400),
     'z'.repeat(1100)
@@ -46,7 +47,7 @@ test('non-ASCII content survives a round trip', () => {
 });
 
 test('every mask produces a readable symbol', () => {
-  const text = 'https://tilecraftdigital.art/studio/';
+  const text = SITE.origin + '/studio/';
   for (let mask = 0; mask < 8; mask++) {
     const qr = encodeText(text, { mask });
     assert.equal(qr.mask, mask);
@@ -57,7 +58,7 @@ test('every mask produces a readable symbol', () => {
 });
 
 test('the mask chosen automatically is one of the eight', () => {
-  const qr = encodeText('https://tilecraftdigital.art/studio/#activate=TILE-GMTR-K7N4PXBM-WC');
+  const qr = encodeText(SITE.origin + '/studio/#activate=TILE-GMTR-K7N4PXBM-WC');
   assert.ok(qr.mask >= 0 && qr.mask <= 7);
 });
 
@@ -81,7 +82,7 @@ test('the error correction codewords are mathematically valid', () => {
 
 test('both copies of the format information agree', () => {
   for (const [, ecl] of LEVELS) {
-    const qr = encodeText('https://tilecraftdigital.art/', { ecl });
+    const qr = encodeText(SITE.origin + '/', { ecl });
     const second = readSecondFormatCopy(qr);
     assert.equal(second.mask, qr.mask);
     assert.equal(second.formatBits, ecl.formatBits);
@@ -111,7 +112,7 @@ test('version information is written and checks out from version 7 up', () => {
 });
 
 test('the symbol is the size its version implies, and has three finder patterns', () => {
-  const qr = encodeText('https://tilecraftdigital.art/studio/');
+  const qr = encodeText(SITE.origin + '/studio/');
   assert.equal(qr.size, qr.version * 4 + 17);
 
   const corners = [
@@ -146,7 +147,7 @@ test('the smallest version that fits is chosen', () => {
  * ------------------------------------------------------------------ */
 
 test('the SVG output is a complete document covering every dark module', () => {
-  const qr = encodeText('https://tilecraftdigital.art/');
+  const qr = encodeText(SITE.origin + '/');
   const svg = toSvg(qr);
 
   assert.ok(svg.startsWith('<svg '));
@@ -163,7 +164,7 @@ test('the SVG output is a complete document covering every dark module', () => {
 });
 
 test('run-length output covers exactly the dark modules', () => {
-  const qr = encodeText('https://tilecraftdigital.art/studio/');
+  const qr = encodeText(SITE.origin + '/studio/');
   const runs = toRuns(qr);
 
   const painted = new Set();

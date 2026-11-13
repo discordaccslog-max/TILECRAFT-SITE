@@ -17,6 +17,7 @@ import { buildCertificate, certificateBytes, certificateFilename } from '../js/c
 import { buildRecord, generateCode, activationUrl } from '../js/license.js';
 import { PRODUCTS, productBySlug } from '../js/products.js';
 import { PdfDocument, measureText, wrapText } from '../js/pdf.js';
+import { SITE } from '../js/site-config.js';
 import {
   CERTIFICATE_ALLOWS,
   CERTIFICATE_DOES_NOT_ALLOW,
@@ -130,7 +131,7 @@ test('the certificate carries the product, the code, the date, and the order', (
   assert.ok(text.includes('Juniper Lane Studio'), 'the licensee name');
   assert.ok(text.includes('cs_test_a1B2c3D4e5F6g7H8'), 'the order reference');
   assert.ok(text.includes('November 12, 2026'), 'the issue date');
-  assert.ok(text.includes('https://tilecraftdigital.art/license/'), 'a link to the full license');
+  assert.ok(text.includes(SITE.origin + '/license/'), 'a link to the full license');
 });
 
 test('the terms printed on the certificate are the shared ones, word for word', () => {
@@ -219,7 +220,7 @@ test('the certificate prints the activation link and links to it', () => {
   assert.ok(pdf.includes('/Subtype /Link'), 'there should be clickable areas');
   assert.ok(pdf.includes('/URI (' + url + ')'), 'one of them should be the activation link');
   assert.ok(
-    pdf.includes('/URI (https://tilecraftdigital.art/license/)'),
+    pdf.includes('/URI (' + SITE.origin + '/license/)'),
     'another should be the license page'
   );
 
@@ -270,7 +271,7 @@ test('wrapping keeps every line inside the width', () => {
 });
 
 test('a long unbreakable string is split rather than running off the page', () => {
-  const url = 'https://tilecraftdigital.art/studio/#activate=TILE-BNDE-AM2NPAQK-J3';
+  const url = SITE.origin + '/studio/#activate=TILE-BNDE-AM2NPAQK-J3';
   const lines = wrapText(url, 'mono', 7.2, 180);
 
   assert.ok(lines.length > 1, 'it should be split across lines');

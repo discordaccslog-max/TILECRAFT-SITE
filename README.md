@@ -1,7 +1,7 @@
 # Tilecraft Digital
 
 The storefront, license certificate system, and Studio framework for
-[tilecraftdigital.art](https://tilecraftdigital.art).
+[tilecraft-site.vercel.app](https://tilecraft-site.vercel.app).
 
 Static HTML, CSS, and vanilla JavaScript. No build step is needed to serve it,
 no framework, and no runtime dependencies. Every font and every library is
@@ -51,7 +51,7 @@ with.
 
 `npm run build` writes every HTML page from the content in `tools/content/`
 and the catalog in `js/products.js`. The generated HTML is committed, and it
-is what GitHub Pages serves — nothing is built at request time.
+is what Vercel serves — nothing is built at request time.
 
 Prose pages carry their full text, so they read with scripting switched off.
 Product pages and confirmation pages carry only their metadata and a slug;
@@ -136,7 +136,7 @@ rather than issuing a new one.
 ### Activation links
 
 ```
-https://tilecraftdigital.art/studio/#activate=TILE-GMTR-K7N4PXBM-WC
+https://tilecraft-site.vercel.app/studio/#activate=TILE-GMTR-K7N4PXBM-WC
 ```
 
 The code is in the fragment, which browsers never send to a web server. The
@@ -224,14 +224,37 @@ how to regenerate it.
 
 ## Deployment
 
-GitHub Pages serves the repository root from the default branch.
+The site is hosted on Vercel at **https://tilecraft-site.vercel.app**.
 
-- `CNAME` holds the custom domain.
-- `.nojekyll` makes Pages serve every file as it is.
-- `sitemap.xml` lists public pages only. Confirmation pages are noindex, left
-  out of the sitemap, disallowed in `robots.txt`, and linked from nowhere.
+`vercel.json` holds the whole configuration:
 
-Both are written by `npm run build`.
+| Setting | Value | Why |
+| --- | --- | --- |
+| `buildCommand` | `npm run build` | regenerates every page, the sitemap, and the service worker stamp |
+| `outputDirectory` | `.` | the built site *is* the repository root |
+| `trailingSlash` | `true` | every internal link and canonical URL ends in a slash |
+| `framework` | `null` | plain static output, no framework |
+
+`404.html` at the root is served for unknown paths, with a 404 status.
+`sitemap.xml` lists public pages only — confirmation pages are noindex, left
+out of the sitemap, disallowed in `robots.txt`, and linked from nowhere.
+
+```bash
+vercel deploy --prod
+```
+
+### If the site ever moves again
+
+Change `domain` and `origin` in `js/site-config.js`, then run `npm run build`.
+
+That one edit covers canonical URLs, Open Graph tags, the sitemap, and
+`robots.txt` — and, the part worth being careful about, the activation links
+printed and QR-encoded on every License Certificate. A certificate is a
+document a buyer keeps, so links already issued on one will point at the old
+address. Keep the old address answering, or reissue certificates, if any have
+gone out.
+
+The test suite reads the same two fields, so nothing has to be updated twice.
 
 ---
 

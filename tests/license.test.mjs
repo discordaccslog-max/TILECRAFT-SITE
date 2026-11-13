@@ -37,6 +37,7 @@ import {
 } from '../js/license.js';
 
 import { PRODUCTS, productBySlug, productByCode, grantsFor } from '../js/products.js';
+import { SITE } from '../js/site-config.js';
 
 const bundle = productBySlug('essentials-bundle');
 const geometric = productBySlug('geometric-essentials');
@@ -296,26 +297,26 @@ test('the same order produces a different code for each product', () => {
 
 test('an order reference is read from every key a payment provider might use', () => {
   for (const key of ORDER_PARAM_KEYS) {
-    const url = 'https://tilecraftdigital.art/thank-you/geometric-essentials/?' + key + '=abc123';
+    const url = SITE.origin + '/thank-you/geometric-essentials/?' + key + '=abc123';
     assert.equal(orderRefFromUrl(url), 'abc123', 'missed ' + key);
   }
 });
 
 test('order references are read from the fragment as well as the query', () => {
   assert.equal(
-    orderRefFromUrl('https://tilecraftdigital.art/thank-you/x/#session_id=frag123'),
+    orderRefFromUrl(SITE.origin + '/thank-you/x/#session_id=frag123'),
     'frag123'
   );
 });
 
 test('the earliest key in the list wins when a URL carries several', () => {
-  const url = 'https://tilecraftdigital.art/thank-you/x/?token=t&order_id=o&session_id=s';
+  const url = SITE.origin + '/thank-you/x/?token=t&order_id=o&session_id=s';
   assert.equal(orderRefFromUrl(url), 's');
 });
 
 test('a URL with no order reference reports none', () => {
-  assert.equal(orderRefFromUrl('https://tilecraftdigital.art/thank-you/x/'), null);
-  assert.equal(orderRefFromUrl('https://tilecraftdigital.art/thank-you/x/?other=1'), null);
+  assert.equal(orderRefFromUrl(SITE.origin + '/thank-you/x/'), null);
+  assert.equal(orderRefFromUrl(SITE.origin + '/thank-you/x/?other=1'), null);
   assert.equal(orderRefFromUrl('not a url at all'), null);
 });
 
@@ -498,7 +499,7 @@ test('an activation link carries the code in the fragment', () => {
   const code = generateCode(geometric);
   const url = activationUrl(code);
 
-  assert.ok(url.startsWith('https://tilecraftdigital.art/studio/#activate='));
+  assert.ok(url.startsWith(SITE.origin + '/studio/#activate='));
   assert.ok(url.includes('#'), 'the code must be in a fragment');
 
   const [beforeHash] = url.split('#');

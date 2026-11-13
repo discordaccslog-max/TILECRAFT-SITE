@@ -182,13 +182,16 @@
 
     <div class="og__foot">
       <p class="og__lede">Original seamless patterns and textures, delivered in a browser Studio. Commercial license included.</p>
-      <p class="og__domain">tilecraftdigital.art</p>
+      <p class="og__domain" id="og-domain"></p>
     </div>
   </div>
 </div>
 
 <script type="module">
   import { drawInkLayer } from '/js/riso.js';
+  import { SITE } from '/js/site-config.js';
+
+  document.getElementById('og-domain').textContent = SITE.domain;
 
   drawInkLayer(document.getElementById('ink-a'), { ink: 'pink', seed: 'og-pink', alpha: 0.78 });
   drawInkLayer(document.getElementById('ink-b'), { ink: 'teal', seed: 'og-teal-2', alpha: 0.78 });

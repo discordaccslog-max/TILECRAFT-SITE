@@ -33,6 +33,7 @@ import {
 import { scopedStorage, exportAll } from '../js/storage.js';
 import { getSettings, setSettings } from '../js/settings.js';
 import { productBySlug } from '../js/products.js';
+import { SITE } from '../js/site-config.js';
 
 const bundle = productBySlug('essentials-bundle');
 const production = productBySlug('production-studio');
@@ -84,7 +85,7 @@ test('a backup carries its format, the licenses, the settings, and the work', as
 
   assert.equal(backup.format, BACKUP_FORMAT);
   assert.equal(backup.version, BACKUP_VERSION);
-  assert.equal(backup.site, 'tilecraftdigital.art');
+  assert.equal(backup.site, SITE.domain);
   assert.ok(!Number.isNaN(Date.parse(backup.exportedAt)), 'it should be stamped with a date');
 
   assert.equal(backup.licenses.length, 2);

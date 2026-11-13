@@ -11,11 +11,21 @@
  *   automatically as mailto links.
  */
 
+/*
+ * domain / origin
+ *   Where the site is served from. These are not cosmetic: they are built
+ *   into canonical URLs, the sitemap, Open Graph tags, and — most
+ *   importantly — the activation links printed and QR-encoded on every
+ *   License Certificate. A certificate is a document a buyer keeps, so a
+ *   link on one has to keep working. Change this only when the site really
+ *   moves, then run `npm run build`.
+ */
+
 export const SITE = {
   name: 'Tilecraft Digital',
   tagline: 'Original seamless patterns and textures, delivered in a browser Studio.',
-  domain: 'tilecraftdigital.art',
-  origin: 'https://tilecraftdigital.art',
+  domain: 'tilecraft-site.vercel.app',
+  origin: 'https://tilecraft-site.vercel.app',
   licensePrefix: 'TILE',
   supportEmail: '',
   supportResponseTime: 'within two business days',

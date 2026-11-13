@@ -1,0 +1,5 @@
+# The build needs tools/, so that stays. Everything here is local-only and
+# has no reason to be uploaded or served.
+tests/
+.playwright-mcp/
+*.log
