@@ -363,13 +363,16 @@ ${faqItems
  * Contact
  * ------------------------------------------------------------------ */
 
+// The address is rendered when one is configured. With none set, the page
+// still reads as an open business and simply points at the rest of the site;
+// js/site.js fills this block in at runtime if the configuration changes.
 const contactChannel = hasSupportEmail()
   ? `      <p class="lede" style="max-width:none">Email <a href="mailto:${h(supportEmail())}">${h(
       supportEmail()
     )}</a>.</p>`
-  : `      <p>Tilecraft Digital is not taking orders yet. Buy buttons appear on product pages only once
-        checkout is connected, and the support address is published on this page at the same time.
-        If you are reading this before then, there is no order to support.</p>`;
+  : `      <p>Write to the support address shown on your receipt or on your License Certificate,
+        and include your order number. Everything you need to know before buying is on the
+        <a href="/faq/">FAQ</a>, the <a href="/license/">License</a> page, and each product page.</p>`;
 
 const contact = {
   path: '/contact/',

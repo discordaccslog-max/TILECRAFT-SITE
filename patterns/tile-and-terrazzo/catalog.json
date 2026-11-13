@@ -1,0 +1,548 @@
+{
+ "collection": "tile-and-terrazzo",
+ "built": "2026-11-13",
+ "count": 30,
+ "colorwaysPerPattern": 4,
+ "patterns": [
+  {
+   "id": "tlz-001",
+   "name": "Terrazzo Fine",
+   "tags": [
+    "terrazzo",
+    "fine"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/tlz-001.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Clay",
+    "Mint",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "tlz-002",
+   "name": "Terrazzo",
+   "tags": [
+    "terrazzo"
+   ],
+   "type": "vector",
+   "tile": 380,
+   "svg": "svg/tlz-002.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Clay",
+    "Slate",
+    "Terracotta"
+   ]
+  },
+  {
+   "id": "tlz-003",
+   "name": "Terrazzo Bold",
+   "tags": [
+    "terrazzo",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 380,
+   "svg": "svg/tlz-003.svg",
+   "raster": null,
+   "colorways": [
+    "Terracotta",
+    "Midnight",
+    "Harbor",
+    "Riso"
+   ]
+  },
+  {
+   "id": "tlz-004",
+   "name": "Mosaic",
+   "tags": [
+    "mosaic",
+    "squares"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/tlz-004.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Harbor",
+    "Mint",
+    "Terracotta"
+   ]
+  },
+  {
+   "id": "tlz-005",
+   "name": "Drifting Mosaic",
+   "tags": [
+    "mosaic",
+    "squares"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/tlz-005.svg",
+   "raster": null,
+   "colorways": [
+    "Riso",
+    "Midnight",
+    "Monochrome",
+    "Slate"
+   ]
+  },
+  {
+   "id": "tlz-006",
+   "name": "Ceramic Square",
+   "tags": [
+    "ceramic",
+    "squares"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/tlz-006.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Midnight",
+    "Terracotta",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "tlz-007",
+   "name": "Quarter Turn",
+   "tags": [
+    "ceramic",
+    "rotational"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/tlz-007.svg",
+   "raster": null,
+   "colorways": [
+    "Terracotta",
+    "Midnight",
+    "Harbor",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "tlz-008",
+   "name": "Encaustic Star",
+   "tags": [
+    "ceramic",
+    "encaustic",
+    "stars"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/tlz-008.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Terracotta",
+    "Mint",
+    "Riso"
+   ]
+  },
+  {
+   "id": "tlz-009",
+   "name": "Hex Mosaic",
+   "tags": [
+    "mosaic",
+    "hexagons"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/tlz-009.svg",
+   "raster": null,
+   "colorways": [
+    "Riso",
+    "Monochrome",
+    "Terracotta",
+    "Clay"
+   ]
+  },
+  {
+   "id": "tlz-010",
+   "name": "Octagon & Dot",
+   "tags": [
+    "ceramic",
+    "octagons"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/tlz-010.svg",
+   "raster": null,
+   "colorways": [
+    "Terracotta",
+    "Monochrome",
+    "Clay",
+    "Riso"
+   ]
+  },
+  {
+   "id": "tlz-011",
+   "name": "Interlace",
+   "tags": [
+    "ceramic",
+    "interlace"
+   ],
+   "type": "vector",
+   "tile": 380,
+   "svg": "svg/tlz-011.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Monochrome",
+    "Riso",
+    "Mint"
+   ]
+  },
+  {
+   "id": "tlz-012",
+   "name": "Cut Terrazzo",
+   "tags": [
+    "terrazzo",
+    "grout"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/tlz-012.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Midnight",
+    "Mint",
+    "Riso"
+   ]
+  },
+  {
+   "id": "tlz-013",
+   "name": "Diagonal Tile",
+   "tags": [
+    "ceramic",
+    "triangles"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/tlz-013.svg",
+   "raster": null,
+   "colorways": [
+    "Clay",
+    "Mint",
+    "Monochrome",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "tlz-014",
+   "name": "Pebble",
+   "tags": [
+    "mosaic",
+    "pebble"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/tlz-014.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Terracotta",
+    "Riso",
+    "Slate"
+   ]
+  },
+  {
+   "id": "tlz-015",
+   "name": "Banded Tile",
+   "tags": [
+    "ceramic",
+    "bands"
+   ],
+   "type": "vector",
+   "tile": 380,
+   "svg": "svg/tlz-015.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Slate",
+    "Harbor",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "tlz-016",
+   "name": "Micro Chip",
+   "tags": [
+    "terrazzo",
+    "fine"
+   ],
+   "type": "vector",
+   "tile": 380,
+   "svg": "svg/tlz-016.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Monochrome",
+    "Riso",
+    "Clay"
+   ]
+  },
+  {
+   "id": "tlz-017",
+   "name": "Chip Stone",
+   "tags": [
+    "terrazzo"
+   ],
+   "type": "vector",
+   "tile": 380,
+   "svg": "svg/tlz-017.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Monochrome",
+    "Midnight",
+    "Clay"
+   ]
+  },
+  {
+   "id": "tlz-018",
+   "name": "Large Chip",
+   "tags": [
+    "terrazzo",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/tlz-018.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Riso",
+    "Midnight",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "tlz-019",
+   "name": "Tesserae",
+   "tags": [
+    "mosaic",
+    "squares"
+   ],
+   "type": "vector",
+   "tile": 380,
+   "svg": "svg/tlz-019.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Mint",
+    "Terracotta",
+    "Slate"
+   ]
+  },
+  {
+   "id": "tlz-020",
+   "name": "Tide Mosaic",
+   "tags": [
+    "mosaic",
+    "squares"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/tlz-020.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Clay",
+    "Terracotta",
+    "Slate"
+   ]
+  },
+  {
+   "id": "tlz-021",
+   "name": "Framed Tile",
+   "tags": [
+    "ceramic",
+    "squares"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/tlz-021.svg",
+   "raster": null,
+   "colorways": [
+    "Terracotta",
+    "Riso",
+    "Slate",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "tlz-022",
+   "name": "Four Tile",
+   "tags": [
+    "ceramic",
+    "rotational"
+   ],
+   "type": "vector",
+   "tile": 380,
+   "svg": "svg/tlz-022.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Mint",
+    "Monochrome",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "tlz-023",
+   "name": "Star Tile",
+   "tags": [
+    "ceramic",
+    "encaustic",
+    "stars"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/tlz-023.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Monochrome",
+    "Terracotta",
+    "Clay"
+   ]
+  },
+  {
+   "id": "tlz-024",
+   "name": "Honeycomb Tile",
+   "tags": [
+    "mosaic",
+    "hexagons"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/tlz-024.svg",
+   "raster": null,
+   "colorways": [
+    "Clay",
+    "Mint",
+    "Terracotta",
+    "Riso"
+   ]
+  },
+  {
+   "id": "tlz-025",
+   "name": "Cushion Tile",
+   "tags": [
+    "ceramic",
+    "octagons"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/tlz-025.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Riso",
+    "Clay",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "tlz-026",
+   "name": "Ribbon Tile",
+   "tags": [
+    "ceramic",
+    "interlace"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/tlz-026.svg",
+   "raster": null,
+   "colorways": [
+    "Terracotta",
+    "Slate",
+    "Harbor",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "tlz-027",
+   "name": "Grouted Chip",
+   "tags": [
+    "terrazzo",
+    "grout"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/tlz-027.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Harbor",
+    "Clay",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "tlz-028",
+   "name": "Split Square",
+   "tags": [
+    "ceramic",
+    "triangles"
+   ],
+   "type": "vector",
+   "tile": 380,
+   "svg": "svg/tlz-028.svg",
+   "raster": null,
+   "colorways": [
+    "Terracotta",
+    "Slate",
+    "Riso",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "tlz-029",
+   "name": "River Stone",
+   "tags": [
+    "mosaic",
+    "pebble"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/tlz-029.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Clay",
+    "Harbor",
+    "Slate"
+   ]
+  },
+  {
+   "id": "tlz-030",
+   "name": "Striped Square",
+   "tags": [
+    "ceramic",
+    "bands"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/tlz-030.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Terracotta",
+    "Monochrome",
+    "Riso"
+   ]
+  }
+ ]
+}

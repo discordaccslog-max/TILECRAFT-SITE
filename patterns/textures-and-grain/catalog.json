@@ -1,0 +1,592 @@
+{
+ "collection": "textures-and-grain",
+ "built": "2026-11-13",
+ "count": 30,
+ "colorwaysPerPattern": 4,
+ "patterns": [
+  {
+   "id": "tex-001",
+   "name": "Paper Grain",
+   "tags": [
+    "paper",
+    "grain",
+    "subtle"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-001.png",
+   "thumb": "tex/tex-001-thumb.png",
+   "colorways": [
+    "Clay",
+    "Midnight",
+    "Harbor",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "tex-002",
+   "name": "Coarse Grain",
+   "tags": [
+    "paper",
+    "grain",
+    "strong"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-002.png",
+   "thumb": "tex/tex-002-thumb.png",
+   "colorways": [
+    "Sage",
+    "Clay",
+    "Slate",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "tex-003",
+   "name": "Fine Noise",
+   "tags": [
+    "noise",
+    "subtle"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-003.png",
+   "thumb": "tex/tex-003-thumb.png",
+   "colorways": [
+    "Blush",
+    "Sage",
+    "Ochre",
+    "Slate"
+   ]
+  },
+  {
+   "id": "tex-004",
+   "name": "Gritty Noise",
+   "tags": [
+    "noise",
+    "grain",
+    "strong"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-004.png",
+   "thumb": "tex/tex-004-thumb.png",
+   "colorways": [
+    "Blush",
+    "Monochrome",
+    "Sage",
+    "Clay"
+   ]
+  },
+  {
+   "id": "tex-005",
+   "name": "Linen",
+   "tags": [
+    "weave",
+    "fabric"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-005.png",
+   "thumb": "tex/tex-005-thumb.png",
+   "colorways": [
+    "Monochrome",
+    "Clay",
+    "Blush",
+    "Sage"
+   ]
+  },
+  {
+   "id": "tex-006",
+   "name": "Canvas",
+   "tags": [
+    "weave",
+    "fabric"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-006.png",
+   "thumb": "tex/tex-006-thumb.png",
+   "colorways": [
+    "Ochre",
+    "Slate",
+    "Midnight",
+    "Clay"
+   ]
+  },
+  {
+   "id": "tex-007",
+   "name": "Stipple",
+   "tags": [
+    "stipple",
+    "dots"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-007.png",
+   "thumb": "tex/tex-007-thumb.png",
+   "colorways": [
+    "Ochre",
+    "Clay",
+    "Sage",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "tex-008",
+   "name": "Speckle",
+   "tags": [
+    "stipple",
+    "dots",
+    "strong"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-008.png",
+   "thumb": "tex/tex-008-thumb.png",
+   "colorways": [
+    "Monochrome",
+    "Clay",
+    "Harbor",
+    "Slate"
+   ]
+  },
+  {
+   "id": "tex-009",
+   "name": "Brushed",
+   "tags": [
+    "brushed",
+    "directional"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-009.png",
+   "thumb": "tex/tex-009-thumb.png",
+   "colorways": [
+    "Clay",
+    "Ochre",
+    "Slate",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "tex-010",
+   "name": "Dragged",
+   "tags": [
+    "brushed",
+    "directional",
+    "lines"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-010.png",
+   "thumb": "tex/tex-010-thumb.png",
+   "colorways": [
+    "Blush",
+    "Ochre",
+    "Slate",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "tex-011",
+   "name": "Plaster",
+   "tags": [
+    "surface",
+    "organic"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-011.png",
+   "thumb": "tex/tex-011-thumb.png",
+   "colorways": [
+    "Midnight",
+    "Sage",
+    "Slate",
+    "Clay"
+   ]
+  },
+  {
+   "id": "tex-012",
+   "name": "Mottled",
+   "tags": [
+    "surface",
+    "organic",
+    "subtle"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-012.png",
+   "thumb": "tex/tex-012-thumb.png",
+   "colorways": [
+    "Harbor",
+    "Monochrome",
+    "Slate",
+    "Sage"
+   ]
+  },
+  {
+   "id": "tex-013",
+   "name": "Crosshatch",
+   "tags": [
+    "lines",
+    "mesh"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-013.png",
+   "thumb": "tex/tex-013-thumb.png",
+   "colorways": [
+    "Ochre",
+    "Blush",
+    "Slate",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "tex-014",
+   "name": "Sandpaper",
+   "tags": [
+    "noise",
+    "grain",
+    "strong"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-014.png",
+   "thumb": "tex/tex-014-thumb.png",
+   "colorways": [
+    "Slate",
+    "Harbor",
+    "Clay",
+    "Sage"
+   ]
+  },
+  {
+   "id": "tex-015",
+   "name": "Fibrous",
+   "tags": [
+    "organic",
+    "strand"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-015.png",
+   "thumb": "tex/tex-015-thumb.png",
+   "colorways": [
+    "Monochrome",
+    "Harbor",
+    "Clay",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "tex-016",
+   "name": "Laid Paper",
+   "tags": [
+    "paper",
+    "grain",
+    "subtle"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-016.png",
+   "thumb": "tex/tex-016-thumb.png",
+   "colorways": [
+    "Slate",
+    "Clay",
+    "Monochrome",
+    "Sage"
+   ]
+  },
+  {
+   "id": "tex-017",
+   "name": "Rough Stock",
+   "tags": [
+    "paper",
+    "grain",
+    "strong"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-017.png",
+   "thumb": "tex/tex-017-thumb.png",
+   "colorways": [
+    "Monochrome",
+    "Ochre",
+    "Slate",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "tex-018",
+   "name": "Static",
+   "tags": [
+    "noise",
+    "subtle"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-018.png",
+   "thumb": "tex/tex-018-thumb.png",
+   "colorways": [
+    "Clay",
+    "Ochre",
+    "Blush",
+    "Sage"
+   ]
+  },
+  {
+   "id": "tex-019",
+   "name": "Tooth",
+   "tags": [
+    "noise",
+    "grain",
+    "strong"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-019.png",
+   "thumb": "tex/tex-019-thumb.png",
+   "colorways": [
+    "Midnight",
+    "Slate",
+    "Ochre",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "tex-020",
+   "name": "Plain Weave",
+   "tags": [
+    "weave",
+    "fabric"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-020.png",
+   "thumb": "tex/tex-020-thumb.png",
+   "colorways": [
+    "Clay",
+    "Ochre",
+    "Harbor",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "tex-021",
+   "name": "Duck Weave",
+   "tags": [
+    "weave",
+    "fabric"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-021.png",
+   "thumb": "tex/tex-021-thumb.png",
+   "colorways": [
+    "Monochrome",
+    "Harbor",
+    "Blush",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "tex-022",
+   "name": "Pointillist",
+   "tags": [
+    "stipple",
+    "dots"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-022.png",
+   "thumb": "tex/tex-022-thumb.png",
+   "colorways": [
+    "Monochrome",
+    "Sage",
+    "Midnight",
+    "Blush"
+   ]
+  },
+  {
+   "id": "tex-023",
+   "name": "Grit",
+   "tags": [
+    "stipple",
+    "dots",
+    "strong"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-023.png",
+   "thumb": "tex/tex-023-thumb.png",
+   "colorways": [
+    "Sage",
+    "Monochrome",
+    "Midnight",
+    "Blush"
+   ]
+  },
+  {
+   "id": "tex-024",
+   "name": "Satin Finish",
+   "tags": [
+    "brushed",
+    "directional"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-024.png",
+   "thumb": "tex/tex-024-thumb.png",
+   "colorways": [
+    "Harbor",
+    "Monochrome",
+    "Slate",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "tex-025",
+   "name": "Combed",
+   "tags": [
+    "brushed",
+    "directional",
+    "lines"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-025.png",
+   "thumb": "tex/tex-025-thumb.png",
+   "colorways": [
+    "Midnight",
+    "Clay",
+    "Monochrome",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "tex-026",
+   "name": "Lime Wash",
+   "tags": [
+    "surface",
+    "organic"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-026.png",
+   "thumb": "tex/tex-026-thumb.png",
+   "colorways": [
+    "Harbor",
+    "Monochrome",
+    "Blush",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "tex-027",
+   "name": "Wash",
+   "tags": [
+    "surface",
+    "organic",
+    "subtle"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-027.png",
+   "thumb": "tex/tex-027-thumb.png",
+   "colorways": [
+    "Midnight",
+    "Monochrome",
+    "Clay",
+    "Sage"
+   ]
+  },
+  {
+   "id": "tex-028",
+   "name": "Weft Lines",
+   "tags": [
+    "lines",
+    "mesh"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-028.png",
+   "thumb": "tex/tex-028-thumb.png",
+   "colorways": [
+    "Slate",
+    "Monochrome",
+    "Ochre",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "tex-029",
+   "name": "Abrasive",
+   "tags": [
+    "noise",
+    "grain",
+    "strong"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-029.png",
+   "thumb": "tex/tex-029-thumb.png",
+   "colorways": [
+    "Monochrome",
+    "Sage",
+    "Slate",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "tex-030",
+   "name": "Rag",
+   "tags": [
+    "organic",
+    "strand"
+   ],
+   "type": "raster",
+   "tile": 512,
+   "svg": null,
+   "raster": "tex/tex-030.png",
+   "thumb": "tex/tex-030-thumb.png",
+   "colorways": [
+    "Midnight",
+    "Monochrome",
+    "Slate",
+    "Clay"
+   ]
+  }
+ ]
+}

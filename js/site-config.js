@@ -27,7 +27,7 @@ export const SITE = {
   domain: 'tilecraft-site.vercel.app',
   origin: 'https://tilecraft-site.vercel.app',
   licensePrefix: 'TILE',
-  supportEmail: '',
+  supportEmail: 'tilemail@tilecraftdigital.art',
   supportResponseTime: 'within two business days',
   refundDays: 14,
   lastUpdated: '12 November 2026'

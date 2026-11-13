@@ -1,0 +1,548 @@
+{
+ "collection": "mid-century-shapes",
+ "built": "2026-11-13",
+ "count": 30,
+ "colorwaysPerPattern": 4,
+ "patterns": [
+  {
+   "id": "mid-001",
+   "name": "Starburst",
+   "tags": [
+    "starbursts",
+    "radial"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/mid-001.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Harbor",
+    "Riso",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "mid-002",
+   "name": "Asterisk",
+   "tags": [
+    "starbursts",
+    "scattered"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/mid-002.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Harbor",
+    "Riso",
+    "Clay"
+   ]
+  },
+  {
+   "id": "mid-003",
+   "name": "Boomerang",
+   "tags": [
+    "boomerangs",
+    "arcs"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/mid-003.svg",
+   "raster": null,
+   "colorways": [
+    "Clay",
+    "Plum",
+    "Terracotta",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "mid-004",
+   "name": "Boomerang Row",
+   "tags": [
+    "boomerangs",
+    "arcs"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/mid-004.svg",
+   "raster": null,
+   "colorways": [
+    "Riso",
+    "Harbor",
+    "Ink Blue",
+    "Clay"
+   ]
+  },
+  {
+   "id": "mid-005",
+   "name": "Blob",
+   "tags": [
+    "blobs",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/mid-005.svg",
+   "raster": null,
+   "colorways": [
+    "Clay",
+    "Riso",
+    "Ink Blue",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "mid-006",
+   "name": "Open Blob",
+   "tags": [
+    "blobs",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/mid-006.svg",
+   "raster": null,
+   "colorways": [
+    "Terracotta",
+    "Clay",
+    "Harbor",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "mid-007",
+   "name": "Arc Fan",
+   "tags": [
+    "arcs",
+    "radial"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/mid-007.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Ochre",
+    "Ink Blue",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "mid-008",
+   "name": "Half Circle",
+   "tags": [
+    "arcs",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/mid-008.svg",
+   "raster": null,
+   "colorways": [
+    "Ochre",
+    "Plum",
+    "Ink Blue",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "mid-009",
+   "name": "Atomic",
+   "tags": [
+    "atomic",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/mid-009.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Clay",
+    "Ink Blue",
+    "Terracotta"
+   ]
+  },
+  {
+   "id": "mid-010",
+   "name": "Lozenge",
+   "tags": [
+    "blobs",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/mid-010.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Ochre",
+    "Harbor",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "mid-011",
+   "name": "Wedge",
+   "tags": [
+    "radial",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/mid-011.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Riso",
+    "Plum",
+    "Clay"
+   ]
+  },
+  {
+   "id": "mid-012",
+   "name": "Composition",
+   "tags": [
+    "blobs",
+    "mixed"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/mid-012.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Clay",
+    "Ochre",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "mid-013",
+   "name": "Thin Line",
+   "tags": [
+    "lines",
+    "subtle"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/mid-013.svg",
+   "raster": null,
+   "colorways": [
+    "Clay",
+    "Plum",
+    "Ochre",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "mid-014",
+   "name": "Kidney",
+   "tags": [
+    "blobs",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/mid-014.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Midnight",
+    "Clay",
+    "Riso"
+   ]
+  },
+  {
+   "id": "mid-015",
+   "name": "Arc & Dot",
+   "tags": [
+    "arcs",
+    "dots"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/mid-015.svg",
+   "raster": null,
+   "colorways": [
+    "Riso",
+    "Ochre",
+    "Midnight",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "mid-016",
+   "name": "Sputnik",
+   "tags": [
+    "starbursts",
+    "radial"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/mid-016.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Terracotta",
+    "Riso",
+    "Plum"
+   ]
+  },
+  {
+   "id": "mid-017",
+   "name": "Spark",
+   "tags": [
+    "starbursts",
+    "scattered"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/mid-017.svg",
+   "raster": null,
+   "colorways": [
+    "Ochre",
+    "Riso",
+    "Plum",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "mid-018",
+   "name": "Bow",
+   "tags": [
+    "boomerangs",
+    "arcs"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/mid-018.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Harbor",
+    "Ink Blue",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "mid-019",
+   "name": "Swing",
+   "tags": [
+    "boomerangs",
+    "arcs"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/mid-019.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Riso",
+    "Ochre",
+    "Plum"
+   ]
+  },
+  {
+   "id": "mid-020",
+   "name": "Pebble",
+   "tags": [
+    "blobs",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/mid-020.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Clay",
+    "Riso",
+    "Terracotta"
+   ]
+  },
+  {
+   "id": "mid-021",
+   "name": "Outline Pebble",
+   "tags": [
+    "blobs",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/mid-021.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Ochre",
+    "Plum",
+    "Clay"
+   ]
+  },
+  {
+   "id": "mid-022",
+   "name": "Rainbow",
+   "tags": [
+    "arcs",
+    "radial"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/mid-022.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Terracotta",
+    "Plum",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "mid-023",
+   "name": "Turning Moon",
+   "tags": [
+    "arcs",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/mid-023.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Ochre",
+    "Midnight",
+    "Plum"
+   ]
+  },
+  {
+   "id": "mid-024",
+   "name": "Orbit",
+   "tags": [
+    "atomic",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/mid-024.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Riso",
+    "Clay",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "mid-025",
+   "name": "Capsule",
+   "tags": [
+    "blobs",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/mid-025.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Plum",
+    "Terracotta",
+    "Riso"
+   ]
+  },
+  {
+   "id": "mid-026",
+   "name": "Pinwheel Fan",
+   "tags": [
+    "radial",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/mid-026.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Riso",
+    "Midnight",
+    "Terracotta"
+   ]
+  },
+  {
+   "id": "mid-027",
+   "name": "Still Life",
+   "tags": [
+    "blobs",
+    "mixed"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/mid-027.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Clay",
+    "Harbor",
+    "Riso"
+   ]
+  },
+  {
+   "id": "mid-028",
+   "name": "Wave Line",
+   "tags": [
+    "lines",
+    "subtle"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/mid-028.svg",
+   "raster": null,
+   "colorways": [
+    "Riso",
+    "Ochre",
+    "Ink Blue",
+    "Terracotta"
+   ]
+  },
+  {
+   "id": "mid-029",
+   "name": "Bean",
+   "tags": [
+    "blobs",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/mid-029.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Plum",
+    "Ochre",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "mid-030",
+   "name": "Comma",
+   "tags": [
+    "arcs",
+    "dots"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/mid-030.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Clay",
+    "Plum",
+    "Ochre"
+   ]
+  }
+ ]
+}

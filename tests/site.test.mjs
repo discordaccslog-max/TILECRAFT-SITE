@@ -454,13 +454,28 @@ test('the site uses no photographs', () => {
   }
   assert.deepEqual(offenders, []);
 
+  /*
+   * Two kinds of raster file are allowed, and only two: the social card,
+   * and the texture tiles, which are generated as pixels because grain has
+   * no outline to describe. Anything else would mean a photograph or a
+   * borrowed image had found its way in.
+   */
   const raster = allFiles.filter((file) => /\.(jpg|jpeg|png|gif|webp|avif)$/i.test(file));
-  const unexpected = raster.filter((file) => !/og\.png$/.test(file));
+  const unexpected = raster.filter((file) => {
+    const rel = path.relative(root, file).split(path.sep).join('/');
+    if (rel === 'og.png') return false;
+    if (/^patterns\/[a-z-]+\/tex\/[a-z]+-\d+(-thumb)?\.png$/.test(rel)) return false;
+    return true;
+  });
   assert.deepEqual(
     unexpected.map((file) => path.relative(root, file)),
     [],
-    'the only raster image should be the social card'
+    'unexpected raster image'
   );
+
+  // Nothing on this site is a photograph, so no JPEG should exist at all.
+  const photographs = allFiles.filter((file) => /\.(jpg|jpeg)$/i.test(file));
+  assert.deepEqual(photographs.map((file) => path.relative(root, file)), []);
 });
 
 /* ------------------------------------------------------------------ *

@@ -1,0 +1,725 @@
+{
+ "collection": "geometric-essentials",
+ "built": "2026-11-13",
+ "count": 40,
+ "colorwaysPerPattern": 4,
+ "patterns": [
+  {
+   "id": "geo-001",
+   "name": "Drafting",
+   "tags": [
+    "grid",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-001.svg",
+   "raster": null,
+   "colorways": [
+    "Riso",
+    "Slate",
+    "Ink Blue",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "geo-002",
+   "name": "Double Rule",
+   "tags": [
+    "grid",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-002.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Ochre",
+    "Monochrome",
+    "Slate"
+   ]
+  },
+  {
+   "id": "geo-003",
+   "name": "Running Bond",
+   "tags": [
+    "grid",
+    "brick"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-003.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Midnight",
+    "Ink Blue",
+    "Slate"
+   ]
+  },
+  {
+   "id": "geo-004",
+   "name": "Bias",
+   "tags": [
+    "stripes",
+    "diagonal"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/geo-004.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Ink Blue",
+    "Midnight",
+    "Slate"
+   ]
+  },
+  {
+   "id": "geo-005",
+   "name": "Lattice",
+   "tags": [
+    "lattice",
+    "diagonal"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-005.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Harbor",
+    "Midnight",
+    "Night Press"
+   ]
+  },
+  {
+   "id": "geo-006",
+   "name": "Chevron",
+   "tags": [
+    "chevron",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/geo-006.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Ink Blue",
+    "Harbor",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "geo-007",
+   "name": "Zigzag",
+   "tags": [
+    "chevron",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 288,
+   "svg": "svg/geo-007.svg",
+   "raster": null,
+   "colorways": [
+    "Night Press",
+    "Riso",
+    "Ink Blue",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "geo-008",
+   "name": "Pennant",
+   "tags": [
+    "triangles",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/geo-008.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Slate",
+    "Ink Blue",
+    "Night Press"
+   ]
+  },
+  {
+   "id": "geo-009",
+   "name": "Half Square",
+   "tags": [
+    "triangles",
+    "blocks"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-009.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Midnight",
+    "Night Press",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "geo-010",
+   "name": "Open Triangle",
+   "tags": [
+    "triangles",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 288,
+   "svg": "svg/geo-010.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Monochrome",
+    "Harbor",
+    "Slate"
+   ]
+  },
+  {
+   "id": "geo-011",
+   "name": "Honeycomb",
+   "tags": [
+    "hexagons",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 288,
+   "svg": "svg/geo-011.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Ochre",
+    "Slate",
+    "Night Press"
+   ]
+  },
+  {
+   "id": "geo-012",
+   "name": "Solid Hex",
+   "tags": [
+    "hexagons",
+    "blocks"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-012.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Riso",
+    "Slate",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "geo-013",
+   "name": "Dot Field",
+   "tags": [
+    "dots"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/geo-013.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Riso",
+    "Harbor",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "geo-014",
+   "name": "Dot Duet",
+   "tags": [
+    "dots"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-014.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Monochrome",
+    "Midnight",
+    "Riso"
+   ]
+  },
+  {
+   "id": "geo-015",
+   "name": "Ring Grid",
+   "tags": [
+    "dots",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-015.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Monochrome",
+    "Ink Blue",
+    "Night Press"
+   ]
+  },
+  {
+   "id": "geo-016",
+   "name": "Quarter Arc",
+   "tags": [
+    "arcs",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 288,
+   "svg": "svg/geo-016.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Ink Blue",
+    "Harbor",
+    "Riso"
+   ]
+  },
+  {
+   "id": "geo-017",
+   "name": "Scallop",
+   "tags": [
+    "arcs",
+    "scallop"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-017.svg",
+   "raster": null,
+   "colorways": [
+    "Ochre",
+    "Harbor",
+    "Midnight",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "geo-018",
+   "name": "Port Hole",
+   "tags": [
+    "dots",
+    "blocks"
+   ],
+   "type": "vector",
+   "tile": 288,
+   "svg": "svg/geo-018.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Ochre",
+    "Midnight",
+    "Riso"
+   ]
+  },
+  {
+   "id": "geo-019",
+   "name": "Basketweave",
+   "tags": [
+    "interlocking",
+    "blocks"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-019.svg",
+   "raster": null,
+   "colorways": [
+    "Night Press",
+    "Monochrome",
+    "Slate",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "geo-020",
+   "name": "Herringbone",
+   "tags": [
+    "interlocking",
+    "diagonal"
+   ],
+   "type": "vector",
+   "tile": 288,
+   "svg": "svg/geo-020.svg",
+   "raster": null,
+   "colorways": [
+    "Ochre",
+    "Riso",
+    "Ink Blue",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "geo-021",
+   "name": "Interlock",
+   "tags": [
+    "interlocking",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/geo-021.svg",
+   "raster": null,
+   "colorways": [
+    "Night Press",
+    "Monochrome",
+    "Midnight",
+    "Slate"
+   ]
+  },
+  {
+   "id": "geo-022",
+   "name": "Nested Square",
+   "tags": [
+    "squares",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/geo-022.svg",
+   "raster": null,
+   "colorways": [
+    "Night Press",
+    "Monochrome",
+    "Harbor",
+    "Riso"
+   ]
+  },
+  {
+   "id": "geo-023",
+   "name": "Pinwheel",
+   "tags": [
+    "triangles",
+    "blocks"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/geo-023.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Riso",
+    "Night Press",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "geo-024",
+   "name": "Plus",
+   "tags": [
+    "crosses",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 288,
+   "svg": "svg/geo-024.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Night Press",
+    "Monochrome",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "geo-025",
+   "name": "Dash",
+   "tags": [
+    "dashes",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-025.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Night Press",
+    "Riso",
+    "Slate"
+   ]
+  },
+  {
+   "id": "geo-026",
+   "name": "Staircase",
+   "tags": [
+    "steps",
+    "diagonal"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-026.svg",
+   "raster": null,
+   "colorways": [
+    "Ochre",
+    "Slate",
+    "Midnight",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "geo-027",
+   "name": "Concentric",
+   "tags": [
+    "arcs",
+    "dots"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-027.svg",
+   "raster": null,
+   "colorways": [
+    "Night Press",
+    "Ink Blue",
+    "Slate",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "geo-028",
+   "name": "Ledger",
+   "tags": [
+    "grid",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-028.svg",
+   "raster": null,
+   "colorways": [
+    "Riso",
+    "Midnight",
+    "Harbor",
+    "Night Press"
+   ]
+  },
+  {
+   "id": "geo-029",
+   "name": "Twin Line",
+   "tags": [
+    "grid",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 288,
+   "svg": "svg/geo-029.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Riso",
+    "Ochre",
+    "Slate"
+   ]
+  },
+  {
+   "id": "geo-030",
+   "name": "Stack Bond",
+   "tags": [
+    "grid",
+    "brick"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-030.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Midnight",
+    "Ink Blue",
+    "Riso"
+   ]
+  },
+  {
+   "id": "geo-031",
+   "name": "Slant",
+   "tags": [
+    "stripes",
+    "diagonal"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-031.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Midnight",
+    "Ink Blue",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "geo-032",
+   "name": "Trellis",
+   "tags": [
+    "lattice",
+    "diagonal"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-032.svg",
+   "raster": null,
+   "colorways": [
+    "Night Press",
+    "Ochre",
+    "Riso",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "geo-033",
+   "name": "Flight",
+   "tags": [
+    "chevron",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-033.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Ink Blue",
+    "Harbor",
+    "Night Press"
+   ]
+  },
+  {
+   "id": "geo-034",
+   "name": "Pulse",
+   "tags": [
+    "chevron",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/geo-034.svg",
+   "raster": null,
+   "colorways": [
+    "Ochre",
+    "Ink Blue",
+    "Harbor",
+    "Night Press"
+   ]
+  },
+  {
+   "id": "geo-035",
+   "name": "Bunting",
+   "tags": [
+    "triangles",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-035.svg",
+   "raster": null,
+   "colorways": [
+    "Night Press",
+    "Midnight",
+    "Riso",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "geo-036",
+   "name": "Turning Point",
+   "tags": [
+    "triangles",
+    "blocks"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-036.svg",
+   "raster": null,
+   "colorways": [
+    "Ochre",
+    "Midnight",
+    "Harbor",
+    "Slate"
+   ]
+  },
+  {
+   "id": "geo-037",
+   "name": "Wireframe",
+   "tags": [
+    "triangles",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-037.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Night Press",
+    "Harbor",
+    "Slate"
+   ]
+  },
+  {
+   "id": "geo-038",
+   "name": "Hex Outline",
+   "tags": [
+    "hexagons",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-038.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Monochrome",
+    "Midnight",
+    "Slate"
+   ]
+  },
+  {
+   "id": "geo-039",
+   "name": "Hex Field",
+   "tags": [
+    "hexagons",
+    "blocks"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-039.svg",
+   "raster": null,
+   "colorways": [
+    "Night Press",
+    "Slate",
+    "Harbor",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "geo-040",
+   "name": "Polka",
+   "tags": [
+    "dots"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/geo-040.svg",
+   "raster": null,
+   "colorways": [
+    "Night Press",
+    "Ochre",
+    "Monochrome",
+    "Ink Blue"
+   ]
+  }
+ ]
+}

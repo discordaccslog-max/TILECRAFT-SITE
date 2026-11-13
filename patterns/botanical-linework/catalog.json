@@ -1,0 +1,548 @@
+{
+ "collection": "botanical-linework",
+ "built": "2026-11-13",
+ "count": 30,
+ "colorwaysPerPattern": 4,
+ "patterns": [
+  {
+   "id": "bot-001",
+   "name": "Sprig",
+   "tags": [
+    "leaves",
+    "stems"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/bot-001.svg",
+   "raster": null,
+   "colorways": [
+    "Night Press",
+    "Sage",
+    "Slate",
+    "Mint"
+   ]
+  },
+  {
+   "id": "bot-002",
+   "name": "Fallen Leaves",
+   "tags": [
+    "leaves",
+    "scattered"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/bot-002.svg",
+   "raster": null,
+   "colorways": [
+    "Clay",
+    "Sage",
+    "Plum",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "bot-003",
+   "name": "Solid Leaf",
+   "tags": [
+    "leaves",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/bot-003.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Clay",
+    "Mint",
+    "Slate"
+   ]
+  },
+  {
+   "id": "bot-004",
+   "name": "Trailing Vine",
+   "tags": [
+    "vines",
+    "leaves"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/bot-004.svg",
+   "raster": null,
+   "colorways": [
+    "Clay",
+    "Night Press",
+    "Blush",
+    "Sage"
+   ]
+  },
+  {
+   "id": "bot-005",
+   "name": "Garland",
+   "tags": [
+    "vines",
+    "leaves"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/bot-005.svg",
+   "raster": null,
+   "colorways": [
+    "Clay",
+    "Ochre",
+    "Slate",
+    "Night Press"
+   ]
+  },
+  {
+   "id": "bot-006",
+   "name": "Blossom",
+   "tags": [
+    "blossoms",
+    "scattered"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/bot-006.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Night Press",
+    "Clay",
+    "Blush"
+   ]
+  },
+  {
+   "id": "bot-007",
+   "name": "Bloom & Leaf",
+   "tags": [
+    "blossoms",
+    "leaves"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/bot-007.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Blush",
+    "Clay",
+    "Night Press"
+   ]
+  },
+  {
+   "id": "bot-008",
+   "name": "Bud",
+   "tags": [
+    "buds",
+    "stems"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/bot-008.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Mint",
+    "Sage",
+    "Blush"
+   ]
+  },
+  {
+   "id": "bot-009",
+   "name": "Fern",
+   "tags": [
+    "leaves",
+    "fern"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/bot-009.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Ochre",
+    "Mint",
+    "Night Press"
+   ]
+  },
+  {
+   "id": "bot-010",
+   "name": "Seed Head",
+   "tags": [
+    "seeds",
+    "radial"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/bot-010.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Blush",
+    "Sage",
+    "Slate"
+   ]
+  },
+  {
+   "id": "bot-011",
+   "name": "Branch Lattice",
+   "tags": [
+    "stems",
+    "lattice"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/bot-011.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Plum",
+    "Night Press",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "bot-012",
+   "name": "Berry Sprig",
+   "tags": [
+    "berries",
+    "stems"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/bot-012.svg",
+   "raster": null,
+   "colorways": [
+    "Clay",
+    "Slate",
+    "Plum",
+    "Blush"
+   ]
+  },
+  {
+   "id": "bot-013",
+   "name": "Wheat",
+   "tags": [
+    "grasses",
+    "stems"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/bot-013.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Blush",
+    "Mint",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "bot-014",
+   "name": "Ivy",
+   "tags": [
+    "vines",
+    "leaves"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/bot-014.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Night Press",
+    "Slate",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "bot-015",
+   "name": "Tulip",
+   "tags": [
+    "blossoms",
+    "stems"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/bot-015.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Slate",
+    "Mint",
+    "Plum"
+   ]
+  },
+  {
+   "id": "bot-016",
+   "name": "Seeds",
+   "tags": [
+    "seeds",
+    "scattered"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/bot-016.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Slate",
+    "Mint",
+    "Clay"
+   ]
+  },
+  {
+   "id": "bot-017",
+   "name": "Stem Pair",
+   "tags": [
+    "leaves",
+    "stems"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/bot-017.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Clay",
+    "Ochre",
+    "Night Press"
+   ]
+  },
+  {
+   "id": "bot-018",
+   "name": "Drift",
+   "tags": [
+    "leaves",
+    "scattered"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/bot-018.svg",
+   "raster": null,
+   "colorways": [
+    "Blush",
+    "Mint",
+    "Plum",
+    "Slate"
+   ]
+  },
+  {
+   "id": "bot-019",
+   "name": "Pressed Leaf",
+   "tags": [
+    "leaves",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/bot-019.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Sage",
+    "Blush",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "bot-020",
+   "name": "Climber",
+   "tags": [
+    "vines",
+    "leaves"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/bot-020.svg",
+   "raster": null,
+   "colorways": [
+    "Ochre",
+    "Blush",
+    "Plum",
+    "Sage"
+   ]
+  },
+  {
+   "id": "bot-021",
+   "name": "Swag",
+   "tags": [
+    "vines",
+    "leaves"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/bot-021.svg",
+   "raster": null,
+   "colorways": [
+    "Night Press",
+    "Ochre",
+    "Slate",
+    "Plum"
+   ]
+  },
+  {
+   "id": "bot-022",
+   "name": "Bloom",
+   "tags": [
+    "blossoms",
+    "scattered"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/bot-022.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Plum",
+    "Blush",
+    "Clay"
+   ]
+  },
+  {
+   "id": "bot-023",
+   "name": "Posy",
+   "tags": [
+    "blossoms",
+    "leaves"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/bot-023.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Sage",
+    "Mint",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "bot-024",
+   "name": "Closed Bloom",
+   "tags": [
+    "buds",
+    "stems"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/bot-024.svg",
+   "raster": null,
+   "colorways": [
+    "Blush",
+    "Clay",
+    "Ochre",
+    "Night Press"
+   ]
+  },
+  {
+   "id": "bot-025",
+   "name": "Frond",
+   "tags": [
+    "leaves",
+    "fern"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/bot-025.svg",
+   "raster": null,
+   "colorways": [
+    "Blush",
+    "Sage",
+    "Plum",
+    "Mint"
+   ]
+  },
+  {
+   "id": "bot-026",
+   "name": "Clock",
+   "tags": [
+    "seeds",
+    "radial"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/bot-026.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Night Press",
+    "Clay",
+    "Slate"
+   ]
+  },
+  {
+   "id": "bot-027",
+   "name": "Thicket",
+   "tags": [
+    "stems",
+    "lattice"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/bot-027.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Blush",
+    "Plum",
+    "Slate"
+   ]
+  },
+  {
+   "id": "bot-028",
+   "name": "Currant",
+   "tags": [
+    "berries",
+    "stems"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/bot-028.svg",
+   "raster": null,
+   "colorways": [
+    "Night Press",
+    "Mint",
+    "Plum",
+    "Clay"
+   ]
+  },
+  {
+   "id": "bot-029",
+   "name": "Grasses",
+   "tags": [
+    "grasses",
+    "stems"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/bot-029.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Ochre",
+    "Blush",
+    "Mint"
+   ]
+  },
+  {
+   "id": "bot-030",
+   "name": "Trefoil Trail",
+   "tags": [
+    "vines",
+    "leaves"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/bot-030.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Plum",
+    "Sage",
+    "Blush"
+   ]
+  }
+ ]
+}
