@@ -12,7 +12,8 @@
 
 import { productBySlug, formatPrice, hasCheckout, TIERS } from './products.js';
 import { ALLOWED, NOT_ALLOWED, AI_DISCLOSURE } from './license-terms.js';
-import { drawComposition, liveCanvas, seedFrom } from './riso.js';
+import { renderProductPreview, countsFor } from './previews.js';
+import { maxExportLabel } from './export-limit.js';
 
 function escapeHtml(text) {
   return String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -152,15 +153,42 @@ function renderProduct(product) {
   const buybox = document.querySelector('[data-buybox]');
   if (buybox) renderBuyBox(product, buybox);
 
+  // Real patterns, rendered from the same files the Studio uses, rather
+  // than a decorative illustration. What is shown is what is sold.
   const art = document.querySelector('[data-product-art]');
   if (art) {
-    liveCanvas(art, (element) =>
-      drawComposition(element, {
-        seed: seedFrom(product.slug + '-product'),
-        inks: product.inks || ['pink', 'teal']
-      })
-    );
+    renderProductPreview(art, product.slug).then((ok) => {
+      const note = document.querySelector('[data-art-note]');
+      if (note) {
+        note.textContent = ok
+          ? (product.tier === 'collection'
+              ? 'Patterns from this collection, shown at their repeat size.'
+              : 'Made with this tool.')
+          : '';
+      }
+    });
   }
+
+  // Counts come from the generated files, so a page cannot claim a number
+  // the collection does not actually hold.
+  countsFor(product.slug).then((counts) => {
+    for (const slot of document.querySelectorAll('[data-pattern-count]')) {
+      if (!counts) {
+        slot.remove();
+        continue;
+      }
+      slot.textContent =
+        counts.patterns + ' patterns, each with ' + counts.colorwaysPerPattern +
+        ' curated colorways — ' + counts.colorways + ' colorways in all.';
+      slot.hidden = false;
+    }
+  });
+
+  maxExportLabel().then((label) => {
+    for (const slot of document.querySelectorAll('[data-export-limit]')) {
+      slot.textContent = label;
+    }
+  });
 
   // Keep the document title in step with the catalog.
   document.title = product.name + ' — ' + formatPrice(product.price) + ' — Tilecraft Digital';

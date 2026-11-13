@@ -74,6 +74,7 @@ export const AI_DISCLOSURE = {
   paragraphs: [
     'The patterns are created with AI assistance and generated in code. They are not made with AI image generators, and they are not made by using or tracing anyone else’s artwork.',
     'In practice that means the shapes, spacing, and repeat geometry are written as code, and AI was used as assistance while writing and refining that code. The output is drawn by the code, mathematically, which is also why every repeat tiles exactly.',
+    'Every pattern is then checked by the build that produces it. Each one is rendered and its opposite edges are compared pixel by pixel, so a repeat that did not actually tile could not ship; anything that failed was redrawn rather than shipped. The tiled result was also reviewed by eye at several scales.',
     'Some marketplaces have their own rules about disclosing AI-assisted designs. Those rules are theirs, they differ from one to the next, and they change. Follow the rules of wherever you sell.'
   ]
 };

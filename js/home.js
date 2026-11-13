@@ -7,7 +7,8 @@
  */
 
 import { PRODUCTS, TIERS, productsByTier, formatPrice } from './products.js';
-import { drawComposition, drawInkLayer, liveCanvas, seedFrom } from './riso.js';
+import { drawInkLayer, liveCanvas, seedFrom } from './riso.js';
+import { renderFeature, renderToolTile } from './previews.js';
 import { prefersReducedMotion } from './settings.js';
 
 /* ------------------------------------------------------------------ *
@@ -107,6 +108,7 @@ function collectionSection(product, index) {
   section.className = 'product-section';
   section.dataset.inks = (product.inks || ['pink', 'teal']).join(',');
   section.dataset.seed = product.slug;
+  section.dataset.index = String(index);
   section.setAttribute('aria-labelledby', 'heading-' + product.slug);
 
   const number = String(index + 1).padStart(2, '0');
@@ -158,7 +160,7 @@ function renderStudioEditions() {
     link.href = '/products/' + product.slug + '/';
     link.innerHTML =
       (product.featured ? '<p class="panel__flag">Most capable</p>' : '') +
-      '<div class="panel__art"><canvas aria-hidden="true"></canvas></div>' +
+      '<div class="panel__art" aria-hidden="true"></div>' +
       '<h3 class="panel__title">' + escapeHtml(product.name) + '</h3>' +
       '<p class="panel__short">' + escapeHtml(product.short) + '</p>' +
       '<p class="panel__foot"><span class="price">' + formatPrice(product.price) + '</span>' +
@@ -167,15 +169,7 @@ function renderStudioEditions() {
     item.append(link);
     host.append(item);
 
-    const canvas = link.querySelector('canvas');
-    liveCanvas(canvas, (element) =>
-      drawComposition(element, {
-        seed: seedFrom(product.slug + '-panel'),
-        inks: product.inks || ['pink', 'teal'],
-        paper: '#141127',
-        grain: false
-      })
-    );
+    renderToolTile(link.querySelector('.panel__art'), product.slug, 110);
   }
 }
 
@@ -190,21 +184,40 @@ function setUpStickyCanvas() {
 
   let current = null;
 
+  // The sticky surface shows a real pattern from the collection in view,
+  // not an illustration of one. Which pattern is picked from the section's
+  // own index, so scrolling back shows the same one again.
+  const label = document.querySelector('[data-canvas-label]');
+
+  // A token guards against a slow render landing after a newer one and
+  // labelling the surface with the wrong pattern.
+  let paintToken = 0;
+
   const paint = (section) => {
-    const inks = (section.dataset.inks || 'pink,teal').split(',');
-    drawComposition(canvas, { seed: seedFrom(section.dataset.seed || section.id), inks });
+    const token = ++paintToken;
+    const slug = section.dataset.seed;
+    const index = Number(section.dataset.index || 0);
+    const heading = section.querySelector('h2');
+    const collection = heading ? heading.textContent.trim() : '';
+
+    return renderFeature(canvas, slug, index * 7 + 3, 160).then((ok) => {
+      if (token !== paintToken) return;
+      if (!ok) {
+        canvas.style.background = 'var(--paper-sunk)';
+        if (label) label.textContent = '';
+        return;
+      }
+      if (label) {
+        label.textContent = canvas.dataset.patternName
+          ? canvas.dataset.patternName + ' — from ' + collection
+          : 'A pattern from ' + collection;
+      }
+    });
   };
 
   const show = (section) => {
     if (section === current) return;
     current = section;
-    const label = document.querySelector('[data-canvas-label]');
-    if (label) {
-      const heading = section.querySelector('h2');
-      label.textContent = heading
-        ? 'Composition for ' + heading.textContent.trim() + ' — decorative, not a pattern preview'
-        : 'Decorative composition — not a pattern preview';
-    }
     if (prefersReducedMotion()) {
       paint(section);
       return;
@@ -216,9 +229,8 @@ function setUpStickyCanvas() {
     }, 180);
   };
 
-  liveCanvas(canvas, () => {
+  document.addEventListener('tilecraft:themechange', () => {
     if (current) paint(current);
-    else paint(sections[0]);
   });
 
   /*

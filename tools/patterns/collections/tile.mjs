@@ -302,24 +302,50 @@ const RECIPES = {
   },
 
   diagonalTile(r, tile) {
-    const n = r.pick([3, 4]);
+    /*
+     * Square tiles split corner to corner, laid so the diagonals form a
+     * figure across the grid rather than all leaning the same way.
+     *
+     * Which figure depends on the turn rule, and that is what makes one of
+     * these different from the next: a quarter turn per cell pinwheels, a
+     * half turn per row gives chevrons, and a parity rule reads as a basket.
+     * Without that the recipe has only the grid size to vary, which is not
+     * enough for two of them to be different patterns.
+     */
+    const n = r.pick([3, 4, 5, 6]);
     const step = tile / n;
+    const rule = r.pick(['pinwheel', 'chevron', 'basket', 'quarter']);
+    const centre = r.pick(['dot', 'ring', 'none']);
+    const pairs = r.chance(0.4) ? ['ink', 'accent2'] : ['ink', 'accent'];
     const out = [];
+
     for (let i = 0; i < n; i++) {
       for (let j = 0; j < n; j++) {
         const x = i * step;
         const y = j * step;
-        const turn = (i + j * 2) % 4;
+
+        let turn;
+        if (rule === 'pinwheel') turn = (i + j * 2) % 4;
+        else if (rule === 'chevron') turn = (j % 2) * 2 + (i % 2);
+        else if (rule === 'basket') turn = ((i + j) % 2) * 2;
+        else turn = (i * j) % 4;
+
         const corners = [[x, y], [x + step, y], [x + step, y + step], [x, y + step]];
-        const inset = step * 0.035;
-        const centre = [x + step / 2, y + step / 2];
-        // Two triangles meeting on a diagonal, with a small centre dot so each
-        // square still reads as a square rather than merging into a band.
-        out.push(poly([corners[turn], corners[(turn + 1) % 4], corners[(turn + 2) % 4]], 'ink'));
-        out.push(poly([corners[(turn + 2) % 4], corners[(turn + 3) % 4], corners[turn]], 'accent'));
-        out.push({ t: 'circle', cx: centre[0], cy: centre[1], r: inset * 2.2, fill: 'bg' });
+        const mid = [x + step / 2, y + step / 2];
+
+        out.push(poly([corners[turn], corners[(turn + 1) % 4], corners[(turn + 2) % 4]], pairs[0]));
+        out.push(poly([corners[(turn + 2) % 4], corners[(turn + 3) % 4], corners[turn]], pairs[1]));
+
+        // Something at the centre keeps each square reading as a square
+        // instead of merging with its neighbour into a band.
+        if (centre === 'dot') {
+          out.push({ t: 'circle', cx: mid[0], cy: mid[1], r: step * 0.077, fill: 'bg' });
+        } else if (centre === 'ring') {
+          out.push({ t: 'ring', cx: mid[0], cy: mid[1], r: step * 0.16, w: step * 0.05, fill: 'bg' });
+        }
       }
     }
+
     return out;
   },
 

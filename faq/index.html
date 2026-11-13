@@ -86,12 +86,15 @@
           <li><a href="#q7">Which devices and browsers are supported?</a></li>
           <li><a href="#q8">Can I use these commercially, including print-on-demand?</a></li>
           <li><a href="#q9">What file formats do I get?</a></li>
-          <li><a href="#q10">Do images I use in the Studio leave my device?</a></li>
-          <li><a href="#q11">How are the patterns made?</a></li>
-          <li><a href="#q12">What is the difference between Collections and Studio Editions?</a></li>
-          <li><a href="#q13">Can I get a refund?</a></li>
-          <li><a href="#q14">Is there a subscription?</a></li>
-          <li><a href="#q15">Do you use cookies or analytics?</a></li>
+          <li><a href="#q10">Which patterns are vector, and which are raster?</a></li>
+          <li><a href="#q11">How large can I export?</a></li>
+          <li><a href="#q12">How do batch colorways work?</a></li>
+          <li><a href="#q13">Do images I use in the Studio leave my device?</a></li>
+          <li><a href="#q14">How are the patterns made?</a></li>
+          <li><a href="#q15">What is the difference between Collections and Studio Editions?</a></li>
+          <li><a href="#q16">Can I get a refund?</a></li>
+          <li><a href="#q17">Is there a subscription?</a></li>
+          <li><a href="#q18">Do you use cookies or analytics?</a></li>
         </ul>
       </nav>
 
@@ -133,32 +136,47 @@
       <p>What you cannot do is resell or distribute the pattern files themselves, use them in a logo or trademark, use them in NFTs, or use them to train AI models. The <a href="/license/">License page</a> sets all of it out in full.</p>
 
       <h2 id="q9">What file formats do I get?</h2>
-      <p>From the Collections, Pattern Generator Studio, and Repeat Builder: raster image exports, as single tiles and as larger sheets, with transparent-background options where that makes sense.</p>
-      <p>Production Studio adds true vector SVG export for the repeats that are built from shapes, large raster exports at high pixel density, batch colorway export, and preset output sizes for common print-on-demand and fabric printing requirements.</p>
-      <p>These are standard formats. They open in ordinary graphics software and you can do whatever you need with them afterwards.</p>
+      <p><strong>PNG</strong> and <strong>JPEG</strong> from every product. <strong>SVG</strong> from everything that is vector, which is four of the five Collections and Pattern Generator Studio.</p>
+      <p>Every download arrives as a <strong>zip</strong> holding the artwork and a short <code>LICENSE.txt</code> that records the product, your license code, and what the license allows. That is so the file and its terms stay together if you archive it or hand a finished design to a client.</p>
+      <p>PNG exports carry their resolution inside the file, so a print tool opens a large export at its real physical size instead of assuming 72 DPI.</p>
 
-      <h2 id="q10">Do images I use in the Studio leave my device?</h2>
+      <h2 id="q10">Which patterns are vector, and which are raster?</h2>
+      <p>Geometric Essentials, Botanical Linework, Mid-Century Shapes, and Tile & Terrazzo are <strong>vector</strong>. They are built from shapes, so they export as real SVG and scale to any size without softening.</p>
+      <p>Textures & Grain is <strong>raster</strong>, and deliberately so. Grain has no outline to describe — paper tooth, linen weave, and noise are pixels by nature, and tracing them into shapes would lose the thing that makes them read as texture. Those tiles ship at 512 x 512 and export as PNG or JPEG, including as a transparent overlay where the grain becomes the alpha channel so it can sit over your own artwork.</p>
+      <p>Patterns you make in Pattern Generator Studio are vector. Repeats you build in Repeat Builder are raster, because they are assembled from the images you brought in.</p>
+
+      <h2 id="q11">How large can I export?</h2>
+      <p>Browsers have a ceiling on how large an image they will produce, and it differs between devices. Production Studio measures yours rather than guessing, and never offers a size it cannot write — so an export does not fail quietly and hand you a blank file.</p>
+      <p>Tested maximum on a desktop browser: <strong>16,384 x 16,384 pixels</strong>, which is about 54 inches square at 300 DPI, and takes a few seconds. Phones and tablets are usually lower, and the Studio will tell you what yours measured.</p>
+      <p>Production Studio also carries preset sizes for common print work — square and rectangular fabric repeats, wallpaper repeat drops, and standard product print areas — and a custom size if none of them fits.</p>
+
+      <h2 id="q12">How do batch colorways work?</h2>
+      <p>Pick a pattern in Production Studio, set your output size and format, and export every colorway of it in one pass. They are previewed as a grid first, so you can see the set before producing it.</p>
+      <p>The files arrive in a single zip, named by a scheme you set — <code>{pattern}</code>, <code>{colorway}</code>, <code>{index}</code>, and <code>{size}</code> are filled in for you — so a batch arrives sorted instead of needing to be renamed afterwards. The license note is in the zip too.</p>
+      <p>Colorways you mix yourself and save in a Collection are yours and stay on your device; the batch covers the ones attached to the pattern.</p>
+
+      <h2 id="q13">Do images I use in the Studio leave my device?</h2>
       <p>No. Images you bring into the Studio — into Repeat Builder, for instance — are read and processed by your own browser, on your own machine. Nothing is uploaded, to us or to anyone else.</p>
       <p>That is not a policy we are promising to keep. There is no upload code in the Studio, so there is nowhere for your images to go.</p>
 
-      <h2 id="q11">How are the patterns made?</h2>
+      <h2 id="q14">How are the patterns made?</h2>
       <p>The patterns are created with AI assistance and generated in code. They are not made with AI image generators, and they are not made by using or tracing anyone else’s artwork.</p>
       <p>In practice that means the shapes, spacing, and repeat geometry are written as code, and AI was used as assistance while writing and refining that code. The output is drawn by the code, mathematically, which is also why every repeat tiles exactly.</p>
-      <p>Some marketplaces have their own rules about disclosing AI-assisted designs. Those rules are theirs, they differ from one to the next, and they change. Follow the rules of wherever you sell.</p>
+      <p>Every pattern is then checked by the build that produces it. Each one is rendered and its opposite edges are compared pixel by pixel, so a repeat that did not actually tile could not ship; anything that failed was redrawn rather than shipped. The tiled result was also reviewed by eye at several scales.</p>
 
-      <h2 id="q12">What is the difference between Collections and Studio Editions?</h2>
-      <p><strong>Collections</strong> are sets of finished seamless repeats. You open one, set your colors, change the scale, and export. They are the fastest route from buying something to having a pattern you can use.</p>
+      <h2 id="q15">What is the difference between Collections and Studio Editions?</h2>
+      <p><strong>Collections</strong> are sets of finished seamless repeats — 160 patterns across the five, each with four curated colorways. You open one, set your colors, change the scale, and export. They are the fastest route from buying something to having a pattern you can use.</p>
       <p><strong>Studio Editions</strong> are tools. Pattern Generator Studio makes new patterns from settings you adjust. Repeat Builder turns your own motifs into seamless repeats. Production Studio is the export side: vector SVG, large print sizes, batch colorways, and preset output sizes.</p>
       <p>They are not competing with each other. A Collection gives you patterns; Production Studio gets any of them out at production size and in production formats. Plenty of people will want one Collection and nothing else, and that is a perfectly good place to stop.</p>
 
-      <h2 id="q13">Can I get a refund?</h2>
+      <h2 id="q16">Can I get a refund?</h2>
       <p>Yes. A full refund on any purchase if you ask within 14 days, with no reason required. Write through the <a href="/contact/">Contact page</a> with your order number.</p>
       <p>Refunds go back to the original payment method within 5 business days of the request, and the payment provider's own processing may add a few days after that. The license ends when a purchase is refunded. The full terms are in the <a href="/refunds/">Refund Policy</a>.</p>
 
-      <h2 id="q14">Is there a subscription?</h2>
+      <h2 id="q17">Is there a subscription?</h2>
       <p>No. Every product is a single one-time purchase. There is no subscription, no recurring charge, and no trial that turns into a paid plan. You will never be charged again without buying something again.</p>
 
-      <h2 id="q15">Do you use cookies or analytics?</h2>
+      <h2 id="q18">Do you use cookies or analytics?</h2>
       <p>No cookies, no analytics, no advertising trackers, and no third-party scripts. The site stores your licenses and settings in your browser's own local storage, which is on your device and never transmitted. The <a href="/privacy/">Privacy Policy</a> covers it in full.</p>
 
       <h2>Something else?</h2>

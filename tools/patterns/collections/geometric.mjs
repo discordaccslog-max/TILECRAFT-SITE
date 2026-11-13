@@ -29,21 +29,60 @@ const RECIPES = {
   /* --- Grids --- */
 
   squareGrid(r, tile) {
-    const n = r.pick([4, 5, 6, 8]);
+    /*
+     * A ruled grid, which is only interesting if two of them do not come
+     * out the same. The line weight alone is not enough of a difference to
+     * read as a separate pattern, so the structure varies too: how fine the
+     * grid is, whether every other line is drawn lighter, whether the cells
+     * are subdivided, and what sits on the intersections.
+     */
+    const n = r.pick([3, 4, 5, 6, 8, 10]);
     const step = tile / n;
-    const w = step * r.range(0.06, 0.13);
+    const w = step * r.range(0.05, 0.15);
+    const emphasis = r.pick(['none', 'alternate', 'subdivide']);
+    const marks = r.pick(['none', 'dots', 'crosses', 'squares']);
     const out = [];
-    for (let i = 0; i < n; i++) {
-      out.push(line(i * step, -1, i * step, tile + 1, w, 'ink'));
-      out.push(line(-1, i * step, tile + 1, i * step, w, 'ink'));
+
+    if (emphasis === 'subdivide') {
+      // A finer grid behind the main one, which reads as graph paper.
+      const half = step / 2;
+      for (let i = 0; i < n * 2; i++) {
+        out.push(line(i * half, -1, i * half, tile + 1, w * 0.45, 'accent2'));
+        out.push(line(-1, i * half, tile + 1, i * half, w * 0.45, 'accent2'));
+      }
     }
-    if (r.chance(0.45)) {
+
+    for (let i = 0; i < n; i++) {
+      // Every other line lighter gives the grid a measured rhythm rather
+      // than an even mesh.
+      const light = emphasis === 'alternate' && i % 2 === 1;
+      const weight = light ? w * 0.5 : w;
+      const slot = light ? 'accent2' : 'ink';
+      out.push(line(i * step, -1, i * step, tile + 1, weight, slot));
+      out.push(line(-1, i * step, tile + 1, i * step, weight, slot));
+    }
+
+    if (marks !== 'none') {
+      const size = w * r.range(1.4, 2.4);
+      const every = r.chance(0.5) ? 1 : 2;
       for (let i = 0; i < n; i++) {
         for (let j = 0; j < n; j++) {
-          if ((i + j) % 2 === 0) out.push(dot(i * step, j * step, w * r.range(1.4, 2.2), 'accent'));
+          if (every === 2 && (i + j) % 2 !== 0) continue;
+          const x = i * step;
+          const y = j * step;
+
+          if (marks === 'dots') {
+            out.push(dot(x, y, size, 'accent'));
+          } else if (marks === 'squares') {
+            out.push({ t: 'rect', x: x - size, y: y - size, w: size * 2, h: size * 2, fill: 'accent' });
+          } else {
+            out.push(line(x - size, y, x + size, y, w * 0.8, 'accent'));
+            out.push(line(x, y - size, x, y + size, w * 0.8, 'accent'));
+          }
         }
       }
     }
+
     return out;
   },
 
@@ -400,7 +439,14 @@ const RECIPES = {
   },
 
   herringbone(r, tile) {
-    const n = r.pick([4, 6]);
+    /*
+     * The pieces alternate direction with (row + column) parity, so the
+     * pattern only repeats every two columns of pieces — four steps across.
+     * The count has to be a multiple of four for the tile to close, or the
+     * pieces meet the edge leaning the wrong way and every tile boundary
+     * shows as a line.
+     */
+    const n = r.pick([4, 8]);
     const step = tile / n;
     const w = step * r.range(0.3, 0.42);
     const out = [];

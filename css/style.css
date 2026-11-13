@@ -2041,3 +2041,51 @@ input[type='text']::placeholder {
 .prose a[href^='http'] {
   overflow-wrap: anywhere;
 }
+
+/* --------------------------------------------------------------------------
+   Real pattern previews
+   The storefront shows the actual patterns, rendered from the same files
+   the Studio uses, rather than decorative illustration.
+   -------------------------------------------------------------------------- */
+
+.preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr));
+  gap: 2px;
+  border: 2px solid var(--ink);
+  background: var(--ink);
+  overflow: hidden;
+}
+
+.preview__cell {
+  aspect-ratio: 1;
+  background-repeat: repeat;
+  background-position: center;
+  background-color: var(--paper);
+  min-height: 7rem;
+}
+
+@media (max-width: 40rem) {
+  .preview {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .preview__cell {
+    min-height: 6rem;
+  }
+}
+
+/* The sticky surface beside the scrolling content shows a real pattern. */
+.split__pattern {
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+  background-position: center;
+  background-color: var(--paper-sunk);
+  transition: opacity 180ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .split__pattern {
+    transition: none;
+  }
+}

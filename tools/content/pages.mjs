@@ -75,8 +75,8 @@ const home = {
 
   <div class="split" id="collections">
     <div class="split__canvas">
-      <canvas data-sticky-canvas aria-hidden="true" style="transition: opacity 180ms ease"></canvas>
-      <p class="canvas-note" data-canvas-label>Decorative composition — not a pattern preview</p>
+      <div data-sticky-canvas class="split__pattern" role="img" aria-label="A pattern from the collection in view"></div>
+      <p class="canvas-note" data-canvas-label></p>
     </div>
 
     <div class="split__content" data-collections>
@@ -295,9 +295,27 @@ const faqItems = [
   },
   {
     q: 'What file formats do I get?',
-    a: `<p>From the Collections, Pattern Generator Studio, and Repeat Builder: raster image exports, as single tiles and as larger sheets, with transparent-background options where that makes sense.</p>
-      <p>Production Studio adds true vector SVG export for the repeats that are built from shapes, large raster exports at high pixel density, batch colorway export, and preset output sizes for common print-on-demand and fabric printing requirements.</p>
-      <p>These are standard formats. They open in ordinary graphics software and you can do whatever you need with them afterwards.</p>`
+    a: `<p><strong>PNG</strong> and <strong>JPEG</strong> from every product. <strong>SVG</strong> from everything that is vector, which is four of the five Collections and Pattern Generator Studio.</p>
+      <p>Every download arrives as a <strong>zip</strong> holding the artwork and a short <code>LICENSE.txt</code> that records the product, your license code, and what the license allows. That is so the file and its terms stay together if you archive it or hand a finished design to a client.</p>
+      <p>PNG exports carry their resolution inside the file, so a print tool opens a large export at its real physical size instead of assuming 72 DPI.</p>`
+  },
+  {
+    q: 'Which patterns are vector, and which are raster?',
+    a: `<p>Geometric Essentials, Botanical Linework, Mid-Century Shapes, and Tile & Terrazzo are <strong>vector</strong>. They are built from shapes, so they export as real SVG and scale to any size without softening.</p>
+      <p>Textures & Grain is <strong>raster</strong>, and deliberately so. Grain has no outline to describe — paper tooth, linen weave, and noise are pixels by nature, and tracing them into shapes would lose the thing that makes them read as texture. Those tiles ship at 512 x 512 and export as PNG or JPEG, including as a transparent overlay where the grain becomes the alpha channel so it can sit over your own artwork.</p>
+      <p>Patterns you make in Pattern Generator Studio are vector. Repeats you build in Repeat Builder are raster, because they are assembled from the images you brought in.</p>`
+  },
+  {
+    q: 'How large can I export?',
+    a: `<p>Browsers have a ceiling on how large an image they will produce, and it differs between devices. Production Studio measures yours rather than guessing, and never offers a size it cannot write — so an export does not fail quietly and hand you a blank file.</p>
+      <p>Tested maximum on a desktop browser: <strong>16,384 x 16,384 pixels</strong>, which is about 54 inches square at 300 DPI, and takes a few seconds. Phones and tablets are usually lower, and the Studio will tell you what yours measured.</p>
+      <p>Production Studio also carries preset sizes for common print work — square and rectangular fabric repeats, wallpaper repeat drops, and standard product print areas — and a custom size if none of them fits.</p>`
+  },
+  {
+    q: 'How do batch colorways work?',
+    a: `<p>Pick a pattern in Production Studio, set your output size and format, and export every colorway of it in one pass. They are previewed as a grid first, so you can see the set before producing it.</p>
+      <p>The files arrive in a single zip, named by a scheme you set — <code>{pattern}</code>, <code>{colorway}</code>, <code>{index}</code>, and <code>{size}</code> are filled in for you — so a batch arrives sorted instead of needing to be renamed afterwards. The license note is in the zip too.</p>
+      <p>Colorways you mix yourself and save in a Collection are yours and stay on your device; the batch covers the ones attached to the pattern.</p>`
   },
   {
     q: 'Do images I use in the Studio leave my device?',
@@ -312,7 +330,7 @@ const faqItems = [
   },
   {
     q: 'What is the difference between Collections and Studio Editions?',
-    a: `<p><strong>Collections</strong> are sets of finished seamless repeats. You open one, set your colors, change the scale, and export. They are the fastest route from buying something to having a pattern you can use.</p>
+    a: `<p><strong>Collections</strong> are sets of finished seamless repeats — 160 patterns across the five, each with four curated colorways. You open one, set your colors, change the scale, and export. They are the fastest route from buying something to having a pattern you can use.</p>
       <p><strong>Studio Editions</strong> are tools. Pattern Generator Studio makes new patterns from settings you adjust. Repeat Builder turns your own motifs into seamless repeats. Production Studio is the export side: vector SVG, large print sizes, batch colorways, and preset output sizes.</p>
       <p>They are not competing with each other. A Collection gives you patterns; Production Studio gets any of them out at production size and in production formats. Plenty of people will want one Collection and nothing else, and that is a perfectly good place to stop.</p>`
   },
@@ -514,15 +532,15 @@ export function productPage(product) {
           product.name
         )}</span></h1>
         <p class="lede" data-product-short>${h(product.short)}</p>
+        <p class="updated" data-pattern-count hidden></p>
       </div>
     </div>
 
     <div class="wrap product-layout">
       <div>
-        <div class="product-art">
-          <canvas data-product-art aria-hidden="true"></canvas>
-        </div>
-        <p class="canvas-note" style="position:static;border:0;background:none;padding-left:0">Decorative composition — not a pattern preview</p>
+        <div class="preview" data-product-art role="img"
+             aria-label="Patterns from ${h(product.name)}, shown at their repeat size"></div>
+        <p class="canvas-note" data-art-note style="position:static;border:0;background:none;padding-left:0"></p>
 
         <div class="prose" style="padding-block:1.5rem 0" data-product-body></div>
       </div>

@@ -12,6 +12,7 @@
 
 import { makeZip, blobBytes } from './zip.mjs';
 import { renderSheet, renderTile, svgTile } from './render.mjs';
+import { SITE } from '../../../js/site-config.js';
 
 /* ------------------------------------------------------------------ *
  * How large an export this device can actually manage
@@ -73,7 +74,13 @@ function canHoldPixels(size) {
 
 /** A plain description of the limit, for showing in the interface. */
 export function describeLimit(size) {
-  return size.toLocaleString('en-US') + ' x ' + size.toLocaleString('en-US') + ' pixels';
+  // Pixels are what the browser limits; inches at 300 DPI are what someone
+  // choosing a print size is actually thinking in, so both are given.
+  const inches = (size / 300).toFixed(1);
+  return (
+    size.toLocaleString('en-US') + ' x ' + size.toLocaleString('en-US') +
+    ' pixels (about ' + inches + ' inches square at 300 DPI)'
+  );
 }
 
 /* ------------------------------------------------------------------ *
@@ -169,7 +176,7 @@ export function licenseNote(context, extra = {}) {
     'This license is perpetual for patterns already downloaded, and ends if the',
     'purchase is refunded.',
     '',
-    'Full license: https://tilecraft-site.vercel.app/license/',
+    'Full license: ' + SITE.origin + '/license/',
     ''
   );
 
@@ -179,6 +186,25 @@ export function licenseNote(context, extra = {}) {
 /* ------------------------------------------------------------------ *
  * Exports
  * ------------------------------------------------------------------ */
+
+/**
+ * Fill in a batch naming scheme.
+ *
+ * The placeholders are the ones the Production Studio offers, and each is
+ * made safe for a filename on its own, so a colorway called "Soft / Warm"
+ * cannot introduce a path separator into the archive.
+ *
+ * @param {string} scheme  e.g. '{pattern}-{colorway}'
+ * @param {object} parts   pattern, colorway, index, width, height
+ */
+export function fileNameFor(scheme, parts) {
+  const filled = String(scheme)
+    .replace(/\{pattern\}/g, safeName(parts.pattern))
+    .replace(/\{colorway\}/g, safeName(parts.colorway))
+    .replace(/\{index\}/g, String(parts.index).padStart(2, '0'))
+    .replace(/\{size\}/g, parts.width + 'x' + parts.height);
+  return safeName(filled);
+}
 
 export function safeName(text) {
   return String(text).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'pattern';
@@ -255,16 +281,18 @@ export async function exportBatch(options) {
     // Yield between items so a long batch does not lock the interface.
     await new Promise((resolve) => setTimeout(resolve, 0));
 
-    const name = naming
-      .replace(/\{pattern\}/g, safeName(pattern.name))
-      .replace(/\{colorway\}/g, safeName(colorway.name))
-      .replace(/\{index\}/g, String(index).padStart(2, '0'))
-      .replace(/\{size\}/g, width + 'x' + height);
+    const name = fileNameFor(naming, {
+      pattern: pattern.name,
+      colorway: colorway.name,
+      index,
+      width,
+      height
+    });
 
     if (format === 'svg') {
       if (!pattern.isVector) continue;
       entries.push({
-        name: safeName(name) + '.svg',
+        name: name + '.svg',
         data: svgTile(pattern.spec, colorway.colors, { standalone: true, transparent })
       });
       continue;
@@ -277,7 +305,7 @@ export async function exportBatch(options) {
 
     let bytes = await canvasBytes(canvas, format, quality);
     if (format === 'png') bytes = setPngDpi(bytes, dpi);
-    entries.push({ name: safeName(name) + '.' + (format === 'jpeg' ? 'jpg' : 'png'), data: bytes });
+    entries.push({ name: name + '.' + (format === 'jpeg' ? 'jpg' : 'png'), data: bytes });
   }
 
   if (!entries.length) throw new Error('There was nothing to export.');
@@ -286,7 +314,7 @@ export async function exportBatch(options) {
     name: 'LICENSE.txt',
     data: licenseNote(context, {
       pattern: pattern.name,
-      colorway: entries.length - 0 + ' colorways',
+      colorway: entries.length + ' colorways',
       size: format === 'svg' ? 'vector' : width + ' x ' + height + ' px at ' + dpi + ' DPI'
     })
   });
@@ -297,4 +325,7 @@ export async function exportBatch(options) {
   };
 }
 
-export default { exportPattern, exportBatch, maxExportSize, describeLimit, licenseNote, setPngDpi, safeName };
+export default {
+  exportPattern, exportBatch, maxExportSize, describeLimit,
+  licenseNote, setPngDpi, safeName, fileNameFor
+};

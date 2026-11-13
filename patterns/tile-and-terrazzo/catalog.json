@@ -228,14 +228,14 @@
     "triangles"
    ],
    "type": "vector",
-   "tile": 300,
+   "tile": 340,
    "svg": "svg/tlz-013.svg",
    "raster": null,
    "colorways": [
-    "Clay",
-    "Mint",
+    "Terracotta",
     "Monochrome",
-    "Harbor"
+    "Midnight",
+    "Slate"
    ]
   },
   {
@@ -502,10 +502,10 @@
    "svg": "svg/tlz-028.svg",
    "raster": null,
    "colorways": [
-    "Terracotta",
-    "Slate",
     "Riso",
-    "Midnight"
+    "Monochrome",
+    "Terracotta",
+    "Harbor"
    ]
   },
   {

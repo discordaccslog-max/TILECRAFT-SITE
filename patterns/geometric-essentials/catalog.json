@@ -626,10 +626,10 @@
    "svg": "svg/geo-035.svg",
    "raster": null,
    "colorways": [
+    "Monochrome",
+    "Slate",
     "Night Press",
-    "Midnight",
-    "Riso",
-    "Ink Blue"
+    "Riso"
    ]
   },
   {

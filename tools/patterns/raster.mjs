@@ -333,6 +333,184 @@ export function checkSeams(image) {
   };
 }
 
+/* ------------------------------------------------------------------ *
+ * Periodicity
+ * ------------------------------------------------------------------ */
+
+/**
+ * Move a primitive bodily. Only the positional fields change; radii,
+ * widths, and angles describe the shape, not where it sits.
+ */
+function movePrimitive(p, dx, dy) {
+  const q = { ...p };
+  if ('x' in q) q.x += dx;
+  if ('y' in q) q.y += dy;
+  if ('cx' in q) q.cx += dx;
+  if ('cy' in q) q.cy += dy;
+  if (q.pts) q.pts = q.pts.map(([x, y]) => [x + dx, y + dy]);
+  return q;
+}
+
+/**
+ * Is this tile actually periodic, or does it only look seamless at its
+ * edges?
+ *
+ * Comparing edges catches a tile whose artwork stops at the boundary, but
+ * not one whose construction fails to close — a herringbone whose pieces
+ * lean the wrong way after a whole number of tiles, say, or a two-colour
+ * alternation whose period does not divide the tile. Those tile cleanly at
+ * the pixels along the join and still show a line across a wall.
+ *
+ * The honest test is translation. A tile that truly repeats describes an
+ * infinite pattern, so drawing that pattern shifted by half a tile must
+ * give the same picture as sliding the original image by half its width and
+ * height. Anything that does not close shows up immediately, wherever in
+ * the tile the failure is.
+ *
+ * @param {object} spec    the pattern, as the engine takes it
+ * @param {object} colors  a colorway
+ * @param {number} size    pixels; an even number, so half is exact
+ * @returns {{mean: number, worst: number, ok: boolean}}
+ */
+export function checkPeriodic(spec, colors, size = 256) {
+  const tile = spec.tile;
+  const half = Math.floor(size / 2);
+
+  const base = rasterize(spec, colors, size);
+
+  // Shift everything by half a tile, then repeat each primitive at the
+  // eight neighbouring tile positions so a shape that now sits outside is
+  // still drawn where the infinite pattern would put it.
+  const spread = [];
+  for (const p of spec.draw || []) {
+    const moved = movePrimitive(p, tile / 2, tile / 2);
+    for (const dx of [-tile, 0, tile]) {
+      for (const dy of [-tile, 0, tile]) spread.push(movePrimitive(moved, dx, dy));
+    }
+  }
+
+  const shifted = rasterize({ ...spec, draw: spread }, colors, size);
+
+  let total = 0;
+  let worst = 0;
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+      const a = (((y + half) % size) * size + ((x + half) % size)) * 3;
+      const b = (y * size + x) * 3;
+      const d =
+        (Math.abs(base.data[a] - shifted.data[b]) +
+          Math.abs(base.data[a + 1] - shifted.data[b + 1]) +
+          Math.abs(base.data[a + 2] - shifted.data[b + 2])) / 3;
+      total += d;
+      if (d > worst) worst = d;
+    }
+  }
+
+  const mean = total / (size * size);
+
+  // A tile that closes properly comes back identical apart from the odd
+  // pixel at a mitred tip, where antialiasing lands differently at a
+  // half-pixel offset. A tile that does not close is out by whole shapes.
+  return { mean, worst, ok: mean < 1 };
+}
+
+/* ------------------------------------------------------------------ *
+ * Telling patterns apart
+ * ------------------------------------------------------------------ */
+
+/**
+ * A coarse description of what a tile looks like.
+ *
+ * The tile is divided into a grid and the mean tone of each cell recorded.
+ * Two patterns with the same fingerprint are the same picture as far as a
+ * customer scrolling a grid of thumbnails is concerned, whatever their
+ * specs say — which is the thing worth checking, because a collection of
+ * forty patterns is only worth forty if they are actually different.
+ *
+ * @returns {number[]} one value per cell
+ */
+export function fingerprint(image, cells = 16) {
+  const step = Math.floor(image.width / cells);
+  const print = [];
+
+  for (let gy = 0; gy < cells; gy++) {
+    for (let gx = 0; gx < cells; gx++) {
+      let total = 0;
+      let count = 0;
+      for (let y = gy * step; y < (gy + 1) * step; y++) {
+        for (let x = gx * step; x < (gx + 1) * step; x++) {
+          total += image.data[(y * image.width + x) * 3];
+          count++;
+        }
+      }
+      print.push(total / count);
+    }
+  }
+
+  return print;
+}
+
+/**
+ * A fingerprint for a texture.
+ *
+ * Mean tone cannot tell grain apart: sandpaper and linen both average to
+ * the same flat grey, so the measure that matters is how the tile varies,
+ * not what it averages to. Each cell contributes its mean and its spread,
+ * and the whole tile contributes its roughness along each axis — which is
+ * what separates a weave from a speckle, and a fine grit from a coarse one.
+ */
+export function textureFingerprint(image, cells = 8) {
+  const step = Math.floor(image.width / cells);
+  const out = [];
+
+  for (let gy = 0; gy < cells; gy++) {
+    for (let gx = 0; gx < cells; gx++) {
+      let sum = 0;
+      let squares = 0;
+      let count = 0;
+      for (let y = gy * step; y < (gy + 1) * step; y++) {
+        for (let x = gx * step; x < (gx + 1) * step; x++) {
+          const v = image.data[(y * image.width + x) * 3];
+          sum += v;
+          squares += v * v;
+          count++;
+        }
+      }
+      const mean = sum / count;
+      out.push(mean, Math.sqrt(Math.max(0, squares / count - mean * mean)));
+    }
+  }
+
+  // Roughness across and down, weighted up so direction counts for as much
+  // as tone — a vertical drag and a horizontal one are different textures.
+  for (const down of [false, true]) {
+    let total = 0;
+    let count = 0;
+    for (let y = 1; y < image.height; y++) {
+      for (let x = 1; x < image.width; x++) {
+        const here = (y * image.width + x) * 3;
+        const there = down ? ((y - 1) * image.width + x) * 3 : (y * image.width + x - 1) * 3;
+        total += Math.abs(image.data[here] - image.data[there]);
+        count++;
+      }
+    }
+    out.push((total / count) * 8);
+  }
+
+  return out;
+}
+
+/**
+ * How far apart two fingerprints are, as a mean difference per cell.
+ * Zero means identical; a few units means the difference would not be
+ * noticed in a thumbnail.
+ */
+export function fingerprintDistance(a, b) {
+  let total = 0;
+  for (let i = 0; i < a.length; i++) total += Math.abs(a[i] - b[i]);
+  return total / a.length;
+}
+
 /**
  * Is the tile well filled, without a large bare patch or a solid block?
  * Coverage is measured against the background color over a grid of cells.

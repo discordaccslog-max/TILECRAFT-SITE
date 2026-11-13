@@ -27,7 +27,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { renderSvg, colorsOf } from '../js/patterns/engine.mjs';
-import { rasterize, checkSeams, checkCoverage, encodePng } from './patterns/raster.mjs';
+import {
+  rasterize, checkSeams, checkCoverage, checkPeriodic,
+  fingerprint, fingerprintDistance, textureFingerprint, encodePng
+} from './patterns/raster.mjs';
 import { rng, colorwaysFor, wrap } from './patterns/lib.mjs';
 
 import * as geometric from './patterns/collections/geometric.mjs';
@@ -38,8 +41,42 @@ import * as tiles from './patterns/collections/tile.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const MODULES = [geometric, textures, botanical, midcentury, tiles];
-const ATTEMPTS = 14;
+const ATTEMPTS = 30;
 const CHECK_SIZE = 320;
+
+/*
+ * Patterns are compared in flat colours, so two of them are judged on what
+ * they draw rather than on which colorway came first — a buyer can recolor
+ * either one into the other, so colour is not what makes them different.
+ */
+const FLAT = { bg: '#ffffff', ink: '#000000', accent: '#808080', accent2: '#c0c0c0' };
+
+/*
+ * How far apart two patterns in one collection have to look.
+ *
+ * Measured rather than guessed: across the collections, patterns that are
+ * genuinely different designs sit at least 6 apart on this scale, while a
+ * pair that differed only in line weight measured 0.0. Four sits in the gap
+ * between the two, so a duplicate is caught and a close relation is not.
+ */
+const LOOK_APART = 4;
+
+/*
+ * The same idea for textures, on the grain scale.
+ *
+ * Measured the same way: across the texture pack, pairs that were the same
+ * grain at two sizes sat between 1 and 5 apart, while the median pair sat
+ * at 27. Eight is clear of the duplicates and well under the median, so a
+ * pack can still hold several weaves without them being the same weave.
+ *
+ * The first attempt at this pack drew thirty textures from fifteen recipes,
+ * and a threshold had to be set high to stop each recipe's second draw
+ * being a sibling of its first. That was treating the symptom: the pack now
+ * has a recipe per texture, so the figure only has to catch two unrelated
+ * recipes landing on the same surface. The sheet was reviewed by eye after
+ * it was set, which is the check that actually matters.
+ */
+const GRAIN_APART = 8;
 
 /* ------------------------------------------------------------------ *
  * Helpers
@@ -85,7 +122,15 @@ function planFor(module) {
   return plan;
 }
 
-function validateSvg(svg, tile) {
+function validateSvg(document, tile) {
+  // A standalone document opens with the XML declaration, which is what the
+  // Studio exports and what is written to disk, so the element itself is
+  // checked after it.
+  if (!document.startsWith('<?xml version="1.0" encoding="UTF-8"?>\n')) {
+    return 'has no XML declaration';
+  }
+  const svg = document.replace(/^<\?xml[^>]*\?>\s*/, '');
+
   if (!svg.startsWith('<svg ')) return 'does not start with an svg element';
   if (!svg.endsWith('</svg>')) return 'is not closed';
   if (!svg.includes('viewBox="0 0 ' + tile + ' ' + tile + '"')) return 'has the wrong viewBox';
@@ -139,6 +184,10 @@ function buildRasterCollection(module, report) {
   const catalog = [];
   let regenerated = 0;
 
+  // As with the vector collections: a texture that looks like one already
+  // in the pack is drawn again rather than shipped under a second name.
+  const takenLooks = [];
+
   plan.forEach((entry, index) => {
     const id = idFor(module.PREFIX, index);
     const meta = module.metaFor(entry.key, entry.seen);
@@ -182,7 +231,33 @@ function buildRasterCollection(module, report) {
         continue;
       }
 
-      accepted = { gray, mean, seed, attempt };
+      /*
+       * Faintness is not the same as subtlety. A paper grain is meant to be
+       * quiet, but one whose whole tonal range is a couple of dozen levels
+       * disappears the moment it is used, so it is drawn again rather than
+       * sold. The floor is set from the pack: the one texture that was
+       * invisible on the contact sheet spanned 28 levels, and the quietest
+       * usable one spanned 57.
+       */
+      const tones = [];
+      for (let i = 0; i < image.data.length; i += 3 * 7) tones.push(image.data[i]);
+      tones.sort((a, b) => a - b);
+      const spread = tones[Math.floor(tones.length * 0.95)] - tones[Math.floor(tones.length * 0.05)];
+      if (spread < 60) {
+        lastProblem = 'the texture is too faint to see (it spans only ' + spread + ' levels of 255)';
+        continue;
+      }
+
+      const look = textureFingerprint(image, 8);
+      const twin = takenLooks.find((seen) => fingerprintDistance(seen.look, look) < GRAIN_APART);
+      if (twin) {
+        lastProblem =
+          'it looks like ' + twin.id + ' (' +
+          fingerprintDistance(twin.look, look).toFixed(1) + ' apart, ' + GRAIN_APART + ' needed)';
+        continue;
+      }
+
+      accepted = { gray, mean, seed, attempt, look };
       if (attempt > 0) regenerated++;
       break;
     }
@@ -191,6 +266,8 @@ function buildRasterCollection(module, report) {
       report.failures.push(collection + '/' + id + ' (' + entry.key + '): ' + lastProblem);
       return;
     }
+
+    takenLooks.push({ id, look: accepted.look });
 
     const bytes = new Uint8Array(size * size);
     for (let i = 0; i < bytes.length; i++) bytes[i] = Math.round(accepted.gray[i] * 255);
@@ -288,6 +365,14 @@ function buildCollection(module, report) {
   const catalog = [];
   let regenerated = 0;
 
+  /*
+   * What has already been accepted, so a pattern that looks like one
+   * earlier in the collection can be rejected and drawn again. Two
+   * patterns differing only in line weight are one pattern with two names,
+   * and a buyer counting forty would be right to feel short-changed.
+   */
+  const takenLooks = [];
+
   plan.forEach((entry, index) => {
     const id = idFor(prefix, index);
     const meta = module.metaFor(entry.key, entry.seen);
@@ -338,6 +423,17 @@ function buildCollection(module, report) {
         continue;
       }
 
+      // Matching edges is not the same as repeating. A construction that
+      // does not close shows a line across a wall while its edges still
+      // meet, so the tile is checked by translation as well.
+      const periodic = checkPeriodic(spec, colors, 256);
+      if (!periodic.ok) {
+        lastProblem =
+          'the tile does not repeat (shifting it by half a tile moves the artwork by ' +
+          periodic.mean.toFixed(2) + ' per pixel, worst ' + periodic.worst.toFixed(0) + ')';
+        continue;
+      }
+
       const coverage = checkCoverage(image, colors.bg, module.COVERAGE);
       if (!coverage.ok) {
         lastProblem =
@@ -347,14 +443,27 @@ function buildCollection(module, report) {
         continue;
       }
 
-      const svg = renderSvg(spec, colors, { standalone: false });
+      // The same standalone document the Studio exports, so a file taken
+      // from here and a file exported from a module are identical.
+      const svg = renderSvg(spec, colors, { standalone: true });
       const svgProblem = validateSvg(svg, tile);
       if (svgProblem) {
         lastProblem = 'the SVG ' + svgProblem;
         continue;
       }
 
-      accepted = { spec, svg, image, colors, attempt };
+      // Flat colours, so two patterns are compared on their drawing
+      // rather than on which colorway happened to come first.
+      const look = fingerprint(rasterize(spec, FLAT, 192), 16);
+      const twin = takenLooks.find((seen) => fingerprintDistance(seen.look, look) < LOOK_APART);
+      if (twin) {
+        lastProblem =
+          'it looks like ' + twin.id + ' (' +
+          fingerprintDistance(twin.look, look).toFixed(1) + ' apart, ' + LOOK_APART + ' needed)';
+        continue;
+      }
+
+      accepted = { spec, svg, image, colors, attempt, look };
       if (attempt > 0) regenerated++;
       break;
     }
@@ -363,6 +472,8 @@ function buildCollection(module, report) {
       report.failures.push(collection + '/' + id + ' (' + entry.key + '): ' + lastProblem);
       return;
     }
+
+    takenLooks.push({ id, look: accepted.look });
 
     fs.writeFileSync(path.join(svgDir, id + '.svg'), accepted.svg + '\n');
 
@@ -445,6 +556,34 @@ for (const c of report.collections) {
     String(c.colorways).padStart(4) + ' colorways' +
     (c.regenerated ? '   (' + c.regenerated + ' regenerated)' : '')
   );
+}
+
+/* ------------------------------------------------------------------ *
+ * A summary the site reads
+ *
+ * The product pages state how many patterns and colorways a collection
+ * holds. Those numbers come from here, written from what was actually
+ * generated, so a page can never claim a count the files do not back up.
+ * ------------------------------------------------------------------ */
+
+if (!only) {
+  const summary = {
+    built: new Date().toISOString().slice(0, 10),
+    collections: {},
+    totals: { patterns: 0, colorways: 0 }
+  };
+
+  for (const c of report.collections) {
+    summary.collections[c.collection] = {
+      patterns: c.count,
+      colorwaysPerPattern: 4,
+      colorways: c.colorways
+    };
+    summary.totals.patterns += c.count;
+    summary.totals.colorways += c.colorways;
+  }
+
+  fs.writeFileSync(path.join(root, 'patterns', 'index.json'), JSON.stringify(summary, null, 1));
 }
 
 const total = report.collections.reduce((n, c) => n + c.count, 0);

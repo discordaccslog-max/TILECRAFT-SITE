@@ -111,8 +111,8 @@
 
   <div class="split" id="collections">
     <div class="split__canvas">
-      <canvas data-sticky-canvas aria-hidden="true" style="transition: opacity 180ms ease"></canvas>
-      <p class="canvas-note" data-canvas-label>Decorative composition — not a pattern preview</p>
+      <div data-sticky-canvas class="split__pattern" role="img" aria-label="A pattern from the collection in view"></div>
+      <p class="canvas-note" data-canvas-label></p>
     </div>
 
     <div class="split__content" data-collections>
@@ -169,6 +169,7 @@
       <h2>How the patterns are made</h2>
       <p>The patterns are created with AI assistance and generated in code. They are not made with AI image generators, and they are not made by using or tracing anyone else’s artwork.</p>
       <p>In practice that means the shapes, spacing, and repeat geometry are written as code, and AI was used as assistance while writing and refining that code. The output is drawn by the code, mathematically, which is also why every repeat tiles exactly.</p>
+      <p>Every pattern is then checked by the build that produces it. Each one is rendered and its opposite edges are compared pixel by pixel, so a repeat that did not actually tile could not ship; anything that failed was redrawn rather than shipped. The tiled result was also reviewed by eye at several scales.</p>
       <p>Some marketplaces have their own rules about disclosing AI-assisted designs. Those rules are theirs, they differ from one to the next, and they change. Follow the rules of wherever you sell.</p>
     </div>
   </section>

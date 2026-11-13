@@ -19,13 +19,7 @@ import { el, loadStyles, slider, segmented, toggle, status, guard, debounce } fr
 import { createStage, createMockups } from '../_shared/viewer.mjs';
 import { makeZip, blobBytes } from '../_shared/zip.mjs';
 import { licenseNote, maxExportSize, describeLimit, safeName, setPngDpi } from '../_shared/export.mjs';
-
-const LAYOUTS = [
-  { value: 'full', label: 'Full drop' },
-  { value: 'half', label: 'Half drop' },
-  { value: 'brick', label: 'Brick' },
-  { value: 'mirror', label: 'Mirror' }
-];
+import { LAYOUTS, planRepeat } from './layout.mjs';
 
 const ACCEPT = 'image/png,image/jpeg,image/svg+xml';
 const MAX_BYTES = 12 * 1024 * 1024;
@@ -165,46 +159,16 @@ export async function mount(container, context) {
       return paint();
     }
 
-    const columns = Math.max(1, Math.round(1 / Math.max(0.12, state.scale)));
-    const cell = tile / columns;
-    const size = cell * (1 - state.spacing);
-
-    for (let row = 0; row < columns; row++) {
-      for (let col = 0; col < columns; col++) {
-        const motif = state.motifs[(row * columns + col) % state.motifs.length];
-
-        let x = (col + 0.5) * cell;
-        const y = (row + 0.5) * cell;
-        let rotation = state.rotation;
-        let flipX = false;
-        let flipY = false;
-
-        if (state.layout === 'half') x += row % 2 ? cell * state.offset : 0;
-        else if (state.layout === 'brick') x += row % 2 ? cell * 0.5 : 0;
-        else if (state.layout === 'mirror') {
-          flipX = col % 2 === 1;
-          flipY = row % 2 === 1;
-        }
-
-        // Draw at the position and at every wrapped copy it touches.
-        for (const dx of [0, -tile, tile]) {
-          for (const dy of [0, -tile, tile]) {
-            const px = ((x % tile) + tile) % tile + dx;
-            const py = y + dy;
-            if (px + size / 2 < 0 || px - size / 2 > tile) continue;
-            if (py + size / 2 < 0 || py - size / 2 > tile) continue;
-
-            ctx.save();
-            if (flipX || flipY) {
-              ctx.translate(px, py);
-              ctx.scale(flipX ? -1 : 1, flipY ? -1 : 1);
-              ctx.translate(-px, -py);
-            }
-            drawMotifAt(ctx, motif, px, py, size, rotation);
-            ctx.restore();
-          }
-        }
+    for (const place of planRepeat(state, tile, state.motifs.length)) {
+      const motif = state.motifs[place.motif];
+      ctx.save();
+      if (place.flipX || place.flipY) {
+        ctx.translate(place.x, place.y);
+        ctx.scale(place.flipX ? -1 : 1, place.flipY ? -1 : 1);
+        ctx.translate(-place.x, -place.y);
       }
+      drawMotifAt(ctx, motif, place.x, place.y, place.size, place.rotation);
+      ctx.restore();
     }
 
     tileCanvas = canvas;

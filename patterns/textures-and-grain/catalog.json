@@ -115,10 +115,10 @@
    "raster": "tex/tex-006.png",
    "thumb": "tex/tex-006-thumb.png",
    "colorways": [
-    "Ochre",
-    "Slate",
+    "Sage",
+    "Monochrome",
     "Midnight",
-    "Clay"
+    "Slate"
    ]
   },
   {
@@ -173,10 +173,10 @@
    "raster": "tex/tex-009.png",
    "thumb": "tex/tex-009-thumb.png",
    "colorways": [
+    "Midnight",
     "Clay",
-    "Ochre",
-    "Slate",
-    "Midnight"
+    "Sage",
+    "Harbor"
    ]
   },
   {
@@ -298,11 +298,11 @@
   },
   {
    "id": "tex-016",
-   "name": "Laid Paper",
+   "name": "Crackle",
    "tags": [
-    "paper",
-    "grain",
-    "subtle"
+    "surface",
+    "cells",
+    "organic"
    ],
    "type": "raster",
    "tile": 512,
@@ -310,19 +310,19 @@
    "raster": "tex/tex-016.png",
    "thumb": "tex/tex-016-thumb.png",
    "colorways": [
-    "Slate",
+    "Blush",
+    "Sage",
     "Clay",
-    "Monochrome",
-    "Sage"
+    "Slate"
    ]
   },
   {
    "id": "tex-017",
-   "name": "Rough Stock",
+   "name": "Aggregate",
    "tags": [
-    "paper",
-    "grain",
-    "strong"
+    "surface",
+    "cells",
+    "stone"
    ],
    "type": "raster",
    "tile": 512,
@@ -330,18 +330,19 @@
    "raster": "tex/tex-017.png",
    "thumb": "tex/tex-017-thumb.png",
    "colorways": [
+    "Clay",
+    "Sage",
     "Monochrome",
-    "Ochre",
-    "Slate",
-    "Midnight"
+    "Slate"
    ]
   },
   {
    "id": "tex-018",
-   "name": "Static",
+   "name": "Hammered",
    "tags": [
-    "noise",
-    "subtle"
+    "surface",
+    "cells",
+    "metal"
    ],
    "type": "raster",
    "tile": 512,
@@ -349,19 +350,19 @@
    "raster": "tex/tex-018.png",
    "thumb": "tex/tex-018-thumb.png",
    "colorways": [
-    "Clay",
-    "Ochre",
-    "Blush",
-    "Sage"
+    "Slate",
+    "Monochrome",
+    "Midnight",
+    "Blush"
    ]
   },
   {
    "id": "tex-019",
-   "name": "Tooth",
+   "name": "Twill",
    "tags": [
-    "noise",
-    "grain",
-    "strong"
+    "weave",
+    "fabric",
+    "diagonal"
    ],
    "type": "raster",
    "tile": 512,
@@ -369,18 +370,19 @@
    "raster": "tex/tex-019.png",
    "thumb": "tex/tex-019-thumb.png",
    "colorways": [
-    "Midnight",
+    "Monochrome",
     "Slate",
-    "Ochre",
-    "Harbor"
+    "Blush",
+    "Midnight"
    ]
   },
   {
    "id": "tex-020",
-   "name": "Plain Weave",
+   "name": "Knit",
    "tags": [
     "weave",
-    "fabric"
+    "fabric",
+    "knit"
    ],
    "type": "raster",
    "tile": 512,
@@ -388,18 +390,19 @@
    "raster": "tex/tex-020.png",
    "thumb": "tex/tex-020-thumb.png",
    "colorways": [
-    "Clay",
     "Ochre",
-    "Harbor",
-    "Midnight"
+    "Blush",
+    "Monochrome",
+    "Sage"
    ]
   },
   {
    "id": "tex-021",
-   "name": "Duck Weave",
+   "name": "Corduroy",
    "tags": [
-    "weave",
-    "fabric"
+    "fabric",
+    "directional",
+    "lines"
    ],
    "type": "raster",
    "tile": 512,
@@ -407,18 +410,19 @@
    "raster": "tex/tex-021.png",
    "thumb": "tex/tex-021-thumb.png",
    "colorways": [
-    "Monochrome",
-    "Harbor",
-    "Blush",
-    "Ochre"
+    "Clay",
+    "Midnight",
+    "Slate",
+    "Monochrome"
    ]
   },
   {
    "id": "tex-022",
-   "name": "Pointillist",
+   "name": "Scratched",
    "tags": [
-    "stipple",
-    "dots"
+    "wear",
+    "directional",
+    "lines"
    ],
    "type": "raster",
    "tile": 512,
@@ -426,19 +430,19 @@
    "raster": "tex/tex-022.png",
    "thumb": "tex/tex-022-thumb.png",
    "colorways": [
-    "Monochrome",
+    "Slate",
     "Sage",
-    "Midnight",
-    "Blush"
+    "Clay",
+    "Harbor"
    ]
   },
   {
    "id": "tex-023",
-   "name": "Grit",
+   "name": "Halftone",
    "tags": [
-    "stipple",
     "dots",
-    "strong"
+    "print",
+    "screen"
    ],
    "type": "raster",
    "tile": 512,
@@ -446,18 +450,19 @@
    "raster": "tex/tex-023.png",
    "thumb": "tex/tex-023-thumb.png",
    "colorways": [
-    "Sage",
     "Monochrome",
+    "Slate",
     "Midnight",
     "Blush"
    ]
   },
   {
    "id": "tex-024",
-   "name": "Satin Finish",
+   "name": "Blotted",
    "tags": [
-    "brushed",
-    "directional"
+    "ink",
+    "organic",
+    "print"
    ],
    "type": "raster",
    "tile": 512,
@@ -465,18 +470,18 @@
    "raster": "tex/tex-024.png",
    "thumb": "tex/tex-024-thumb.png",
    "colorways": [
-    "Harbor",
-    "Monochrome",
-    "Slate",
-    "Ochre"
+    "Midnight",
+    "Sage",
+    "Clay",
+    "Slate"
    ]
   },
   {
    "id": "tex-025",
-   "name": "Combed",
+   "name": "Marbled",
    "tags": [
-    "brushed",
-    "directional",
+    "organic",
+    "swirl",
     "lines"
    ],
    "type": "raster",
@@ -487,16 +492,17 @@
    "colorways": [
     "Midnight",
     "Clay",
-    "Monochrome",
-    "Ochre"
+    "Blush",
+    "Monochrome"
    ]
   },
   {
    "id": "tex-026",
-   "name": "Lime Wash",
+   "name": "Herringbone",
    "tags": [
-    "surface",
-    "organic"
+    "weave",
+    "fabric",
+    "chevron"
    ],
    "type": "raster",
    "tile": 512,
@@ -504,19 +510,19 @@
    "raster": "tex/tex-026.png",
    "thumb": "tex/tex-026-thumb.png",
    "colorways": [
-    "Harbor",
-    "Monochrome",
+    "Midnight",
     "Blush",
-    "Ochre"
+    "Harbor",
+    "Slate"
    ]
   },
   {
    "id": "tex-027",
-   "name": "Wash",
+   "name": "Fish Scale",
    "tags": [
-    "surface",
-    "organic",
-    "subtle"
+    "scallop",
+    "curves",
+    "geometric"
    ],
    "type": "raster",
    "tile": 512,
@@ -525,17 +531,18 @@
    "thumb": "tex/tex-027-thumb.png",
    "colorways": [
     "Midnight",
-    "Monochrome",
     "Clay",
-    "Sage"
+    "Blush",
+    "Ochre"
    ]
   },
   {
    "id": "tex-028",
-   "name": "Weft Lines",
+   "name": "Pitted",
    "tags": [
-    "lines",
-    "mesh"
+    "surface",
+    "wear",
+    "cast"
    ],
    "type": "raster",
    "tile": 512,
@@ -544,18 +551,18 @@
    "thumb": "tex/tex-028-thumb.png",
    "colorways": [
     "Slate",
-    "Monochrome",
+    "Clay",
     "Ochre",
-    "Midnight"
+    "Harbor"
    ]
   },
   {
    "id": "tex-029",
-   "name": "Abrasive",
+   "name": "Striated",
    "tags": [
-    "noise",
-    "grain",
-    "strong"
+    "lines",
+    "stone",
+    "bands"
    ],
    "type": "raster",
    "tile": 512,
@@ -563,18 +570,19 @@
    "raster": "tex/tex-029.png",
    "thumb": "tex/tex-029-thumb.png",
    "colorways": [
+    "Ochre",
     "Monochrome",
-    "Sage",
     "Slate",
-    "Harbor"
+    "Sage"
    ]
   },
   {
    "id": "tex-030",
-   "name": "Rag",
+   "name": "Bubbles",
    "tags": [
+    "rings",
     "organic",
-    "strand"
+    "light"
    ],
    "type": "raster",
    "tile": 512,
@@ -582,8 +590,8 @@
    "raster": "tex/tex-030.png",
    "thumb": "tex/tex-030-thumb.png",
    "colorways": [
-    "Midnight",
     "Monochrome",
+    "Ochre",
     "Slate",
     "Clay"
    ]
