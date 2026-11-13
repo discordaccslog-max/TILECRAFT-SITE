@@ -259,6 +259,8 @@ export function primitiveToSvg(p, colors) {
  * @param {object} [options]
  * @param {number} [options.size] width and height attributes, in pixels
  * @param {boolean} [options.standalone] include the XML declaration
+ * @param {boolean} [options.background] set false to leave the tile
+ *        transparent, for exports that are meant to sit over other artwork
  * @returns {string}
  */
 export function renderSvg(spec, colors, options = {}) {
@@ -274,7 +276,10 @@ export function renderSvg(spec, colors, options = {}) {
     ' width="' + size + '" height="' + size + '"' +
     ' shape-rendering="geometricPrecision">' +
     '<title>' + escapeXml(spec.name) + '</title>' +
-    '<rect width="' + tile + '" height="' + tile + '" fill="' + colorFor(spec.background || 'bg', palette) + '"/>' +
+    (options.background === false
+      ? ''
+      : '<rect width="' + tile + '" height="' + tile + '" fill="' +
+        colorFor(spec.background || 'bg', palette) + '"/>') +
     body +
     '</svg>'
   );

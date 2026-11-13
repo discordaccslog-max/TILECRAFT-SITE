@@ -1,0 +1,564 @@
+/* ==========================================================================
+   Shared styles for Studio modules.
+
+   Everything here uses the Studio's own tokens, so modules follow the
+   theme, the type scale, and the larger-interface setting without
+   restating any of it. The workspace stays quiet on purpose: the patterns
+   are the thing being looked at.
+   ========================================================================== */
+
+.mod {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+
+@media (min-width: 62rem) {
+  .mod--split {
+    grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Panels
+   -------------------------------------------------------------------------- */
+
+.panel {
+  border: 2px solid var(--paper-edge);
+  background: var(--paper-raised);
+  padding: 1rem;
+}
+
+.panel + .panel {
+  margin-top: 1rem;
+}
+
+.panel__title {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-muted);
+  margin: 0 0 0.75rem;
+}
+
+.panel__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   The pattern grid
+   -------------------------------------------------------------------------- */
+
+.browser__tools {
+  display: grid;
+  gap: 0.6rem;
+  margin-bottom: 0.85rem;
+}
+
+.browser__search {
+  width: 100%;
+  font: inherit;
+  font-size: var(--step--1);
+  padding: 0.5rem 0.65rem;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.chip {
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--paper-edge);
+  background: var(--paper);
+  color: var(--ink-muted);
+  cursor: pointer;
+  border-radius: 999px;
+}
+
+.chip[aria-pressed='true'] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
+  gap: 0.5rem;
+  max-height: min(60svh, 32rem);
+  overflow-y: auto;
+  padding: 2px;
+}
+
+@media (max-width: 62rem) {
+  .grid {
+    max-height: 22rem;
+  }
+}
+
+.swatch {
+  position: relative;
+  aspect-ratio: 1;
+  border: 2px solid var(--paper-edge);
+  background: var(--paper-sunk);
+  background-size: 50% 50%;
+  background-repeat: repeat;
+  cursor: pointer;
+  padding: 0;
+  overflow: hidden;
+}
+
+.swatch[aria-pressed='true'] {
+  border-color: var(--ink);
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}
+
+.swatch__name {
+  position: absolute;
+  inset: auto 0 0 0;
+  font-size: 0.6rem;
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 0.2rem 0.3rem;
+  background: color-mix(in srgb, var(--paper) 86%, transparent);
+  color: var(--ink);
+  text-align: left;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+.swatch:hover .swatch__name,
+.swatch:focus-visible .swatch__name,
+.swatch[aria-pressed='true'] .swatch__name {
+  opacity: 1;
+}
+
+.swatch__fav {
+  position: absolute;
+  top: 0.15rem;
+  right: 0.25rem;
+  font-size: 0.7rem;
+  color: var(--pink-text);
+}
+
+.grid__empty {
+  grid-column: 1 / -1;
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+  padding: 1rem 0;
+}
+
+/* --------------------------------------------------------------------------
+   The tiling preview
+   -------------------------------------------------------------------------- */
+
+.stage {
+  position: relative;
+  border: 2px solid var(--ink);
+  background: var(--paper-sunk);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  min-height: 16rem;
+}
+
+.stage__surface {
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+  background-position: center center;
+  image-rendering: auto;
+}
+
+.stage__outline {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--pink) 85%, transparent) 0 2px, transparent 2px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--pink) 85%, transparent) 0 2px, transparent 2px);
+  background-repeat: repeat;
+  background-position: center center;
+}
+
+.stage__outline[data-on='true'] {
+  opacity: 1;
+}
+
+.stage__caption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.55rem;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  color: var(--ink-muted);
+  border-top: 1px solid var(--paper-edge);
+  border-right: 1px solid var(--paper-edge);
+}
+
+/* --------------------------------------------------------------------------
+   Controls
+   -------------------------------------------------------------------------- */
+
+.ctl + .ctl {
+  margin-top: 0.85rem;
+}
+
+.ctl__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.ctl__label {
+  display: block;
+  font-size: var(--step--1);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.ctl__value {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+}
+
+.ctl__hint {
+  margin-top: 0.3rem;
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+}
+
+.ctl input[type='range'] {
+  width: 100%;
+  accent-color: var(--pink);
+}
+
+.ctl select,
+.ctl input[type='text'],
+.ctl input[type='number'] {
+  width: 100%;
+  font: inherit;
+  font-size: var(--step--1);
+  padding: 0.4rem 0.5rem;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.seg {
+  display: inline-flex;
+  border: 2px solid var(--ink);
+  flex-wrap: wrap;
+}
+
+.seg button {
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.seg button + button {
+  border-left: 2px solid var(--ink);
+}
+
+.seg button[aria-pressed='true'] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: var(--step--1);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.toggle input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--pink);
+}
+
+.btn {
+  font: inherit;
+  font-size: var(--step--1);
+  font-weight: 700;
+  padding: 0.45rem 0.8rem;
+  border: 2px solid var(--ink);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .btn:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+}
+
+.btn--primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+@media (hover: hover) {
+  .btn--primary:hover {
+    background: var(--pink);
+    border-color: var(--pink);
+    color: #fff;
+  }
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   Colorways
+   -------------------------------------------------------------------------- */
+
+.ways {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.way {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.5rem 0.25rem 0.3rem;
+  border: 2px solid var(--paper-edge);
+  background: var(--paper);
+  color: inherit;
+  font: inherit;
+  font-size: 0.74rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.way[aria-pressed='true'] {
+  border-color: var(--ink);
+}
+
+.way__dots {
+  display: flex;
+}
+
+.way__dot {
+  width: 0.7rem;
+  height: 0.95rem;
+}
+
+.way__remove {
+  border: 0;
+  background: none;
+  color: var(--ink-faint);
+  cursor: pointer;
+  font: inherit;
+  padding: 0 0 0 0.15rem;
+  line-height: 1;
+}
+
+.slots {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+  margin-top: 0.75rem;
+}
+
+.slot {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.slot input[type='color'] {
+  width: 100%;
+  height: 2rem;
+  padding: 0;
+  border: 2px solid var(--ink);
+  background: none;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   Mockups
+   -------------------------------------------------------------------------- */
+
+.mockups {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+}
+
+.mockup {
+  border: 2px solid var(--paper-edge);
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.mockup svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.mockup__label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  padding: 0.3rem 0.5rem;
+  border-top: 1px solid var(--paper-edge);
+}
+
+/* --------------------------------------------------------------------------
+   Status
+   -------------------------------------------------------------------------- */
+
+.module-status {
+  margin-top: 0.7rem;
+  font-size: var(--step--1);
+  font-weight: 600;
+  min-height: 1.2em;
+  color: var(--teal-text);
+}
+
+.module-status.is-error {
+  color: var(--pink-text);
+}
+
+.module-status.is-busy {
+  color: var(--ink-muted);
+}
+
+.hint {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  margin-top: 0.5rem;
+}
+
+.hint--inline {
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Repeat Builder drop area
+   -------------------------------------------------------------------------- */
+
+.drop {
+  border: 2px dashed var(--paper-edge);
+  background: var(--paper);
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+.drop[data-over='true'] {
+  border-color: var(--pink);
+  background: color-mix(in srgb, var(--pink) 8%, var(--paper));
+}
+
+.drop__hint {
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+  margin-top: 0.5rem;
+}
+
+.motifs {
+  display: grid;
+  gap: 0.4rem;
+  grid-template-columns: repeat(auto-fill, minmax(4rem, 1fr));
+  margin-top: 0.75rem;
+}
+
+.motif {
+  position: relative;
+  aspect-ratio: 1;
+  border: 2px solid var(--paper-edge);
+  background:
+    repeating-conic-gradient(var(--paper-sunk) 0 25%, var(--paper) 0 50%) 0 0 / 12px 12px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  cursor: pointer;
+}
+
+.motif[aria-pressed='true'] {
+  border-color: var(--ink);
+}
+
+.motif img {
+  max-width: 86%;
+  max-height: 86%;
+}
+
+/* --------------------------------------------------------------------------
+   Batch grid
+   -------------------------------------------------------------------------- */
+
+.batch {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
+  margin-top: 0.75rem;
+}
+
+.batch__cell {
+  border: 2px solid var(--paper-edge);
+  aspect-ratio: 1;
+  background-repeat: repeat;
+  background-size: 50% 50%;
+  position: relative;
+}
+
+.batch__cell span {
+  position: absolute;
+  inset: auto 0 0 0;
+  font-size: 0.6rem;
+  font-weight: 600;
+  padding: 0.15rem 0.3rem;
+  background: color-mix(in srgb, var(--paper) 86%, transparent);
+}
+
+/* --------------------------------------------------------------------------
+   Motion
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .swatch__name {
+    transition: none;
+  }
+}

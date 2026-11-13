@@ -1,6 +1,55 @@
 {
   "version": 1,
-  "updated": "2026-11-12",
-  "comment": "Product modules are listed here. The Studio reads this file to find out which products have a workspace installed, and loads a module only when that product is opened. Each entry needs a slug matching a product in js/products.js and an entry path relative to /studio/. See MODULES.md at the root of the repository for the full contract.",
-  "modules": []
+  "updated": "2026-11-13",
+  "comment": "Product modules. The Studio reads this to find which products have a workspace installed, and loads a module only when that product is opened. See MODULES.md.",
+  "modules": [
+    {
+      "slug": "geometric-essentials",
+      "entry": "modules/geometric-essentials/index.js",
+      "name": "geometric-essentials",
+      "version": "1.0.0"
+    },
+    {
+      "slug": "textures-and-grain",
+      "entry": "modules/textures-and-grain/index.js",
+      "name": "textures-and-grain",
+      "version": "1.0.0"
+    },
+    {
+      "slug": "botanical-linework",
+      "entry": "modules/botanical-linework/index.js",
+      "name": "botanical-linework",
+      "version": "1.0.0"
+    },
+    {
+      "slug": "mid-century-shapes",
+      "entry": "modules/mid-century-shapes/index.js",
+      "name": "mid-century-shapes",
+      "version": "1.0.0"
+    },
+    {
+      "slug": "tile-and-terrazzo",
+      "entry": "modules/tile-and-terrazzo/index.js",
+      "name": "tile-and-terrazzo",
+      "version": "1.0.0"
+    },
+    {
+      "slug": "pattern-generator-studio",
+      "entry": "modules/pattern-generator-studio/index.js",
+      "name": "pattern-generator-studio",
+      "version": "1.0.0"
+    },
+    {
+      "slug": "repeat-builder",
+      "entry": "modules/repeat-builder/index.js",
+      "name": "repeat-builder",
+      "version": "1.0.0"
+    },
+    {
+      "slug": "production-studio",
+      "entry": "modules/production-studio/index.js",
+      "name": "production-studio",
+      "version": "1.0.0"
+    }
+  ]
 }
