@@ -666,11 +666,68 @@ dialog.walkthrough::backdrop {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  /*
+   * The product list is nine items plus headings. Stacked on a phone it
+   * fills the whole first screen, so opening the Studio shows a menu and
+   * nothing else — the workspace you came for is below the fold every
+   * time. Here it becomes a single strip that scrolls sideways, so the
+   * products stay one tap away and the work starts at the top of the page.
+   */
   .studio__sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     border-right: 0;
     border-bottom: 2px solid var(--ink);
-    overflow: visible;
-    padding-bottom: 1.25rem;
+    padding: 0.5rem 0.75rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .studio__group {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex: 0 0 auto;
+  }
+
+  .studio__group + .studio__group {
+    margin-top: 0;
+    padding-left: 0.5rem;
+    border-left: 1px solid var(--rule);
+  }
+
+  /* The headings still label the lists for a screen reader. */
+  .studio__group h2 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .studio__list {
+    display: flex;
+    gap: 0.4rem;
+    flex: 0 0 auto;
+  }
+
+  .studio__sidebar .product-button {
+    white-space: nowrap;
+    padding: 0.45rem 0.7rem;
+  }
+
+  /* The footnote belongs with the full list, not in a strip of buttons. */
+  .studio__sidebar .sidebar-note {
+    display: none;
   }
 
   .studio__workspace {

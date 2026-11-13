@@ -110,6 +110,19 @@
   }
 }
 
+/*
+ * On a phone the page scrolls as one column, and a short scrolling box
+ * inside it is something to get stuck in: a flick that was meant to move
+ * the page moves the grid instead. The grid is let out to its full height
+ * so there is only ever one thing scrolling.
+ */
+@media (max-width: 40rem) {
+  .grid {
+    max-height: none;
+    overflow-y: visible;
+  }
+}
+
 .swatch {
   position: relative;
   aspect-ratio: 1;

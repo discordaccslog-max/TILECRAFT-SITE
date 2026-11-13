@@ -73,14 +73,15 @@ function canHoldPixels(size) {
 }
 
 /** A plain description of the limit, for showing in the interface. */
+/**
+ * The limit in pixels, which is what the browser actually constrains.
+ *
+ * Callers that know the resolution the buyer has chosen add the physical
+ * size themselves, because inches at an assumed 300 DPI would be wrong for
+ * anyone working at another one.
+ */
 export function describeLimit(size) {
-  // Pixels are what the browser limits; inches at 300 DPI are what someone
-  // choosing a print size is actually thinking in, so both are given.
-  const inches = (size / 300).toFixed(1);
-  return (
-    size.toLocaleString('en-US') + ' x ' + size.toLocaleString('en-US') +
-    ' pixels (about ' + inches + ' inches square at 300 DPI)'
-  );
+  return size.toLocaleString('en-US') + ' x ' + size.toLocaleString('en-US') + ' pixels';
 }
 
 /* ------------------------------------------------------------------ *

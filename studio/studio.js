@@ -435,7 +435,11 @@ async function openProduct(slug) {
   const entry = moduleEntryFor(manifest, slug);
 
   if (!entry) {
-    renderNotInstalled(mountPoint, product, license);
+    // Every product has a workspace, so a missing entry means the manifest
+    // did not load or is wrong — a fault to report and retry, not a state
+    // the buyer is supposed to wait out.
+    console.error('No module entry for ' + slug + ' in the manifest.');
+    renderModuleError(mountPoint, product);
     return;
   }
 
@@ -476,21 +480,6 @@ async function openProduct(slug) {
       }
     }
   };
-}
-
-function renderNotInstalled(host, product, license) {
-  host.append(
-    el('div', { class: 'notice' }, [
-      el('h2', { text: product.name + ' is licensed on this device' }),
-      el('p', {
-        text:
-          'The workspace for this product is not installed in this copy of the Studio yet. ' +
-          'Your license is active and stays active — nothing needs to be done again when the ' +
-          'workspace arrives.'
-      }),
-      el('p', { text: 'Your license code is ' + license.code + '.' })
-    ])
-  );
 }
 
 function renderModuleError(host, product) {

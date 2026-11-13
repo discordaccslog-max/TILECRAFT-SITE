@@ -248,10 +248,12 @@ test('setting the resolution does not corrupt the image', () => {
  * The export limit
  * ------------------------------------------------------------------ */
 
-test('the export limit is described in pixels and in inches', () => {
+test('the export limit is described in pixels, grouped so it can be read', () => {
+  // Pixels only: the physical size depends on the resolution the buyer
+  // picks, so whoever knows that adds it.
   const text = describeLimit(16384);
-  assert.match(text, /16,384/);
-  assert.match(text, /inch/i);
+  assert.equal(text, '16,384 x 16,384 pixels');
+  assert.ok(!/inch/i.test(text), 'an assumed resolution crept into the limit');
 });
 
 test('the figure the product page states is the one that was tested', () => {

@@ -28,9 +28,15 @@ export const LAYOUT_VALUES = LAYOUTS.map((l) => l.value);
  * @param {number} tile   the tile's pixel size
  */
 export function gridFor(state, tile) {
-  const columns = Math.max(1, Math.round(1 / Math.max(0.12, state.scale)));
+  // A restored project can carry a value that is not a number, and a NaN
+  // here would propagate into every placement and draw an empty tile with
+  // nothing to show for it, so the settings are read defensively.
+  const scale = Number.isFinite(state.scale) ? Math.min(1, Math.max(0.12, state.scale)) : 0.25;
+  const spacing = Number.isFinite(state.spacing) ? Math.min(0.9, Math.max(0, state.spacing)) : 0;
+
+  const columns = Math.max(1, Math.round(1 / scale));
   const cell = tile / columns;
-  return { columns, cell, size: cell * (1 - state.spacing) };
+  return { columns, cell, size: cell * (1 - spacing) };
 }
 
 /**
@@ -50,7 +56,8 @@ export function planRepeat(state, tile, motifCount) {
 
   const { columns, cell, size } = gridFor(state, tile);
   const layout = LAYOUT_VALUES.includes(state.layout) ? state.layout : 'full';
-  const offset = typeof state.offset === 'number' ? state.offset : 0.5;
+  const offset = Number.isFinite(state.offset) ? state.offset : 0.5;
+  const rotation = Number.isFinite(state.rotation) ? state.rotation : 0;
   const out = [];
 
   for (let row = 0; row < columns; row++) {
@@ -86,7 +93,7 @@ export function planRepeat(state, tile, motifCount) {
             x: px,
             y: py,
             size,
-            rotation: state.rotation || 0,
+            rotation,
             flipX,
             flipY,
             wrapped: dx !== 0 || dy !== 0
