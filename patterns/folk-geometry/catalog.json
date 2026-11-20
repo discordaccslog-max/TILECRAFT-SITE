@@ -1,0 +1,426 @@
+{
+ "collection": "folk-geometry",
+ "built": "2026-11-20",
+ "count": 22,
+ "colorwaysPerPattern": 4,
+ "patterns": [
+  {
+   "id": "flk-001",
+   "name": "Cross Stitch",
+   "tags": [
+    "counted",
+    "grid",
+    "dense"
+   ],
+   "type": "vector",
+   "tile": 336,
+   "svg": "svg/flk-001.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Sage",
+    "Ink Blue",
+    "Blush"
+   ]
+  },
+  {
+   "id": "flk-002",
+   "name": "Block Flower",
+   "tags": [
+    "counted",
+    "flowers",
+    "motif"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/flk-002.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Blush",
+    "Riso",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "flk-003",
+   "name": "Diamond Band",
+   "tags": [
+    "counted",
+    "diamonds",
+    "bands"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/flk-003.svg",
+   "raster": null,
+   "colorways": [
+    "Blush",
+    "Terracotta",
+    "Riso",
+    "Clay"
+   ]
+  },
+  {
+   "id": "flk-004",
+   "name": "Stepped Border",
+   "tags": [
+    "counted",
+    "stepped",
+    "border"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/flk-004.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Clay",
+    "Riso",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "flk-005",
+   "name": "Zigzag Band",
+   "tags": [
+    "counted",
+    "chevron",
+    "bands"
+   ],
+   "type": "vector",
+   "tile": 288,
+   "svg": "svg/flk-005.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Sage",
+    "Ochre",
+    "Blush"
+   ]
+  },
+  {
+   "id": "flk-006",
+   "name": "Tree Row",
+   "tags": [
+    "counted",
+    "trees",
+    "motif"
+   ],
+   "type": "vector",
+   "tile": 336,
+   "svg": "svg/flk-006.svg",
+   "raster": null,
+   "colorways": [
+    "Blush",
+    "Riso",
+    "Sage",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "flk-007",
+   "name": "Checked Diamond",
+   "tags": [
+    "counted",
+    "diamonds",
+    "checked"
+   ],
+   "type": "vector",
+   "tile": 288,
+   "svg": "svg/flk-007.svg",
+   "raster": null,
+   "colorways": [
+    "Blush",
+    "Clay",
+    "Monochrome",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "flk-008",
+   "name": "Banded Row",
+   "tags": [
+    "counted",
+    "bands",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/flk-008.svg",
+   "raster": null,
+   "colorways": [
+    "Clay",
+    "Terracotta",
+    "Ink Blue",
+    "Blush"
+   ]
+  },
+  {
+   "id": "flk-009",
+   "name": "Hook Border",
+   "tags": [
+    "counted",
+    "meander",
+    "border"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/flk-009.svg",
+   "raster": null,
+   "colorways": [
+    "Riso",
+    "Sage",
+    "Ink Blue",
+    "Terracotta"
+   ]
+  },
+  {
+   "id": "flk-010",
+   "name": "Seed Row",
+   "tags": [
+    "counted",
+    "seeds",
+    "scattered"
+   ],
+   "type": "vector",
+   "tile": 336,
+   "svg": "svg/flk-010.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Terracotta",
+    "Clay",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "flk-011",
+   "name": "Block Medallion",
+   "tags": [
+    "counted",
+    "medallion",
+    "motif"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/flk-011.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Ink Blue",
+    "Monochrome",
+    "Terracotta"
+   ]
+  },
+  {
+   "id": "flk-012",
+   "name": "Counted Ground",
+   "tags": [
+    "counted",
+    "grid",
+    "dense"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/flk-012.svg",
+   "raster": null,
+   "colorways": [
+    "Clay",
+    "Sage",
+    "Ink Blue",
+    "Terracotta"
+   ]
+  },
+  {
+   "id": "flk-013",
+   "name": "Stitched Bloom",
+   "tags": [
+    "counted",
+    "flowers",
+    "motif"
+   ],
+   "type": "vector",
+   "tile": 288,
+   "svg": "svg/flk-013.svg",
+   "raster": null,
+   "colorways": [
+    "Riso",
+    "Sage",
+    "Ink Blue",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "flk-014",
+   "name": "Counted Diamond",
+   "tags": [
+    "counted",
+    "diamonds",
+    "bands"
+   ],
+   "type": "vector",
+   "tile": 336,
+   "svg": "svg/flk-014.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Ochre",
+    "Blush",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "flk-015",
+   "name": "Key Line",
+   "tags": [
+    "counted",
+    "stepped",
+    "border"
+   ],
+   "type": "vector",
+   "tile": 336,
+   "svg": "svg/flk-015.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Ochre",
+    "Riso",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "flk-016",
+   "name": "Counted Chevron",
+   "tags": [
+    "counted",
+    "chevron",
+    "bands"
+   ],
+   "type": "vector",
+   "tile": 336,
+   "svg": "svg/flk-016.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Ochre",
+    "Blush",
+    "Riso"
+   ]
+  },
+  {
+   "id": "flk-017",
+   "name": "Conifer",
+   "tags": [
+    "counted",
+    "trees",
+    "motif"
+   ],
+   "type": "vector",
+   "tile": 288,
+   "svg": "svg/flk-017.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Blush",
+    "Riso",
+    "Terracotta"
+   ]
+  },
+  {
+   "id": "flk-018",
+   "name": "Harlequin Count",
+   "tags": [
+    "counted",
+    "diamonds",
+    "checked"
+   ],
+   "type": "vector",
+   "tile": 336,
+   "svg": "svg/flk-018.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Terracotta",
+    "Clay",
+    "Sage"
+   ]
+  },
+  {
+   "id": "flk-019",
+   "name": "Sampler Band",
+   "tags": [
+    "counted",
+    "bands",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/flk-019.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Ink Blue",
+    "Monochrome",
+    "Clay"
+   ]
+  },
+  {
+   "id": "flk-020",
+   "name": "Meander",
+   "tags": [
+    "counted",
+    "meander",
+    "border"
+   ],
+   "type": "vector",
+   "tile": 336,
+   "svg": "svg/flk-020.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Monochrome",
+    "Terracotta",
+    "Riso"
+   ]
+  },
+  {
+   "id": "flk-021",
+   "name": "Counted Seed",
+   "tags": [
+    "counted",
+    "seeds",
+    "scattered"
+   ],
+   "type": "vector",
+   "tile": 336,
+   "svg": "svg/flk-021.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Ochre",
+    "Ink Blue",
+    "Blush"
+   ]
+  },
+  {
+   "id": "flk-022",
+   "name": "Counted Roundel",
+   "tags": [
+    "counted",
+    "medallion",
+    "motif"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/flk-022.svg",
+   "raster": null,
+   "colorways": [
+    "Terracotta",
+    "Sage",
+    "Blush",
+    "Ochre"
+   ]
+  }
+ ]
+}

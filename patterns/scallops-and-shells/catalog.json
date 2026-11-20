@@ -1,0 +1,426 @@
+{
+ "collection": "scallops-and-shells",
+ "built": "2026-11-20",
+ "count": 22,
+ "colorwaysPerPattern": 4,
+ "patterns": [
+  {
+   "id": "scl-001",
+   "name": "Scallop Row",
+   "tags": [
+    "scallop",
+    "solid",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/scl-001.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Monochrome",
+    "Sage",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "scl-002",
+   "name": "Clamshell",
+   "tags": [
+    "scallop",
+    "arcs",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/scl-002.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Harbor",
+    "Blush",
+    "Plum"
+   ]
+  },
+  {
+   "id": "scl-003",
+   "name": "Ribbed Shell",
+   "tags": [
+    "shells",
+    "ribbed",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/scl-003.svg",
+   "raster": null,
+   "colorways": [
+    "Clay",
+    "Riso",
+    "Plum",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "scl-004",
+   "name": "Scalloped Edge",
+   "tags": [
+    "scallop",
+    "bands",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/scl-004.svg",
+   "raster": null,
+   "colorways": [
+    "Clay",
+    "Plum",
+    "Riso",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "scl-005",
+   "name": "Open Fan",
+   "tags": [
+    "fans",
+    "ribs",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/scl-005.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Monochrome",
+    "Plum",
+    "Mint"
+   ]
+  },
+  {
+   "id": "scl-006",
+   "name": "Cockle",
+   "tags": [
+    "shells",
+    "scattered",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/scl-006.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Plum",
+    "Harbor",
+    "Mint"
+   ]
+  },
+  {
+   "id": "scl-007",
+   "name": "Swelling Scallop",
+   "tags": [
+    "scallop",
+    "graduated",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/scl-007.svg",
+   "raster": null,
+   "colorways": [
+    "Blush",
+    "Riso",
+    "Clay",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "scl-008",
+   "name": "Shell Border",
+   "tags": [
+    "scallop",
+    "facing",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/scl-008.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Blush",
+    "Monochrome",
+    "Riso"
+   ]
+  },
+  {
+   "id": "scl-009",
+   "name": "Pearl Row",
+   "tags": [
+    "scallop",
+    "beads",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/scl-009.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Mint",
+    "Blush",
+    "Riso"
+   ]
+  },
+  {
+   "id": "scl-010",
+   "name": "Nautilus",
+   "tags": [
+    "spiral",
+    "arcs",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/scl-010.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Harbor",
+    "Monochrome",
+    "Clay"
+   ]
+  },
+  {
+   "id": "scl-011",
+   "name": "Scallop Lattice",
+   "tags": [
+    "arcs",
+    "lattice",
+    "radial"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/scl-011.svg",
+   "raster": null,
+   "colorways": [
+    "Clay",
+    "Monochrome",
+    "Sage",
+    "Plum"
+   ]
+  },
+  {
+   "id": "scl-012",
+   "name": "Overlap",
+   "tags": [
+    "scallop",
+    "solid",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/scl-012.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Sage",
+    "Riso",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "scl-013",
+   "name": "Nested Arc",
+   "tags": [
+    "scallop",
+    "arcs",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/scl-013.svg",
+   "raster": null,
+   "colorways": [
+    "Blush",
+    "Riso",
+    "Clay",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "scl-014",
+   "name": "Scallop Shell",
+   "tags": [
+    "shells",
+    "ribbed",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/scl-014.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Blush",
+    "Harbor",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "scl-015",
+   "name": "Valance",
+   "tags": [
+    "scallop",
+    "bands",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/scl-015.svg",
+   "raster": null,
+   "colorways": [
+    "Blush",
+    "Mint",
+    "Riso",
+    "Sage"
+   ]
+  },
+  {
+   "id": "scl-016",
+   "name": "Rib Fan",
+   "tags": [
+    "fans",
+    "ribs",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/scl-016.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Riso",
+    "Mint",
+    "Plum"
+   ]
+  },
+  {
+   "id": "scl-017",
+   "name": "Shell Scatter",
+   "tags": [
+    "shells",
+    "scattered",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/scl-017.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Blush",
+    "Sage",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "scl-018",
+   "name": "Tide Scallop",
+   "tags": [
+    "scallop",
+    "graduated",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/scl-018.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Blush",
+    "Plum",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "scl-019",
+   "name": "Up and Down",
+   "tags": [
+    "scallop",
+    "facing",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/scl-019.svg",
+   "raster": null,
+   "colorways": [
+    "Riso",
+    "Plum",
+    "Mint",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "scl-020",
+   "name": "Beaded Scallop",
+   "tags": [
+    "scallop",
+    "beads",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/scl-020.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Mint",
+    "Monochrome",
+    "Sage"
+   ]
+  },
+  {
+   "id": "scl-021",
+   "name": "Spiral Shell",
+   "tags": [
+    "spiral",
+    "arcs",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/scl-021.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Blush",
+    "Sage",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "scl-022",
+   "name": "Quartered Arc",
+   "tags": [
+    "arcs",
+    "lattice",
+    "radial"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/scl-022.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Clay",
+    "Harbor",
+    "Monochrome"
+   ]
+  }
+ ]
+}

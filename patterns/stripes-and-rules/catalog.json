@@ -1,0 +1,426 @@
+{
+ "collection": "stripes-and-rules",
+ "built": "2026-11-20",
+ "count": 22,
+ "colorwaysPerPattern": 4,
+ "patterns": [
+  {
+   "id": "stp-001",
+   "name": "Even Stripe",
+   "tags": [
+    "stripes",
+    "even",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/stp-001.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Ink Blue",
+    "Ochre",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "stp-002",
+   "name": "Pinstripe",
+   "tags": [
+    "stripes",
+    "fine",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/stp-002.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Monochrome",
+    "Ochre",
+    "Clay"
+   ]
+  },
+  {
+   "id": "stp-003",
+   "name": "Uneven Band",
+   "tags": [
+    "stripes",
+    "uneven",
+    "bands"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/stp-003.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Ink Blue",
+    "Slate",
+    "Clay"
+   ]
+  },
+  {
+   "id": "stp-004",
+   "name": "Ticking",
+   "tags": [
+    "stripes",
+    "ticking",
+    "fine"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/stp-004.svg",
+   "raster": null,
+   "colorways": [
+    "Ochre",
+    "Clay",
+    "Harbor",
+    "Riso"
+   ]
+  },
+  {
+   "id": "stp-005",
+   "name": "Dashed Rule",
+   "tags": [
+    "dashes",
+    "broken",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/stp-005.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Ink Blue",
+    "Monochrome",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "stp-006",
+   "name": "Cross Rule",
+   "tags": [
+    "grid",
+    "rules",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/stp-006.svg",
+   "raster": null,
+   "colorways": [
+    "Clay",
+    "Harbor",
+    "Monochrome",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "stp-007",
+   "name": "Barcode",
+   "tags": [
+    "stripes",
+    "uneven",
+    "fine"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/stp-007.svg",
+   "raster": null,
+   "colorways": [
+    "Riso",
+    "Ink Blue",
+    "Harbor",
+    "Slate"
+   ]
+  },
+  {
+   "id": "stp-008",
+   "name": "Graduated",
+   "tags": [
+    "stripes",
+    "graduated",
+    "bands"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/stp-008.svg",
+   "raster": null,
+   "colorways": [
+    "Riso",
+    "Clay",
+    "Slate",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "stp-009",
+   "name": "Shadow Stripe",
+   "tags": [
+    "stripes",
+    "shadow",
+    "bands"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/stp-009.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Midnight",
+    "Ochre",
+    "Riso"
+   ]
+  },
+  {
+   "id": "stp-010",
+   "name": "Woven Rule",
+   "tags": [
+    "weave",
+    "grid",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/stp-010.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Ink Blue",
+    "Riso",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "stp-011",
+   "name": "Chalk Stripe",
+   "tags": [
+    "stripes",
+    "chalk",
+    "wide"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/stp-011.svg",
+   "raster": null,
+   "colorways": [
+    "Clay",
+    "Harbor",
+    "Midnight",
+    "Slate"
+   ]
+  },
+  {
+   "id": "stp-012",
+   "name": "Awning",
+   "tags": [
+    "stripes",
+    "even",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/stp-012.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Ink Blue",
+    "Riso",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "stp-013",
+   "name": "Shirting",
+   "tags": [
+    "stripes",
+    "fine",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/stp-013.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Clay",
+    "Ink Blue",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "stp-014",
+   "name": "Cadence",
+   "tags": [
+    "stripes",
+    "uneven",
+    "bands"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/stp-014.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Riso",
+    "Midnight",
+    "Clay"
+   ]
+  },
+  {
+   "id": "stp-015",
+   "name": "Mattress",
+   "tags": [
+    "stripes",
+    "ticking",
+    "fine"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/stp-015.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Monochrome",
+    "Riso",
+    "Clay"
+   ]
+  },
+  {
+   "id": "stp-016",
+   "name": "Morse",
+   "tags": [
+    "dashes",
+    "broken",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/stp-016.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Clay",
+    "Riso",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "stp-017",
+   "name": "Ledger",
+   "tags": [
+    "grid",
+    "rules",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/stp-017.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Monochrome",
+    "Harbor",
+    "Clay"
+   ]
+  },
+  {
+   "id": "stp-018",
+   "name": "Reed",
+   "tags": [
+    "stripes",
+    "uneven",
+    "fine"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/stp-018.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Monochrome",
+    "Slate",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "stp-019",
+   "name": "Swell",
+   "tags": [
+    "stripes",
+    "graduated",
+    "bands"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/stp-019.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Harbor",
+    "Midnight",
+    "Riso"
+   ]
+  },
+  {
+   "id": "stp-020",
+   "name": "Relief",
+   "tags": [
+    "stripes",
+    "shadow",
+    "bands"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/stp-020.svg",
+   "raster": null,
+   "colorways": [
+    "Clay",
+    "Slate",
+    "Harbor",
+    "Riso"
+   ]
+  },
+  {
+   "id": "stp-021",
+   "name": "Plaid Weave",
+   "tags": [
+    "weave",
+    "grid",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/stp-021.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Slate",
+    "Riso",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "stp-022",
+   "name": "Centre Rule",
+   "tags": [
+    "stripes",
+    "chalk",
+    "wide"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/stp-022.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Ochre",
+    "Midnight",
+    "Harbor"
+   ]
+  }
+ ]
+}

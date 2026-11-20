@@ -53,7 +53,17 @@ const FAMILIES = {
   'textures-and-grain': ['clay', 'slate', 'monochrome', 'ochre', 'sage', 'midnight', 'blush', 'harbour'],
   'botanical-linework': ['sage', 'clay', 'mint', 'blush', 'ochre', 'slate', 'plum', 'risoNight'],
   'mid-century-shapes': ['ochre', 'terracotta', 'riso', 'midnight', 'clay', 'harbour', 'plum', 'inkBlue'],
-  'tile-and-terrazzo': ['terracotta', 'harbour', 'riso', 'monochrome', 'slate', 'clay', 'midnight', 'mint']
+  'tile-and-terrazzo': ['terracotta', 'harbour', 'riso', 'monochrome', 'slate', 'clay', 'midnight', 'mint'],
+  'art-deco-lines': ['midnight', 'ochre', 'monochrome', 'inkBlue', 'plum', 'riso', 'terracotta', 'slate'],
+  'stripes-and-rules': ['monochrome', 'inkBlue', 'riso', 'clay', 'harbour', 'midnight', 'ochre', 'slate'],
+  'checks-and-weaves': ['inkBlue', 'clay', 'sage', 'monochrome', 'terracotta', 'slate', 'blush', 'harbour'],
+  'waves-and-water': ['harbour', 'mint', 'slate', 'inkBlue', 'midnight', 'monochrome', 'sage', 'riso'],
+  'stars-and-night': ['midnight', 'risoNight', 'inkBlue', 'plum', 'slate', 'monochrome', 'harbour', 'ochre'],
+  'folk-geometry': ['terracotta', 'clay', 'sage', 'ochre', 'inkBlue', 'blush', 'monochrome', 'riso'],
+  'arches-and-columns': ['clay', 'terracotta', 'slate', 'ochre', 'monochrome', 'harbour', 'midnight', 'sage'],
+  'scallops-and-shells': ['blush', 'mint', 'clay', 'harbour', 'riso', 'sage', 'monochrome', 'plum'],
+  'confetti-and-specks': ['riso', 'risoNight', 'blush', 'mint', 'ochre', 'monochrome', 'plum', 'midnight'],
+  'crystal-and-facet': ['plum', 'midnight', 'slate', 'inkBlue', 'mint', 'monochrome', 'harbour', 'riso']
 };
 
 /**

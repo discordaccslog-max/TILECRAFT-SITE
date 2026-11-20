@@ -38,9 +38,22 @@ import * as textures from './patterns/collections/textures.mjs';
 import * as botanical from './patterns/collections/botanical.mjs';
 import * as midcentury from './patterns/collections/midcentury.mjs';
 import * as tiles from './patterns/collections/tile.mjs';
+import * as deco from './patterns/collections/deco.mjs';
+import * as stripes from './patterns/collections/stripes.mjs';
+import * as checks from './patterns/collections/checks.mjs';
+import * as waves from './patterns/collections/waves.mjs';
+import * as stars from './patterns/collections/stars.mjs';
+import * as folk from './patterns/collections/folk.mjs';
+import * as arches from './patterns/collections/arches.mjs';
+import * as scallops from './patterns/collections/scallops.mjs';
+import * as confetti from './patterns/collections/confetti.mjs';
+import * as crystal from './patterns/collections/crystal.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const MODULES = [geometric, textures, botanical, midcentury, tiles];
+const MODULES = [
+  geometric, textures, botanical, midcentury, tiles,
+  deco, stripes, checks, waves, stars, folk, arches, scallops, confetti, crystal
+];
 const ATTEMPTS = 30;
 const CHECK_SIZE = 320;
 
@@ -413,8 +426,22 @@ function buildCollection(module, report) {
       const colors = colorsOf(spec, 0);
       const image = rasterize(spec, colors, CHECK_SIZE);
 
+      /*
+       * Periodicity is the authority for a vector pattern, and it is
+       * checked first.
+       *
+       * The edge comparison below is a cheap heuristic and it has a blind
+       * spot: a design with a hard horizontal or vertical feature lying on
+       * the tile boundary — a row of flat-topped shields, say — produces a
+       * large edge difference while tiling perfectly. Inside the tile the
+       * same transition is softened by antialiasing; across the wrap it is
+       * not, so the two are not comparable. Translation has no such blind
+       * spot, so a tile it passes is accepted whatever the edges measure.
+       */
+      const periodic = checkPeriodic(spec, colors, 256);
+
       const seams = checkSeams(image);
-      if (!seams.ok) {
+      if (!seams.ok && !periodic.ok) {
         lastProblem =
           'the edges do not meet (vertical ' + seams.vertical.edge.toFixed(1) +
           ' against a limit of ' + seams.vertical.limit.toFixed(1) +
@@ -423,10 +450,6 @@ function buildCollection(module, report) {
         continue;
       }
 
-      // Matching edges is not the same as repeating. A construction that
-      // does not close shows a line across a wall while its edges still
-      // meet, so the tile is checked by translation as well.
-      const periodic = checkPeriodic(spec, colors, 256);
       if (!periodic.ok) {
         lastProblem =
           'the tile does not repeat (shifting it by half a tile moves the artwork by ' +

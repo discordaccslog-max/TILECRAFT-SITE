@@ -1,0 +1,464 @@
+{
+ "collection": "art-deco-lines",
+ "built": "2026-11-20",
+ "count": 24,
+ "colorwaysPerPattern": 4,
+ "patterns": [
+  {
+   "id": "dco-001",
+   "name": "Sunburst",
+   "tags": [
+    "fans",
+    "radial",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 260,
+   "svg": "svg/dco-001.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Terracotta",
+    "Ink Blue",
+    "Slate"
+   ]
+  },
+  {
+   "id": "dco-002",
+   "name": "Corner Fan",
+   "tags": [
+    "fans",
+    "radial",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/dco-002.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Plum",
+    "Midnight",
+    "Riso"
+   ]
+  },
+  {
+   "id": "dco-003",
+   "name": "Ray Band",
+   "tags": [
+    "rays",
+    "bands",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/dco-003.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Monochrome",
+    "Slate",
+    "Plum"
+   ]
+  },
+  {
+   "id": "dco-004",
+   "name": "Ziggurat",
+   "tags": [
+    "stepped",
+    "blocks",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/dco-004.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Terracotta",
+    "Ochre",
+    "Slate"
+   ]
+  },
+  {
+   "id": "dco-005",
+   "name": "Stepped Chevron",
+   "tags": [
+    "stepped",
+    "chevron",
+    "blocks"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/dco-005.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Slate",
+    "Ink Blue",
+    "Terracotta"
+   ]
+  },
+  {
+   "id": "dco-006",
+   "name": "Deco Band",
+   "tags": [
+    "bands",
+    "rules",
+    "stripes"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/dco-006.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Terracotta",
+    "Midnight",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "dco-007",
+   "name": "Fan Scallop",
+   "tags": [
+    "fans",
+    "scallop",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/dco-007.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Riso",
+    "Ink Blue",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "dco-008",
+   "name": "Medallion",
+   "tags": [
+    "medallion",
+    "rings",
+    "grid"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/dco-008.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Midnight",
+    "Terracotta",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "dco-009",
+   "name": "Shield",
+   "tags": [
+    "shields",
+    "solid",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 260,
+   "svg": "svg/dco-009.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Midnight",
+    "Terracotta",
+    "Riso"
+   ]
+  },
+  {
+   "id": "dco-010",
+   "name": "Grille",
+   "tags": [
+    "grille",
+    "bars",
+    "screen"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/dco-010.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Ink Blue",
+    "Riso",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "dco-011",
+   "name": "Diamond Lattice",
+   "tags": [
+    "diamonds",
+    "lattice",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/dco-011.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Ochre",
+    "Slate",
+    "Riso"
+   ]
+  },
+  {
+   "id": "dco-012",
+   "name": "Rayfield",
+   "tags": [
+    "fans",
+    "radial",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/dco-012.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Ochre",
+    "Terracotta",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "dco-013",
+   "name": "Quarter Round",
+   "tags": [
+    "fans",
+    "radial",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/dco-013.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Terracotta",
+    "Riso",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "dco-014",
+   "name": "Slant Rule",
+   "tags": [
+    "rays",
+    "bands",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 260,
+   "svg": "svg/dco-014.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Slate",
+    "Ochre",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "dco-015",
+   "name": "Step Pyramid",
+   "tags": [
+    "stepped",
+    "blocks",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 260,
+   "svg": "svg/dco-015.svg",
+   "raster": null,
+   "colorways": [
+    "Terracotta",
+    "Midnight",
+    "Plum",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "dco-016",
+   "name": "Block Zigzag",
+   "tags": [
+    "stepped",
+    "chevron",
+    "blocks"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/dco-016.svg",
+   "raster": null,
+   "colorways": [
+    "Terracotta",
+    "Monochrome",
+    "Midnight",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "dco-017",
+   "name": "Double Rule",
+   "tags": [
+    "bands",
+    "rules",
+    "stripes"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/dco-017.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Terracotta",
+    "Midnight",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "dco-018",
+   "name": "Ribbed Fan",
+   "tags": [
+    "fans",
+    "scallop",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 260,
+   "svg": "svg/dco-018.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Slate",
+    "Ink Blue",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "dco-019",
+   "name": "Roundel",
+   "tags": [
+    "medallion",
+    "rings",
+    "grid"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/dco-019.svg",
+   "raster": null,
+   "colorways": [
+    "Riso",
+    "Terracotta",
+    "Midnight",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "dco-020",
+   "name": "Crest",
+   "tags": [
+    "shields",
+    "solid",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/dco-020.svg",
+   "raster": null,
+   "colorways": [
+    "Terracotta",
+    "Ink Blue",
+    "Riso",
+    "Plum"
+   ]
+  },
+  {
+   "id": "dco-021",
+   "name": "Screen",
+   "tags": [
+    "grille",
+    "bars",
+    "screen"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/dco-021.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Ink Blue",
+    "Monochrome",
+    "Plum"
+   ]
+  },
+  {
+   "id": "dco-022",
+   "name": "Harlequin",
+   "tags": [
+    "diamonds",
+    "lattice",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/dco-022.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Slate",
+    "Ink Blue",
+    "Plum"
+   ]
+  },
+  {
+   "id": "dco-023",
+   "name": "Solarium",
+   "tags": [
+    "fans",
+    "radial",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/dco-023.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Slate",
+    "Midnight",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "dco-024",
+   "name": "Fanlight",
+   "tags": [
+    "fans",
+    "radial",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/dco-024.svg",
+   "raster": null,
+   "colorways": [
+    "Riso",
+    "Ochre",
+    "Slate",
+    "Monochrome"
+   ]
+  }
+ ]
+}

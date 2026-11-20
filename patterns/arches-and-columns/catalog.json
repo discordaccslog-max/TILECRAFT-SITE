@@ -1,0 +1,426 @@
+{
+ "collection": "arches-and-columns",
+ "built": "2026-11-20",
+ "count": 22,
+ "colorwaysPerPattern": 4,
+ "patterns": [
+  {
+   "id": "arc-001",
+   "name": "Arcade",
+   "tags": [
+    "arches",
+    "lines",
+    "open"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/arc-001.svg",
+   "raster": null,
+   "colorways": [
+    "Terracotta",
+    "Midnight",
+    "Monochrome",
+    "Sage"
+   ]
+  },
+  {
+   "id": "arc-002",
+   "name": "Solid Arch",
+   "tags": [
+    "arches",
+    "solid",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/arc-002.svg",
+   "raster": null,
+   "colorways": [
+    "Terracotta",
+    "Sage",
+    "Midnight",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "arc-003",
+   "name": "Nested Arch",
+   "tags": [
+    "arches",
+    "nested",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/arc-003.svg",
+   "raster": null,
+   "colorways": [
+    "Ochre",
+    "Clay",
+    "Monochrome",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "arc-004",
+   "name": "Colonnade",
+   "tags": [
+    "columns",
+    "uprights",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/arc-004.svg",
+   "raster": null,
+   "colorways": [
+    "Terracotta",
+    "Sage",
+    "Clay",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "arc-005",
+   "name": "Keystone",
+   "tags": [
+    "arches",
+    "stones",
+    "detail"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/arc-005.svg",
+   "raster": null,
+   "colorways": [
+    "Terracotta",
+    "Midnight",
+    "Monochrome",
+    "Slate"
+   ]
+  },
+  {
+   "id": "arc-006",
+   "name": "Half Round",
+   "tags": [
+    "arches",
+    "solid",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/arc-006.svg",
+   "raster": null,
+   "colorways": [
+    "Terracotta",
+    "Sage",
+    "Midnight",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "arc-007",
+   "name": "Horseshoe Arch",
+   "tags": [
+    "arches",
+    "lines",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/arc-007.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Monochrome",
+    "Ochre",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "arc-008",
+   "name": "Arched Window",
+   "tags": [
+    "arches",
+    "windows",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/arc-008.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Sage",
+    "Midnight",
+    "Terracotta"
+   ]
+  },
+  {
+   "id": "arc-009",
+   "name": "Pillar and Dot",
+   "tags": [
+    "columns",
+    "dots",
+    "rhythm"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/arc-009.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Monochrome",
+    "Clay",
+    "Terracotta"
+   ]
+  },
+  {
+   "id": "arc-010",
+   "name": "Arch Lattice",
+   "tags": [
+    "arches",
+    "lattice",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/arc-010.svg",
+   "raster": null,
+   "colorways": [
+    "Terracotta",
+    "Monochrome",
+    "Harbor",
+    "Slate"
+   ]
+  },
+  {
+   "id": "arc-011",
+   "name": "Stepped Pier",
+   "tags": [
+    "columns",
+    "stepped",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/arc-011.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Midnight",
+    "Sage",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "arc-012",
+   "name": "Cloister",
+   "tags": [
+    "arches",
+    "lines",
+    "open"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/arc-012.svg",
+   "raster": null,
+   "colorways": [
+    "Ochre",
+    "Sage",
+    "Harbor",
+    "Slate"
+   ]
+  },
+  {
+   "id": "arc-013",
+   "name": "Blind Arcade",
+   "tags": [
+    "arches",
+    "solid",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/arc-013.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Terracotta",
+    "Ochre",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "arc-014",
+   "name": "Order of Arches",
+   "tags": [
+    "arches",
+    "nested",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/arc-014.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Terracotta",
+    "Slate",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "arc-015",
+   "name": "Peristyle",
+   "tags": [
+    "columns",
+    "uprights",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/arc-015.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Sage",
+    "Monochrome",
+    "Terracotta"
+   ]
+  },
+  {
+   "id": "arc-016",
+   "name": "Voussoir",
+   "tags": [
+    "arches",
+    "stones",
+    "detail"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/arc-016.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Midnight",
+    "Terracotta",
+    "Clay"
+   ]
+  },
+  {
+   "id": "arc-017",
+   "name": "Lunette",
+   "tags": [
+    "arches",
+    "solid",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/arc-017.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Ochre",
+    "Slate",
+    "Terracotta"
+   ]
+  },
+  {
+   "id": "arc-018",
+   "name": "Deep Arch",
+   "tags": [
+    "arches",
+    "lines",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/arc-018.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Harbor",
+    "Sage",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "arc-019",
+   "name": "Lancet",
+   "tags": [
+    "arches",
+    "windows",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/arc-019.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Midnight",
+    "Terracotta",
+    "Clay"
+   ]
+  },
+  {
+   "id": "arc-020",
+   "name": "Baluster",
+   "tags": [
+    "columns",
+    "dots",
+    "rhythm"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/arc-020.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Midnight",
+    "Ochre",
+    "Sage"
+   ]
+  },
+  {
+   "id": "arc-021",
+   "name": "Interlace",
+   "tags": [
+    "arches",
+    "lattice",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/arc-021.svg",
+   "raster": null,
+   "colorways": [
+    "Ochre",
+    "Harbor",
+    "Clay",
+    "Slate"
+   ]
+  },
+  {
+   "id": "arc-022",
+   "name": "Buttress",
+   "tags": [
+    "columns",
+    "stepped",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/arc-022.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Clay",
+    "Terracotta",
+    "Slate"
+   ]
+  }
+ ]
+}

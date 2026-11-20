@@ -1,0 +1,426 @@
+{
+ "collection": "stars-and-night",
+ "built": "2026-11-20",
+ "count": 22,
+ "colorwaysPerPattern": 4,
+ "patterns": [
+  {
+   "id": "str-001",
+   "name": "Star Grid",
+   "tags": [
+    "stars",
+    "grid",
+    "even"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/str-001.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Midnight",
+    "Harbor",
+    "Plum"
+   ]
+  },
+  {
+   "id": "str-002",
+   "name": "Star Field",
+   "tags": [
+    "stars",
+    "scattered",
+    "mixed"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/str-002.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Monochrome",
+    "Harbor",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "str-003",
+   "name": "Sparkle",
+   "tags": [
+    "sparkles",
+    "scattered",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/str-003.svg",
+   "raster": null,
+   "colorways": [
+    "Night Press",
+    "Ink Blue",
+    "Slate",
+    "Plum"
+   ]
+  },
+  {
+   "id": "str-004",
+   "name": "Constellation",
+   "tags": [
+    "stars",
+    "lines",
+    "joined"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/str-004.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Harbor",
+    "Night Press",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "str-005",
+   "name": "Crescent",
+   "tags": [
+    "moons",
+    "solid",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/str-005.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Night Press",
+    "Plum",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "str-006",
+   "name": "Star Burst",
+   "tags": [
+    "stars",
+    "radial",
+    "rays"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/str-006.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Plum",
+    "Midnight",
+    "Night Press"
+   ]
+  },
+  {
+   "id": "str-007",
+   "name": "Moon Phase",
+   "tags": [
+    "moons",
+    "rows",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/str-007.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Midnight",
+    "Night Press",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "str-008",
+   "name": "Night Dot",
+   "tags": [
+    "dots",
+    "scattered",
+    "fine"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/str-008.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Plum",
+    "Night Press",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "str-009",
+   "name": "Star Lattice",
+   "tags": [
+    "stars",
+    "lattice",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/str-009.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Night Press",
+    "Monochrome",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "str-010",
+   "name": "Comet",
+   "tags": [
+    "comets",
+    "rows",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/str-010.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Ochre",
+    "Ink Blue",
+    "Plum"
+   ]
+  },
+  {
+   "id": "str-011",
+   "name": "Twinkle",
+   "tags": [
+    "sparkles",
+    "fine",
+    "grid"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/str-011.svg",
+   "raster": null,
+   "colorways": [
+    "Night Press",
+    "Ochre",
+    "Monochrome",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "str-012",
+   "name": "Ordered Sky",
+   "tags": [
+    "stars",
+    "grid",
+    "even"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/str-012.svg",
+   "raster": null,
+   "colorways": [
+    "Ochre",
+    "Ink Blue",
+    "Plum",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "str-013",
+   "name": "Deep Sky",
+   "tags": [
+    "stars",
+    "scattered",
+    "mixed"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/str-013.svg",
+   "raster": null,
+   "colorways": [
+    "Ochre",
+    "Midnight",
+    "Plum",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "str-014",
+   "name": "Glint",
+   "tags": [
+    "sparkles",
+    "scattered",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/str-014.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Midnight",
+    "Monochrome",
+    "Slate"
+   ]
+  },
+  {
+   "id": "str-015",
+   "name": "Star Chart",
+   "tags": [
+    "stars",
+    "lines",
+    "joined"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/str-015.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Plum",
+    "Midnight",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "str-016",
+   "name": "New Moon",
+   "tags": [
+    "moons",
+    "solid",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/str-016.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Midnight",
+    "Ink Blue",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "str-017",
+   "name": "Radiant",
+   "tags": [
+    "stars",
+    "radial",
+    "rays"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/str-017.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Ochre",
+    "Night Press",
+    "Slate"
+   ]
+  },
+  {
+   "id": "str-018",
+   "name": "Lunar Row",
+   "tags": [
+    "moons",
+    "rows",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/str-018.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Ink Blue",
+    "Ochre",
+    "Slate"
+   ]
+  },
+  {
+   "id": "str-019",
+   "name": "Quiet Sky",
+   "tags": [
+    "dots",
+    "scattered",
+    "fine"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/str-019.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Plum",
+    "Ochre",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "str-020",
+   "name": "Crossed Sky",
+   "tags": [
+    "stars",
+    "lattice",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/str-020.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Plum",
+    "Midnight",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "str-021",
+   "name": "Shooting Star",
+   "tags": [
+    "comets",
+    "rows",
+    "solid"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/str-021.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Ochre",
+    "Midnight",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "str-022",
+   "name": "Fine Sparkle",
+   "tags": [
+    "sparkles",
+    "fine",
+    "grid"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/str-022.svg",
+   "raster": null,
+   "colorways": [
+    "Ochre",
+    "Plum",
+    "Slate",
+    "Ink Blue"
+   ]
+  }
+ ]
+}

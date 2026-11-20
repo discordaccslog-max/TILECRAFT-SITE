@@ -1,0 +1,426 @@
+{
+ "collection": "checks-and-weaves",
+ "built": "2026-11-20",
+ "count": 22,
+ "colorwaysPerPattern": 4,
+ "patterns": [
+  {
+   "id": "chk-001",
+   "name": "Gingham",
+   "tags": [
+    "check",
+    "gingham",
+    "classic"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/chk-001.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Slate",
+    "Blush",
+    "Sage"
+   ]
+  },
+  {
+   "id": "chk-002",
+   "name": "Windowpane",
+   "tags": [
+    "check",
+    "open",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/chk-002.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Clay",
+    "Monochrome",
+    "Blush"
+   ]
+  },
+  {
+   "id": "chk-003",
+   "name": "Graph Check",
+   "tags": [
+    "grid",
+    "fine",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/chk-003.svg",
+   "raster": null,
+   "colorways": [
+    "Clay",
+    "Terracotta",
+    "Harbor",
+    "Blush"
+   ]
+  },
+  {
+   "id": "chk-004",
+   "name": "Basket Weave",
+   "tags": [
+    "weave",
+    "basket",
+    "blocks"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/chk-004.svg",
+   "raster": null,
+   "colorways": [
+    "Blush",
+    "Clay",
+    "Harbor",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "chk-005",
+   "name": "Tattersall",
+   "tags": [
+    "check",
+    "fine",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/chk-005.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Terracotta",
+    "Clay",
+    "Blush"
+   ]
+  },
+  {
+   "id": "chk-006",
+   "name": "Shepherd Check",
+   "tags": [
+    "check",
+    "woven",
+    "blocks"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/chk-006.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Ink Blue",
+    "Sage",
+    "Blush"
+   ]
+  },
+  {
+   "id": "chk-007",
+   "name": "Madras",
+   "tags": [
+    "check",
+    "uneven",
+    "bands"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/chk-007.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Terracotta",
+    "Sage",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "chk-008",
+   "name": "Broken Check",
+   "tags": [
+    "check",
+    "broken",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/chk-008.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Blush",
+    "Harbor",
+    "Slate"
+   ]
+  },
+  {
+   "id": "chk-009",
+   "name": "Pin Check",
+   "tags": [
+    "check",
+    "dots",
+    "fine"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/chk-009.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Harbor",
+    "Clay",
+    "Terracotta"
+   ]
+  },
+  {
+   "id": "chk-010",
+   "name": "Double Check",
+   "tags": [
+    "check",
+    "layered",
+    "grid"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/chk-010.svg",
+   "raster": null,
+   "colorways": [
+    "Terracotta",
+    "Slate",
+    "Harbor",
+    "Sage"
+   ]
+  },
+  {
+   "id": "chk-011",
+   "name": "Twill Check",
+   "tags": [
+    "weave",
+    "blocks",
+    "turned"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/chk-011.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Slate",
+    "Ink Blue",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "chk-012",
+   "name": "Picnic",
+   "tags": [
+    "check",
+    "gingham",
+    "classic"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/chk-012.svg",
+   "raster": null,
+   "colorways": [
+    "Clay",
+    "Harbor",
+    "Slate",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "chk-013",
+   "name": "Casement",
+   "tags": [
+    "check",
+    "open",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/chk-013.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Ink Blue",
+    "Monochrome",
+    "Terracotta"
+   ]
+  },
+  {
+   "id": "chk-014",
+   "name": "Quadrille",
+   "tags": [
+    "grid",
+    "fine",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/chk-014.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Terracotta",
+    "Clay",
+    "Slate"
+   ]
+  },
+  {
+   "id": "chk-015",
+   "name": "Hopsack",
+   "tags": [
+    "weave",
+    "basket",
+    "blocks"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/chk-015.svg",
+   "raster": null,
+   "colorways": [
+    "Blush",
+    "Monochrome",
+    "Terracotta",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "chk-016",
+   "name": "Stable Check",
+   "tags": [
+    "check",
+    "fine",
+    "lines"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/chk-016.svg",
+   "raster": null,
+   "colorways": [
+    "Terracotta",
+    "Harbor",
+    "Clay",
+    "Blush"
+   ]
+  },
+  {
+   "id": "chk-017",
+   "name": "Border Check",
+   "tags": [
+    "check",
+    "woven",
+    "blocks"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/chk-017.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Clay",
+    "Harbor",
+    "Slate"
+   ]
+  },
+  {
+   "id": "chk-018",
+   "name": "Uneven Check",
+   "tags": [
+    "check",
+    "uneven",
+    "bands"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/chk-018.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Terracotta",
+    "Ink Blue",
+    "Blush"
+   ]
+  },
+  {
+   "id": "chk-019",
+   "name": "Tooth Check",
+   "tags": [
+    "check",
+    "broken",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 240,
+   "svg": "svg/chk-019.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Clay",
+    "Sage",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "chk-020",
+   "name": "Dot Check",
+   "tags": [
+    "check",
+    "dots",
+    "fine"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/chk-020.svg",
+   "raster": null,
+   "colorways": [
+    "Clay",
+    "Terracotta",
+    "Ink Blue",
+    "Sage"
+   ]
+  },
+  {
+   "id": "chk-021",
+   "name": "Overcheck",
+   "tags": [
+    "check",
+    "layered",
+    "grid"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/chk-021.svg",
+   "raster": null,
+   "colorways": [
+    "Blush",
+    "Clay",
+    "Sage",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "chk-022",
+   "name": "Turned Block",
+   "tags": [
+    "weave",
+    "blocks",
+    "turned"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/chk-022.svg",
+   "raster": null,
+   "colorways": [
+    "Terracotta",
+    "Harbor",
+    "Ink Blue",
+    "Sage"
+   ]
+  }
+ ]
+}

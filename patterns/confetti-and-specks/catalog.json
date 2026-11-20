@@ -1,0 +1,426 @@
+{
+ "collection": "confetti-and-specks",
+ "built": "2026-11-20",
+ "count": 22,
+ "colorwaysPerPattern": 4,
+ "patterns": [
+  {
+   "id": "cnf-001",
+   "name": "Confetti",
+   "tags": [
+    "confetti",
+    "scattered",
+    "bright"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/cnf-001.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Ochre",
+    "Night Press",
+    "Plum"
+   ]
+  },
+  {
+   "id": "cnf-002",
+   "name": "Speck",
+   "tags": [
+    "specks",
+    "fine",
+    "even"
+   ],
+   "type": "vector",
+   "tile": 260,
+   "svg": "svg/cnf-002.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Night Press",
+    "Monochrome",
+    "Mint"
+   ]
+  },
+  {
+   "id": "cnf-003",
+   "name": "Dash Scatter",
+   "tags": [
+    "dashes",
+    "scattered",
+    "directional"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/cnf-003.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Mint",
+    "Blush",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "cnf-004",
+   "name": "Torn Paper",
+   "tags": [
+    "torn",
+    "organic",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/cnf-004.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Night Press",
+    "Midnight",
+    "Riso"
+   ]
+  },
+  {
+   "id": "cnf-005",
+   "name": "Grain",
+   "tags": [
+    "grains",
+    "scattered",
+    "directional"
+   ],
+   "type": "vector",
+   "tile": 260,
+   "svg": "svg/cnf-005.svg",
+   "raster": null,
+   "colorways": [
+    "Ochre",
+    "Mint",
+    "Blush",
+    "Riso"
+   ]
+  },
+  {
+   "id": "cnf-006",
+   "name": "Mixed Confetti",
+   "tags": [
+    "confetti",
+    "mixed",
+    "bright"
+   ],
+   "type": "vector",
+   "tile": 260,
+   "svg": "svg/cnf-006.svg",
+   "raster": null,
+   "colorways": [
+    "Ochre",
+    "Mint",
+    "Midnight",
+    "Night Press"
+   ]
+  },
+  {
+   "id": "cnf-007",
+   "name": "Sprinkle",
+   "tags": [
+    "sprinkles",
+    "scattered",
+    "bright"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/cnf-007.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Monochrome",
+    "Midnight",
+    "Blush"
+   ]
+  },
+  {
+   "id": "cnf-008",
+   "name": "Fleck",
+   "tags": [
+    "specks",
+    "fine",
+    "dense"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/cnf-008.svg",
+   "raster": null,
+   "colorways": [
+    "Night Press",
+    "Riso",
+    "Blush",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "cnf-009",
+   "name": "Ring Confetti",
+   "tags": [
+    "rings",
+    "scattered",
+    "mixed"
+   ],
+   "type": "vector",
+   "tile": 260,
+   "svg": "svg/cnf-009.svg",
+   "raster": null,
+   "colorways": [
+    "Blush",
+    "Ochre",
+    "Monochrome",
+    "Riso"
+   ]
+  },
+  {
+   "id": "cnf-010",
+   "name": "Drifting Speck",
+   "tags": [
+    "specks",
+    "graduated",
+    "scattered"
+   ],
+   "type": "vector",
+   "tile": 260,
+   "svg": "svg/cnf-010.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Blush",
+    "Ochre",
+    "Riso"
+   ]
+  },
+  {
+   "id": "cnf-011",
+   "name": "Crumb",
+   "tags": [
+    "crumbs",
+    "organic",
+    "scattered"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/cnf-011.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Plum",
+    "Mint",
+    "Ochre"
+   ]
+  },
+  {
+   "id": "cnf-012",
+   "name": "Party Throw",
+   "tags": [
+    "confetti",
+    "scattered",
+    "bright"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/cnf-012.svg",
+   "raster": null,
+   "colorways": [
+    "Night Press",
+    "Blush",
+    "Midnight",
+    "Riso"
+   ]
+  },
+  {
+   "id": "cnf-013",
+   "name": "Fleckfield",
+   "tags": [
+    "specks",
+    "fine",
+    "even"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/cnf-013.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Monochrome",
+    "Blush",
+    "Night Press"
+   ]
+  },
+  {
+   "id": "cnf-014",
+   "name": "Leaning Dash",
+   "tags": [
+    "dashes",
+    "scattered",
+    "directional"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/cnf-014.svg",
+   "raster": null,
+   "colorways": [
+    "Riso",
+    "Ochre",
+    "Midnight",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "cnf-015",
+   "name": "Shred",
+   "tags": [
+    "torn",
+    "organic",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 260,
+   "svg": "svg/cnf-015.svg",
+   "raster": null,
+   "colorways": [
+    "Blush",
+    "Mint",
+    "Riso",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "cnf-016",
+   "name": "Seed Scatter",
+   "tags": [
+    "grains",
+    "scattered",
+    "directional"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/cnf-016.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Plum",
+    "Monochrome",
+    "Riso"
+   ]
+  },
+  {
+   "id": "cnf-017",
+   "name": "Shape Throw",
+   "tags": [
+    "confetti",
+    "mixed",
+    "bright"
+   ],
+   "type": "vector",
+   "tile": 260,
+   "svg": "svg/cnf-017.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Midnight",
+    "Mint",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "cnf-018",
+   "name": "Hundreds",
+   "tags": [
+    "sprinkles",
+    "scattered",
+    "bright"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/cnf-018.svg",
+   "raster": null,
+   "colorways": [
+    "Blush",
+    "Midnight",
+    "Ochre",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "cnf-019",
+   "name": "Inclusion",
+   "tags": [
+    "specks",
+    "fine",
+    "dense"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/cnf-019.svg",
+   "raster": null,
+   "colorways": [
+    "Riso",
+    "Ochre",
+    "Midnight",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "cnf-020",
+   "name": "Open and Filled",
+   "tags": [
+    "rings",
+    "scattered",
+    "mixed"
+   ],
+   "type": "vector",
+   "tile": 260,
+   "svg": "svg/cnf-020.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Midnight",
+    "Ochre",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "cnf-021",
+   "name": "Density Drift",
+   "tags": [
+    "specks",
+    "graduated",
+    "scattered"
+   ],
+   "type": "vector",
+   "tile": 340,
+   "svg": "svg/cnf-021.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Plum",
+    "Blush",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "cnf-022",
+   "name": "Fragment",
+   "tags": [
+    "crumbs",
+    "organic",
+    "scattered"
+   ],
+   "type": "vector",
+   "tile": 300,
+   "svg": "svg/cnf-022.svg",
+   "raster": null,
+   "colorways": [
+    "Blush",
+    "Night Press",
+    "Riso",
+    "Plum"
+   ]
+  }
+ ]
+}

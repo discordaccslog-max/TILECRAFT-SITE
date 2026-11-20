@@ -1,0 +1,426 @@
+{
+ "collection": "crystal-and-facet",
+ "built": "2026-11-20",
+ "count": 22,
+ "colorwaysPerPattern": 4,
+ "patterns": [
+  {
+   "id": "cry-001",
+   "name": "Facet Field",
+   "tags": [
+    "facets",
+    "triangles",
+    "field"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/cry-001.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Harbor",
+    "Midnight",
+    "Mint"
+   ]
+  },
+  {
+   "id": "cry-002",
+   "name": "Cut Gem",
+   "tags": [
+    "gems",
+    "facets",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/cry-002.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Ink Blue",
+    "Plum",
+    "Mint"
+   ]
+  },
+  {
+   "id": "cry-003",
+   "name": "Prism",
+   "tags": [
+    "prisms",
+    "bands",
+    "uprights"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/cry-003.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Midnight",
+    "Riso",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "cry-004",
+   "name": "Shard",
+   "tags": [
+    "shards",
+    "scattered",
+    "angular"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/cry-004.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Plum",
+    "Riso",
+    "Mint"
+   ]
+  },
+  {
+   "id": "cry-005",
+   "name": "Faceted Diamond",
+   "tags": [
+    "diamonds",
+    "facets",
+    "lattice"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/cry-005.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Slate",
+    "Harbor",
+    "Riso"
+   ]
+  },
+  {
+   "id": "cry-006",
+   "name": "Crystal Cluster",
+   "tags": [
+    "crystals",
+    "standing",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/cry-006.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Mint",
+    "Harbor",
+    "Riso"
+   ]
+  },
+  {
+   "id": "cry-007",
+   "name": "Low Poly",
+   "tags": [
+    "facets",
+    "triangles",
+    "flat"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/cry-007.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Harbor",
+    "Monochrome",
+    "Mint"
+   ]
+  },
+  {
+   "id": "cry-008",
+   "name": "Bright Cut",
+   "tags": [
+    "diamonds",
+    "gems",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/cry-008.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Slate",
+    "Ink Blue",
+    "Mint"
+   ]
+  },
+  {
+   "id": "cry-009",
+   "name": "Quartz Band",
+   "tags": [
+    "bands",
+    "facets",
+    "stone"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/cry-009.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Ink Blue",
+    "Midnight",
+    "Plum"
+   ]
+  },
+  {
+   "id": "cry-010",
+   "name": "Ice Splinter",
+   "tags": [
+    "splinters",
+    "fine",
+    "scattered"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/cry-010.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Mint",
+    "Monochrome",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "cry-011",
+   "name": "Geode",
+   "tags": [
+    "rings",
+    "radial",
+    "stone"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/cry-011.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Riso",
+    "Harbor",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "cry-012",
+   "name": "Broken Plane",
+   "tags": [
+    "facets",
+    "triangles",
+    "field"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/cry-012.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Plum",
+    "Monochrome",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "cry-013",
+   "name": "Brilliant",
+   "tags": [
+    "gems",
+    "facets",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/cry-013.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Slate",
+    "Mint",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "cry-014",
+   "name": "Three Plane",
+   "tags": [
+    "prisms",
+    "bands",
+    "uprights"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/cry-014.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Plum",
+    "Mint",
+    "Riso"
+   ]
+  },
+  {
+   "id": "cry-015",
+   "name": "Splinter",
+   "tags": [
+    "shards",
+    "scattered",
+    "angular"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/cry-015.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Ink Blue",
+    "Midnight",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "cry-016",
+   "name": "Quartered Stone",
+   "tags": [
+    "diamonds",
+    "facets",
+    "lattice"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/cry-016.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Ink Blue",
+    "Mint",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "cry-017",
+   "name": "Growth",
+   "tags": [
+    "crystals",
+    "standing",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/cry-017.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Plum",
+    "Midnight",
+    "Riso"
+   ]
+  },
+  {
+   "id": "cry-018",
+   "name": "Flat Facet",
+   "tags": [
+    "facets",
+    "triangles",
+    "flat"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/cry-018.svg",
+   "raster": null,
+   "colorways": [
+    "Plum",
+    "Harbor",
+    "Ink Blue",
+    "Riso"
+   ]
+  },
+  {
+   "id": "cry-019",
+   "name": "Catch Light",
+   "tags": [
+    "diamonds",
+    "gems",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/cry-019.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Riso",
+    "Midnight",
+    "Mint"
+   ]
+  },
+  {
+   "id": "cry-020",
+   "name": "Banded Stone",
+   "tags": [
+    "bands",
+    "facets",
+    "stone"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/cry-020.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Plum",
+    "Monochrome",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "cry-021",
+   "name": "Frost Needle",
+   "tags": [
+    "splinters",
+    "fine",
+    "scattered"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/cry-021.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Plum",
+    "Midnight",
+    "Riso"
+   ]
+  },
+  {
+   "id": "cry-022",
+   "name": "Cut Section",
+   "tags": [
+    "rings",
+    "radial",
+    "stone"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/cry-022.svg",
+   "raster": null,
+   "colorways": [
+    "Riso",
+    "Midnight",
+    "Monochrome",
+    "Plum"
+   ]
+  }
+ ]
+}

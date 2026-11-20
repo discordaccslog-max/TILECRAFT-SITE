@@ -1,0 +1,426 @@
+{
+ "collection": "waves-and-water",
+ "built": "2026-11-20",
+ "count": 22,
+ "colorwaysPerPattern": 4,
+ "patterns": [
+  {
+   "id": "wav-001",
+   "name": "Wave Row",
+   "tags": [
+    "waves",
+    "lines",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/wav-001.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Harbor",
+    "Mint",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "wav-002",
+   "name": "Double Current",
+   "tags": [
+    "waves",
+    "lines",
+    "fine"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/wav-002.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Slate",
+    "Riso",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "wav-003",
+   "name": "Scallop Wave",
+   "tags": [
+    "scallop",
+    "arcs",
+    "overlapping"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/wav-003.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Midnight",
+    "Harbor",
+    "Monochrome"
+   ]
+  },
+  {
+   "id": "wav-004",
+   "name": "Ripple",
+   "tags": [
+    "rings",
+    "concentric",
+    "radial"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/wav-004.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Mint",
+    "Monochrome",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "wav-005",
+   "name": "Swell",
+   "tags": [
+    "waves",
+    "lines",
+    "graduated"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/wav-005.svg",
+   "raster": null,
+   "colorways": [
+    "Slate",
+    "Ink Blue",
+    "Riso",
+    "Midnight"
+   ]
+  },
+  {
+   "id": "wav-006",
+   "name": "Droplet",
+   "tags": [
+    "rings",
+    "scattered",
+    "dots"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/wav-006.svg",
+   "raster": null,
+   "colorways": [
+    "Riso",
+    "Mint",
+    "Monochrome",
+    "Sage"
+   ]
+  },
+  {
+   "id": "wav-007",
+   "name": "Tide Line",
+   "tags": [
+    "waves",
+    "fine",
+    "dense"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/wav-007.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Riso",
+    "Midnight",
+    "Mint"
+   ]
+  },
+  {
+   "id": "wav-008",
+   "name": "Crest",
+   "tags": [
+    "waves",
+    "solid",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/wav-008.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Harbor",
+    "Midnight",
+    "Sage"
+   ]
+  },
+  {
+   "id": "wav-009",
+   "name": "Whirl",
+   "tags": [
+    "arcs",
+    "turned",
+    "curls"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/wav-009.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Harbor",
+    "Mint",
+    "Riso"
+   ]
+  },
+  {
+   "id": "wav-010",
+   "name": "Shoal",
+   "tags": [
+    "arcs",
+    "scattered",
+    "dashes"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/wav-010.svg",
+   "raster": null,
+   "colorways": [
+    "Riso",
+    "Sage",
+    "Mint",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "wav-011",
+   "name": "Bubble",
+   "tags": [
+    "circles",
+    "scattered",
+    "mixed"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/wav-011.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Ink Blue",
+    "Riso",
+    "Slate"
+   ]
+  },
+  {
+   "id": "wav-012",
+   "name": "Swell Line",
+   "tags": [
+    "waves",
+    "lines",
+    "rows"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/wav-012.svg",
+   "raster": null,
+   "colorways": [
+    "Sage",
+    "Slate",
+    "Riso",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "wav-013",
+   "name": "Twin Wave",
+   "tags": [
+    "waves",
+    "lines",
+    "fine"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/wav-013.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Midnight",
+    "Harbor",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "wav-014",
+   "name": "Overlapping Water",
+   "tags": [
+    "scallop",
+    "arcs",
+    "overlapping"
+   ],
+   "type": "vector",
+   "tile": 280,
+   "svg": "svg/wav-014.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Sage",
+    "Riso",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "wav-015",
+   "name": "Stone Drop",
+   "tags": [
+    "rings",
+    "concentric",
+    "radial"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/wav-015.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Riso",
+    "Ink Blue",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "wav-016",
+   "name": "Rolling Sea",
+   "tags": [
+    "waves",
+    "lines",
+    "graduated"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/wav-016.svg",
+   "raster": null,
+   "colorways": [
+    "Monochrome",
+    "Slate",
+    "Harbor",
+    "Sage"
+   ]
+  },
+  {
+   "id": "wav-017",
+   "name": "Rainfall",
+   "tags": [
+    "rings",
+    "scattered",
+    "dots"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/wav-017.svg",
+   "raster": null,
+   "colorways": [
+    "Midnight",
+    "Riso",
+    "Slate",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "wav-018",
+   "name": "Shoreline",
+   "tags": [
+    "waves",
+    "fine",
+    "dense"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/wav-018.svg",
+   "raster": null,
+   "colorways": [
+    "Riso",
+    "Monochrome",
+    "Mint",
+    "Sage"
+   ]
+  },
+  {
+   "id": "wav-019",
+   "name": "Solid Wave",
+   "tags": [
+    "waves",
+    "solid",
+    "bold"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/wav-019.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Harbor",
+    "Sage",
+    "Ink Blue"
+   ]
+  },
+  {
+   "id": "wav-020",
+   "name": "Eddy",
+   "tags": [
+    "arcs",
+    "turned",
+    "curls"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/wav-020.svg",
+   "raster": null,
+   "colorways": [
+    "Harbor",
+    "Sage",
+    "Mint",
+    "Slate"
+   ]
+  },
+  {
+   "id": "wav-021",
+   "name": "Current Dash",
+   "tags": [
+    "arcs",
+    "scattered",
+    "dashes"
+   ],
+   "type": "vector",
+   "tile": 360,
+   "svg": "svg/wav-021.svg",
+   "raster": null,
+   "colorways": [
+    "Ink Blue",
+    "Midnight",
+    "Mint",
+    "Harbor"
+   ]
+  },
+  {
+   "id": "wav-022",
+   "name": "Froth",
+   "tags": [
+    "circles",
+    "scattered",
+    "mixed"
+   ],
+   "type": "vector",
+   "tile": 320,
+   "svg": "svg/wav-022.svg",
+   "raster": null,
+   "colorways": [
+    "Mint",
+    "Slate",
+    "Harbor",
+    "Ink Blue"
+   ]
+  }
+ ]
+}

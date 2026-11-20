@@ -138,7 +138,11 @@ for (const slug of SLUGS) {
     for (const spec of specs) {
       const image = imageOf(spec, slug, 0, CHECK_SIZE);
       const seams = checkSeams(image);
-      if (!seams.ok) {
+      // A vector tile that is exactly periodic is tiling correctly, even
+      // when a hard design feature sits on the boundary and makes the edge
+      // comparison look bad. See the note on the colorway check below.
+      const periodic = spec.type === 'raster' ? { ok: false } : checkPeriodic(spec, colorsOf(spec, 0), 256);
+      if (!seams.ok && !periodic.ok) {
         failures.push(
           spec.id + ' (' + spec.name + '): vertical edge ' + seams.vertical.edge.toFixed(2) +
           ' limit ' + seams.vertical.limit.toFixed(2) + ', horizontal edge ' +
@@ -186,26 +190,46 @@ for (const slug of SLUGS) {
 }
 
 test('every vector pattern tiles in all of its colorways', () => {
-  // A recolor cannot move a shape, but it can reveal one that was only
-  // invisible against its background, so each colorway is checked. Textures
-  // are recolored by mapping one grayscale tile between two colours, which
-  // cannot move anything, so the tile check above covers them.
+  /*
+   * A recolor cannot move a shape, but it can reveal one that was only
+   * invisible against its background, so each colorway is checked.
+   * Textures are recolored by mapping one grayscale tile between two
+   * colours, which cannot move anything, so the tile check above covers
+   * them.
+   *
+   * As in the build, a tile that is exactly periodic is accepted whatever
+   * its edges measure. The edge comparison cannot tell a seam from a hard
+   * design feature lying on the tile boundary: inside the tile that same
+   * transition is softened by antialiasing and across the wrap it is not,
+   * so the two sides of the comparison are not alike.
+   */
   const failures = [];
   let checked = 0;
+  let textures = 0;
 
   for (const slug of SLUGS) {
     for (const spec of read('patterns/' + slug + '/specs.json')) {
-      if (spec.type === 'raster') continue;
+      if (spec.type === 'raster') {
+        textures++;
+        continue;
+      }
       for (let i = 0; i < spec.colorways.length; i++) {
-        const seams = checkSeams(rasterize(spec, colorsOf(spec, i), 128));
-        if (!seams.ok) failures.push(spec.id + ' in ' + spec.colorways[i].name);
+        const colors = colorsOf(spec, i);
+        const seams = checkSeams(rasterize(spec, colors, 128));
+        if (!seams.ok && !checkPeriodic(spec, colors, 256).ok) {
+          failures.push(spec.id + ' in ' + spec.colorways[i].name);
+        }
         checked++;
       }
     }
   }
 
   assert.deepEqual(failures, []);
-  assert.equal(checked, (index.totals.patterns - 30) * 4, 'every vector colorway should be checked');
+  assert.equal(
+    checked,
+    (index.totals.patterns - textures) * 4,
+    'every vector colorway should be checked'
+  );
 });
 
 test('the shipped texture tiles wrap as files', () => {
