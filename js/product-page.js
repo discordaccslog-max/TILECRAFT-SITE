@@ -10,7 +10,16 @@
  * checkbox gating nothing would be a dead control.
  */
 
-import { productBySlug, formatPrice, hasCheckout, TIERS } from './products.js';
+import {
+  productBySlug,
+  formatPrice,
+  hasCheckout,
+  optionsFor,
+  priceWithOptions,
+  encodeOptions,
+  TIERS
+} from './products.js';
+import { SITE } from './site-config.js';
 import { ALLOWED, NOT_ALLOWED, AI_DISCLOSURE } from './license-terms.js';
 import { renderProductPreview, countsFor } from './previews.js';
 import { maxExportLabel } from './export-limit.js';
@@ -28,6 +37,80 @@ function list(items, className) {
 }
 
 /* ------------------------------------------------------------------ *
+ * Extras
+ * ------------------------------------------------------------------ */
+
+/**
+ * The extras a product offers, as checkboxes that move the running total.
+ *
+ * Nothing is ticked to begin with: the price on the page is the price of
+ * the product, and every tick is the buyer's own doing. The total is
+ * recalculated from the catalog rather than added up in the markup, so the
+ * figure shown and the figure in the link cannot drift apart.
+ *
+ * @returns {{selected: () => string[], onChange: (fn) => void}}
+ */
+function renderOptions(product, host) {
+  const options = optionsFor(product);
+  const listeners = [];
+
+  if (!options.length) {
+    return { selected: () => [], onChange: () => {} };
+  }
+
+  const section = document.createElement('div');
+  section.className = 'extras';
+  section.innerHTML =
+    '<h3 class="extras__title">Add to this purchase</h3>' +
+    '<p class="extras__intro">Optional. Each one is switched on in the Studio as soon as your license is issued.</p>';
+
+  const list = document.createElement('ul');
+  list.className = 'extras__list';
+
+  for (const option of options) {
+    const id = 'option-' + product.slug + '-' + option.id;
+    const item = document.createElement('li');
+    item.className = 'extras__item';
+    item.innerHTML =
+      '<input type="checkbox" id="' + id + '" value="' + escapeHtml(option.id) + '" data-option>' +
+      '<label for="' + id + '">' +
+      '<span class="extras__name">' + escapeHtml(option.name) + '</span>' +
+      '<span class="extras__price">+' + formatPrice(option.price) + '</span>' +
+      '<span class="extras__blurb">' + escapeHtml(option.blurb) + '</span>' +
+      '</label>';
+    list.append(item);
+  }
+
+  section.append(list);
+
+  const total = document.createElement('p');
+  total.className = 'extras__total';
+  section.append(total);
+  host.append(section);
+
+  const boxes = [...section.querySelectorAll('[data-option]')];
+  const selected = () => boxes.filter((b) => b.checked).map((b) => b.value);
+
+  const sync = () => {
+    const chosen = selected();
+    const sum = priceWithOptions(product, chosen);
+    const headline = document.querySelector('[data-buybox-total]');
+    if (headline) headline.textContent = formatPrice(sum);
+
+    total.textContent = chosen.length
+      ? chosen.length + (chosen.length === 1 ? ' extra added — total ' : ' extras added — total ') + formatPrice(sum)
+      : 'No extras added. Total ' + formatPrice(product.price) + '.';
+
+    for (const fn of listeners) fn();
+  };
+
+  for (const box of boxes) box.addEventListener('change', sync);
+  sync();
+
+  return { selected, onChange: (fn) => listeners.push(fn) };
+}
+
+/* ------------------------------------------------------------------ *
  * The buy box
  * ------------------------------------------------------------------ */
 
@@ -35,7 +118,7 @@ function renderBuyBox(product, host) {
   const tier = TIERS[product.tier];
 
   host.innerHTML =
-    '<p class="buybox__price">' + formatPrice(product.price) + '</p>' +
+    '<p class="buybox__price" data-buybox-total>' + formatPrice(product.price) + '</p>' +
     '<p class="buybox__tier">' + escapeHtml(tier ? tier.name : '') + ' &middot; One-time purchase</p>' +
     '<ul class="buybox__facts">' +
     '<li>Instant access</li>' +
@@ -43,6 +126,11 @@ function renderBuyBox(product, host) {
     '<li>14-day refund policy</li>' +
     '<li>Applicable taxes are shown at checkout.</li>' +
     '</ul>';
+
+  // The extras go in whether or not there is a checkout link, so the page
+  // says what is on offer either way. Which ones are ticked is read back
+  // when the buy button is built.
+  const extras = renderOptions(product, host);
 
   if (!hasCheckout(product)) return;
 
@@ -63,10 +151,27 @@ function renderBuyBox(product, host) {
 
   const buy = document.createElement('a');
   buy.className = 'button button--ink button--block';
-  buy.href = product.checkoutUrl;
-  buy.textContent = 'Buy ' + product.name + ' — ' + formatPrice(product.price);
   buy.setAttribute('aria-describedby', 'agree-hint-' + product.slug);
   buyWrap.append(buy);
+
+  /*
+   * The link is rebuilt whenever the extras change, so the address a buyer
+   * follows always carries exactly what the page is showing them. The
+   * selection rides along as a query parameter, which is what the
+   * confirmation page reads back to write the license record.
+   */
+  const syncBuy = () => {
+    const chosen = extras.selected();
+    const total = priceWithOptions(product, chosen);
+    const url = new URL(product.checkoutUrl, SITE.origin);
+    const encoded = encodeOptions(product, chosen);
+    if (encoded) url.searchParams.set('options', encoded);
+    buy.href = url.toString();
+    buy.textContent = 'Buy ' + product.name + ' — ' + formatPrice(total);
+  };
+
+  extras.onChange(syncBuy);
+  syncBuy();
 
   const tax = document.createElement('p');
   tax.className = 'buybox__tax';

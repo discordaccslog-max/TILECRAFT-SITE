@@ -1457,6 +1457,101 @@ table {
   mix-blend-mode: var(--blend);
 }
 
+/* --------------------------------------------------------------------------
+   Extras offered with a product
+   -------------------------------------------------------------------------- */
+
+.extras {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--paper-edge);
+}
+
+.extras__title {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-muted);
+}
+
+.extras__intro {
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  line-height: 1.45;
+}
+
+.extras__list {
+  list-style: none;
+  margin-top: 0.9rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.extras__item {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--paper-edge);
+  background: var(--paper-sunk);
+}
+
+.extras__item input[type='checkbox'] {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0.15rem 0 0;
+  accent-color: var(--pink);
+  flex: 0 0 auto;
+}
+
+.extras__item label {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0 0.6rem;
+  cursor: pointer;
+  flex: 1 1 auto;
+}
+
+.extras__name {
+  font-weight: 600;
+  font-size: var(--step--1);
+}
+
+.extras__price {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.extras__blurb {
+  grid-column: 1 / -1;
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--ink-muted);
+}
+
+/* A ticked extra is marked on the box itself, not only on its checkbox. */
+.extras__item:has(input:checked) {
+  border-color: var(--ink);
+  background: var(--paper);
+}
+
+.extras__item:focus-within {
+  outline: 2px solid var(--pink);
+  outline-offset: 2px;
+}
+
+.extras__total {
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
 .agreement {
   margin-top: 1.25rem;
   padding-top: 1.25rem;

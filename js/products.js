@@ -87,6 +87,12 @@ export const PRODUCTS = [
       'People looking for logo or trademark artwork — the license excludes that use',
       'People who need vector SVG output, which is part of Production Studio rather than the Collections'
     ],
+    options: [
+      { id: 'extra-colorways', price: 3 },
+      { id: 'print-specs', price: 2 },
+      { id: 'palette-files', price: 2 },
+      { id: 'mockup-pack', price: 3 }
+    ],
     thankYouPath: '/thank-you/geometric-essentials/',
     checkoutUrl: '',
     inks: ['pink', 'teal']
@@ -129,6 +135,12 @@ export const PRODUCTS = [
       'People who need vector SVG output, which is part of Production Studio',
       'People who want figurative or illustrated motifs rather than surface texture'
     ],
+    options: [
+      { id: 'extra-colorways', price: 3 },
+      { id: 'palette-files', price: 2 },
+      { id: 'seam-report', price: 2 },
+      { id: 'mockup-pack', price: 3 }
+    ],
     thankYouPath: '/thank-you/textures-and-grain/',
     checkoutUrl: '',
     inks: ['teal', 'pink']
@@ -169,6 +181,12 @@ export const PRODUCTS = [
       'People who want painterly or watercolor florals',
       'People who need the pattern files to resell or redistribute',
       'People who need vector SVG output, which is part of Production Studio'
+    ],
+    options: [
+      { id: 'extra-colorways', price: 3 },
+      { id: 'print-specs', price: 2 },
+      { id: 'palette-files', price: 2 },
+      { id: 'mockup-pack', price: 3 }
     ],
     thankYouPath: '/thank-you/botanical-linework/',
     checkoutUrl: '',
@@ -211,6 +229,12 @@ export const PRODUCTS = [
       'People who want period-accurate reproductions of specific historical artwork',
       'People who need vector SVG output, which is part of Production Studio'
     ],
+    options: [
+      { id: 'extra-colorways', price: 3 },
+      { id: 'print-specs', price: 3 },
+      { id: 'palette-files', price: 2 },
+      { id: 'mockup-pack', price: 3 }
+    ],
     thankYouPath: '/thank-you/mid-century-shapes/',
     checkoutUrl: '',
     inks: ['pink', 'teal']
@@ -251,6 +275,12 @@ export const PRODUCTS = [
       'People producing technical specifications for physical tile manufacture',
       'People who need vector SVG output, which is part of Production Studio'
     ],
+    options: [
+      { id: 'extra-colorways', price: 4 },
+      { id: 'print-specs', price: 3 },
+      { id: 'palette-files', price: 2 },
+      { id: 'mockup-pack', price: 3 }
+    ],
     thankYouPath: '/thank-you/tile-and-terrazzo/',
     checkoutUrl: '',
     inks: ['teal', 'pink']
@@ -288,6 +318,12 @@ export const PRODUCTS = [
       'People who want the pattern-making tools, which are the Studio Editions',
       'People who need the pattern files to resell or redistribute',
       'People who need vector SVG output, which is part of Production Studio'
+    ],
+    options: [
+      { id: 'extra-colorways', price: 5 },
+      { id: 'print-specs', price: 4 },
+      { id: 'palette-files', price: 3 },
+      { id: 'mockup-pack', price: 4 }
     ],
     thankYouPath: '/thank-you/essentials-bundle/',
     checkoutUrl: '',
@@ -340,6 +376,12 @@ export const PRODUCTS = [
       'People who need vector SVG or batch exports, which are part of Production Studio',
       'People who want to resell or redistribute pattern files as packs or templates'
     ],
+    options: [
+      { id: 'seed-pack', price: 5 },
+      { id: 'print-specs', price: 3 },
+      { id: 'palette-files', price: 2 },
+      { id: 'mockup-pack', price: 3 }
+    ],
     thankYouPath: '/thank-you/pattern-generator-studio/',
     checkoutUrl: '',
     inks: ['pink', 'teal']
@@ -384,6 +426,12 @@ export const PRODUCTS = [
       'People who want patterns made for them from settings, which is Pattern Generator Studio',
       'People who need vector SVG or batch exports, which are part of Production Studio',
       'People who want to resell or redistribute pattern files as packs or templates'
+    ],
+    options: [
+      { id: 'motif-library', price: 5 },
+      { id: 'seam-report', price: 3 },
+      { id: 'mockup-pack', price: 3 },
+      { id: 'palette-files', price: 2 }
     ],
     thankYouPath: '/thank-you/repeat-builder/',
     checkoutUrl: '',
@@ -432,12 +480,131 @@ export const PRODUCTS = [
       'People who want to make patterns from settings, which is Pattern Generator Studio',
       'People who want to resell or redistribute pattern files as packs or templates'
     ],
+    options: [
+      { id: 'large-format', price: 5 },
+      { id: 'print-specs', price: 4 },
+      { id: 'seam-report', price: 3 },
+      { id: 'palette-files', price: 2 }
+    ],
     thankYouPath: '/thank-you/production-studio/',
     checkoutUrl: '',
     inks: ['pink', 'teal'],
     featured: true
   }
 ];
+
+/*
+ * Purchase options
+ *
+ * Extras a buyer can add to a product at checkout. Every one of them is a
+ * real thing the Studio hands over afterwards, not a line on a receipt:
+ * the chosen ids travel with the order, are written into the license
+ * record on the confirmation page, are printed on the certificate, and are
+ * what the Studio reads to decide which extras to switch on.
+ *
+ * Each extra is described once here. A product lists the ids it offers and
+ * what it charges for each, because the same extra is worth more beside a
+ * large Collection than beside a small one.
+ *
+ *   id        Stable identifier. Stored in the license record, so changing
+ *             one would strand anybody who already bought it.
+ *   name      Shown beside the checkbox.
+ *   blurb     One line saying what arrives.
+ *   delivers  What the Studio switches on, kept here so the product page,
+ *             the certificate and the Studio all describe it the same way.
+ */
+export const OPTIONS = {
+  'extra-colorways': {
+    id: 'extra-colorways',
+    name: 'Extra colorway set',
+    blurb: 'Four more curated colorways for every pattern, on top of the four included.',
+    delivers: 'A second set of colorways in the Collection workspace.'
+  },
+  'print-specs': {
+    id: 'print-specs',
+    name: 'Print spec sheets',
+    blurb: 'A one-page PDF per pattern: the repeat size at each resolution, and what a yard covers.',
+    delivers: 'A spec sheet button beside every export.'
+  },
+  'palette-files': {
+    id: 'palette-files',
+    name: 'Palette files',
+    blurb: 'Every colorway as a swatch sheet and as a palette file other software can read.',
+    delivers: 'Palette export in the workspace.'
+  },
+  'mockup-pack': {
+    id: 'mockup-pack',
+    name: 'Extra mockup scenes',
+    blurb: 'Six more scenes to try a pattern on: cushion, mug, label, book cover, tiled wall, and gift wrap.',
+    delivers: 'The extra scenes in the mockup strip.'
+  },
+  'seam-report': {
+    id: 'seam-report',
+    name: 'Seam report',
+    blurb: 'A PDF showing each tile meeting itself, with the edge measurements behind it.',
+    delivers: 'A seam report button in the workspace.'
+  },
+  'motif-library': {
+    id: 'motif-library',
+    name: 'Starter motif library',
+    blurb: 'Forty drawn motifs to build repeats from, so there is something to work with on day one.',
+    delivers: 'The motif library in Repeat Builder.'
+  },
+  'seed-pack': {
+    id: 'seed-pack',
+    name: 'Curated seed pack',
+    blurb: 'Sixty settings-and-seed combinations worth keeping, each one a finished starting point.',
+    delivers: 'The seed pack in Pattern Generator Studio.'
+  },
+  'large-format': {
+    id: 'large-format',
+    name: 'Large-format presets',
+    blurb: 'Preset output sizes for wide fabric, wallpaper drops, and panel prints.',
+    delivers: 'The extra presets in the export panel.'
+  }
+};
+
+/** The options a product offers: the shared description plus its own price. */
+export function optionsFor(product) {
+  if (!product || !Array.isArray(product.options)) return [];
+  return product.options
+    .map((entry) => {
+      const base = OPTIONS[entry.id];
+      return base ? { ...base, price: Number(entry.price) } : null;
+    })
+    .filter(Boolean);
+}
+
+/** One of a product's options by id, or null. */
+export function optionFor(product, id) {
+  return optionsFor(product).find((o) => o.id === id) || null;
+}
+
+/**
+ * The options a selection actually refers to, in the product's own order.
+ *
+ * Ids the product does not offer are dropped rather than guessed at, so a
+ * stale or edited link cannot invent an entitlement or a price.
+ */
+export function chosenOptions(product, ids) {
+  const list = Array.isArray(ids) ? ids : String(ids || '').split(',');
+  const wanted = new Set(list.map((id) => String(id).trim()).filter(Boolean));
+  return optionsFor(product).filter((o) => wanted.has(o.id));
+}
+
+/** What a purchase comes to, with the chosen extras. */
+export function priceWithOptions(product, ids) {
+  if (!product) return 0;
+  return chosenOptions(product, ids).reduce(
+    (total, option) => total + option.price,
+    Number(product.price) || 0
+  );
+}
+
+/** A selection as it travels in a URL: the product's order, comma separated. */
+export function encodeOptions(product, ids) {
+  return chosenOptions(product, ids).map((o) => o.id).join(',');
+}
 
 /** Products in a tier, in catalog order. */
 export function productsByTier(tier) {

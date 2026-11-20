@@ -15,6 +15,7 @@ import {
   CERTIFICATE_DOES_NOT_ALLOW,
   CERTIFICATE_DURATION
 } from './license-terms.js';
+import { productBySlug, chosenOptions } from './products.js';
 
 /* The certificate uses the same inks as the site. */
 const INK = {
@@ -114,6 +115,18 @@ export function buildCertificate(license) {
   rows.push(['License code', license.code, 'mono', 13]);
   rows.push(['Issued', formatIssuedDate(license.issuedAt), 'regular', 12]);
   if (license.orderRef) rows.push(['Order reference', license.orderRef, 'mono', 10.5]);
+
+  // Extras bought with the product belong on the record of the purchase,
+  // so the certificate is a complete account of what was bought.
+  const extras = chosenOptions(productBySlug(license.slug), license.options);
+  if (extras.length) {
+    rows.push([
+      extras.length === 1 ? 'Extra included' : 'Extras included',
+      extras.map((o) => o.name).join(', '),
+      'regular',
+      10.5
+    ]);
+  }
 
   const labelWidth = 120;
   const valueWidth = CONTENT - labelWidth;

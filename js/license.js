@@ -27,7 +27,7 @@
  */
 
 import { SITE } from './site-config.js';
-import { productByCode, grantsFor } from './products.js';
+import { productByCode, grantsFor, chosenOptions } from './products.js';
 
 /** Characters a license code's variable sections may use. */
 export const ALPHABET = '23456789ABCDEFGHJKMNPQRSTUVWXYZ';
@@ -316,6 +316,25 @@ export const ORDER_PARAM_KEYS = [
 ];
 
 /**
+ * Read the extras a confirmation link carries.
+ *
+ * The selection travels as ?options=a,b beside the order reference. It is
+ * only a list of ids here; which of them a product actually offers is
+ * settled when the record is built.
+ *
+ * @returns {string[]}
+ */
+export function optionsFromUrl(url) {
+  try {
+    const u = new URL(String(url), SITE.origin);
+    const raw = u.searchParams.get('options') || new URLSearchParams(u.hash.replace(/^#/, '')).get('options');
+    return raw ? raw.split(',').map((id) => id.trim()).filter(Boolean) : [];
+  } catch {
+    return [];
+  }
+}
+
+/**
  * Read an order reference out of a URL's query string or fragment.
  * The first key present, in the order above, wins.
  * @returns {string|null}
@@ -428,6 +447,9 @@ export function buildRecord(product, options = {}) {
     productName: product.name,
     tier: product.tier,
     grants: grantsFor(product),
+    // The extras bought with it, filtered against what the product
+    // actually offers, so nothing can be added by editing a link.
+    options: chosenOptions(product, options.options).map((o) => o.id),
     issuedAt: options.issuedAt || new Date().toISOString(),
     orderRef: options.orderRef ? String(options.orderRef) : null,
     licensee: options.licensee ? String(options.licensee).trim() : null
@@ -457,6 +479,17 @@ export function activate(input, options = {}) {
     if (options.licensee && !existing.licensee) {
       existing.licensee = String(options.licensee).trim();
       changed = true;
+    }
+    // Extras are added to what is already held rather than replacing it,
+    // so opening an older confirmation link cannot take one away.
+    if (options.options) {
+      const held = new Set(existing.options || []);
+      const before = held.size;
+      for (const option of chosenOptions(parsed.product, options.options)) held.add(option.id);
+      if (held.size !== before) {
+        existing.options = [...held];
+        changed = true;
+      }
     }
     if (changed) saveAll(records);
     return { ok: true, reason: 'already-active', license: { ...existing }, already: true };
@@ -505,6 +538,31 @@ export function unlockedSlugs() {
 /** True when a product slug is unlocked on this device. */
 export function isUnlocked(slug) {
   return unlockedSlugs().has(slug);
+}
+
+/**
+ * The extras held for a product, from every license that unlocks it.
+ *
+ * A Collection can be unlocked by its own license or by a bundle, and the
+ * extras may have been bought with either, so both are considered. An
+ * extra bought once is held for good: it is not taken away by buying the
+ * same thing again without it.
+ *
+ * @returns {Set<string>} option ids
+ */
+export function optionsHeldFor(slug) {
+  const held = new Set();
+  for (const record of loadAll()) {
+    const grants = Array.isArray(record.grants) && record.grants.length ? record.grants : [record.slug];
+    if (!grants.includes(slug)) continue;
+    for (const id of record.options || []) held.add(id);
+  }
+  return held;
+}
+
+/** Whether a product has a given extra on this device. */
+export function hasOption(slug, optionId) {
+  return optionsHeldFor(slug).has(optionId);
 }
 
 /** The license record that unlocks a slug, or null. */

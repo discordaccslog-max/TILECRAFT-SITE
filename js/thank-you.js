@@ -14,11 +14,12 @@
  *   5. offers the certificate, the Studio, the activation link, and print.
  */
 
-import { productBySlug, formatPrice } from './products.js';
+import { productBySlug, formatPrice, chosenOptions } from './products.js';
 import {
   activate,
   activationUrl,
   orderRefFromUrl,
+  optionsFromUrl,
   generateCode,
   formatIssued,
   listLicenses,
@@ -40,6 +41,7 @@ function existingLicenseFor(slug) {
 
 function issueLicense(product) {
   const orderRef = orderRefFromUrl(window.location.href);
+  const extras = optionsFromUrl(window.location.href);
 
   // An order reference always produces the same code for the same product,
   // so reloading this page, or opening it again later, issues nothing new.
@@ -52,7 +54,10 @@ function issueLicense(product) {
       ? existing.code
       : generateCode(product);
 
-  const result = activate(code, { orderRef: orderRef || undefined });
+  const result = activate(code, {
+    orderRef: orderRef || undefined,
+    options: extras.length ? extras : undefined
+  });
   return { result, orderRef };
 }
 
@@ -67,6 +72,11 @@ function renderReceipt(license, host) {
   }
   if (license.licensee) {
     rows.push(['Licensed to', escapeHtml(license.licensee)]);
+  }
+  if (license.options && license.options.length) {
+    const product = productBySlug(license.slug);
+    const names = chosenOptions(product, license.options).map((o) => escapeHtml(o.name));
+    rows.push([names.length === 1 ? 'Extra' : 'Extras', names.join('<br>')]);
   }
 
   host.innerHTML = rows
