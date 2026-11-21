@@ -12,6 +12,7 @@
 import { SITE, hasSupportEmail, supportEmail, supportMailto } from './site-config.js';
 import { applySettings, cycleTheme, themeLabel, getSettings } from './settings.js';
 import { drawComposition, liveCanvas, seedFrom } from './riso.js';
+import * as cart from './cart.js';
 
 /* ------------------------------------------------------------------ *
  * Theme
@@ -185,10 +186,48 @@ function setUpCanvases() {
  * Start
  * ------------------------------------------------------------------ */
 
+/* ------------------------------------------------------------------ *
+ * The cart count in the header
+ * ------------------------------------------------------------------ */
+
+/**
+ * Keep the header's cart count in step with the cart.
+ *
+ * The count is hidden rather than shown as a zero, so an empty cart does
+ * not look like a thing with something in it. It updates on any change
+ * in this tab, and on a change made in another one.
+ */
+function setUpCartCount() {
+  const badge = document.querySelector('[data-cart-count]');
+  const link = document.querySelector('[data-cart-link]');
+  if (!badge) return;
+
+  const paint = () => {
+    const { count } = cart.summary();
+    badge.textContent = count ? String(count) : '';
+    badge.hidden = count === 0;
+    if (link) {
+      link.setAttribute(
+        'aria-label',
+        count === 0
+          ? 'Cart, empty'
+          : 'Cart, ' + count + (count === 1 ? ' item' : ' items')
+      );
+    }
+  };
+
+  cart.onChange(paint);
+  window.addEventListener('storage', (event) => {
+    if (event.key === 'tilecraft:cart') paint();
+  });
+  paint();
+}
+
 export function start() {
   applySettings();
   setUpThemeToggle();
   setUpNav();
+  setUpCartCount();
   markCurrentPage();
   renderSupportLines();
   renderContactBlock();

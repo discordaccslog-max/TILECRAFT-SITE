@@ -17,7 +17,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 
-import { PRODUCTS, TIERS, productBySlug, hasCheckout, anyCheckout } from '../js/products.js';
+import { PRODUCTS, TIERS, productBySlug } from '../js/products.js';
 import { SITE, hasSupportEmail } from '../js/site-config.js';
 import { ALPHABET } from '../js/license.js';
 
@@ -52,7 +52,14 @@ const pages = htmlFiles.map((file) => ({
 for (const page of pages) {
   page.isThankYou = page.url.startsWith('/thank-you/');
   page.is404 = page.url === '/404.html';
-  page.isPublic = !page.isThankYou && !page.is404;
+  /*
+   * The cart is linked from every page but has nothing to index: its
+   * contents are whatever happens to be in one visitor's browser. So it
+   * is noindex and out of the sitemap, like the confirmation pages,
+   * while still being an ordinary page somebody can reach.
+   */
+  page.isCart = page.url === '/cart/index.html';
+  page.isPublic = !page.isThankYou && !page.is404 && !page.isCart;
   page.path = page.url.replace(/index\.html$/, '');
 }
 
@@ -154,7 +161,6 @@ test('the catalog is coherent', () => {
     assert.ok(product.forWhom.length >= 3, product.slug + ' needs a "who it is for"');
     assert.ok(product.notForWhom.length >= 3, product.slug + ' needs a "who it is not for"');
     assert.equal(product.thankYouPath, '/thank-you/' + product.slug + '/');
-    assert.equal(typeof product.checkoutUrl, 'string', product.slug + ' needs a checkoutUrl field');
   }
 });
 
@@ -277,14 +283,40 @@ test('no product states a pattern count', () => {
  * Checkout
  * ------------------------------------------------------------------ */
 
-test('a product with no checkout link renders no buy button and no checkbox', () => {
-  if (anyCheckout()) return; // once links are added this check no longer applies
+test('nothing claims to take payment while no checkout exists', () => {
+  /*
+   * Buying goes through the cart now, and the cart stops at a hand-off
+   * that is not built. Nothing anywhere should suggest otherwise: no buy
+   * button, and no promise of being taken to a payment provider.
+   */
+  for (const page of pages) {
+    assert.ok(!/>\s*Buy /.test(page.html), page.url + ' has a buy button');
+    assert.ok(
+      !/taken to our payment provider/i.test(page.html),
+      page.url + ' promises a payment provider that does not exist'
+    );
+  }
+});
 
+test('every product page offers the cart instead', () => {
   for (const product of PRODUCTS) {
-    assert.equal(hasCheckout(product), false, product.slug + ' has a checkout link');
     const html = fs.readFileSync(path.join(root, 'products', product.slug, 'index.html'), 'utf8');
-    assert.ok(!/I agree to the/.test(html), product.slug + ' shows an agreement checkbox');
-    assert.ok(!/Buy /.test(html), product.slug + ' shows a buy button');
+    assert.ok(/\/js\/product-page\.js/.test(html), product.slug + ' does not load the product script');
+    assert.ok(/href="\/cart\/"/.test(html), product.slug + ' does not link to the cart');
+  }
+});
+
+test('the cart is reachable from every page of the shop', () => {
+  /*
+   * The Studio is a workspace rather than part of the shop and carries
+   * its own header, so it is not expected to link to the cart.
+   */
+  for (const page of pages) {
+    if (page.is404 || page.url.startsWith('studio/') || page.url.startsWith('/studio/')) continue;
+    assert.ok(
+      /href="\/cart\/"/.test(page.html),
+      page.url + ' has no way to reach the cart'
+    );
   }
 });
 

@@ -59,8 +59,11 @@ const home = {
     <h2 id="how-title">Three steps, and the third one is the work.</h2>
     <ol class="steps" style="margin-top: 2rem">
       <li>
-        <h3>Agree and pay</h3>
-        <p>Confirm you agree to the Terms, License, and Refund Policy, then pay through our payment provider. Applicable taxes are shown at checkout.</p>
+        <h3>Add to your cart and pay</h3>
+        <p>Add what you want, with any extras, then agree to the Terms, License, and Refund
+          Policy on the cart page and pay. Applicable taxes are shown at checkout.
+          <strong>Payment is not connected on this site yet</strong>, so the cart holds what
+          you choose until it is.</p>
       </li>
       <li>
         <h3>Get your license certificate instantly</h3>
@@ -693,7 +696,36 @@ export function thankYouPage(product) {
  * Export
  * ------------------------------------------------------------------ */
 
-export const CONTENT_PAGES = [home, license, about, faq, contact, accessibility, notFound];
+
+/* ------------------------------------------------------------------ *
+ * Cart
+ * ------------------------------------------------------------------ */
+
+const cart = {
+  path: '/cart/',
+  title: 'Your cart',
+  description:
+    'What you have chosen to buy, with any extras added to each item. Your cart is kept in this browser.',
+  eyebrow: 'Cart',
+  lede: 'What you have chosen, and what it comes to.',
+  noindex: true,
+  scripts: ['/js/cart-page.js'],
+  body: `
+      <div data-cart>
+        <p>Loading your cart…</p>
+      </div>
+
+      <h2>About your cart</h2>
+      <p>Your cart is kept in this browser and nowhere else. It is not sent anywhere, it is
+        not tied to an account, and we cannot see it. Clearing your browsing data clears it,
+        and it does not follow you to another device.</p>
+      <p>Prices are read from the catalog each time this page is drawn, so a cart left here
+        for a while always shows what its contents cost today rather than what they cost when
+        they were added.</p>
+  `
+};
+
+export const CONTENT_PAGES = [home, license, about, faq, contact, cart, accessibility, notFound];
 
 export { pageHead, prose, PRODUCTS, productsByTier };
 export default CONTENT_PAGES;

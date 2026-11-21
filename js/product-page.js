@@ -13,13 +13,11 @@
 import {
   productBySlug,
   formatPrice,
-  hasCheckout,
   optionsFor,
   priceWithOptions,
-  encodeOptions,
   TIERS
 } from './products.js';
-import { SITE } from './site-config.js';
+import * as cart from './cart.js';
 import { ALLOWED, NOT_ALLOWED, AI_DISCLOSURE } from './license-terms.js';
 import { renderProductPreview, countsFor } from './previews.js';
 import { maxExportLabel } from './export-limit.js';
@@ -127,81 +125,71 @@ function renderBuyBox(product, host) {
     '<li>Applicable taxes are shown at checkout.</li>' +
     '</ul>';
 
-  // The extras go in whether or not there is a checkout link, so the page
-  // says what is on offer either way. Which ones are ticked is read back
-  // when the buy button is built.
+  // The extras come first: what is ticked here is what goes in the cart.
   const extras = renderOptions(product, host);
 
-  if (!hasCheckout(product)) return;
+  const addWrap = document.createElement('p');
+  addWrap.className = 'buybox__buy';
 
-  const agreement = document.createElement('div');
-  agreement.className = 'agreement';
-  agreement.innerHTML =
-    '<div class="agreement__row">' +
-    '<input type="checkbox" id="agree-' + product.slug + '">' +
-    '<label for="agree-' + product.slug + '">I agree to the ' +
-    '<a href="/terms/">Terms of Service</a>, <a href="/license/">License</a>, and ' +
-    '<a href="/refunds/">Refund Policy</a>.</label>' +
-    '</div>' +
-    '<p class="agreement__hint" id="agree-hint-' + product.slug + '">' +
-    'Tick the box above to continue to checkout.</p>';
+  const add = document.createElement('button');
+  add.type = 'button';
+  add.className = 'button button--ink button--block';
+  addWrap.append(add);
 
-  const buyWrap = document.createElement('p');
-  buyWrap.className = 'buybox__buy';
-
-  const buy = document.createElement('a');
-  buy.className = 'button button--ink button--block';
-  buy.setAttribute('aria-describedby', 'agree-hint-' + product.slug);
-  buyWrap.append(buy);
+  const note = document.createElement('p');
+  note.className = 'buybox__added';
+  note.setAttribute('role', 'status');
 
   /*
-   * The link is rebuilt whenever the extras change, so the address a buyer
-   * follows always carries exactly what the page is showing them. The
-   * selection rides along as a query parameter, which is what the
-   * confirmation page reads back to write the license record.
+   * The button always says what it will add and what that costs, so the
+   * extras ticked above and the thing going in the cart cannot differ.
    */
-  const syncBuy = () => {
-    const chosen = extras.selected();
-    const total = priceWithOptions(product, chosen);
-    const url = new URL(product.checkoutUrl, SITE.origin);
-    const encoded = encodeOptions(product, chosen);
-    if (encoded) url.searchParams.set('options', encoded);
-    buy.href = url.toString();
-    buy.textContent = 'Buy ' + product.name + ' — ' + formatPrice(total);
+  const syncAdd = () => {
+    const total = priceWithOptions(product, extras.selected());
+    add.textContent = 'Add to cart — ' + formatPrice(total);
   };
 
-  extras.onChange(syncBuy);
-  syncBuy();
+  extras.onChange(syncAdd);
+  syncAdd();
+
+  add.addEventListener('click', () => {
+    const chosen = extras.selected();
+    const line = cart.add(product.slug, chosen);
+    if (!line) return;
+
+    const count = line.quantity;
+    note.textContent =
+      product.name +
+      (chosen.length ? ' with ' + chosen.length + (chosen.length === 1 ? ' extra' : ' extras') : '') +
+      ' added' +
+      (count > 1 ? ' — ' + count + ' in your cart' : '') +
+      '.';
+    note.hidden = false;
+  });
+
+  note.hidden = true;
+
+  const viewCart = document.createElement('p');
+  viewCart.className = 'buybox__cartlink';
+  viewCart.innerHTML = '<a href="/cart/">View your cart</a>';
 
   const tax = document.createElement('p');
   tax.className = 'buybox__tax';
-  tax.textContent = 'Applicable taxes are shown at checkout. You will be taken to our payment provider.';
+  tax.textContent = 'Applicable taxes are shown at checkout.';
 
-  host.append(agreement, buyWrap, tax);
+  /*
+   * The agreement to the Terms, License and Refund Policy belongs at the
+   * point of paying rather than the point of adding to a cart, so it
+   * lives on the cart page. The links are still here, because somebody
+   * deciding whether to add something should be able to read them first.
+   */
+  const terms = document.createElement('p');
+  terms.className = 'buybox__terms';
+  terms.innerHTML =
+    'Covered by the <a href="/license/">License</a>, ' +
+    '<a href="/terms/">Terms of Service</a>, and <a href="/refunds/">Refund Policy</a>.';
 
-  const checkbox = agreement.querySelector('input');
-  const hint = agreement.querySelector('.agreement__hint');
-
-  const sync = () => {
-    const ready = checkbox.checked;
-    buy.setAttribute('aria-disabled', ready ? 'false' : 'true');
-    buy.tabIndex = ready ? 0 : -1;
-    hint.textContent = ready
-      ? 'Thank you. The button is ready.'
-      : 'Tick the box above to continue to checkout.';
-  };
-
-  // A link cannot be disabled, so the click is intercepted while the box is
-  // unticked and focus is sent to the checkbox with the reason spoken.
-  buy.addEventListener('click', (event) => {
-    if (checkbox.checked) return;
-    event.preventDefault();
-    hint.textContent = 'Please agree to the Terms, License, and Refund Policy first.';
-    checkbox.focus();
-  });
-
-  checkbox.addEventListener('change', sync);
-  sync();
+  host.append(addWrap, note, viewCart, tax, terms);
 }
 
 /* ------------------------------------------------------------------ *

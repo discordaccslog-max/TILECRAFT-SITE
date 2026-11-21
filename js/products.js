@@ -22,9 +22,6 @@
  *   forWhom        Who it suits. Array of strings.
  *   notForWhom     Who it does not suit. Array of strings.
  *   thankYouPath   Confirmation page path. Not linked anywhere on the site.
- *   checkoutUrl    Empty until a payment link exists. While it is empty, no
- *                  buy button is rendered anywhere. Add a URL and the button
- *                  (and its agreement checkbox) appear automatically.
  *   grants         Slugs this product unlocks in the Studio. Defaults to the
  *                  product's own slug; the bundle lists the five Collections.
  *   inks           Decorative ink pair used by the riso canvas compositions
@@ -94,7 +91,6 @@ export const PRODUCTS = [
       { id: 'mockup-pack', price: 3 }
     ],
     thankYouPath: '/thank-you/geometric-essentials/',
-    checkoutUrl: '',
     inks: ['pink', 'teal']
   },
   {
@@ -142,7 +138,6 @@ export const PRODUCTS = [
       { id: 'mockup-pack', price: 3 }
     ],
     thankYouPath: '/thank-you/textures-and-grain/',
-    checkoutUrl: '',
     inks: ['teal', 'pink']
   },
   {
@@ -189,7 +184,6 @@ export const PRODUCTS = [
       { id: 'mockup-pack', price: 3 }
     ],
     thankYouPath: '/thank-you/botanical-linework/',
-    checkoutUrl: '',
     inks: ['teal', 'pink']
   },
   {
@@ -236,7 +230,6 @@ export const PRODUCTS = [
       { id: 'mockup-pack', price: 3 }
     ],
     thankYouPath: '/thank-you/mid-century-shapes/',
-    checkoutUrl: '',
     inks: ['pink', 'teal']
   },
   {
@@ -282,7 +275,6 @@ export const PRODUCTS = [
       { id: 'mockup-pack', price: 3 }
     ],
     thankYouPath: '/thank-you/tile-and-terrazzo/',
-    checkoutUrl: '',
     inks: ['teal', 'pink']
   },
   {
@@ -326,7 +318,6 @@ export const PRODUCTS = [
       { id: 'mockup-pack', price: 4 }
     ],
     thankYouPath: '/thank-you/essentials-bundle/',
-    checkoutUrl: '',
     grants: [
       'geometric-essentials',
       'textures-and-grain',
@@ -383,7 +374,6 @@ export const PRODUCTS = [
       { id: 'mockup-pack', price: 3 }
     ],
     thankYouPath: '/thank-you/pattern-generator-studio/',
-    checkoutUrl: '',
     inks: ['pink', 'teal']
   },
   {
@@ -434,7 +424,6 @@ export const PRODUCTS = [
       { id: 'palette-files', price: 2 }
     ],
     thankYouPath: '/thank-you/repeat-builder/',
-    checkoutUrl: '',
     inks: ['teal', 'pink']
   },
   {
@@ -487,7 +476,6 @@ export const PRODUCTS = [
       { id: 'palette-files', price: 2 }
     ],
     thankYouPath: '/thank-you/production-studio/',
-    checkoutUrl: '',
     inks: ['pink', 'teal'],
     featured: true
   },
@@ -535,7 +523,6 @@ export const PRODUCTS = [
       { id: 'mockup-pack', price: 3 }
     ],
     thankYouPath: '/thank-you/art-deco-lines/',
-    checkoutUrl: '',
     inks: ['pink', 'teal']
   },
 
@@ -583,7 +570,6 @@ export const PRODUCTS = [
       { id: 'large-format', price: 3 }
     ],
     thankYouPath: '/thank-you/stripes-and-rules/',
-    checkoutUrl: '',
     inks: ['teal', 'pink']
   },
 
@@ -631,7 +617,6 @@ export const PRODUCTS = [
       { id: 'mockup-pack', price: 3 }
     ],
     thankYouPath: '/thank-you/checks-and-weaves/',
-    checkoutUrl: '',
     inks: ['pink', 'teal']
   },
 
@@ -679,7 +664,6 @@ export const PRODUCTS = [
       { id: 'mockup-pack', price: 3 }
     ],
     thankYouPath: '/thank-you/waves-and-water/',
-    checkoutUrl: '',
     inks: ['teal', 'pink']
   },
 
@@ -727,7 +711,6 @@ export const PRODUCTS = [
       { id: 'mockup-pack', price: 3 }
     ],
     thankYouPath: '/thank-you/stars-and-night/',
-    checkoutUrl: '',
     inks: ['pink', 'teal']
   },
 
@@ -775,7 +758,6 @@ export const PRODUCTS = [
       { id: 'mockup-pack', price: 3 }
     ],
     thankYouPath: '/thank-you/folk-geometry/',
-    checkoutUrl: '',
     inks: ['teal', 'pink']
   },
 
@@ -823,7 +805,6 @@ export const PRODUCTS = [
       { id: 'large-format', price: 3 }
     ],
     thankYouPath: '/thank-you/arches-and-columns/',
-    checkoutUrl: '',
     inks: ['pink', 'teal']
   },
 
@@ -871,7 +852,6 @@ export const PRODUCTS = [
       { id: 'mockup-pack', price: 3 }
     ],
     thankYouPath: '/thank-you/scallops-and-shells/',
-    checkoutUrl: '',
     inks: ['teal', 'pink']
   },
 
@@ -918,7 +898,6 @@ export const PRODUCTS = [
       { id: 'mockup-pack', price: 3 }
     ],
     thankYouPath: '/thank-you/confetti-and-specks/',
-    checkoutUrl: '',
     inks: ['pink', 'teal']
   },
 
@@ -965,7 +944,6 @@ export const PRODUCTS = [
       { id: 'mockup-pack', price: 3 }
     ],
     thankYouPath: '/thank-you/crystal-and-facet/',
-    checkoutUrl: '',
     inks: ['teal', 'pink']
   },
 
@@ -1013,7 +991,6 @@ export const PRODUCTS = [
       { id: 'seam-report', price: 3 }
     ],
     thankYouPath: '/thank-you/seam-inspector/',
-    checkoutUrl: '',
     inks: ['teal', 'pink']
   },
 
@@ -1061,7 +1038,6 @@ export const PRODUCTS = [
       { id: 'mockup-pack', price: 3 }
     ],
     thankYouPath: '/thank-you/colorway-studio/',
-    checkoutUrl: '',
     inks: ['pink', 'teal']
   },
 
@@ -1110,7 +1086,6 @@ export const PRODUCTS = [
       { id: 'large-format', price: 4 }
     ],
     thankYouPath: '/thank-you/mockup-studio/',
-    checkoutUrl: '',
     inks: ['teal', 'pink']
   },
 
@@ -1163,7 +1138,6 @@ export const PRODUCTS = [
       'crystal-and-facet'
     ],
     thankYouPath: '/thank-you/geometry-bundle/',
-    checkoutUrl: '',
     inks: ['pink', 'teal']
   },
 
@@ -1216,7 +1190,6 @@ export const PRODUCTS = [
       'confetti-and-specks'
     ],
     thankYouPath: '/thank-you/nature-bundle/',
-    checkoutUrl: '',
     inks: ['teal', 'pink']
   },
 
@@ -1269,7 +1242,6 @@ export const PRODUCTS = [
       'stars-and-night'
     ],
     thankYouPath: '/thank-you/retro-bundle/',
-    checkoutUrl: '',
     inks: ['pink', 'teal']
   },
 
@@ -1322,7 +1294,6 @@ export const PRODUCTS = [
       'confetti-and-specks'
     ],
     thankYouPath: '/thank-you/surface-bundle/',
-    checkoutUrl: '',
     inks: ['teal', 'pink']
   },
 
@@ -1375,7 +1346,6 @@ export const PRODUCTS = [
       'geometric-essentials'
     ],
     thankYouPath: '/thank-you/architecture-bundle/',
-    checkoutUrl: '',
     inks: ['pink', 'teal']
   },
 
@@ -1430,7 +1400,6 @@ export const PRODUCTS = [
       'textures-and-grain'
     ],
     thankYouPath: '/thank-you/textile-bundle/',
-    checkoutUrl: '',
     inks: ['teal', 'pink']
   },
 
@@ -1485,7 +1454,6 @@ export const PRODUCTS = [
       'waves-and-water'
     ],
     thankYouPath: '/thank-you/nursery-bundle/',
-    checkoutUrl: '',
     inks: ['pink', 'teal']
   },
 
@@ -1542,7 +1510,6 @@ export const PRODUCTS = [
       'seam-inspector'
     ],
     thankYouPath: '/thank-you/makers-bundle/',
-    checkoutUrl: '',
     inks: ['teal', 'pink']
   },
 
@@ -1595,7 +1562,6 @@ export const PRODUCTS = [
       'colorway-studio'
     ],
     thankYouPath: '/thank-you/print-shop-bundle/',
-    checkoutUrl: '',
     inks: ['pink', 'teal']
   },
 
@@ -1670,7 +1636,6 @@ export const PRODUCTS = [
       'crystal-and-facet'
     ],
     thankYouPath: '/thank-you/every-collection/',
-    checkoutUrl: '',
     inks: ['teal', 'pink']
   },
 
@@ -1727,7 +1692,6 @@ export const PRODUCTS = [
       'seam-inspector'
     ],
     thankYouPath: '/thank-you/studio-editions-bundle/',
-    checkoutUrl: '',
     inks: ['pink', 'teal']
   },
 
@@ -1814,7 +1778,6 @@ export const PRODUCTS = [
       'seam-inspector'
     ],
     thankYouPath: '/thank-you/complete-library/',
-    checkoutUrl: '',
     inks: ['teal', 'pink']
   }
 ];
@@ -1955,16 +1918,6 @@ export function grantsFor(product) {
   return Array.isArray(product.grants) && product.grants.length
     ? product.grants.slice()
     : [product.slug];
-}
-
-/** True when a product has a usable checkout link. */
-export function hasCheckout(product) {
-  return !!(product && typeof product.checkoutUrl === 'string' && product.checkoutUrl.trim());
-}
-
-/** True when any product in the catalog has a checkout link. */
-export function anyCheckout() {
-  return PRODUCTS.some(hasCheckout);
 }
 
 /** Price formatted for display, e.g. "$10". */

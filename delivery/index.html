@@ -55,6 +55,9 @@
           <li><a class="nav__link" href="/faq/">FAQ</a></li>
         </ul>
         <div class="nav__extras">
+          <a class="nav__cart" href="/cart/" data-cart-link>
+            Cart<span class="nav__cart-count" data-cart-count hidden></span>
+          </a>
           <a class="nav__studio" href="/studio/">Studio</a>
           <button type="button" class="theme-toggle" data-theme-toggle aria-label="Change color theme"></button>
         </div>
@@ -75,12 +78,18 @@
   <div class="prose">
     <div class="wrap wrap--narrow">
 
+      <h2>Payment is not connected yet</h2>
+      <p>This is the one part of the shop still being built. You can browse everything and add
+        things to your cart, and the cart will keep them, but there is no way to pay from here
+        yet. Everything described below is how an order is handled once payment is in place.</p>
+
       <h2>There is nothing to ship</h2>
       <p>All products are digital. Nothing is posted, nothing is couriered, and no physical item is produced or sent. There is no shipping cost because there is no shipment.</p>
 
       <h2>How delivery works, step by step</h2>
       <ol>
-        <li><strong>You agree and pay.</strong> On the product page you confirm that you agree to the <a href="/terms/">Terms of Service</a>, the <a href="/license/">License</a>, and the <a href="/refunds/">Refund Policy</a>, then go through to the payment provider.</li>
+        <li><strong>You add what you want to your cart.</strong> Each product page has an Add to cart button, with any extras you choose included in the price it shows.</li>
+        <li><strong>You agree and pay.</strong> On the <a href="/cart/">cart page</a> you confirm that you agree to the <a href="/terms/">Terms of Service</a>, the <a href="/license/">License</a>, and the <a href="/refunds/">Refund Policy</a>, then go through to the payment provider.</li>
         <li><strong>You are shown a confirmation page immediately.</strong> The payment provider sends you straight back to a confirmation page on this site. There is no waiting and no queue.</li>
         <li><strong>Your license is issued there and then.</strong> The confirmation page generates your license code, shows it to you, and activates it in that browser automatically. You do not have to type a code in anywhere.</li>
         <li><strong>You can download your License Certificate.</strong> The confirmation page offers a one-page PDF certificate carrying your license code, the product, the date, your order reference, a summary of what the license allows, and an activation link printed as both text and a QR code.</li>

@@ -47,6 +47,9 @@ function header() {
           <li><a class="nav__link" href="/faq/">FAQ</a></li>
         </ul>
         <div class="nav__extras">
+          <a class="nav__cart" href="/cart/" data-cart-link>
+            Cart<span class="nav__cart-count" data-cart-count hidden></span>
+          </a>
           <a class="nav__studio" href="/studio/">Studio</a>
           <button type="button" class="theme-toggle" data-theme-toggle aria-label="Change color theme"></button>
         </div>

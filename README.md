@@ -20,6 +20,7 @@ arrives later as a Studio module. See [MODULES.md](MODULES.md).
 | --- | --- |
 | The catalog, and the only file to edit to change it | [`js/products.js`](js/products.js) |
 | Site-wide settings, including the support address | [`js/site-config.js`](js/site-config.js) |
+| The cart, and the one place a checkout plugs in | [`js/cart.js`](js/cart.js) |
 | License codes, checksums, activation, device storage | [`js/license.js`](js/license.js) |
 | The license terms, shared by the site and the certificate | [`js/license-terms.js`](js/license-terms.js) |
 | The License Certificate PDF | [`js/certificate.js`](js/certificate.js) |
@@ -173,6 +174,30 @@ When a module is added, list any new shell file in the precache array in
 [`studio/sw.js`](studio/sw.js).
 
 ---
+
+
+## Connecting a checkout
+
+There is no checkout yet. The cart is finished and holds what somebody
+intends to buy; the step that takes payment is the only part missing, and
+the cart page says so rather than showing a button that goes nowhere.
+
+To connect one:
+
+1. Set `CHECKOUT.path` in [`js/cart.js`](js/cart.js) to the page that will
+   take the order. The cart page turns into an agreement plus a
+   **Continue to checkout** button as soon as that is set — nothing else
+   needs changing to switch it on.
+2. On that page, call `cart.order()`. It returns the lines, their extras,
+   quantities and the total, all priced from `js/products.js` at the
+   moment it is asked. **No price is ever stored in the cart**, so a cart
+   left in a browser for a month cannot carry a stale one.
+3. When payment succeeds, send the buyer to each product's
+   `thankYouPath` with the order reference as `?session_id=` and the
+   chosen extras as `?options=a,b`. That is what
+   [`js/thank-you.js`](js/thank-you.js) already reads to issue the
+   license, so the licensing side needs no changes at all.
+4. Call `cart.clear()` once the order is placed.
 
 ## Tests
 

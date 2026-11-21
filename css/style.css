@@ -2307,3 +2307,247 @@ input[type='text']::placeholder {
     transition: none;
   }
 }
+
+/* --------------------------------------------------------------------------
+   The cart
+
+   Adding something is a decision made on the product page; paying for it
+   happens later, somewhere that does not exist yet. These are the pieces
+   between the two.
+   -------------------------------------------------------------------------- */
+
+.nav__cart {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: var(--step--1);
+  padding: 0.45rem 0.8rem;
+  border: 2px solid var(--ink);
+  color: inherit;
+  white-space: nowrap;
+}
+
+.nav__cart:hover,
+.nav__cart:focus-visible {
+  background: var(--paper-sunk);
+}
+
+.nav__cart-count {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  min-width: 1.35rem;
+  padding: 0.05rem 0.3rem;
+  text-align: center;
+  background: var(--pink);
+  color: var(--paper);
+  mix-blend-mode: var(--blend);
+}
+
+/* What the product page shows once something is added. */
+.buybox__added {
+  margin-top: 0.6rem;
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--teal-text);
+}
+
+.buybox__cartlink {
+  margin-top: 0.5rem;
+  font-size: var(--step--1);
+}
+
+.buybox__terms {
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+/* ---- Lines ---- */
+
+.cartlines {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+  margin: 0 0 1.5rem;
+}
+
+.cartline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+}
+
+.cartline__main {
+  flex: 1 1 16rem;
+  min-width: 0;
+}
+
+.cartline__name {
+  margin: 0;
+  font-size: var(--step-1);
+  border: 0;
+  padding: 0;
+}
+
+.cartline__name a {
+  color: inherit;
+}
+
+.cartline__short {
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+.cartline__extras {
+  list-style: none;
+  margin-top: 0.6rem;
+  display: grid;
+  gap: 0.2rem;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+.cartline__extras li::before {
+  content: '+ ';
+  font-family: var(--font-mono);
+}
+
+.cartline__unit {
+  margin-top: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+
+.cartline__side {
+  flex: 0 0 auto;
+  display: grid;
+  justify-items: end;
+  gap: 0.4rem;
+  text-align: right;
+}
+
+.cartline__qty {
+  width: 4.5rem;
+  padding: 0.35rem 0.5rem;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  color: inherit;
+  font: inherit;
+  text-align: right;
+}
+
+.cartline__total {
+  font-family: var(--font-mono);
+  font-size: var(--step-1);
+  font-weight: 700;
+}
+
+/* ---- Total and checkout ---- */
+
+.cart-total {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding: 1rem 0;
+  border-top: 2px solid var(--ink);
+}
+
+.cart-total__label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+}
+
+.cart-total__sum {
+  font-size: var(--step-3);
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.cart-total__tax {
+  flex: 1 0 100%;
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+
+.checkout {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border: 2px solid var(--ink);
+  background: var(--paper-sunk);
+}
+
+/*
+ * While there is no checkout, this block is a statement rather than a
+ * control. It is marked out so it reads as a note about the shop, not as
+ * something that failed to load.
+ */
+.checkout--pending {
+  border-style: dashed;
+}
+
+.checkout__title {
+  margin: 0 0 0.6rem;
+  font-size: var(--step-1);
+  border: 0;
+  padding: 0;
+}
+
+.checkout--pending p {
+  font-size: var(--step--1);
+  line-height: 1.6;
+}
+
+.checkout--pending p + p {
+  margin-top: 0.7rem;
+}
+
+.checkout__aside {
+  color: var(--ink-muted);
+}
+
+.cart-empty {
+  padding: 2rem 0;
+}
+
+.cart-empty h2 {
+  border: 0;
+  padding: 0;
+  margin-top: 0;
+}
+
+.cart-empty p {
+  margin-top: 0.6rem;
+}
+
+.cart-clear {
+  margin-top: 1rem;
+  font-size: var(--step--1);
+}
+
+@media (max-width: 34rem) {
+  .cartline__side {
+    justify-items: start;
+    text-align: left;
+    width: 100%;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    gap: 0.8rem;
+  }
+}
