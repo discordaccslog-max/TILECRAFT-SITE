@@ -73,11 +73,6 @@ const delivery = {
   lede: 'Everything here is digital. Your license is issued the moment you pay, in your own browser.',
   updated: UPDATED,
   body: `
-      <h2>Payment is not connected yet</h2>
-      <p>This is the one part of the shop still being built. You can browse everything and add
-        things to your cart, and the cart will keep them, but there is no way to pay from here
-        yet. Everything described below is how an order is handled once payment is in place.</p>
-
       <h2>There is nothing to ship</h2>
       <p>All products are digital. Nothing is posted, nothing is couriered, and no physical item is produced or sent. There is no shipping cost because there is no shipment.</p>
 

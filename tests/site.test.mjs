@@ -53,13 +53,16 @@ for (const page of pages) {
   page.isThankYou = page.url.startsWith('/thank-you/');
   page.is404 = page.url === '/404.html';
   /*
-   * The cart is linked from every page but has nothing to index: its
-   * contents are whatever happens to be in one visitor's browser. So it
-   * is noindex and out of the sitemap, like the confirmation pages,
-   * while still being an ordinary page somebody can reach.
+   * A page is public when it is meant to be indexed. The cart, the
+   * checkout and the order page all carry one visitor's own state and
+   * nothing worth putting in a search result, so they are noindex and
+   * out of the sitemap while still being ordinary pages to reach.
+   *
+   * Read from the page itself rather than a list of paths, so a new one
+   * is classified correctly without this having to be remembered.
    */
-  page.isCart = page.url === '/cart/index.html';
-  page.isPublic = !page.isThankYou && !page.is404 && !page.isCart;
+  page.isNoindex = /<meta name="robots" content="noindex/.test(page.html);
+  page.isPublic = !page.isNoindex && !page.is404;
   page.path = page.url.replace(/index\.html$/, '');
 }
 

@@ -61,9 +61,7 @@ const home = {
       <li>
         <h3>Add to your cart and pay</h3>
         <p>Add what you want, with any extras, then agree to the Terms, License, and Refund
-          Policy on the cart page and pay. Applicable taxes are shown at checkout.
-          <strong>Payment is not connected on this site yet</strong>, so the cart holds what
-          you choose until it is.</p>
+          Policy on the cart page and check out. Applicable taxes are shown at checkout.</p>
       </li>
       <li>
         <h3>Get your license certificate instantly</h3>
@@ -725,7 +723,38 @@ const cart = {
   `
 };
 
-export const CONTENT_PAGES = [home, license, about, faq, contact, cart, accessibility, notFound];
+
+const checkout = {
+  path: '/checkout/',
+  title: 'Checkout',
+  description: 'Review everything in your order, including any extras, and place it. Your licenses are issued as soon as the order is complete.',
+  eyebrow: 'Checkout',
+  lede: 'Review your order and place it.',
+  noindex: true,
+  scripts: ['/js/checkout.js'],
+  body: `
+      <div data-checkout>
+        <p>Loading your order…</p>
+      </div>
+  `
+};
+
+const orderComplete = {
+  path: '/order/',
+  title: 'Your order',
+  description: 'Every license in your order, with its code, its one-page certificate, and a link that activates it on another device.',
+  eyebrow: 'Order',
+  lede: 'Your licenses and certificates.',
+  noindex: true,
+  scripts: ['/js/order.js'],
+  body: `
+      <div data-order>
+        <p>Loading your order…</p>
+      </div>
+  `
+};
+
+export const CONTENT_PAGES = [home, license, about, faq, contact, cart, checkout, orderComplete, accessibility, notFound];
 
 export { pageHead, prose, PRODUCTS, productsByTier };
 export default CONTENT_PAGES;

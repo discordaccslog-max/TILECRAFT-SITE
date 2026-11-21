@@ -1,12 +1,8 @@
 /*
  * The cart page.
  *
- * Lists what is in the cart, lets it be changed, and stops at the point
- * where a checkout would take over. That hand-off is the one part of
- * this flow that does not exist yet, and the page says so plainly rather
- * than offering a button that would go nowhere.
- *
- * See js/cart.js — CHECKOUT — for what connecting one involves.
+ * Lists what is in the cart, lets it be changed, and hands over to the
+ * checkout once the terms have been agreed to.
  */
 
 import * as cart from './cart.js';
@@ -83,11 +79,8 @@ function lineRow(line, refresh) {
  * ------------------------------------------------------------------ */
 
 /**
- * What sits where a checkout button will go.
- *
- * While no checkout is connected this is a plain statement of fact, not
- * a disabled button: there is nothing to press yet, and pretending
- * otherwise would be worse than saying so.
+ * The step between a full cart and an order: agree to the terms, then go
+ * to the checkout.
  */
 function checkoutSection(refresh) {
   const agreement = el('div', { class: 'agreement' }, [
@@ -106,31 +99,6 @@ function checkoutSection(refresh) {
   const hint = agreement.querySelector('#cart-agree-hint');
   const checkbox = agreement.querySelector('input');
 
-  if (!cart.CHECKOUT.ready) {
-    /*
-     * No checkout exists yet. The cart is kept, so whatever is in it
-     * will still be here once one does.
-     */
-    return el('div', { class: 'checkout checkout--pending' }, [
-      el('h2', { class: 'checkout__title', text: 'Checkout is not connected yet' }),
-      el('p', {
-        text:
-          'Payment is not set up on this site yet, so there is nothing to pay with from here. ' +
-          'Your cart is saved in this browser and will still be here when it is.'
-      }),
-      el('p', {
-        class: 'checkout__aside',
-        text:
-          'Everything else works: the Studio, activation, and the License Certificate. ' +
-          'If you already have a license code, you can activate it in the Studio.'
-      }),
-      el('p', {}, [
-        el('a', { class: 'button', href: '/studio/', text: 'Open the Studio' })
-      ])
-    ]);
-  }
-
-  // A checkout exists: agree, then go.
   const go = el('a', {
     class: 'button button--ink button--block',
     href: cart.CHECKOUT.path,

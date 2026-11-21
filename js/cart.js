@@ -1,9 +1,8 @@
 /*
  * The cart.
  *
- * Holds what somebody intends to buy until a checkout exists to take it.
- * The checkout itself is not built yet — see CHECKOUT below for the one
- * place it plugs into.
+ * Holds what somebody intends to buy on the way to the checkout. See
+ * CHECKOUT and PAYMENT below for where a payment provider plugs in.
  *
  * What is stored is deliberately thin: a product slug, the ids of the
  * extras chosen with it, and a quantity. Prices are never stored. Every
@@ -193,37 +192,69 @@ export function clear() {
  * ------------------------------------------------------------------ */
 
 /*
- * THE CHECKOUT IS NOT BUILT YET.
+ * Where the cart hands over.
  *
- * Everything above is finished and works. What does not exist is the
- * page that takes payment, so the cart stops at the point of handing
- * over and says so rather than pretending.
+ * TAKING PAYMENT
+ * --------------
+ * No payment provider is wired in. The checkout page collects the order
+ * and issues the licenses; the charge belongs in between, in
+ * PAYMENT.collect below.
  *
- * To connect one:
- *
- *   1. Set CHECKOUT.path to the page that will take the order.
- *   2. That page calls cart.order() for everything it needs: the lines,
- *      their extras, the quantities and the total, all priced from the
- *      catalog at the moment it is asked.
- *   3. When payment succeeds, send the buyer to each product's
- *      thankYouPath with the order reference as ?session_id= and the
- *      chosen extras as ?options=a,b — which is what js/thank-you.js
- *      already reads to issue the license. Nothing in the license system
- *      needs changing.
- *   4. Call cart.clear() once the order is placed.
- *
- * Until CHECKOUT.path is set, the cart page shows that the checkout is
- * not connected instead of offering a button that would go nowhere.
+ * To add one: give PAYMENT.collect a function that takes the order (as
+ * cart.order() returns it), charges for it, and resolves with
+ * { reference } once the money has actually been taken — or rejects to
+ * stop the order. The checkout will not issue a single license until
+ * that promise resolves, and the reference it resolves with becomes the
+ * order reference printed on every certificate. Nothing else needs
+ * changing: the license system already works from an order reference.
  */
 export const CHECKOUT = {
-  /** The checkout page. Empty until one exists. */
-  path: '',
+  /** The page that takes an order. */
+  path: '/checkout/',
+
+  /** Where a completed order is shown. */
+  donePath: '/order/',
 
   /** Whether a checkout is connected. */
   get ready() {
     return typeof this.path === 'string' && this.path.trim().length > 0;
   }
 };
+
+export const PAYMENT = {
+  /**
+   * Charge for an order.
+   *
+   * Null means no provider is wired in, and the checkout completes the
+   * order without taking money. Replace it with a function returning a
+   * promise of { reference } to start charging.
+   *
+   * @type {null | ((order: object) => Promise<{reference: string}>)}
+   */
+  collect: null,
+
+  /** Whether a provider is wired in. */
+  get connected() {
+    return typeof this.collect === 'function';
+  }
+};
+
+/**
+ * An order reference.
+ *
+ * A provider supplies its own; this is what is used when none is wired
+ * in. It is readable, sortable by date, and distinct enough that two
+ * orders placed in the same second do not collide.
+ */
+export function newReference() {
+  const now = new Date();
+  const stamp =
+    String(now.getFullYear()) +
+    String(now.getMonth() + 1).padStart(2, '0') +
+    String(now.getDate()).padStart(2, '0');
+  const tail = Math.random().toString(36).slice(2, 8).toUpperCase();
+  return 'TC-' + stamp + '-' + tail;
+}
 
 /**
  * The order, in the shape a checkout page needs it.
@@ -261,5 +292,7 @@ export default {
   order,
   onChange,
   lineKey,
-  CHECKOUT
+  newReference,
+  CHECKOUT,
+  PAYMENT
 };

@@ -176,28 +176,43 @@ When a module is added, list any new shell file in the precache array in
 ---
 
 
-## Connecting a checkout
+## Taking payment
 
-There is no checkout yet. The cart is finished and holds what somebody
-intends to buy; the step that takes payment is the only part missing, and
-the cart page says so rather than showing a button that goes nowhere.
+The shop works end to end: a cart, a checkout, licenses issued, certificates
+produced. The one thing not wired in is a payment provider, so an order
+currently completes **without charging for it**.
 
-To connect one:
+Everything on either side of the charge is real. To add one, give
+`PAYMENT.collect` in [`js/cart.js`](js/cart.js) a function that takes the
+order, charges for it, and resolves with `{ reference }` once the money has
+actually been taken:
 
-1. Set `CHECKOUT.path` in [`js/cart.js`](js/cart.js) to the page that will
-   take the order. The cart page turns into an agreement plus a
-   **Continue to checkout** button as soon as that is set — nothing else
-   needs changing to switch it on.
-2. On that page, call `cart.order()`. It returns the lines, their extras,
-   quantities and the total, all priced from `js/products.js` at the
-   moment it is asked. **No price is ever stored in the cart**, so a cart
-   left in a browser for a month cannot carry a stale one.
-3. When payment succeeds, send the buyer to each product's
-   `thankYouPath` with the order reference as `?session_id=` and the
-   chosen extras as `?options=a,b`. That is what
-   [`js/thank-you.js`](js/thank-you.js) already reads to issue the
-   license, so the licensing side needs no changes at all.
-4. Call `cart.clear()` once the order is placed.
+```js
+import { PAYMENT } from './js/cart.js';
+
+PAYMENT.collect = async (order) => {
+  // order.lines, order.total, order.currency — all priced from the catalog
+  const { id } = await yourProvider.charge(order);
+  return { reference: id };
+};
+```
+
+No license is issued until that promise resolves, and rejecting it stops the
+order. The reference it resolves with becomes the order reference printed on
+every certificate. Nothing else needs changing.
+
+Worth knowing:
+
+- **The cart stores no prices.** Only a slug, the chosen extra ids, and a
+  quantity. Every figure is recomputed from [`js/products.js`](js/products.js)
+  when asked for, so a cart left in a browser for a month cannot carry a
+  stale price and a hand-edited one cannot invent a cheaper total.
+- **License codes are derived from the order reference**, so the same order
+  always produces the same codes. Placing an order twice cannot issue two
+  sets.
+- **The per-product confirmation pages still work.** A provider that
+  redirects per item can send buyers to a product's `thankYouPath` with
+  `?session_id=` and `?options=a,b` instead of using `/order/`.
 
 ## Tests
 

@@ -233,43 +233,64 @@ test('nonsense in storage is ignored rather than thrown', () => {
  * Handing over to a checkout
  * ------------------------------------------------------------------ */
 
-test('no checkout is connected yet, and the cart says so', () => {
-  assert.equal(cart.CHECKOUT.ready, false);
-  assert.equal(cart.CHECKOUT.path, '');
-});
-
-test('setting a path is all it takes to connect one', () => {
-  /*
-   * The placeholder is a switch, not a dead end. Whoever builds the
-   * checkout should only have to set this, so that is pinned down here.
-   */
-  const original = cart.CHECKOUT.path;
-  try {
-    cart.CHECKOUT.path = '/checkout/';
-    assert.equal(cart.CHECKOUT.ready, true);
-
-    cart.CHECKOUT.path = '   ';
-    assert.equal(cart.CHECKOUT.ready, false, 'whitespace should not count as a checkout');
-  } finally {
-    cart.CHECKOUT.path = original;
-  }
-  assert.equal(cart.CHECKOUT.ready, false);
-});
-
-test('the cart page has both a connected and an unconnected state', async () => {
-  // Read rather than run: the page needs a document. What matters is
-  // that neither branch was left out.
+test('the cart leads somewhere that exists', async () => {
   const fs = await import('node:fs');
   const path = await import('node:path');
-  const source = fs.readFileSync(
-    path.join(import.meta.dirname, '../js/cart-page.js'),
-    'utf8'
-  );
+  const root = path.join(import.meta.dirname, '..');
 
-  assert.match(source, /CHECKOUT\.ready/, 'the page never checks whether a checkout exists');
-  assert.match(source, /Checkout is not connected yet/, 'nothing is shown when there is none');
-  assert.match(source, /Continue to checkout/, 'there is no checkout step for when one exists');
+  assert.equal(cart.CHECKOUT.ready, true);
+  for (const where of [cart.CHECKOUT.path, cart.CHECKOUT.donePath]) {
+    assert.match(where, /^\/[a-z-]+\/$/, where + ' is not a path on this site');
+    assert.ok(
+      fs.existsSync(path.join(root, where.replace(/^\/|\/$/g, ''), 'index.html')),
+      where + ' is linked to but was never built'
+    );
+  }
+});
+
+test('the cart page takes the terms before the checkout', async () => {
+  const fs = await import('node:fs');
+  const path = await import('node:path');
+  const source = fs.readFileSync(path.join(import.meta.dirname, '../js/cart-page.js'), 'utf8');
+
+  assert.match(source, /Continue to checkout/, 'there is no checkout step');
   assert.match(source, /cart-agree/, 'the terms are not agreed to before checkout');
+  assert.ok(
+    !/not connected/i.test(source),
+    'the page still tells visitors something is unfinished'
+  );
+});
+
+test('no payment provider is wired in, so orders complete without charging', () => {
+  /*
+   * This is the state the shop is in: the checkout works end to end and
+   * issues real licenses, but nothing takes money. Pinned down so that
+   * connecting a provider is a deliberate change rather than something
+   * that quietly never happened.
+   */
+  assert.equal(cart.PAYMENT.connected, false);
+  assert.equal(cart.PAYMENT.collect, null);
+});
+
+test('a payment provider is connected by setting one function', () => {
+  const original = cart.PAYMENT.collect;
+  try {
+    cart.PAYMENT.collect = async () => ({ reference: 'TEST-1' });
+    assert.equal(cart.PAYMENT.connected, true);
+  } finally {
+    cart.PAYMENT.collect = original;
+  }
+  assert.equal(cart.PAYMENT.connected, false);
+});
+
+test('an order reference is readable and distinct', () => {
+  const seen = new Set();
+  for (let i = 0; i < 200; i++) {
+    const ref = cart.newReference();
+    assert.match(ref, /^TC-\d{8}-[0-9A-Z]{6}$/, 'unreadable reference: ' + ref);
+    seen.add(ref);
+  }
+  assert.ok(seen.size > 190, 'references collide too often: ' + seen.size + ' of 200');
 });
 
 test('the order a checkout would receive describes the whole cart', () => {
