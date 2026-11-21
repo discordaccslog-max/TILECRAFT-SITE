@@ -1,6 +1,6 @@
 {
  "collection": "tile-and-terrazzo",
- "built": "2026-11-20",
+ "built": "2026-11-21",
  "count": 30,
  "colorwaysPerPattern": 4,
  "patterns": [
@@ -19,7 +19,11 @@
     "Harbor",
     "Clay",
     "Mint",
-    "Monochrome"
+    "Monochrome",
+    "Slate",
+    "Riso",
+    "Midnight",
+    "Terracotta"
    ]
   },
   {
@@ -36,7 +40,11 @@
     "Midnight",
     "Clay",
     "Slate",
-    "Terracotta"
+    "Terracotta",
+    "Mint",
+    "Monochrome",
+    "Riso",
+    "Harbor"
    ]
   },
   {
@@ -54,7 +62,11 @@
     "Terracotta",
     "Midnight",
     "Harbor",
-    "Riso"
+    "Riso",
+    "Monochrome",
+    "Clay",
+    "Mint",
+    "Slate"
    ]
   },
   {
@@ -72,7 +84,11 @@
     "Slate",
     "Harbor",
     "Mint",
-    "Terracotta"
+    "Terracotta",
+    "Riso",
+    "Monochrome",
+    "Midnight",
+    "Clay"
    ]
   },
   {
@@ -90,7 +106,11 @@
     "Riso",
     "Midnight",
     "Monochrome",
-    "Slate"
+    "Slate",
+    "Terracotta",
+    "Clay",
+    "Mint",
+    "Harbor"
    ]
   },
   {
@@ -108,7 +128,11 @@
     "Slate",
     "Midnight",
     "Terracotta",
-    "Harbor"
+    "Harbor",
+    "Monochrome",
+    "Clay",
+    "Riso",
+    "Mint"
    ]
   },
   {
@@ -126,7 +150,11 @@
     "Terracotta",
     "Midnight",
     "Harbor",
-    "Monochrome"
+    "Monochrome",
+    "Mint",
+    "Slate",
+    "Clay",
+    "Riso"
    ]
   },
   {
@@ -145,7 +173,11 @@
     "Midnight",
     "Terracotta",
     "Mint",
-    "Riso"
+    "Riso",
+    "Harbor",
+    "Slate",
+    "Clay",
+    "Monochrome"
    ]
   },
   {
@@ -163,7 +195,11 @@
     "Riso",
     "Monochrome",
     "Terracotta",
-    "Clay"
+    "Clay",
+    "Harbor",
+    "Midnight",
+    "Mint",
+    "Slate"
    ]
   },
   {
@@ -181,7 +217,11 @@
     "Terracotta",
     "Monochrome",
     "Clay",
-    "Riso"
+    "Riso",
+    "Mint",
+    "Slate",
+    "Midnight",
+    "Harbor"
    ]
   },
   {
@@ -199,7 +239,11 @@
     "Harbor",
     "Monochrome",
     "Riso",
-    "Mint"
+    "Mint",
+    "Slate",
+    "Midnight",
+    "Terracotta",
+    "Clay"
    ]
   },
   {
@@ -217,7 +261,11 @@
     "Monochrome",
     "Midnight",
     "Mint",
-    "Riso"
+    "Riso",
+    "Harbor",
+    "Terracotta",
+    "Clay",
+    "Slate"
    ]
   },
   {
@@ -232,10 +280,14 @@
    "svg": "svg/tlz-013.svg",
    "raster": null,
    "colorways": [
-    "Terracotta",
-    "Monochrome",
+    "Mint",
     "Midnight",
-    "Slate"
+    "Slate",
+    "Riso",
+    "Clay",
+    "Harbor",
+    "Monochrome",
+    "Terracotta"
    ]
   },
   {
@@ -253,7 +305,11 @@
     "Mint",
     "Terracotta",
     "Riso",
-    "Slate"
+    "Slate",
+    "Midnight",
+    "Monochrome",
+    "Harbor",
+    "Clay"
    ]
   },
   {
@@ -271,7 +327,11 @@
     "Monochrome",
     "Slate",
     "Harbor",
-    "Midnight"
+    "Midnight",
+    "Mint",
+    "Terracotta",
+    "Clay",
+    "Riso"
    ]
   },
   {
@@ -289,7 +349,11 @@
     "Harbor",
     "Monochrome",
     "Riso",
-    "Clay"
+    "Clay",
+    "Terracotta",
+    "Midnight",
+    "Slate",
+    "Mint"
    ]
   },
   {
@@ -306,7 +370,11 @@
     "Slate",
     "Monochrome",
     "Midnight",
-    "Clay"
+    "Clay",
+    "Terracotta",
+    "Riso",
+    "Mint",
+    "Harbor"
    ]
   },
   {
@@ -324,7 +392,11 @@
     "Slate",
     "Riso",
     "Midnight",
-    "Harbor"
+    "Harbor",
+    "Monochrome",
+    "Mint",
+    "Terracotta",
+    "Clay"
    ]
   },
   {
@@ -342,7 +414,11 @@
     "Harbor",
     "Mint",
     "Terracotta",
-    "Slate"
+    "Slate",
+    "Riso",
+    "Midnight",
+    "Monochrome",
+    "Clay"
    ]
   },
   {
@@ -360,7 +436,11 @@
     "Mint",
     "Clay",
     "Terracotta",
-    "Slate"
+    "Slate",
+    "Harbor",
+    "Midnight",
+    "Monochrome",
+    "Riso"
    ]
   },
   {
@@ -378,7 +458,11 @@
     "Terracotta",
     "Riso",
     "Slate",
-    "Harbor"
+    "Harbor",
+    "Midnight",
+    "Mint",
+    "Clay",
+    "Monochrome"
    ]
   },
   {
@@ -396,7 +480,11 @@
     "Harbor",
     "Mint",
     "Monochrome",
-    "Midnight"
+    "Midnight",
+    "Slate",
+    "Terracotta",
+    "Riso",
+    "Clay"
    ]
   },
   {
@@ -415,7 +503,11 @@
     "Midnight",
     "Monochrome",
     "Terracotta",
-    "Clay"
+    "Clay",
+    "Riso",
+    "Harbor",
+    "Mint",
+    "Slate"
    ]
   },
   {
@@ -433,7 +525,11 @@
     "Clay",
     "Mint",
     "Terracotta",
-    "Riso"
+    "Riso",
+    "Harbor",
+    "Monochrome",
+    "Midnight",
+    "Slate"
    ]
   },
   {
@@ -451,7 +547,11 @@
     "Midnight",
     "Riso",
     "Clay",
-    "Harbor"
+    "Harbor",
+    "Monochrome",
+    "Slate",
+    "Terracotta",
+    "Mint"
    ]
   },
   {
@@ -469,7 +569,11 @@
     "Terracotta",
     "Slate",
     "Harbor",
-    "Midnight"
+    "Midnight",
+    "Riso",
+    "Monochrome",
+    "Clay",
+    "Mint"
    ]
   },
   {
@@ -487,7 +591,11 @@
     "Monochrome",
     "Harbor",
     "Clay",
-    "Midnight"
+    "Midnight",
+    "Mint",
+    "Terracotta",
+    "Slate",
+    "Riso"
    ]
   },
   {
@@ -498,14 +606,18 @@
     "triangles"
    ],
    "type": "vector",
-   "tile": 380,
+   "tile": 340,
    "svg": "svg/tlz-028.svg",
    "raster": null,
    "colorways": [
+    "Harbor",
+    "Clay",
+    "Slate",
     "Riso",
     "Monochrome",
+    "Midnight",
     "Terracotta",
-    "Harbor"
+    "Mint"
    ]
   },
   {
@@ -523,7 +635,11 @@
     "Mint",
     "Clay",
     "Harbor",
-    "Slate"
+    "Slate",
+    "Riso",
+    "Midnight",
+    "Terracotta",
+    "Monochrome"
    ]
   },
   {
@@ -541,7 +657,11 @@
     "Mint",
     "Terracotta",
     "Monochrome",
-    "Riso"
+    "Riso",
+    "Midnight",
+    "Harbor",
+    "Clay",
+    "Slate"
    ]
   }
  ]

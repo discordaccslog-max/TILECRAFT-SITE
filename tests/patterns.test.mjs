@@ -48,6 +48,10 @@ const SLUGS = Object.keys(index.collections);
  */
 const CHECK_SIZE = 320;
 
+/* Eight colorways are generated per pattern; four come with the product. */
+const TOTAL_COLORWAYS = 8;
+const INCLUDED_COLORWAYS = 4;
+
 /* ------------------------------------------------------------------ *
  * The catalog matches what was generated
  * ------------------------------------------------------------------ */
@@ -78,13 +82,28 @@ test('the index, the specs, and the catalog agree', () => {
     assert.equal(catalog.patterns.length, counts.patterns, slug + ' catalog count');
     assert.equal(counts.colorways, counts.patterns * counts.colorwaysPerPattern, slug + ' colorway total');
 
+    /*
+     * Eight colorways are generated for every pattern and four of them
+     * are included with the product; the rest are what the extra colorway
+     * set unlocks. The count the site quotes is the included four, so the
+     * two figures are checked against each other here.
+     */
     for (const spec of specs) {
-      assert.equal(
-        spec.colorways.length,
-        counts.colorwaysPerPattern,
-        spec.id + ' should carry ' + counts.colorwaysPerPattern + ' colorways'
-      );
-      assert.ok(spec.colorways.length >= 3 && spec.colorways.length <= 5, spec.id + ' colorway count in range');
+      assert.equal(spec.colorways.length, TOTAL_COLORWAYS, spec.id + ' should carry eight colorways');
+      assert.equal(counts.colorwaysPerPattern, INCLUDED_COLORWAYS, slug + ' should include four');
+
+      const names = spec.colorways.map((c) => c.name);
+      assert.equal(new Set(names).size, names.length, spec.id + ' repeats a colorway');
+
+      for (const way of spec.colorways) {
+        for (const slot of ['bg', 'ink', 'accent', 'accent2']) {
+          assert.match(
+            way.colors[slot] || '',
+            /^#[0-9a-f]{6}$/i,
+            spec.id + '/' + way.name + ' has no ' + slot
+          );
+        }
+      }
     }
 
     patterns += counts.patterns;
@@ -227,8 +246,8 @@ test('every vector pattern tiles in all of its colorways', () => {
   assert.deepEqual(failures, []);
   assert.equal(
     checked,
-    (index.totals.patterns - textures) * 4,
-    'every vector colorway should be checked'
+    (index.totals.patterns - textures) * TOTAL_COLORWAYS,
+    'every vector colorway should be checked, the extras included'
   );
 });
 

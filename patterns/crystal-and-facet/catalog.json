@@ -1,6 +1,6 @@
 {
  "collection": "crystal-and-facet",
- "built": "2026-11-20",
+ "built": "2026-11-21",
  "count": 22,
  "colorwaysPerPattern": 4,
  "patterns": [
@@ -20,7 +20,11 @@
     "Monochrome",
     "Harbor",
     "Midnight",
-    "Mint"
+    "Mint",
+    "Ink Blue",
+    "Riso",
+    "Slate",
+    "Plum"
    ]
   },
   {
@@ -39,7 +43,11 @@
     "Harbor",
     "Ink Blue",
     "Plum",
-    "Mint"
+    "Mint",
+    "Slate",
+    "Midnight",
+    "Riso",
+    "Monochrome"
    ]
   },
   {
@@ -58,7 +66,11 @@
     "Plum",
     "Midnight",
     "Riso",
-    "Ink Blue"
+    "Ink Blue",
+    "Slate",
+    "Monochrome",
+    "Harbor",
+    "Mint"
    ]
   },
   {
@@ -77,7 +89,11 @@
     "Slate",
     "Plum",
     "Riso",
-    "Mint"
+    "Mint",
+    "Midnight",
+    "Harbor",
+    "Monochrome",
+    "Ink Blue"
    ]
   },
   {
@@ -96,7 +112,11 @@
     "Midnight",
     "Slate",
     "Harbor",
-    "Riso"
+    "Riso",
+    "Mint",
+    "Ink Blue",
+    "Monochrome",
+    "Plum"
    ]
   },
   {
@@ -108,14 +128,18 @@
     "rows"
    ],
    "type": "vector",
-   "tile": 320,
+   "tile": 280,
    "svg": "svg/cry-006.svg",
    "raster": null,
    "colorways": [
-    "Monochrome",
+    "Slate",
     "Mint",
     "Harbor",
-    "Riso"
+    "Midnight",
+    "Plum",
+    "Riso",
+    "Ink Blue",
+    "Monochrome"
    ]
   },
   {
@@ -134,7 +158,11 @@
     "Plum",
     "Harbor",
     "Monochrome",
-    "Mint"
+    "Mint",
+    "Ink Blue",
+    "Riso",
+    "Slate",
+    "Midnight"
    ]
   },
   {
@@ -153,7 +181,11 @@
     "Monochrome",
     "Slate",
     "Ink Blue",
-    "Mint"
+    "Mint",
+    "Harbor",
+    "Plum",
+    "Riso",
+    "Midnight"
    ]
   },
   {
@@ -172,7 +204,11 @@
     "Monochrome",
     "Ink Blue",
     "Midnight",
-    "Plum"
+    "Plum",
+    "Harbor",
+    "Mint",
+    "Slate",
+    "Riso"
    ]
   },
   {
@@ -191,7 +227,11 @@
     "Harbor",
     "Mint",
     "Monochrome",
-    "Ink Blue"
+    "Ink Blue",
+    "Plum",
+    "Midnight",
+    "Riso",
+    "Slate"
    ]
   },
   {
@@ -210,7 +250,11 @@
     "Slate",
     "Riso",
     "Harbor",
-    "Midnight"
+    "Midnight",
+    "Mint",
+    "Plum",
+    "Monochrome",
+    "Ink Blue"
    ]
   },
   {
@@ -229,7 +273,11 @@
     "Mint",
     "Plum",
     "Monochrome",
-    "Midnight"
+    "Midnight",
+    "Harbor",
+    "Slate",
+    "Ink Blue",
+    "Riso"
    ]
   },
   {
@@ -248,7 +296,11 @@
     "Plum",
     "Slate",
     "Mint",
-    "Midnight"
+    "Midnight",
+    "Ink Blue",
+    "Riso",
+    "Monochrome",
+    "Harbor"
    ]
   },
   {
@@ -267,7 +319,11 @@
     "Harbor",
     "Plum",
     "Mint",
-    "Riso"
+    "Riso",
+    "Midnight",
+    "Monochrome",
+    "Slate",
+    "Ink Blue"
    ]
   },
   {
@@ -286,7 +342,11 @@
     "Slate",
     "Ink Blue",
     "Midnight",
-    "Monochrome"
+    "Monochrome",
+    "Plum",
+    "Harbor",
+    "Mint",
+    "Riso"
    ]
   },
   {
@@ -302,10 +362,14 @@
    "svg": "svg/cry-016.svg",
    "raster": null,
    "colorways": [
-    "Midnight",
     "Ink Blue",
     "Mint",
-    "Monochrome"
+    "Monochrome",
+    "Plum",
+    "Riso",
+    "Harbor",
+    "Midnight",
+    "Slate"
    ]
   },
   {
@@ -317,14 +381,18 @@
     "rows"
    ],
    "type": "vector",
-   "tile": 320,
+   "tile": 280,
    "svg": "svg/cry-017.svg",
    "raster": null,
    "colorways": [
     "Ink Blue",
-    "Plum",
     "Midnight",
-    "Riso"
+    "Riso",
+    "Slate",
+    "Mint",
+    "Plum",
+    "Monochrome",
+    "Harbor"
    ]
   },
   {
@@ -343,7 +411,11 @@
     "Plum",
     "Harbor",
     "Ink Blue",
-    "Riso"
+    "Riso",
+    "Monochrome",
+    "Slate",
+    "Midnight",
+    "Mint"
    ]
   },
   {
@@ -359,10 +431,14 @@
    "svg": "svg/cry-019.svg",
    "raster": null,
    "colorways": [
-    "Ink Blue",
+    "Monochrome",
+    "Mint",
+    "Plum",
+    "Slate",
+    "Harbor",
     "Riso",
-    "Midnight",
-    "Mint"
+    "Ink Blue",
+    "Midnight"
    ]
   },
   {
@@ -381,7 +457,11 @@
     "Slate",
     "Plum",
     "Monochrome",
-    "Ink Blue"
+    "Ink Blue",
+    "Riso",
+    "Midnight",
+    "Mint",
+    "Harbor"
    ]
   },
   {
@@ -400,7 +480,11 @@
     "Mint",
     "Plum",
     "Midnight",
-    "Riso"
+    "Riso",
+    "Slate",
+    "Ink Blue",
+    "Monochrome",
+    "Harbor"
    ]
   },
   {
@@ -419,7 +503,11 @@
     "Riso",
     "Midnight",
     "Monochrome",
-    "Plum"
+    "Plum",
+    "Slate",
+    "Mint",
+    "Ink Blue",
+    "Harbor"
    ]
   }
  ]

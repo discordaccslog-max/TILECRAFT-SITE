@@ -35,12 +35,26 @@ const PRESETS = [
   { id: 'custom', label: 'Custom size', inches: null }
 ];
 
+/*
+ * The large-format presets, which come with the extra bought at checkout.
+ * They are sizes a domestic printer will not reach, which is the point:
+ * wide cloth, full wallpaper drops, and panel prints.
+ */
+const LARGE_PRESETS = [
+  { id: 'cloth-wide', label: 'Wide cloth, full width', inches: [58, 36] },
+  { id: 'cloth-bolt', label: 'Cloth bolt section', inches: [54, 72] },
+  { id: 'wallpaper-full', label: 'Wallpaper drop, full height', inches: [27, 108] },
+  { id: 'panel-door', label: 'Door panel', inches: [32, 80] },
+  { id: 'panel-banner', label: 'Banner panel', inches: [36, 96] },
+  { id: 'mural-section', label: 'Mural section', inches: [48, 48] }
+];
+
 const COLLECTIONS = [
-  'geometric-essentials',
-  'textures-and-grain',
-  'botanical-linework',
-  'mid-century-shapes',
-  'tile-and-terrazzo'
+  'geometric-essentials', 'textures-and-grain', 'botanical-linework',
+  'mid-century-shapes', 'tile-and-terrazzo', 'art-deco-lines',
+  'stripes-and-rules', 'checks-and-weaves', 'waves-and-water',
+  'stars-and-night', 'folk-geometry', 'arches-and-columns',
+  'scallops-and-shells', 'confetti-and-specks', 'crystal-and-facet'
 ];
 
 export async function mount(container, context) {
@@ -233,15 +247,25 @@ export async function mount(container, context) {
 
   /* ---- Controls ---- */
 
+  /*
+   * The large-format sizes are offered only to a license that carries
+   * them, and the custom option stays last so it is always at the bottom
+   * of the list whichever presets are above it.
+   */
+  const hasLargeFormat = !!(context.options && context.options.has('large-format'));
+  const offered = hasLargeFormat
+    ? [...PRESETS.filter((o) => o.id !== 'custom'), ...LARGE_PRESETS, PRESETS.find((o) => o.id === 'custom')]
+    : PRESETS;
+
   const presetSelect = el('select');
-  for (const option of PRESETS) {
+  for (const option of offered) {
     presetSelect.append(el('option', {
       value: option.id,
       text: option.inches ? option.label + ' (' + option.inches[0] + ' x ' + option.inches[1] + ' in)' : option.label
     }));
   }
   presetSelect.addEventListener('change', () => {
-    preset = PRESETS.find((p) => p.id === presetSelect.value);
+    preset = offered.find((o) => o.id === presetSelect.value);
     customRow.hidden = preset.id !== 'custom';
     updateSummary();
   });

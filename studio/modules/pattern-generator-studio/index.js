@@ -264,6 +264,40 @@ export async function mount(container, context) {
     })
   });
 
+  /* ---- The seed pack, for a license that carries it ---- */
+
+  /*
+   * Sixty settings-and-seed combinations, each a finished starting point.
+   * They are built here rather than stored, so the extra adds nothing to
+   * download and a seed always produces the pattern it produced before.
+   */
+  const packSection = el('div');
+
+  if (context.options && context.options.has('seed-pack')) {
+    const packList = el('div', { class: 'ways' });
+
+    import('../_shared/starters.mjs').then(({ seedPack }) => {
+      for (const entry of seedPack()) {
+        packList.append(el('button', {
+          type: 'button',
+          class: 'way',
+          title: 'Seed ' + entry.seed,
+          text: entry.name,
+          onclick: () => {
+            applySettings(entry.settings, entry.seed);
+            status(statusNode, 'Loaded “' + entry.name + '”. Change anything, or keep the seed.');
+          }
+        }));
+      }
+    });
+
+    packSection.append(
+      el('p', { class: 'panel__title', style: { marginTop: '1.1rem' }, text: 'Seed pack' }),
+      el('p', { class: 'hint', text: 'Sixty starting points that came with your license. Open one and carry on from it.' }),
+      packList
+    );
+  }
+
   /* ---- Layout ---- */
 
   const zoomControl = slider('Pattern scale', {
@@ -290,7 +324,8 @@ export async function mount(container, context) {
     el('div', { class: 'panel' }, [
       el('h3', { class: 'panel__title', text: 'Favorites' }),
       favList,
-      el('div', { class: 'panel__row', style: { marginTop: '0.75rem' } }, [favNameInput, saveFavButton])
+      el('div', { class: 'panel__row', style: { marginTop: '0.75rem' } }, [favNameInput, saveFavButton]),
+      packSection
     ])
   ]);
 

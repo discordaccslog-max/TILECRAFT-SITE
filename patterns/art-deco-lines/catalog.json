@@ -1,6 +1,6 @@
 {
  "collection": "art-deco-lines",
- "built": "2026-11-20",
+ "built": "2026-11-21",
  "count": 24,
  "colorwaysPerPattern": 4,
  "patterns": [
@@ -20,7 +20,11 @@
     "Monochrome",
     "Terracotta",
     "Ink Blue",
-    "Slate"
+    "Slate",
+    "Ochre",
+    "Riso",
+    "Midnight",
+    "Plum"
    ]
   },
   {
@@ -39,7 +43,11 @@
     "Slate",
     "Plum",
     "Midnight",
-    "Riso"
+    "Riso",
+    "Terracotta",
+    "Ochre",
+    "Monochrome",
+    "Ink Blue"
    ]
   },
   {
@@ -58,7 +66,11 @@
     "Ink Blue",
     "Monochrome",
     "Slate",
-    "Plum"
+    "Plum",
+    "Terracotta",
+    "Midnight",
+    "Riso",
+    "Ochre"
    ]
   },
   {
@@ -77,7 +89,11 @@
     "Plum",
     "Terracotta",
     "Ochre",
-    "Slate"
+    "Slate",
+    "Ink Blue",
+    "Riso",
+    "Midnight",
+    "Monochrome"
    ]
   },
   {
@@ -93,10 +109,14 @@
    "svg": "svg/dco-005.svg",
    "raster": null,
    "colorways": [
-    "Plum",
+    "Monochrome",
     "Slate",
     "Ink Blue",
-    "Terracotta"
+    "Plum",
+    "Ochre",
+    "Terracotta",
+    "Midnight",
+    "Riso"
    ]
   },
   {
@@ -115,7 +135,11 @@
     "Plum",
     "Terracotta",
     "Midnight",
-    "Monochrome"
+    "Monochrome",
+    "Riso",
+    "Slate",
+    "Ink Blue",
+    "Ochre"
    ]
   },
   {
@@ -134,7 +158,11 @@
     "Slate",
     "Riso",
     "Ink Blue",
-    "Midnight"
+    "Midnight",
+    "Ochre",
+    "Plum",
+    "Terracotta",
+    "Monochrome"
    ]
   },
   {
@@ -153,7 +181,11 @@
     "Ink Blue",
     "Midnight",
     "Terracotta",
-    "Ochre"
+    "Ochre",
+    "Plum",
+    "Slate",
+    "Monochrome",
+    "Riso"
    ]
   },
   {
@@ -172,7 +204,11 @@
     "Slate",
     "Midnight",
     "Terracotta",
-    "Riso"
+    "Riso",
+    "Ink Blue",
+    "Monochrome",
+    "Plum",
+    "Ochre"
    ]
   },
   {
@@ -191,7 +227,11 @@
     "Plum",
     "Ink Blue",
     "Riso",
-    "Ochre"
+    "Ochre",
+    "Monochrome",
+    "Midnight",
+    "Slate",
+    "Terracotta"
    ]
   },
   {
@@ -210,7 +250,11 @@
     "Monochrome",
     "Ochre",
     "Slate",
-    "Riso"
+    "Riso",
+    "Terracotta",
+    "Ink Blue",
+    "Midnight",
+    "Plum"
    ]
   },
   {
@@ -229,7 +273,11 @@
     "Monochrome",
     "Ochre",
     "Terracotta",
-    "Midnight"
+    "Midnight",
+    "Slate",
+    "Riso",
+    "Ink Blue",
+    "Plum"
    ]
   },
   {
@@ -248,7 +296,11 @@
     "Monochrome",
     "Terracotta",
     "Riso",
-    "Ochre"
+    "Ochre",
+    "Plum",
+    "Midnight",
+    "Ink Blue",
+    "Slate"
    ]
   },
   {
@@ -267,7 +319,11 @@
     "Ink Blue",
     "Slate",
     "Ochre",
-    "Midnight"
+    "Midnight",
+    "Riso",
+    "Monochrome",
+    "Plum",
+    "Terracotta"
    ]
   },
   {
@@ -286,7 +342,11 @@
     "Terracotta",
     "Midnight",
     "Plum",
-    "Monochrome"
+    "Monochrome",
+    "Ink Blue",
+    "Ochre",
+    "Slate",
+    "Riso"
    ]
   },
   {
@@ -305,7 +365,11 @@
     "Terracotta",
     "Monochrome",
     "Midnight",
-    "Ochre"
+    "Ochre",
+    "Ink Blue",
+    "Riso",
+    "Plum",
+    "Slate"
    ]
   },
   {
@@ -324,7 +388,11 @@
     "Monochrome",
     "Terracotta",
     "Midnight",
-    "Ink Blue"
+    "Ink Blue",
+    "Riso",
+    "Ochre",
+    "Plum",
+    "Slate"
    ]
   },
   {
@@ -343,7 +411,11 @@
     "Midnight",
     "Slate",
     "Ink Blue",
-    "Monochrome"
+    "Monochrome",
+    "Ochre",
+    "Plum",
+    "Terracotta",
+    "Riso"
    ]
   },
   {
@@ -362,7 +434,11 @@
     "Riso",
     "Terracotta",
     "Midnight",
-    "Monochrome"
+    "Monochrome",
+    "Plum",
+    "Ochre",
+    "Slate",
+    "Ink Blue"
    ]
   },
   {
@@ -381,7 +457,11 @@
     "Terracotta",
     "Ink Blue",
     "Riso",
-    "Plum"
+    "Plum",
+    "Slate",
+    "Ochre",
+    "Midnight",
+    "Monochrome"
    ]
   },
   {
@@ -400,7 +480,11 @@
     "Midnight",
     "Ink Blue",
     "Monochrome",
-    "Plum"
+    "Plum",
+    "Terracotta",
+    "Riso",
+    "Slate",
+    "Ochre"
    ]
   },
   {
@@ -419,7 +503,11 @@
     "Midnight",
     "Slate",
     "Ink Blue",
-    "Plum"
+    "Plum",
+    "Terracotta",
+    "Monochrome",
+    "Riso",
+    "Ochre"
    ]
   },
   {
@@ -438,7 +526,11 @@
     "Monochrome",
     "Slate",
     "Midnight",
-    "Ochre"
+    "Ochre",
+    "Terracotta",
+    "Ink Blue",
+    "Riso",
+    "Plum"
    ]
   },
   {
@@ -457,7 +549,11 @@
     "Riso",
     "Ochre",
     "Slate",
-    "Monochrome"
+    "Monochrome",
+    "Midnight",
+    "Terracotta",
+    "Plum",
+    "Ink Blue"
    ]
   }
  ]

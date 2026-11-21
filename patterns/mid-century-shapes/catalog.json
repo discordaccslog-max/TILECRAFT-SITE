@@ -1,6 +1,6 @@
 {
  "collection": "mid-century-shapes",
- "built": "2026-11-20",
+ "built": "2026-11-21",
  "count": 30,
  "colorwaysPerPattern": 4,
  "patterns": [
@@ -19,7 +19,11 @@
     "Ink Blue",
     "Harbor",
     "Riso",
-    "Midnight"
+    "Midnight",
+    "Ochre",
+    "Terracotta",
+    "Clay",
+    "Plum"
    ]
   },
   {
@@ -37,7 +41,11 @@
     "Ink Blue",
     "Harbor",
     "Riso",
-    "Clay"
+    "Clay",
+    "Midnight",
+    "Ochre",
+    "Plum",
+    "Terracotta"
    ]
   },
   {
@@ -55,7 +63,11 @@
     "Clay",
     "Plum",
     "Terracotta",
-    "Harbor"
+    "Harbor",
+    "Ink Blue",
+    "Midnight",
+    "Ochre",
+    "Riso"
    ]
   },
   {
@@ -73,7 +85,11 @@
     "Riso",
     "Harbor",
     "Ink Blue",
-    "Clay"
+    "Clay",
+    "Midnight",
+    "Plum",
+    "Terracotta",
+    "Ochre"
    ]
   },
   {
@@ -91,7 +107,11 @@
     "Clay",
     "Riso",
     "Ink Blue",
-    "Ochre"
+    "Ochre",
+    "Plum",
+    "Harbor",
+    "Midnight",
+    "Terracotta"
    ]
   },
   {
@@ -109,7 +129,11 @@
     "Terracotta",
     "Clay",
     "Harbor",
-    "Midnight"
+    "Midnight",
+    "Ink Blue",
+    "Riso",
+    "Ochre",
+    "Plum"
    ]
   },
   {
@@ -127,7 +151,11 @@
     "Plum",
     "Ochre",
     "Ink Blue",
-    "Harbor"
+    "Harbor",
+    "Riso",
+    "Clay",
+    "Midnight",
+    "Terracotta"
    ]
   },
   {
@@ -145,7 +173,11 @@
     "Ochre",
     "Plum",
     "Ink Blue",
-    "Midnight"
+    "Midnight",
+    "Harbor",
+    "Riso",
+    "Clay",
+    "Terracotta"
    ]
   },
   {
@@ -163,7 +195,11 @@
     "Plum",
     "Clay",
     "Ink Blue",
-    "Terracotta"
+    "Terracotta",
+    "Harbor",
+    "Midnight",
+    "Ochre",
+    "Riso"
    ]
   },
   {
@@ -181,7 +217,11 @@
     "Plum",
     "Ochre",
     "Harbor",
-    "Ink Blue"
+    "Ink Blue",
+    "Midnight",
+    "Clay",
+    "Riso",
+    "Terracotta"
    ]
   },
   {
@@ -199,7 +239,11 @@
     "Harbor",
     "Riso",
     "Plum",
-    "Clay"
+    "Clay",
+    "Ink Blue",
+    "Midnight",
+    "Terracotta",
+    "Ochre"
    ]
   },
   {
@@ -217,7 +261,11 @@
     "Ink Blue",
     "Clay",
     "Ochre",
-    "Midnight"
+    "Midnight",
+    "Riso",
+    "Terracotta",
+    "Harbor",
+    "Plum"
    ]
   },
   {
@@ -235,7 +283,11 @@
     "Clay",
     "Plum",
     "Ochre",
-    "Midnight"
+    "Midnight",
+    "Terracotta",
+    "Ink Blue",
+    "Harbor",
+    "Riso"
    ]
   },
   {
@@ -253,7 +305,11 @@
     "Plum",
     "Midnight",
     "Clay",
-    "Riso"
+    "Riso",
+    "Ochre",
+    "Harbor",
+    "Ink Blue",
+    "Terracotta"
    ]
   },
   {
@@ -271,7 +327,11 @@
     "Riso",
     "Ochre",
     "Midnight",
-    "Harbor"
+    "Harbor",
+    "Plum",
+    "Clay",
+    "Ink Blue",
+    "Terracotta"
    ]
   },
   {
@@ -289,7 +349,11 @@
     "Midnight",
     "Terracotta",
     "Riso",
-    "Plum"
+    "Plum",
+    "Ink Blue",
+    "Ochre",
+    "Clay",
+    "Harbor"
    ]
   },
   {
@@ -307,7 +371,11 @@
     "Ochre",
     "Riso",
     "Plum",
-    "Harbor"
+    "Harbor",
+    "Midnight",
+    "Ink Blue",
+    "Clay",
+    "Terracotta"
    ]
   },
   {
@@ -325,7 +393,11 @@
     "Midnight",
     "Harbor",
     "Ink Blue",
-    "Ochre"
+    "Ochre",
+    "Terracotta",
+    "Plum",
+    "Clay",
+    "Riso"
    ]
   },
   {
@@ -343,7 +415,11 @@
     "Midnight",
     "Riso",
     "Ochre",
-    "Plum"
+    "Plum",
+    "Clay",
+    "Harbor",
+    "Ink Blue",
+    "Terracotta"
    ]
   },
   {
@@ -361,7 +437,11 @@
     "Ink Blue",
     "Clay",
     "Riso",
-    "Terracotta"
+    "Terracotta",
+    "Midnight",
+    "Ochre",
+    "Plum",
+    "Harbor"
    ]
   },
   {
@@ -379,7 +459,11 @@
     "Midnight",
     "Ochre",
     "Plum",
-    "Clay"
+    "Clay",
+    "Terracotta",
+    "Riso",
+    "Harbor",
+    "Ink Blue"
    ]
   },
   {
@@ -397,7 +481,11 @@
     "Midnight",
     "Terracotta",
     "Plum",
-    "Ochre"
+    "Ochre",
+    "Harbor",
+    "Riso",
+    "Clay",
+    "Ink Blue"
    ]
   },
   {
@@ -415,7 +503,11 @@
     "Riso",
     "Ochre",
     "Ink Blue",
-    "Terracotta"
+    "Terracotta",
+    "Harbor",
+    "Plum",
+    "Midnight",
+    "Clay"
    ]
   },
   {
@@ -433,7 +525,11 @@
     "Harbor",
     "Riso",
     "Clay",
-    "Ink Blue"
+    "Ink Blue",
+    "Midnight",
+    "Ochre",
+    "Terracotta",
+    "Plum"
    ]
   },
   {
@@ -451,7 +547,11 @@
     "Harbor",
     "Plum",
     "Terracotta",
-    "Riso"
+    "Riso",
+    "Ochre",
+    "Midnight",
+    "Clay",
+    "Ink Blue"
    ]
   },
   {
@@ -469,7 +569,11 @@
     "Plum",
     "Riso",
     "Midnight",
-    "Terracotta"
+    "Terracotta",
+    "Clay",
+    "Ochre",
+    "Ink Blue",
+    "Harbor"
    ]
   },
   {
@@ -487,7 +591,11 @@
     "Midnight",
     "Clay",
     "Harbor",
-    "Riso"
+    "Riso",
+    "Plum",
+    "Ochre",
+    "Ink Blue",
+    "Terracotta"
    ]
   },
   {
@@ -505,7 +613,11 @@
     "Riso",
     "Ochre",
     "Ink Blue",
-    "Terracotta"
+    "Terracotta",
+    "Plum",
+    "Midnight",
+    "Clay",
+    "Harbor"
    ]
   },
   {
@@ -523,7 +635,11 @@
     "Harbor",
     "Plum",
     "Ochre",
-    "Midnight"
+    "Midnight",
+    "Terracotta",
+    "Ink Blue",
+    "Riso",
+    "Clay"
    ]
   },
   {
@@ -541,7 +657,11 @@
     "Ink Blue",
     "Clay",
     "Plum",
-    "Ochre"
+    "Ochre",
+    "Terracotta",
+    "Midnight",
+    "Harbor",
+    "Riso"
    ]
   }
  ]

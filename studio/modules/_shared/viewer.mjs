@@ -14,6 +14,7 @@ import {
 } from './render.mjs';
 import { MOCKUPS, ALL_MOCKUPS, mockupSvg } from './mockups.mjs';
 import { exportPattern, maxExportSize, describeLimit, safeName } from './export.mjs';
+import { makeZip } from './zip.mjs';
 
 /* ------------------------------------------------------------------ *
  * The tiling stage
@@ -187,7 +188,7 @@ export function createMockups({ scenes = MOCKUPS } = {}) {
  * Export panel
  * ------------------------------------------------------------------ */
 
-export function createExportPanel({ context, getPattern, getColors, getColorwayName, statusNode }) {
+export function createExportPanel({ context, getPattern, getColors, getColorwayName, getAllPatterns, statusNode }) {
   let mode = 'tile';
   let format = 'png';
   let size = 2048;
@@ -198,6 +199,66 @@ export function createExportPanel({ context, getPattern, getColors, getColorwayN
   const sizeSelect = el('select');
   const repeatsRow = el('div');
   const transparentRow = el('div');
+
+  /*
+   * Extras bought at checkout. Each button only exists when the license
+   * carries the extra, so nobody is shown a control that would refuse
+   * them — and each one produces a real file rather than a promise of one.
+   */
+  const extrasRow = el('div');
+  const held = (id) => !!(context.options && context.options.has(id));
+
+  if (held('print-specs') || held('palette-files') || held('seam-report')) {
+    extrasRow.append(el('p', { class: 'panel__title', style: { marginTop: '1.1rem' }, text: 'Your extras' }));
+    const buttons = el('div', { class: 'panel__row' });
+
+    if (held('print-specs')) {
+      buttons.append(el('button', {
+        type: 'button',
+        class: 'btn',
+        text: 'Spec sheet',
+        onclick: guard(statusNode, context, async () => {
+          const pattern = getPattern();
+          const { specSheet } = await import('./extras.mjs');
+          const doc = specSheet(pattern, context, { collection: context.product.name });
+          context.files.downloadBlob(doc.toBlob(), 'tilecraft-' + safeName(pattern.name) + '-spec.pdf');
+          status(statusNode, 'Downloaded the print specification for ' + pattern.name + '.');
+        })
+      }));
+    }
+
+    if (held('palette-files')) {
+      buttons.append(el('button', {
+        type: 'button',
+        class: 'btn',
+        text: 'Palette files',
+        onclick: guard(statusNode, context, async () => {
+          const pattern = getPattern();
+          const { paletteEntries } = await import('./extras.mjs');
+          const entries = await paletteEntries(pattern.spec.colorways, pattern.name, context);
+          context.files.downloadBlob(makeZip(entries), 'tilecraft-' + safeName(pattern.name) + '-palettes.zip');
+          status(statusNode, 'Downloaded the palettes for ' + pattern.name + '.');
+        })
+      }));
+    }
+
+    if (held('seam-report')) {
+      buttons.append(el('button', {
+        type: 'button',
+        class: 'btn',
+        text: 'Seam report',
+        onclick: guard(statusNode, context, async () => {
+          status(statusNode, 'Measuring every repeat…', 'busy');
+          const { seamReport } = await import('./extras.mjs');
+          const doc = await seamReport(getAllPatterns(), context, { collection: context.product.name });
+          context.files.downloadBlob(doc.toBlob(), 'tilecraft-' + safeName(context.product.name) + '-seams.pdf');
+          status(statusNode, 'Downloaded the seam report.');
+        })
+      }));
+    }
+
+    extrasRow.append(buttons);
+  }
 
   const sizeOptions = [512, 1024, 2048, 3000, 4096, 6000, 8192, 12000, 16384];
 
@@ -272,7 +333,8 @@ export function createExportPanel({ context, getPattern, getColors, getColorwayN
     repeatsRow,
     transparentRow,
     limitNote,
-    el('div', { class: 'panel__row', style: { marginTop: '0.85rem' } }, [downloadButton])
+    el('div', { class: 'panel__row', style: { marginTop: '0.85rem' } }, [downloadButton]),
+    extrasRow
   ]);
 
   sizeSelect.id = 'exp-size';
@@ -393,6 +455,7 @@ export async function mountCollection(container, context, slug) {
     getPattern: () => selected,
     getColors: () => colors,
     getColorwayName: () => colorwayName,
+    getAllPatterns: () => patterns,
     statusNode
   });
 
@@ -494,8 +557,20 @@ export async function mountCollection(container, context, slug) {
 
   /* ---- Selection ---- */
 
+  /*
+   * Four curated colorways come with every Collection and four more with
+   * the extra colorway set. All eight are generated together and shipped
+   * in the same file, because splitting them across two downloads would
+   * mean two sets that drift apart; which of them this device may use is
+   * decided here, from the license.
+   */
+  const INCLUDED_COLORWAYS = 4;
+  const hasExtraColorways = !!(context.options && context.options.has('extra-colorways'));
+
   function colorwaysFor(pattern) {
-    const curated = pattern.spec.colorways.map((c) => ({ ...c, custom: false }));
+    const all = pattern.spec.colorways;
+    const allowed = hasExtraColorways ? all : all.slice(0, INCLUDED_COLORWAYS);
+    const curated = allowed.map((c) => ({ ...c, custom: false }));
     const custom = (saved.colorways[pattern.id] || []).map((c) => ({ ...c, custom: true }));
     return curated.concat(custom);
   }

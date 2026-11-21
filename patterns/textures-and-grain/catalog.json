@@ -1,6 +1,6 @@
 {
  "collection": "textures-and-grain",
- "built": "2026-11-20",
+ "built": "2026-11-21",
  "count": 30,
  "colorwaysPerPattern": 4,
  "patterns": [
@@ -21,7 +21,11 @@
     "Clay",
     "Midnight",
     "Harbor",
-    "Monochrome"
+    "Monochrome",
+    "Sage",
+    "Slate",
+    "Ochre",
+    "Blush"
    ]
   },
   {
@@ -41,7 +45,11 @@
     "Sage",
     "Clay",
     "Slate",
-    "Ochre"
+    "Ochre",
+    "Harbor",
+    "Monochrome",
+    "Blush",
+    "Midnight"
    ]
   },
   {
@@ -60,7 +68,11 @@
     "Blush",
     "Sage",
     "Ochre",
-    "Slate"
+    "Slate",
+    "Clay",
+    "Monochrome",
+    "Midnight",
+    "Harbor"
    ]
   },
   {
@@ -80,7 +92,11 @@
     "Blush",
     "Monochrome",
     "Sage",
-    "Clay"
+    "Clay",
+    "Midnight",
+    "Slate",
+    "Ochre",
+    "Harbor"
    ]
   },
   {
@@ -99,7 +115,11 @@
     "Monochrome",
     "Clay",
     "Blush",
-    "Sage"
+    "Sage",
+    "Slate",
+    "Ochre",
+    "Midnight",
+    "Harbor"
    ]
   },
   {
@@ -118,7 +138,11 @@
     "Sage",
     "Monochrome",
     "Midnight",
-    "Slate"
+    "Slate",
+    "Blush",
+    "Clay",
+    "Ochre",
+    "Harbor"
    ]
   },
   {
@@ -137,7 +161,11 @@
     "Ochre",
     "Clay",
     "Sage",
-    "Harbor"
+    "Harbor",
+    "Monochrome",
+    "Slate",
+    "Blush",
+    "Midnight"
    ]
   },
   {
@@ -157,7 +185,11 @@
     "Monochrome",
     "Clay",
     "Harbor",
-    "Slate"
+    "Slate",
+    "Sage",
+    "Ochre",
+    "Blush",
+    "Midnight"
    ]
   },
   {
@@ -176,7 +208,11 @@
     "Midnight",
     "Clay",
     "Sage",
-    "Harbor"
+    "Harbor",
+    "Monochrome",
+    "Blush",
+    "Slate",
+    "Ochre"
    ]
   },
   {
@@ -196,7 +232,11 @@
     "Blush",
     "Ochre",
     "Slate",
-    "Monochrome"
+    "Monochrome",
+    "Midnight",
+    "Harbor",
+    "Clay",
+    "Sage"
    ]
   },
   {
@@ -215,7 +255,11 @@
     "Midnight",
     "Sage",
     "Slate",
-    "Clay"
+    "Clay",
+    "Ochre",
+    "Harbor",
+    "Monochrome",
+    "Blush"
    ]
   },
   {
@@ -235,7 +279,11 @@
     "Harbor",
     "Monochrome",
     "Slate",
-    "Sage"
+    "Sage",
+    "Ochre",
+    "Clay",
+    "Blush",
+    "Midnight"
    ]
   },
   {
@@ -254,7 +302,11 @@
     "Ochre",
     "Blush",
     "Slate",
-    "Harbor"
+    "Harbor",
+    "Midnight",
+    "Clay",
+    "Sage",
+    "Monochrome"
    ]
   },
   {
@@ -274,7 +326,11 @@
     "Slate",
     "Harbor",
     "Clay",
-    "Sage"
+    "Sage",
+    "Monochrome",
+    "Midnight",
+    "Blush",
+    "Ochre"
    ]
   },
   {
@@ -293,7 +349,11 @@
     "Monochrome",
     "Harbor",
     "Clay",
-    "Ochre"
+    "Ochre",
+    "Sage",
+    "Blush",
+    "Midnight",
+    "Slate"
    ]
   },
   {
@@ -313,7 +373,11 @@
     "Blush",
     "Sage",
     "Clay",
-    "Slate"
+    "Slate",
+    "Ochre",
+    "Harbor",
+    "Monochrome",
+    "Midnight"
    ]
   },
   {
@@ -333,7 +397,11 @@
     "Clay",
     "Sage",
     "Monochrome",
-    "Slate"
+    "Slate",
+    "Harbor",
+    "Midnight",
+    "Ochre",
+    "Blush"
    ]
   },
   {
@@ -353,7 +421,11 @@
     "Slate",
     "Monochrome",
     "Midnight",
-    "Blush"
+    "Blush",
+    "Sage",
+    "Ochre",
+    "Harbor",
+    "Clay"
    ]
   },
   {
@@ -373,7 +445,11 @@
     "Monochrome",
     "Slate",
     "Blush",
-    "Midnight"
+    "Midnight",
+    "Ochre",
+    "Harbor",
+    "Sage",
+    "Clay"
    ]
   },
   {
@@ -393,7 +469,11 @@
     "Ochre",
     "Blush",
     "Monochrome",
-    "Sage"
+    "Sage",
+    "Slate",
+    "Harbor",
+    "Clay",
+    "Midnight"
    ]
   },
   {
@@ -413,7 +493,11 @@
     "Clay",
     "Midnight",
     "Slate",
-    "Monochrome"
+    "Monochrome",
+    "Blush",
+    "Harbor",
+    "Ochre",
+    "Sage"
    ]
   },
   {
@@ -433,7 +517,11 @@
     "Slate",
     "Sage",
     "Clay",
-    "Harbor"
+    "Harbor",
+    "Blush",
+    "Monochrome",
+    "Ochre",
+    "Midnight"
    ]
   },
   {
@@ -453,7 +541,11 @@
     "Monochrome",
     "Slate",
     "Midnight",
-    "Blush"
+    "Blush",
+    "Clay",
+    "Ochre",
+    "Harbor",
+    "Sage"
    ]
   },
   {
@@ -473,7 +565,11 @@
     "Midnight",
     "Sage",
     "Clay",
-    "Slate"
+    "Slate",
+    "Monochrome",
+    "Blush",
+    "Harbor",
+    "Ochre"
    ]
   },
   {
@@ -493,7 +589,11 @@
     "Midnight",
     "Clay",
     "Blush",
-    "Monochrome"
+    "Monochrome",
+    "Slate",
+    "Sage",
+    "Harbor",
+    "Ochre"
    ]
   },
   {
@@ -513,7 +613,11 @@
     "Midnight",
     "Blush",
     "Harbor",
-    "Slate"
+    "Slate",
+    "Monochrome",
+    "Ochre",
+    "Sage",
+    "Clay"
    ]
   },
   {
@@ -533,7 +637,11 @@
     "Midnight",
     "Clay",
     "Blush",
-    "Ochre"
+    "Ochre",
+    "Monochrome",
+    "Slate",
+    "Harbor",
+    "Sage"
    ]
   },
   {
@@ -553,7 +661,11 @@
     "Slate",
     "Clay",
     "Ochre",
-    "Harbor"
+    "Harbor",
+    "Monochrome",
+    "Blush",
+    "Sage",
+    "Midnight"
    ]
   },
   {
@@ -573,7 +685,11 @@
     "Ochre",
     "Monochrome",
     "Slate",
-    "Sage"
+    "Sage",
+    "Clay",
+    "Blush",
+    "Harbor",
+    "Midnight"
    ]
   },
   {
@@ -593,7 +709,11 @@
     "Monochrome",
     "Ochre",
     "Slate",
-    "Clay"
+    "Clay",
+    "Midnight",
+    "Sage",
+    "Blush",
+    "Harbor"
    ]
   }
  ]

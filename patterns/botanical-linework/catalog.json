@@ -1,6 +1,6 @@
 {
  "collection": "botanical-linework",
- "built": "2026-11-20",
+ "built": "2026-11-21",
  "count": 30,
  "colorwaysPerPattern": 4,
  "patterns": [
@@ -19,7 +19,11 @@
     "Night Press",
     "Sage",
     "Slate",
-    "Mint"
+    "Mint",
+    "Clay",
+    "Blush",
+    "Plum",
+    "Ochre"
    ]
   },
   {
@@ -37,7 +41,11 @@
     "Clay",
     "Sage",
     "Plum",
-    "Ochre"
+    "Ochre",
+    "Blush",
+    "Mint",
+    "Slate",
+    "Night Press"
    ]
   },
   {
@@ -55,7 +63,11 @@
     "Sage",
     "Clay",
     "Mint",
-    "Slate"
+    "Slate",
+    "Ochre",
+    "Blush",
+    "Night Press",
+    "Plum"
    ]
   },
   {
@@ -73,7 +85,11 @@
     "Clay",
     "Night Press",
     "Blush",
-    "Sage"
+    "Sage",
+    "Plum",
+    "Slate",
+    "Mint",
+    "Ochre"
    ]
   },
   {
@@ -91,7 +107,11 @@
     "Clay",
     "Ochre",
     "Slate",
-    "Night Press"
+    "Night Press",
+    "Mint",
+    "Sage",
+    "Blush",
+    "Plum"
    ]
   },
   {
@@ -109,7 +129,11 @@
     "Sage",
     "Night Press",
     "Clay",
-    "Blush"
+    "Blush",
+    "Mint",
+    "Ochre",
+    "Slate",
+    "Plum"
    ]
   },
   {
@@ -127,7 +151,11 @@
     "Mint",
     "Blush",
     "Clay",
-    "Night Press"
+    "Night Press",
+    "Ochre",
+    "Slate",
+    "Plum",
+    "Sage"
    ]
   },
   {
@@ -145,7 +173,11 @@
     "Plum",
     "Mint",
     "Sage",
-    "Blush"
+    "Blush",
+    "Ochre",
+    "Night Press",
+    "Clay",
+    "Slate"
    ]
   },
   {
@@ -163,7 +195,11 @@
     "Plum",
     "Ochre",
     "Mint",
-    "Night Press"
+    "Night Press",
+    "Blush",
+    "Clay",
+    "Sage",
+    "Slate"
    ]
   },
   {
@@ -181,7 +217,11 @@
     "Mint",
     "Blush",
     "Sage",
-    "Slate"
+    "Slate",
+    "Night Press",
+    "Ochre",
+    "Clay",
+    "Plum"
    ]
   },
   {
@@ -199,7 +239,11 @@
     "Mint",
     "Plum",
     "Night Press",
-    "Ochre"
+    "Ochre",
+    "Blush",
+    "Slate",
+    "Sage",
+    "Clay"
    ]
   },
   {
@@ -217,7 +261,11 @@
     "Clay",
     "Slate",
     "Plum",
-    "Blush"
+    "Blush",
+    "Mint",
+    "Ochre",
+    "Sage",
+    "Night Press"
    ]
   },
   {
@@ -235,7 +283,11 @@
     "Sage",
     "Blush",
     "Mint",
-    "Ochre"
+    "Ochre",
+    "Clay",
+    "Night Press",
+    "Slate",
+    "Plum"
    ]
   },
   {
@@ -253,7 +305,11 @@
     "Plum",
     "Night Press",
     "Slate",
-    "Ochre"
+    "Ochre",
+    "Clay",
+    "Mint",
+    "Blush",
+    "Sage"
    ]
   },
   {
@@ -271,7 +327,11 @@
     "Sage",
     "Slate",
     "Mint",
-    "Plum"
+    "Plum",
+    "Night Press",
+    "Blush",
+    "Ochre",
+    "Clay"
    ]
   },
   {
@@ -289,7 +349,11 @@
     "Sage",
     "Slate",
     "Mint",
-    "Clay"
+    "Clay",
+    "Night Press",
+    "Ochre",
+    "Plum",
+    "Blush"
    ]
   },
   {
@@ -307,7 +371,11 @@
     "Sage",
     "Clay",
     "Ochre",
-    "Night Press"
+    "Night Press",
+    "Slate",
+    "Mint",
+    "Blush",
+    "Plum"
    ]
   },
   {
@@ -325,7 +393,11 @@
     "Blush",
     "Mint",
     "Plum",
-    "Slate"
+    "Slate",
+    "Night Press",
+    "Sage",
+    "Ochre",
+    "Clay"
    ]
   },
   {
@@ -343,7 +415,11 @@
     "Plum",
     "Sage",
     "Blush",
-    "Ochre"
+    "Ochre",
+    "Clay",
+    "Night Press",
+    "Slate",
+    "Mint"
    ]
   },
   {
@@ -361,7 +437,11 @@
     "Ochre",
     "Blush",
     "Plum",
-    "Sage"
+    "Sage",
+    "Slate",
+    "Clay",
+    "Mint",
+    "Night Press"
    ]
   },
   {
@@ -379,7 +459,11 @@
     "Night Press",
     "Ochre",
     "Slate",
-    "Plum"
+    "Plum",
+    "Clay",
+    "Sage",
+    "Mint",
+    "Blush"
    ]
   },
   {
@@ -397,7 +481,11 @@
     "Slate",
     "Plum",
     "Blush",
-    "Clay"
+    "Clay",
+    "Night Press",
+    "Sage",
+    "Ochre",
+    "Mint"
    ]
   },
   {
@@ -415,7 +503,11 @@
     "Plum",
     "Sage",
     "Mint",
-    "Ochre"
+    "Ochre",
+    "Clay",
+    "Night Press",
+    "Slate",
+    "Blush"
    ]
   },
   {
@@ -433,7 +525,11 @@
     "Blush",
     "Clay",
     "Ochre",
-    "Night Press"
+    "Night Press",
+    "Sage",
+    "Mint",
+    "Plum",
+    "Slate"
    ]
   },
   {
@@ -451,7 +547,11 @@
     "Blush",
     "Sage",
     "Plum",
-    "Mint"
+    "Mint",
+    "Clay",
+    "Night Press",
+    "Slate",
+    "Ochre"
    ]
   },
   {
@@ -469,7 +569,11 @@
     "Plum",
     "Night Press",
     "Clay",
-    "Slate"
+    "Slate",
+    "Ochre",
+    "Blush",
+    "Sage",
+    "Mint"
    ]
   },
   {
@@ -487,7 +591,11 @@
     "Mint",
     "Blush",
     "Plum",
-    "Slate"
+    "Slate",
+    "Clay",
+    "Sage",
+    "Night Press",
+    "Ochre"
    ]
   },
   {
@@ -505,7 +613,11 @@
     "Night Press",
     "Mint",
     "Plum",
-    "Clay"
+    "Clay",
+    "Ochre",
+    "Blush",
+    "Sage",
+    "Slate"
    ]
   },
   {
@@ -523,7 +635,11 @@
     "Sage",
     "Ochre",
     "Blush",
-    "Mint"
+    "Mint",
+    "Plum",
+    "Clay",
+    "Slate",
+    "Night Press"
    ]
   },
   {
@@ -541,7 +657,11 @@
     "Slate",
     "Plum",
     "Sage",
-    "Blush"
+    "Blush",
+    "Night Press",
+    "Clay",
+    "Mint",
+    "Ochre"
    ]
   }
  ]

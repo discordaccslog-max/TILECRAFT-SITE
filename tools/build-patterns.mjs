@@ -54,6 +54,16 @@ const MODULES = [
   geometric, textures, botanical, midcentury, tiles,
   deco, stripes, checks, waves, stars, folk, arches, scallops, confetti, crystal
 ];
+/*
+ * Eight colorways are generated for every pattern. The first four are
+ * included with the product; the rest arrive with the extra colorway set
+ * bought at checkout. Both sets are drawn from the same family here, so
+ * the extras look like they belong to the Collection rather than like a
+ * different product bolted on.
+ */
+const INCLUDED_COLORWAYS = 4;
+const TOTAL_COLORWAYS = 8;
+
 const ATTEMPTS = 30;
 const CHECK_SIZE = 320;
 
@@ -302,7 +312,7 @@ function buildRasterCollection(module, report) {
     }
     fs.writeFileSync(path.join(texDir, id + '-thumb.png'), encodePng(thumb, thumbSize, thumbSize, 1));
 
-    const colorways = colorwaysFor(collection, rng(accepted.seed + ':colors'), 4);
+    const colorways = colorwaysFor(collection, rng(accepted.seed + ':colors'), TOTAL_COLORWAYS);
 
     const spec = {
       id,
@@ -342,7 +352,7 @@ function buildRasterCollection(module, report) {
         collection,
         built: new Date().toISOString().slice(0, 10),
         count: catalog.length,
-        colorwaysPerPattern: 4,
+        colorwaysPerPattern: INCLUDED_COLORWAYS,
         patterns: catalog
       },
       null,
@@ -355,7 +365,7 @@ function buildRasterCollection(module, report) {
     count: catalog.length,
     target: module.TARGET,
     regenerated,
-    colorways: catalog.length * 4
+    colorways: catalog.length * INCLUDED_COLORWAYS
   });
 
   return catalog.length;
@@ -397,7 +407,7 @@ function buildCollection(module, report) {
       const seed = collection + ':' + entry.key + ':' + index + ':' + attempt;
       const random = rng(seed);
       const tile = module.TILES[random.int(0, module.TILES.length - 1)];
-      const colorways = colorwaysFor(collection, rng(seed + ':colors'), 4);
+      const colorways = colorwaysFor(collection, rng(seed + ':colors'), TOTAL_COLORWAYS);
 
       let draw;
       try {
@@ -537,7 +547,7 @@ function buildCollection(module, report) {
         collection,
         built: new Date().toISOString().slice(0, 10),
         count: catalog.length,
-        colorwaysPerPattern: 4,
+        colorwaysPerPattern: INCLUDED_COLORWAYS,
         patterns: catalog
       },
       null,
@@ -550,7 +560,7 @@ function buildCollection(module, report) {
     count: catalog.length,
     target: module.TARGET,
     regenerated,
-    colorways: catalog.length * 4
+    colorways: catalog.length * INCLUDED_COLORWAYS
   });
 
   return catalog.length;
@@ -599,7 +609,7 @@ if (!only) {
   for (const c of report.collections) {
     summary.collections[c.collection] = {
       patterns: c.count,
-      colorwaysPerPattern: 4,
+      colorwaysPerPattern: INCLUDED_COLORWAYS,
       colorways: c.colorways
     };
     summary.totals.patterns += c.count;

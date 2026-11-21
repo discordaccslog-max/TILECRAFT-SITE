@@ -475,12 +475,64 @@ export async function mount(container, context) {
     }
   });
 
+  /* ---- The motif library, for a license that carries it ---- */
+
+  /*
+   * Forty shapes drawn here in the browser, so the tool has something to
+   * work with on day one. They enter the project exactly as a loaded file
+   * does — as a canvas — so everything downstream treats them the same.
+   */
+  const librarySection = el('div');
+
+  if (context.options && context.options.has('motif-library')) {
+    const libraryList = el('div', { class: 'motifs' });
+
+    import('../_shared/starters.mjs').then(({ motifLibrary }) => {
+      for (const entry of motifLibrary(160, '#14172a')) {
+        const thumb = el('button', {
+          type: 'button',
+          class: 'motif',
+          title: 'Add ' + entry.name,
+          onclick: guard(statusNode, context, async () => {
+            state.motifs.push({
+              id: 'lib-' + entry.name + '-' + Date.now().toString(36),
+              name: entry.name,
+              canvas: entry.canvas,
+              width: entry.canvas.width,
+              height: entry.canvas.height,
+              dataUrl: entry.canvas.toDataURL('image/png')
+            });
+            state.selected = state.motifs.length - 1;
+            renderMotifs();
+            await saveProject();
+            await build();
+            status(statusNode, 'Added ' + entry.name + ' from the library.');
+          })
+        });
+        thumb.style.backgroundImage = 'url("' + entry.canvas.toDataURL('image/png') + '")';
+        thumb.style.backgroundSize = '70%';
+        thumb.style.backgroundRepeat = 'no-repeat';
+        thumb.style.backgroundPosition = 'center';
+        libraryList.append(thumb);
+      }
+    });
+
+    librarySection.append(
+      el('div', { class: 'panel' }, [
+        el('h3', { class: 'panel__title', text: 'Motif library' }),
+        el('p', { class: 'hint', text: 'Forty shapes that came with your license. Tap one to add it to the repeat.' }),
+        libraryList
+      ])
+    );
+  }
+
   const left = el('div', {}, [
     el('div', { class: 'panel' }, [
       el('h3', { class: 'panel__title', text: 'Your motifs' }),
       drop,
       motifList
     ]),
+    librarySection,
     el('div', { class: 'panel' }, [
       el('h3', { class: 'panel__title', text: 'Repeat' }),
       controls,

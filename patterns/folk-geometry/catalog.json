@@ -1,6 +1,6 @@
 {
  "collection": "folk-geometry",
- "built": "2026-11-20",
+ "built": "2026-11-21",
  "count": 22,
  "colorwaysPerPattern": 4,
  "patterns": [
@@ -20,7 +20,11 @@
     "Monochrome",
     "Sage",
     "Ink Blue",
-    "Blush"
+    "Blush",
+    "Riso",
+    "Terracotta",
+    "Clay",
+    "Ochre"
    ]
   },
   {
@@ -39,7 +43,11 @@
     "Sage",
     "Blush",
     "Riso",
-    "Monochrome"
+    "Monochrome",
+    "Ochre",
+    "Clay",
+    "Ink Blue",
+    "Terracotta"
    ]
   },
   {
@@ -58,7 +66,11 @@
     "Blush",
     "Terracotta",
     "Riso",
-    "Clay"
+    "Clay",
+    "Ochre",
+    "Ink Blue",
+    "Sage",
+    "Monochrome"
    ]
   },
   {
@@ -77,7 +89,11 @@
     "Monochrome",
     "Clay",
     "Riso",
-    "Ink Blue"
+    "Ink Blue",
+    "Terracotta",
+    "Ochre",
+    "Sage",
+    "Blush"
    ]
   },
   {
@@ -96,7 +112,11 @@
     "Monochrome",
     "Sage",
     "Ochre",
-    "Blush"
+    "Blush",
+    "Ink Blue",
+    "Terracotta",
+    "Riso",
+    "Clay"
    ]
   },
   {
@@ -115,7 +135,11 @@
     "Blush",
     "Riso",
     "Sage",
-    "Ochre"
+    "Ochre",
+    "Clay",
+    "Monochrome",
+    "Terracotta",
+    "Ink Blue"
    ]
   },
   {
@@ -134,7 +158,11 @@
     "Blush",
     "Clay",
     "Monochrome",
-    "Ink Blue"
+    "Ink Blue",
+    "Sage",
+    "Riso",
+    "Terracotta",
+    "Ochre"
    ]
   },
   {
@@ -153,7 +181,11 @@
     "Clay",
     "Terracotta",
     "Ink Blue",
-    "Blush"
+    "Blush",
+    "Riso",
+    "Monochrome",
+    "Ochre",
+    "Sage"
    ]
   },
   {
@@ -172,7 +204,11 @@
     "Riso",
     "Sage",
     "Ink Blue",
-    "Terracotta"
+    "Terracotta",
+    "Blush",
+    "Monochrome",
+    "Ochre",
+    "Clay"
    ]
   },
   {
@@ -191,7 +227,11 @@
     "Sage",
     "Terracotta",
     "Clay",
-    "Ochre"
+    "Ochre",
+    "Riso",
+    "Blush",
+    "Ink Blue",
+    "Monochrome"
    ]
   },
   {
@@ -210,7 +250,11 @@
     "Sage",
     "Ink Blue",
     "Monochrome",
-    "Terracotta"
+    "Terracotta",
+    "Clay",
+    "Riso",
+    "Blush",
+    "Ochre"
    ]
   },
   {
@@ -229,7 +273,11 @@
     "Clay",
     "Sage",
     "Ink Blue",
-    "Terracotta"
+    "Terracotta",
+    "Riso",
+    "Ochre",
+    "Blush",
+    "Monochrome"
    ]
   },
   {
@@ -248,7 +296,11 @@
     "Riso",
     "Sage",
     "Ink Blue",
-    "Monochrome"
+    "Monochrome",
+    "Ochre",
+    "Clay",
+    "Terracotta",
+    "Blush"
    ]
   },
   {
@@ -267,7 +319,11 @@
     "Sage",
     "Ochre",
     "Blush",
-    "Ink Blue"
+    "Ink Blue",
+    "Clay",
+    "Terracotta",
+    "Riso",
+    "Monochrome"
    ]
   },
   {
@@ -286,7 +342,11 @@
     "Monochrome",
     "Ochre",
     "Riso",
-    "Ink Blue"
+    "Ink Blue",
+    "Terracotta",
+    "Clay",
+    "Blush",
+    "Sage"
    ]
   },
   {
@@ -305,7 +365,11 @@
     "Sage",
     "Ochre",
     "Blush",
-    "Riso"
+    "Riso",
+    "Monochrome",
+    "Clay",
+    "Terracotta",
+    "Ink Blue"
    ]
   },
   {
@@ -324,7 +388,11 @@
     "Sage",
     "Blush",
     "Riso",
-    "Terracotta"
+    "Terracotta",
+    "Clay",
+    "Ochre",
+    "Ink Blue",
+    "Monochrome"
    ]
   },
   {
@@ -343,7 +411,11 @@
     "Ink Blue",
     "Terracotta",
     "Clay",
-    "Sage"
+    "Sage",
+    "Riso",
+    "Monochrome",
+    "Blush",
+    "Ochre"
    ]
   },
   {
@@ -362,7 +434,11 @@
     "Sage",
     "Ink Blue",
     "Monochrome",
-    "Clay"
+    "Clay",
+    "Terracotta",
+    "Blush",
+    "Riso",
+    "Ochre"
    ]
   },
   {
@@ -381,7 +457,11 @@
     "Sage",
     "Monochrome",
     "Terracotta",
-    "Riso"
+    "Riso",
+    "Clay",
+    "Ink Blue",
+    "Blush",
+    "Ochre"
    ]
   },
   {
@@ -400,7 +480,11 @@
     "Sage",
     "Ochre",
     "Ink Blue",
-    "Blush"
+    "Blush",
+    "Monochrome",
+    "Riso",
+    "Clay",
+    "Terracotta"
    ]
   },
   {
@@ -419,7 +503,11 @@
     "Terracotta",
     "Sage",
     "Blush",
-    "Ochre"
+    "Ochre",
+    "Monochrome",
+    "Ink Blue",
+    "Riso",
+    "Clay"
    ]
   }
  ]

@@ -1,6 +1,6 @@
 {
  "collection": "geometric-essentials",
- "built": "2026-11-20",
+ "built": "2026-11-21",
  "count": 40,
  "colorwaysPerPattern": 4,
  "patterns": [
@@ -19,7 +19,11 @@
     "Riso",
     "Slate",
     "Ink Blue",
-    "Harbor"
+    "Harbor",
+    "Night Press",
+    "Ochre",
+    "Monochrome",
+    "Midnight"
    ]
   },
   {
@@ -37,7 +41,11 @@
     "Harbor",
     "Ochre",
     "Monochrome",
-    "Slate"
+    "Slate",
+    "Night Press",
+    "Riso",
+    "Midnight",
+    "Ink Blue"
    ]
   },
   {
@@ -55,7 +63,11 @@
     "Monochrome",
     "Midnight",
     "Ink Blue",
-    "Slate"
+    "Slate",
+    "Ochre",
+    "Riso",
+    "Harbor",
+    "Night Press"
    ]
   },
   {
@@ -73,7 +85,11 @@
     "Monochrome",
     "Ink Blue",
     "Midnight",
-    "Slate"
+    "Slate",
+    "Harbor",
+    "Ochre",
+    "Riso",
+    "Night Press"
    ]
   },
   {
@@ -91,7 +107,11 @@
     "Monochrome",
     "Harbor",
     "Midnight",
-    "Night Press"
+    "Night Press",
+    "Riso",
+    "Slate",
+    "Ink Blue",
+    "Ochre"
    ]
   },
   {
@@ -109,7 +129,11 @@
     "Slate",
     "Ink Blue",
     "Harbor",
-    "Ochre"
+    "Ochre",
+    "Monochrome",
+    "Midnight",
+    "Riso",
+    "Night Press"
    ]
   },
   {
@@ -127,7 +151,11 @@
     "Night Press",
     "Riso",
     "Ink Blue",
-    "Harbor"
+    "Harbor",
+    "Monochrome",
+    "Ochre",
+    "Slate",
+    "Midnight"
    ]
   },
   {
@@ -145,7 +173,11 @@
     "Monochrome",
     "Slate",
     "Ink Blue",
-    "Night Press"
+    "Night Press",
+    "Midnight",
+    "Harbor",
+    "Riso",
+    "Ochre"
    ]
   },
   {
@@ -163,7 +195,11 @@
     "Ink Blue",
     "Midnight",
     "Night Press",
-    "Monochrome"
+    "Monochrome",
+    "Ochre",
+    "Harbor",
+    "Riso",
+    "Slate"
    ]
   },
   {
@@ -181,7 +217,11 @@
     "Ink Blue",
     "Monochrome",
     "Harbor",
-    "Slate"
+    "Slate",
+    "Midnight",
+    "Ochre",
+    "Riso",
+    "Night Press"
    ]
   },
   {
@@ -199,7 +239,11 @@
     "Midnight",
     "Ochre",
     "Slate",
-    "Night Press"
+    "Night Press",
+    "Monochrome",
+    "Riso",
+    "Ink Blue",
+    "Harbor"
    ]
   },
   {
@@ -217,7 +261,11 @@
     "Harbor",
     "Riso",
     "Slate",
-    "Midnight"
+    "Midnight",
+    "Ink Blue",
+    "Night Press",
+    "Ochre",
+    "Monochrome"
    ]
   },
   {
@@ -234,7 +282,11 @@
     "Slate",
     "Riso",
     "Harbor",
-    "Ink Blue"
+    "Ink Blue",
+    "Midnight",
+    "Monochrome",
+    "Night Press",
+    "Ochre"
    ]
   },
   {
@@ -251,7 +303,11 @@
     "Slate",
     "Monochrome",
     "Midnight",
-    "Riso"
+    "Riso",
+    "Ink Blue",
+    "Night Press",
+    "Harbor",
+    "Ochre"
    ]
   },
   {
@@ -269,7 +325,11 @@
     "Harbor",
     "Monochrome",
     "Ink Blue",
-    "Night Press"
+    "Night Press",
+    "Slate",
+    "Ochre",
+    "Riso",
+    "Midnight"
    ]
   },
   {
@@ -287,7 +347,11 @@
     "Midnight",
     "Ink Blue",
     "Harbor",
-    "Riso"
+    "Riso",
+    "Monochrome",
+    "Night Press",
+    "Slate",
+    "Ochre"
    ]
   },
   {
@@ -305,7 +369,11 @@
     "Ochre",
     "Harbor",
     "Midnight",
-    "Monochrome"
+    "Monochrome",
+    "Slate",
+    "Riso",
+    "Night Press",
+    "Ink Blue"
    ]
   },
   {
@@ -323,7 +391,11 @@
     "Ink Blue",
     "Ochre",
     "Midnight",
-    "Riso"
+    "Riso",
+    "Slate",
+    "Harbor",
+    "Night Press",
+    "Monochrome"
    ]
   },
   {
@@ -341,7 +413,11 @@
     "Night Press",
     "Monochrome",
     "Slate",
-    "Harbor"
+    "Harbor",
+    "Ink Blue",
+    "Midnight",
+    "Riso",
+    "Ochre"
    ]
   },
   {
@@ -359,7 +435,11 @@
     "Ochre",
     "Riso",
     "Ink Blue",
-    "Harbor"
+    "Harbor",
+    "Night Press",
+    "Monochrome",
+    "Slate",
+    "Midnight"
    ]
   },
   {
@@ -377,7 +457,11 @@
     "Night Press",
     "Monochrome",
     "Midnight",
-    "Slate"
+    "Slate",
+    "Ochre",
+    "Riso",
+    "Harbor",
+    "Ink Blue"
    ]
   },
   {
@@ -395,7 +479,11 @@
     "Night Press",
     "Monochrome",
     "Harbor",
-    "Riso"
+    "Riso",
+    "Ochre",
+    "Midnight",
+    "Ink Blue",
+    "Slate"
    ]
   },
   {
@@ -413,7 +501,11 @@
     "Slate",
     "Riso",
     "Night Press",
-    "Monochrome"
+    "Monochrome",
+    "Midnight",
+    "Ochre",
+    "Harbor",
+    "Ink Blue"
    ]
   },
   {
@@ -431,7 +523,11 @@
     "Harbor",
     "Night Press",
     "Monochrome",
-    "Midnight"
+    "Midnight",
+    "Ochre",
+    "Slate",
+    "Riso",
+    "Ink Blue"
    ]
   },
   {
@@ -449,7 +545,11 @@
     "Harbor",
     "Night Press",
     "Riso",
-    "Slate"
+    "Slate",
+    "Monochrome",
+    "Midnight",
+    "Ink Blue",
+    "Ochre"
    ]
   },
   {
@@ -467,7 +567,11 @@
     "Ochre",
     "Slate",
     "Midnight",
-    "Monochrome"
+    "Monochrome",
+    "Ink Blue",
+    "Harbor",
+    "Riso",
+    "Night Press"
    ]
   },
   {
@@ -485,7 +589,11 @@
     "Night Press",
     "Ink Blue",
     "Slate",
-    "Monochrome"
+    "Monochrome",
+    "Midnight",
+    "Harbor",
+    "Riso",
+    "Ochre"
    ]
   },
   {
@@ -503,7 +611,11 @@
     "Riso",
     "Midnight",
     "Harbor",
-    "Night Press"
+    "Night Press",
+    "Monochrome",
+    "Slate",
+    "Ochre",
+    "Ink Blue"
    ]
   },
   {
@@ -521,7 +633,11 @@
     "Midnight",
     "Riso",
     "Ochre",
-    "Slate"
+    "Slate",
+    "Night Press",
+    "Monochrome",
+    "Ink Blue",
+    "Harbor"
    ]
   },
   {
@@ -539,7 +655,11 @@
     "Slate",
     "Midnight",
     "Ink Blue",
-    "Riso"
+    "Riso",
+    "Monochrome",
+    "Ochre",
+    "Night Press",
+    "Harbor"
    ]
   },
   {
@@ -557,7 +677,11 @@
     "Harbor",
     "Midnight",
     "Ink Blue",
-    "Monochrome"
+    "Monochrome",
+    "Night Press",
+    "Slate",
+    "Riso",
+    "Ochre"
    ]
   },
   {
@@ -575,7 +699,11 @@
     "Night Press",
     "Ochre",
     "Riso",
-    "Monochrome"
+    "Monochrome",
+    "Harbor",
+    "Midnight",
+    "Slate",
+    "Ink Blue"
    ]
   },
   {
@@ -593,7 +721,11 @@
     "Monochrome",
     "Ink Blue",
     "Harbor",
-    "Night Press"
+    "Night Press",
+    "Slate",
+    "Ochre",
+    "Midnight",
+    "Riso"
    ]
   },
   {
@@ -611,7 +743,11 @@
     "Ochre",
     "Ink Blue",
     "Harbor",
-    "Night Press"
+    "Night Press",
+    "Slate",
+    "Midnight",
+    "Monochrome",
+    "Riso"
    ]
   },
   {
@@ -622,14 +758,18 @@
     "bold"
    ],
    "type": "vector",
-   "tile": 240,
+   "tile": 288,
    "svg": "svg/geo-035.svg",
    "raster": null,
    "colorways": [
-    "Monochrome",
     "Slate",
+    "Monochrome",
+    "Harbor",
+    "Midnight",
+    "Riso",
     "Night Press",
-    "Riso"
+    "Ochre",
+    "Ink Blue"
    ]
   },
   {
@@ -647,7 +787,11 @@
     "Ochre",
     "Midnight",
     "Harbor",
-    "Slate"
+    "Slate",
+    "Night Press",
+    "Riso",
+    "Ink Blue",
+    "Monochrome"
    ]
   },
   {
@@ -665,7 +809,11 @@
     "Ink Blue",
     "Night Press",
     "Harbor",
-    "Slate"
+    "Slate",
+    "Ochre",
+    "Monochrome",
+    "Midnight",
+    "Riso"
    ]
   },
   {
@@ -683,7 +831,11 @@
     "Ink Blue",
     "Monochrome",
     "Midnight",
-    "Slate"
+    "Slate",
+    "Harbor",
+    "Ochre",
+    "Night Press",
+    "Riso"
    ]
   },
   {
@@ -701,7 +853,11 @@
     "Night Press",
     "Slate",
     "Harbor",
-    "Ink Blue"
+    "Ink Blue",
+    "Riso",
+    "Ochre",
+    "Midnight",
+    "Monochrome"
    ]
   },
   {
@@ -718,7 +874,11 @@
     "Night Press",
     "Ochre",
     "Monochrome",
-    "Ink Blue"
+    "Ink Blue",
+    "Riso",
+    "Harbor",
+    "Slate",
+    "Midnight"
    ]
   }
  ]
