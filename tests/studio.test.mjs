@@ -78,7 +78,12 @@ test('a module imports only from inside the site', () => {
   // mean a module that cannot load offline.
   for (const module of manifest.modules) {
     const source = fs.readFileSync(path.join(root, 'studio', module.entry), 'utf8');
-    for (const match of source.matchAll(/from\s+['"]([^'"]+)['"]/g)) {
+    /*
+     * Anchored to the start of a line, because "from" appears in ordinary
+     * prose too: a status message reading 'Lifted a palette from ' + name
+     * looks exactly like an import to a looser pattern.
+     */
+    for (const match of source.matchAll(/^\s*(?:import|export)[^'"\n]*\bfrom\s+['"]([^'"]+)['"]/gm)) {
       const target = match[1];
       assert.ok(
         target.startsWith('.') || target.startsWith('/'),

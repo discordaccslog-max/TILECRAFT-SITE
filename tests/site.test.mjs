@@ -160,15 +160,45 @@ test('the catalog is coherent', () => {
 
 test('the catalog matches the prices and tiers the business set', () => {
   const expected = {
+    /* Collections */
     'geometric-essentials': ['collection', 10],
     'textures-and-grain': ['collection', 12],
     'botanical-linework': ['collection', 14],
     'mid-century-shapes': ['collection', 16],
     'tile-and-terrazzo': ['collection', 19],
-    'essentials-bundle': ['collection', 49],
+    'art-deco-lines': ['collection', 24],
+    'stripes-and-rules': ['collection', 20],
+    'checks-and-weaves': ['collection', 22],
+    'waves-and-water': ['collection', 22],
+    'stars-and-night': ['collection', 22],
+    'folk-geometry': ['collection', 24],
+    'arches-and-columns': ['collection', 24],
+    'scallops-and-shells': ['collection', 22],
+    'confetti-and-specks': ['collection', 20],
+    'crystal-and-facet': ['collection', 26],
+
+    /* Studio Editions */
     'pattern-generator-studio': ['studio-edition', 35],
     'repeat-builder': ['studio-edition', 45],
-    'production-studio': ['studio-edition', 75]
+    'production-studio': ['studio-edition', 75],
+    'seam-inspector': ['studio-edition', 22],
+    'colorway-studio': ['studio-edition', 28],
+    'mockup-studio': ['studio-edition', 34],
+
+    /* Bundles */
+    'essentials-bundle': ['collection', 49],
+    'geometry-bundle': ['collection', 45],
+    'nature-bundle': ['collection', 48],
+    'retro-bundle': ['collection', 52],
+    'surface-bundle': ['collection', 45],
+    'architecture-bundle': ['collection', 50],
+    'textile-bundle': ['collection', 58],
+    'nursery-bundle': ['collection', 55],
+    'makers-bundle': ['collection', 85],
+    'print-shop-bundle': ['collection', 95],
+    'every-collection': ['collection', 110],
+    'studio-editions-bundle': ['collection', 120],
+    'complete-library': ['collection', 145]
   };
 
   assert.equal(PRODUCTS.length, Object.keys(expected).length);
@@ -181,12 +211,56 @@ test('the catalog matches the prices and tiers the business set', () => {
   }
 });
 
-test('the bundle costs less than the Collections bought separately', () => {
-  const separately = PRODUCTS.filter(
-    (product) => product.tier === 'collection' && product.slug !== 'essentials-bundle'
-  ).reduce((total, product) => total + product.price, 0);
+test('every price is inside the range the business sells in', () => {
+  for (const product of PRODUCTS) {
+    assert.ok(
+      Number.isInteger(product.price) && product.price >= 10 && product.price <= 145,
+      product.slug + ' is priced ' + product.price
+    );
+  }
+});
 
-  assert.ok(productBySlug('essentials-bundle').price < separately);
+test('every bundle costs less than its contents bought separately', () => {
+  /*
+   * A bundle that saves nothing is not a bundle, and its own page says in
+   * so many words what the parts come to. That claim is computed from the
+   * catalog, so this is the check that keeps it true.
+   */
+  const bundles = PRODUCTS.filter((p) => Array.isArray(p.grants) && p.grants.length > 1);
+  assert.ok(bundles.length >= 12, 'expected the bundles to be in the catalog');
+
+  for (const bundle of bundles) {
+    const separately = bundle.grants.reduce((total, slug) => {
+      const part = productBySlug(slug);
+      assert.ok(part, bundle.slug + ' grants ' + slug + ', which is not sold');
+      return total + part.price;
+    }, 0);
+
+    assert.ok(
+      bundle.price < separately,
+      bundle.slug + ' costs ' + bundle.price + ' but its contents come to ' + separately
+    );
+  }
+});
+
+test('a bundle grants only products that exist, and never itself', () => {
+  for (const product of PRODUCTS) {
+    if (!Array.isArray(product.grants)) continue;
+    assert.ok(!product.grants.includes(product.slug), product.slug + ' grants itself');
+    assert.equal(
+      new Set(product.grants).size,
+      product.grants.length,
+      product.slug + ' grants something twice'
+    );
+    for (const slug of product.grants) {
+      const part = productBySlug(slug);
+      assert.ok(part, product.slug + ' grants ' + slug + ', which is not a product');
+      assert.ok(
+        !Array.isArray(part.grants) || part.grants.length <= 1,
+        product.slug + ' grants ' + slug + ', which is itself a bundle'
+      );
+    }
+  }
 });
 
 test('no product states a pattern count', () => {

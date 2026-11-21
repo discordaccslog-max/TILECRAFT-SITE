@@ -136,10 +136,127 @@ const SCENES = {
       <circle cx="232" cy="88" r="9" fill="#55606b"/>
       <circle cx="254" cy="88" r="5" fill="#8c949c"/>
       <ellipse cx="260" cy="360" rx="70" ry="9" fill="#000000" opacity="0.13"/>`
+  },
+
+  /* ------------------------------------------------------------------ *
+   * The extra scenes, which come with the mockup pack
+   * ------------------------------------------------------------------ */
+
+  cushion: {
+    label: 'Cushion',
+    extra: true,
+    width: 520,
+    height: 380,
+    body: (fill) => `
+      <rect width="520" height="380" fill="#eae4da"/>
+      <path d="M150 90 Q260 70 370 90 Q392 190 370 290 Q260 312 150 290 Q128 190 150 90Z" fill="${fill}"/>
+      <path d="M150 90 Q260 70 370 90 Q392 190 370 290 Q260 312 150 290 Q128 190 150 90Z" fill="url(#soft)"/>
+      <path d="M150 90 Q260 70 370 90 Q392 190 370 290 Q260 312 150 290 Q128 190 150 90Z"
+            fill="none" stroke="#2a2a2a" stroke-opacity="0.3" stroke-width="3"/>
+      <ellipse cx="260" cy="322" rx="120" ry="13" fill="#000000" opacity="0.12"/>`
+  },
+
+  mug: {
+    label: 'Mug',
+    extra: true,
+    width: 520,
+    height: 380,
+    body: (fill) => `
+      <rect width="520" height="380" fill="#ece6dc"/>
+      <path d="M352 150 q46 0 46 40 t-46 40" fill="none" stroke="#3a3a3a" stroke-opacity="0.5" stroke-width="14"/>
+      <rect x="160" y="110" width="194" height="190" rx="16" fill="${fill}"/>
+      <rect x="160" y="110" width="194" height="190" rx="16" fill="url(#soft)"/>
+      <rect x="160" y="110" width="194" height="190" rx="16" fill="none"
+            stroke="#2a2a2a" stroke-opacity="0.4" stroke-width="3"/>
+      <ellipse cx="257" cy="110" rx="97" ry="16" fill="#f6f2ea"/>
+      <ellipse cx="257" cy="110" rx="97" ry="16" fill="none" stroke="#2a2a2a" stroke-opacity="0.35" stroke-width="3"/>
+      <ellipse cx="257" cy="312" rx="100" ry="11" fill="#000000" opacity="0.13"/>`
+  },
+
+  label: {
+    label: 'Label',
+    extra: true,
+    width: 520,
+    height: 380,
+    body: (fill) => `
+      <rect width="520" height="380" fill="#e9e3d9"/>
+      <rect x="150" y="60" width="220" height="260" rx="10" fill="#f8f5ef"/>
+      <rect x="150" y="60" width="220" height="260" rx="10" fill="none"
+            stroke="#2a2a2a" stroke-opacity="0.25" stroke-width="3"/>
+      <rect x="168" y="78" width="184" height="128" fill="${fill}"/>
+      <rect x="168" y="78" width="184" height="128" fill="url(#soft)"/>
+      <rect x="168" y="232" width="124" height="10" rx="5" fill="#2a2a2a" opacity="0.5"/>
+      <rect x="168" y="254" width="92" height="8" rx="4" fill="#2a2a2a" opacity="0.3"/>
+      <rect x="168" y="272" width="150" height="8" rx="4" fill="#2a2a2a" opacity="0.3"/>
+      <ellipse cx="260" cy="332" rx="112" ry="11" fill="#000000" opacity="0.12"/>`
+  },
+
+  bookCover: {
+    label: 'Book cover',
+    extra: true,
+    width: 520,
+    height: 380,
+    body: (fill) => `
+      <rect width="520" height="380" fill="#eae5db"/>
+      <rect x="168" y="46" width="190" height="282" rx="4" fill="#d8d2c6"/>
+      <rect x="176" y="40" width="190" height="282" rx="4" fill="${fill}"/>
+      <rect x="176" y="40" width="190" height="282" rx="4" fill="url(#soft)"/>
+      <rect x="176" y="40" width="14" height="282" fill="#000000" opacity="0.14"/>
+      <rect x="176" y="40" width="190" height="282" rx="4" fill="none"
+            stroke="#2a2a2a" stroke-opacity="0.4" stroke-width="3"/>
+      <rect x="212" y="150" width="120" height="10" rx="5" fill="#f8f5ef" opacity="0.92"/>
+      <rect x="212" y="172" width="78" height="8" rx="4" fill="#f8f5ef" opacity="0.8"/>
+      <ellipse cx="270" cy="334" rx="104" ry="11" fill="#000000" opacity="0.13"/>`
+  },
+
+  tiledWall: {
+    label: 'Tiled wall',
+    extra: true,
+    width: 520,
+    height: 380,
+    body: (fill) => `
+      <rect width="520" height="380" fill="#e7e1d6"/>
+      <rect x="40" y="36" width="440" height="286" fill="${fill}"/>
+      <rect x="40" y="36" width="440" height="286" fill="url(#soft)"/>
+      <g stroke="#f6f2ea" stroke-opacity="0.85" stroke-width="5">
+        <path d="M40 131H480M40 226H480"/>
+        <path d="M150 36V322M260 36V322M370 36V322"/>
+      </g>
+      <rect x="40" y="36" width="440" height="286" fill="none" stroke="#2a2a2a" stroke-opacity="0.3" stroke-width="3"/>
+      <rect x="40" y="322" width="440" height="16" fill="#cdc6b8"/>`
+  },
+
+  giftWrap: {
+    label: 'Gift wrap',
+    extra: true,
+    width: 520,
+    height: 380,
+    body: (fill) => `
+      <rect width="520" height="380" fill="#ebe5db"/>
+      <rect x="120" y="96" width="280" height="200" rx="6" fill="${fill}"/>
+      <rect x="120" y="96" width="280" height="200" rx="6" fill="url(#soft)"/>
+      <rect x="244" y="96" width="32" height="200" fill="#f6f2ea" opacity="0.9"/>
+      <rect x="120" y="180" width="280" height="32" fill="#f6f2ea" opacity="0.9"/>
+      <path d="M260 180 q-46 -56 -16 -70 q30 -14 16 70Z" fill="#f6f2ea" opacity="0.95"/>
+      <path d="M260 180 q46 -56 16 -70 q-30 -14 -16 70Z" fill="#f6f2ea" opacity="0.95"/>
+      <rect x="120" y="96" width="280" height="200" rx="6" fill="none"
+            stroke="#2a2a2a" stroke-opacity="0.35" stroke-width="3"/>
+      <ellipse cx="260" cy="306" rx="146" ry="12" fill="#000000" opacity="0.12"/>`
   }
 };
 
-export const MOCKUPS = Object.entries(SCENES).map(([id, scene]) => ({ id, label: scene.label }));
+/** The six scenes every Collection and tool includes. */
+export const MOCKUPS = Object.entries(SCENES)
+  .filter(([, scene]) => !scene.extra)
+  .map(([id, scene]) => ({ id, label: scene.label }));
+
+/** The six that arrive with the mockup pack. */
+export const EXTRA_MOCKUPS = Object.entries(SCENES)
+  .filter(([, scene]) => scene.extra)
+  .map(([id, scene]) => ({ id, label: scene.label }));
+
+/** Every scene, in display order: the included six, then the extras. */
+export const ALL_MOCKUPS = [...MOCKUPS, ...EXTRA_MOCKUPS];
 
 /**
  * Build a mockup as an SVG string.

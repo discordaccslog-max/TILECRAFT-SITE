@@ -18,6 +18,8 @@ import {
   activationUrl,
   codeFromHash,
   listLicenses,
+  optionsHeldFor,
+  hasOption,
   licenseFor,
   removeLicense,
   unlockedSlugs,
@@ -340,6 +342,24 @@ function buildContext(product, license) {
     /* What the buyer owns. */
     product: { ...product },
     license: license ? { ...license } : null,
+
+    /*
+     * The extras bought with this product, gathered from every license
+     * that unlocks it — a Collection can be covered by its own license or
+     * by a bundle, and the extras may have come with either. Modules ask
+     * through this rather than reading licenses themselves.
+     */
+    options: {
+      held: optionsHeldFor(product.slug),
+      has: (id) => hasOption(product.slug, id)
+    },
+
+    /*
+     * Everything unlocked on this device. The Collections each work on
+     * their own artwork, but the tools work across whatever the buyer
+     * owns, so they need to know what that is.
+     */
+    unlocked: [...unlockedSlugs()],
 
     /* Saved work, scoped to this product and kept in IndexedDB. */
     storage: scopedStorage(product.slug),

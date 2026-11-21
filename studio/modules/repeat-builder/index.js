@@ -17,6 +17,7 @@
 
 import { el, loadStyles, slider, segmented, toggle, status, guard, debounce } from '../_shared/ui.mjs';
 import { createStage, createMockups } from '../_shared/viewer.mjs';
+import { MOCKUPS, ALL_MOCKUPS } from '../_shared/mockups.mjs';
 import { makeZip, blobBytes } from '../_shared/zip.mjs';
 import { licenseNote, maxExportSize, describeLimit, safeName, setPngDpi } from '../_shared/export.mjs';
 import { LAYOUTS, planRepeat } from './layout.mjs';
@@ -264,7 +265,10 @@ export async function mount(container, context) {
   /* ---- Interface ---- */
 
   const stage = createStage({ initialTile: 180 });
-  const mockups = createMockups();
+  // The extra scenes appear only for a license that carries the pack.
+  const mockups = createMockups({
+    scenes: context.options && context.options.has('mockup-pack') ? ALL_MOCKUPS : MOCKUPS
+  });
 
   const fileInput = el('input', { type: 'file', accept: ACCEPT, multiple: true, class: 'visually-hidden' });
   fileInput.addEventListener('change', guard(statusNode, context, async () => {

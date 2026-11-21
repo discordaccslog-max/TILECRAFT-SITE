@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-13",
+  "updated": "2026-11-20",
   "comment": "Product modules. The Studio reads this to find which products have a workspace installed, and loads a module only when that product is opened. See MODULES.md.",
   "modules": [
     {
@@ -34,6 +34,66 @@
       "version": "1.0.0"
     },
     {
+      "slug": "art-deco-lines",
+      "entry": "modules/art-deco-lines/index.js",
+      "name": "art-deco-lines",
+      "version": "1.0.0"
+    },
+    {
+      "slug": "stripes-and-rules",
+      "entry": "modules/stripes-and-rules/index.js",
+      "name": "stripes-and-rules",
+      "version": "1.0.0"
+    },
+    {
+      "slug": "checks-and-weaves",
+      "entry": "modules/checks-and-weaves/index.js",
+      "name": "checks-and-weaves",
+      "version": "1.0.0"
+    },
+    {
+      "slug": "waves-and-water",
+      "entry": "modules/waves-and-water/index.js",
+      "name": "waves-and-water",
+      "version": "1.0.0"
+    },
+    {
+      "slug": "stars-and-night",
+      "entry": "modules/stars-and-night/index.js",
+      "name": "stars-and-night",
+      "version": "1.0.0"
+    },
+    {
+      "slug": "folk-geometry",
+      "entry": "modules/folk-geometry/index.js",
+      "name": "folk-geometry",
+      "version": "1.0.0"
+    },
+    {
+      "slug": "arches-and-columns",
+      "entry": "modules/arches-and-columns/index.js",
+      "name": "arches-and-columns",
+      "version": "1.0.0"
+    },
+    {
+      "slug": "scallops-and-shells",
+      "entry": "modules/scallops-and-shells/index.js",
+      "name": "scallops-and-shells",
+      "version": "1.0.0"
+    },
+    {
+      "slug": "confetti-and-specks",
+      "entry": "modules/confetti-and-specks/index.js",
+      "name": "confetti-and-specks",
+      "version": "1.0.0"
+    },
+    {
+      "slug": "crystal-and-facet",
+      "entry": "modules/crystal-and-facet/index.js",
+      "name": "crystal-and-facet",
+      "version": "1.0.0"
+    },
+    {
       "slug": "pattern-generator-studio",
       "entry": "modules/pattern-generator-studio/index.js",
       "name": "pattern-generator-studio",
@@ -49,6 +109,24 @@
       "slug": "production-studio",
       "entry": "modules/production-studio/index.js",
       "name": "production-studio",
+      "version": "1.0.0"
+    },
+    {
+      "slug": "colorway-studio",
+      "entry": "modules/colorway-studio/index.js",
+      "name": "colorway-studio",
+      "version": "1.0.0"
+    },
+    {
+      "slug": "mockup-studio",
+      "entry": "modules/mockup-studio/index.js",
+      "name": "mockup-studio",
+      "version": "1.0.0"
+    },
+    {
+      "slug": "seam-inspector",
+      "entry": "modules/seam-inspector/index.js",
+      "name": "seam-inspector",
       "version": "1.0.0"
     }
   ]

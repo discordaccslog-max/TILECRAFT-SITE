@@ -1458,6 +1458,129 @@ table {
 }
 
 /* --------------------------------------------------------------------------
+   The catalog, as cards
+
+   The sticky-canvas treatment gives a Collection a whole screen, which is
+   right for the few that lead the page and impossible for the rest. These
+   are the cards the full catalog is shown in.
+   -------------------------------------------------------------------------- */
+
+.catalog {
+  padding-block: clamp(3rem, 8vh, 5rem);
+}
+
+.catalog--bundles {
+  background: var(--paper-sunk);
+  border-block: 2px solid var(--ink);
+  max-width: none;
+  padding-inline: clamp(1rem, 5vw, 3rem);
+}
+
+.catalog__head {
+  max-width: 48rem;
+  margin-bottom: 2rem;
+}
+
+.catalog__lede {
+  margin-top: 0.6rem;
+  font-size: var(--step--1);
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+
+.catalog__grid {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0.9rem;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.card:hover,
+.card:focus-visible {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.card__art {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  aspect-ratio: 4 / 1;
+  margin-bottom: 0.8rem;
+  border: 1px solid var(--paper-edge);
+}
+
+/* The strip renderer fills this with one cell per pattern. */
+.card__art .preview__cell {
+  background-repeat: repeat;
+  background-position: center;
+}
+
+.card__title {
+  font-size: var(--step-0);
+  line-height: 1.2;
+}
+
+.card__short {
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--ink-muted);
+  flex: 1 1 auto;
+}
+
+.card__note {
+  margin-top: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+}
+
+.card__foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--paper-edge);
+}
+
+.card__more {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+}
+
+.card--bundle {
+  background: var(--paper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+  .card:hover,
+  .card:focus-visible {
+    transform: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
    Extras offered with a product
    -------------------------------------------------------------------------- */
 

@@ -6,9 +6,9 @@
  * as each product section scrolls into view.
  */
 
-import { PRODUCTS, TIERS, productsByTier, formatPrice } from './products.js';
+import { PRODUCTS, TIERS, productsByTier, productBySlug, formatPrice } from './products.js';
 import { drawInkLayer, liveCanvas, seedFrom } from './riso.js';
-import { renderFeature, renderToolTile } from './previews.js';
+import { renderFeature, renderToolTile, renderStrip } from './previews.js';
 import { prefersReducedMotion } from './settings.js';
 
 /* ------------------------------------------------------------------ *
@@ -134,13 +134,92 @@ function collectionSection(product, index) {
   return section;
 }
 
+/** Collections proper: the ones with artwork of their own, not bundles. */
+function collectionsOnly() {
+  return productsByTier('collection').filter((product) => !product.grants);
+}
+
+/** Bundles: products whose job is to unlock several others. */
+function bundlesOnly() {
+  return productsByTier('collection').filter((product) => product.grants && product.grants.length > 1);
+}
+
+/*
+ * The sticky canvas gives each section a full screen of its own, which is
+ * the right treatment for a handful of Collections and the wrong one for
+ * fifteen — the shop would be thirty screens deep before reaching the
+ * tools. Five lead, and the rest are in the grid below them.
+ */
+const FEATURED = 5;
+
 function renderCollections() {
   const host = document.querySelector('[data-collections]');
   if (!host) return;
-  const products = productsByTier('collection');
+  const products = collectionsOnly().slice(0, FEATURED);
   const fragment = document.createDocumentFragment();
   products.forEach((product, index) => fragment.append(collectionSection(product, index)));
   host.append(fragment);
+
+  const count = document.querySelector('[data-collection-count]');
+  if (count) count.textContent = String(collectionsOnly().length);
+}
+
+/* ------------------------------------------------------------------ *
+ * The full catalog, as cards
+ * ------------------------------------------------------------------ */
+
+function card(product, { preview = true } = {}) {
+  const item = document.createElement('li');
+  const link = document.createElement('a');
+  link.className = 'card';
+  link.href = '/products/' + product.slug + '/';
+
+  link.innerHTML =
+    (preview ? '<div class="card__art" aria-hidden="true"></div>' : '') +
+    '<h3 class="card__title">' + escapeHtml(product.name) + '</h3>' +
+    '<p class="card__short">' + escapeHtml(product.short) + '</p>' +
+    '<p class="card__foot"><span class="price">' + formatPrice(product.price) + '</span>' +
+    '<span class="card__more">Read more</span></p>';
+
+  item.append(link);
+  return { item, link };
+}
+
+function renderCollectionGrid() {
+  const host = document.querySelector('[data-collection-grid]');
+  if (!host) return;
+
+  for (const product of collectionsOnly()) {
+    const { item, link } = card(product);
+    host.append(item);
+    // Real patterns from that Collection, so a card shows what it sells.
+    renderStrip(link.querySelector('.card__art'), product.slug, 4);
+  }
+}
+
+function renderBundleGrid() {
+  const host = document.querySelector('[data-bundle-grid]');
+  if (!host) return;
+
+  for (const product of bundlesOnly()) {
+    const { item, link } = card(product, { preview: false });
+    link.classList.add('card--bundle');
+
+    // What is in it and what that would come to, worked out from the
+    // catalog rather than written down twice.
+    const separately = product.grants.reduce((total, slug) => {
+      const part = productBySlug(slug);
+      return total + (part ? part.price : 0);
+    }, 0);
+
+    const note = document.createElement('p');
+    note.className = 'card__note';
+    note.textContent =
+      product.grants.length + ' products · ' + formatPrice(separately) + ' bought separately';
+    link.querySelector('.card__foot').before(note);
+
+    host.append(item);
+  }
 }
 
 /* ------------------------------------------------------------------ *
@@ -319,6 +398,8 @@ function escapeAttribute(text) {
 
 function start() {
   renderCollections();
+  renderCollectionGrid();
+  renderBundleGrid();
   renderStudioEditions();
   setUpStickyCanvas();
   setUpHero();

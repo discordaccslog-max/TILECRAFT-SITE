@@ -86,10 +86,32 @@ const home = {
         <p class="lede" data-tier-blurb="collection">${h(TIERS.collection.blurb)}</p>
         <p>Each Collection is a set of seamless repeats built around one idea. Open one in the
           Studio, set your own colors, change the scale, and export the tile or a larger sheet.
-          Buy one on its own, or take all five in the Essentials Bundle on a single license.</p>
+          Buy one on its own, or take several together on a single license.</p>
+        <p class="lede"><span data-collection-count>Several</span> Collections in all. Five of them
+          are below; the rest are in the full list that follows.</p>
       </section>
     </div>
   </div>
+
+  <section class="wrap catalog" id="all-collections" aria-labelledby="all-collections-title">
+    <div class="catalog__head">
+      <p class="eyebrow">Every Collection</p>
+      <h2 id="all-collections-title">The full set</h2>
+      <p class="catalog__lede">Every Collection in the shop, each one a set of seamless repeats on
+        a single idea. The patterns shown on each card come from that Collection.</p>
+    </div>
+    <ul class="catalog__grid" data-collection-grid></ul>
+  </section>
+
+  <section class="wrap catalog catalog--bundles" id="bundles" aria-labelledby="bundles-title">
+    <div class="catalog__head">
+      <p class="eyebrow">Bundles</p>
+      <h2 id="bundles-title">Several products on one license</h2>
+      <p class="catalog__lede">A bundle is a single license code that unlocks everything in it.
+        Each one says what it contains and what those come to separately.</p>
+    </div>
+    <ul class="catalog__grid" data-bundle-grid></ul>
+  </section>
 
   <section class="printshop" id="studio-editions" aria-labelledby="editions-title">
     <div class="wrap">
@@ -482,6 +504,7 @@ const notFound = {
         <h2 style="font-size:var(--step-1)">Products</h2>
         <ul style="list-style:none;padding:0;margin-top:0.9rem">
           <li style="padding-left:0"><a href="/#collections">Collections</a></li>
+          <li style="padding-left:0"><a href="/#bundles">Bundles</a></li>
           <li style="padding-left:0"><a href="/#studio-editions">Studio Editions</a></li>
           <li style="padding-left:0"><a href="/studio/">Studio</a></li>
           <li style="padding-left:0"><a href="/about/">About</a></li>

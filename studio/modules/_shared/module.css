@@ -575,3 +575,119 @@
     transition: none;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Pieces the newer tools need
+
+   Colorway Studio, Mockup Studio and Seam Inspector share the vocabulary
+   above; these are the few things none of the earlier modules had.
+   -------------------------------------------------------------------------- */
+
+/* The right-hand column of a split module. */
+.mod__main {
+  display: grid;
+  gap: 0.9rem;
+  align-content: start;
+  min-width: 0;
+}
+
+/* A mockup shown on its own rather than in the strip of six. */
+.mod__wide {
+  width: 100%;
+  max-width: 44rem;
+  border: 2px solid var(--paper-edge);
+  background: var(--paper-raised);
+}
+
+/*
+ * The seam view: four corners of a tile meeting in the middle. It is
+ * square and capped, because the join is read at the centre and a larger
+ * canvas only pushes the rest of the report off the screen.
+ */
+.mod__seam {
+  display: block;
+  width: 100%;
+  max-width: 26rem;
+  aspect-ratio: 1;
+  border: 2px solid var(--paper-edge);
+  background: var(--paper-sunk);
+}
+
+/* A plain repeated preview, with no outline overlay above it. */
+.mod__repeat {
+  min-height: 12rem;
+  border: 2px solid var(--paper-edge);
+  background-repeat: repeat;
+}
+
+/* The palette slots in Colorway Studio, four across. */
+.colorways__slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+  gap: 0.5rem;
+}
+
+.colorways__slot {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+}
+
+.colorways__slot input[type='color'] {
+  width: 100%;
+  height: 2.2rem;
+  padding: 0;
+  border: 2px solid var(--paper-edge);
+  background: none;
+  cursor: pointer;
+}
+
+.colorways__saved {
+  list-style: none;
+  display: grid;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+}
+
+.colorways__saved-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.colorways__saved-open {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1 1 auto;
+  padding: 0.3rem;
+  border: 1px solid transparent;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.colorways__saved-open:hover,
+.colorways__saved-open:focus-visible {
+  border-color: var(--paper-edge);
+  background: var(--paper-sunk);
+}
+
+.colorways__chips {
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.colorways__chip {
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 1px solid var(--paper-edge);
+}
+
+.colorways__chip + .colorways__chip {
+  margin-left: -1px;
+}

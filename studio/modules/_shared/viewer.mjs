@@ -12,7 +12,7 @@ import { el, loadStyles, slider, segmented, toggle, status, guard, debounce } fr
 import {
   loadCollection, asPattern, tileDataUri, slotsOf, colorsOf, renderTile
 } from './render.mjs';
-import { MOCKUPS, mockupSvg } from './mockups.mjs';
+import { MOCKUPS, ALL_MOCKUPS, mockupSvg } from './mockups.mjs';
 import { exportPattern, maxExportSize, describeLimit, safeName } from './export.mjs';
 
 /* ------------------------------------------------------------------ *
@@ -159,14 +159,21 @@ export function createColorways({ onChange, onSave, onRemove }) {
  * Mockups
  * ------------------------------------------------------------------ */
 
-export function createMockups() {
+/**
+ * The strip of scenes a pattern can be tried on.
+ *
+ * @param {object} [options]
+ *   scenes: which scenes to show. Defaults to the six every product
+ *   includes; pass ALL_MOCKUPS when the license carries the mockup pack.
+ */
+export function createMockups({ scenes = MOCKUPS } = {}) {
   const node = el('div', { class: 'mockups' });
 
   return {
     node,
     render(tileUri, tileSize) {
       node.textContent = '';
-      for (const mockup of MOCKUPS) {
+      for (const mockup of scenes) {
         const holder = el('div', { class: 'mockup' });
         holder.insertAdjacentHTML('afterbegin', mockupSvg(mockup.id, tileUri, tileSize));
         holder.append(el('p', { class: 'mockup__label', text: mockup.label }));
@@ -352,7 +359,10 @@ export async function mountCollection(container, context, slug) {
   /* ---- Pieces ---- */
 
   const stage = createStage({ initialTile: 150 });
-  const mockups = createMockups();
+  // The extra scenes appear only for a license that carries the pack.
+  const mockups = createMockups({
+    scenes: context.options && context.options.has('mockup-pack') ? ALL_MOCKUPS : MOCKUPS
+  });
   const colorways = createColorways({
     onChange: (way, isEdit) => {
       colors = { ...way.colors };

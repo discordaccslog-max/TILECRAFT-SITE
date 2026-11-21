@@ -15,6 +15,7 @@ import { asPattern, tileDataUri, colorsOf } from '../_shared/render.mjs';
 import {
   createStage, createColorways, createMockups, createExportPanel
 } from '../_shared/viewer.mjs';
+import { MOCKUPS, ALL_MOCKUPS } from '../_shared/mockups.mjs';
 import { generateSpec, randomSeed, MOTIFS, LAYOUTS, DEFAULTS } from './generate.mjs';
 
 const PALETTES = [
@@ -47,7 +48,10 @@ export async function mount(container, context) {
   /* ---- Pieces ---- */
 
   const stage = createStage({ initialTile: 170 });
-  const mockups = createMockups();
+  // The extra scenes appear only for a license that carries the pack.
+  const mockups = createMockups({
+    scenes: context.options && context.options.has('mockup-pack') ? ALL_MOCKUPS : MOCKUPS
+  });
 
   const colorways = createColorways({
     onChange: (way, isEdit) => {
