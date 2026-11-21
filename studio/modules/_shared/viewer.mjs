@@ -1,7 +1,7 @@
 /*
  * The shared pattern workspace.
  *
- * All five Collection modules are this file with a different slug, and the
+ * Every Collection module is this file with a different slug, and the
  * Pattern Generator and Repeat Builder reuse its parts — the tiling stage,
  * the palette editor, the mockups, and the export panel — around their own
  * sources of patterns. Building it once means a fix to the preview or to

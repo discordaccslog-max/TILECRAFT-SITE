@@ -317,7 +317,7 @@ const faqItems = [
   },
   {
     q: 'What file formats do I get?',
-    a: `<p><strong>PNG</strong> and <strong>JPEG</strong> from every product. <strong>SVG</strong> from everything that is vector, which is four of the five Collections and Pattern Generator Studio.</p>
+    a: `<p><strong>PNG</strong> and <strong>JPEG</strong> from every product. <strong>SVG</strong> from everything that is vector, which is fourteen of the fifteen Collections and Pattern Generator Studio. Textures &amp; Grain is the raster one.</p>
       <p>Every download arrives as a <strong>zip</strong> holding the artwork and a short <code>LICENSE.txt</code> that records the product, your license code, and what the license allows. That is so the file and its terms stay together if you archive it or hand a finished design to a client.</p>
       <p>PNG exports carry their resolution inside the file, so a print tool opens a large export at its real physical size instead of assuming 72 DPI.</p>`
   },
@@ -351,8 +351,23 @@ const faqItems = [
       <p>${h(AI_DISCLOSURE.paragraphs[2])}</p>`
   },
   {
+    q: 'What are the extras on the product pages?',
+    a: `<p>Optional additions you can tick before you buy. Each one is between $1 and $5, the price on the page updates as you tick, and the total you see is the total you pay.</p>
+      <p>They are switched on in the Studio as soon as your license is issued, and they are listed on your certificate. There is nothing to download separately and nothing to enter.</p>
+      <p>What is on offer depends on the product. A Collection can add a second set of four colorways, print spec sheets, palette files, extra mockup scenes, or a seam report. Pattern Generator Studio can add a pack of sixty starting points; Repeat Builder a library of forty motifs; Production Studio a set of large-format presets for wide cloth and wallpaper drops.</p>
+      <p>An extra bought with a bundle applies to everything in that bundle, and an extra you already hold is never taken away.</p>`
+  },
+
+  {
+    q: 'How do bundles work?',
+    a: `<p>A bundle is one license code that unlocks several products at once. Activating it opens all of them in the Studio together, on as many of your own devices as you use, and each behaves exactly as it would if you had bought it on its own.</p>
+      <p>Every bundle page says what it contains and what those products come to bought separately, so the saving is visible before you buy rather than asserted. The largest, Complete Library, is everything in the shop under one code.</p>
+      <p>If you already own something a bundle contains, buying the bundle does not take it away or duplicate it — the Studio simply holds both licenses, and everything stays unlocked.</p>`
+  },
+
+  {
     q: 'What is the difference between Collections and Studio Editions?',
-    a: `<p><strong>Collections</strong> are sets of finished seamless repeats — 160 patterns across the five, each with four curated colorways. You open one, set your colors, change the scale, and export. They are the fastest route from buying something to having a pattern you can use.</p>
+    a: `<p><strong>Collections</strong> are sets of finished seamless repeats — 382 patterns across fifteen Collections, each pattern with four curated colorways. You open one, set your colors, change the scale, and export. They are the fastest route from buying something to having a pattern you can use.</p>
       <p><strong>Studio Editions</strong> are tools. Pattern Generator Studio makes new patterns from settings you adjust. Repeat Builder turns your own motifs into seamless repeats. Production Studio is the export side: vector SVG, large print sizes, batch colorways, and preset output sizes.</p>
       <p>They are not competing with each other. A Collection gives you patterns; Production Studio gets any of them out at production size and in production formats. Plenty of people will want one Collection and nothing else, and that is a perfectly good place to stop.</p>`
   },

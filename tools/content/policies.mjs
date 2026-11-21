@@ -90,6 +90,7 @@ const delivery = {
       <p>It is immediate. The confirmation page issues the license as it loads, in your browser, without contacting a server. There is no email to wait for and no download to start.</p>
 
       <h2>What you actually receive</h2>
+      <p>If you added any extras at checkout, they are part of the same license. They are switched on in the Studio when it is activated, they are listed on your certificate, and an extra bought with a bundle applies to every product that bundle unlocks. There is nothing separate to download and nothing to enter.</p>
       <p>You receive a license that unlocks the product inside the Studio, plus a License Certificate recording it. The patterns and tools themselves run in the Studio in your browser; what you export from the Studio — PNG and JPEG images, and SVG vector files from the patterns that are built from shapes — is yours to keep and use under the <a href="/license/">License</a>. Each export arrives as a zip holding the artwork and a short note recording the license it was made under.</p>
 
       <h2>If your email receipt does not arrive</h2>
