@@ -2493,29 +2493,11 @@ input[type='text']::placeholder {
   background: var(--paper-sunk);
 }
 
-/*
- * While there is no checkout, this block is a statement rather than a
- * control. It is marked out so it reads as a note about the shop, not as
- * something that failed to load.
- */
-.checkout--pending {
-  border-style: dashed;
-}
-
 .checkout__title {
   margin: 0 0 0.6rem;
   font-size: var(--step-1);
   border: 0;
   padding: 0;
-}
-
-.checkout--pending p {
-  font-size: var(--step--1);
-  line-height: 1.6;
-}
-
-.checkout--pending p + p {
-  margin-top: 0.7rem;
 }
 
 .checkout__aside {
@@ -2645,6 +2627,141 @@ input[type='text']::placeholder {
 
 .checkout__status.is-busy {
   color: var(--ink-muted);
+}
+
+
+/* ---- The card, and what it can be paid with ---- */
+
+.cardsection {
+  margin: 1.75rem 0 1.25rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--ink);
+}
+
+.paymarks-block {
+  margin-bottom: 1.25rem;
+}
+
+.paymarks__label {
+  margin: 0 0 0.5rem;
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+.paymarks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  /*
+   * Without this, a wrapped row stretches each mark to the tallest on its
+   * own line, so the same mark is one height on one line and another on
+   * the next. Centring keeps them all the height of their content, and
+   * keeps an official asset of a different size aligned with the rest.
+   */
+  align-items: center;
+}
+
+.paymark {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.55rem 0.3rem 0.35rem;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.paymark__glyph {
+  display: block;
+  width: 2.1rem;
+  height: auto;
+}
+
+.paymark__body {
+  fill: var(--paper-sunk);
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+
+.paymark__stripe {
+  fill: var(--ink);
+}
+
+.paymark__bar {
+  fill: var(--ink-faint);
+}
+
+.paymark__official {
+  display: flex;
+  align-items: center;
+}
+
+.paymark__official svg {
+  display: block;
+  width: 2.1rem;
+  height: auto;
+}
+
+/*
+ * Once the number says which network it is, that one is brought forward
+ * and the rest step back — a confirmation rather than a decoration.
+ */
+.paymarks.is-narrowed .paymark {
+  opacity: 0.45;
+}
+
+.paymarks .paymark.is-on {
+  opacity: 1;
+  background: var(--paper-raised);
+  box-shadow: 2px 2px 0 var(--teal);
+}
+
+.paymarks .paymark.is-on .paymark__bar {
+  fill: var(--teal-text);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .paymark {
+    transition: opacity 120ms ease-out, box-shadow 120ms ease-out;
+  }
+}
+
+.field-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.field-pair .field {
+  margin-bottom: 1.1rem;
+}
+
+@media (max-width: 26rem) {
+  .field-pair {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+/* ---- A postal address ---- */
+
+.contact-address {
+  margin: 0.75rem 0 1rem;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid var(--teal);
+  background: var(--paper-sunk);
+  font-style: normal;
+  line-height: 1.6;
+}
+
+.contact-address span {
+  display: block;
 }
 
 /* ---- The completed order ---- */

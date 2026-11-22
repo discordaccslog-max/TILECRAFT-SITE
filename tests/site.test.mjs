@@ -18,7 +18,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 
 import { PRODUCTS, TIERS, productBySlug } from '../js/products.js';
-import { SITE, hasSupportEmail } from '../js/site-config.js';
+import { SITE, hasSupportEmail, hasPostalAddress, postalAddress } from '../js/site-config.js';
 import { ALPHABET } from '../js/license.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -474,8 +474,10 @@ test('no placeholder text was left anywhere in the site', () => {
 });
 
 test('no contact details were invented anywhere', () => {
-  // With no support address configured, no email address of any kind should
-  // appear on the site, and no phone number, postal address, or jurisdiction.
+  // Configured details are legitimate; invented ones are not. With no support
+  // address set, no email of any kind should appear, and no phone number or
+  // jurisdiction should appear whether or not anything else is configured.
+  // The postal address has its own tests below, against the configuration.
   const sources = allFiles.filter((file) => /\.(html|css|js|mjs|json|xml|txt)$/.test(file));
   const offenders = [];
 
@@ -506,6 +508,51 @@ test('no contact details were invented anywhere', () => {
   }
 
   assert.deepEqual(offenders, [], 'invented contact or legal details:\n' + offenders.join('\n'));
+});
+
+test('the postal address on the Contact page is the configured one', () => {
+  /*
+   * An address on a live site is something a visitor may rely on, so the
+   * only one that may appear is the one in the configuration — no copy of
+   * it pasted into a page, and nothing invented alongside it.
+   */
+  const html = fs.readFileSync(path.join(root, 'contact/index.html'), 'utf8');
+
+  if (!hasPostalAddress()) {
+    assert.ok(
+      !/<address/.test(html),
+      'the Contact page shows an address block with no address configured'
+    );
+    return;
+  }
+
+  assert.match(html, /<address class="contact-address">/, 'the address block is missing');
+  for (const line of postalAddress()) {
+    assert.ok(html.includes(line), 'the Contact page is missing the line "' + line + '"');
+  }
+
+  // Marked up as an address, so it is read as one rather than as prose.
+  const block = /<address[^>]*>([\s\S]*?)<\/address>/.exec(html);
+  assert.ok(block, 'the address is not in an <address> element');
+  assert.equal(
+    (block[1].match(/<span>/g) || []).length,
+    postalAddress().length,
+    'the address lines do not match the configuration'
+  );
+});
+
+test('the address appears on the Contact page and nowhere else', () => {
+  if (!hasPostalAddress()) return;
+
+  // The street line is the distinctive part; a stray copy elsewhere means
+  // someone pasted it into a page instead of reading the configuration.
+  const street = postalAddress()[0];
+  const elsewhere = allFiles
+    .filter((file) => file.endsWith('.html'))
+    .filter((file) => fs.readFileSync(file, 'utf8').includes(street))
+    .map((file) => path.relative(root, file).replace(/\\/g, '/'));
+
+  assert.deepEqual(elsewhere, ['contact/index.html'], 'the address is duplicated across pages');
 });
 
 test('the Terms of Service has no governing law clause', () => {

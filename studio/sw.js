@@ -27,7 +27,7 @@
  * would never receive a fix. Run `npm run build` after changing any file in
  * the list.
  */
-const BUILD = 'b32f79608f1fa01c';
+const BUILD = '43ab4fa1ece90cca';
 
 const VERSION = 'tilecraft-studio-' + BUILD;
 const SHELL_CACHE = VERSION + '-shell';

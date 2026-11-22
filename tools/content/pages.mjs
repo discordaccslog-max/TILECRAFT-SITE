@@ -6,7 +6,13 @@
  * confirmation pages.
  */
 
-import { SITE, hasSupportEmail, supportEmail } from '../../js/site-config.js';
+import {
+  SITE,
+  hasSupportEmail,
+  supportEmail,
+  hasPostalAddress,
+  postalAddress
+} from '../../js/site-config.js';
 import { PRODUCTS, TIERS, productsByTier, formatPrice } from '../../js/products.js';
 import { ALLOWED, NOT_ALLOWED, SUMMARY_TABLE, GRANT, AI_DISCLOSURE } from '../../js/license-terms.js';
 import { h, pageHead, prose } from '../layout.mjs';
@@ -430,6 +436,18 @@ const contactChannel = hasSupportEmail()
         and include your order number. Everything you need to know before buying is on the
         <a href="/faq/">FAQ</a>, the <a href="/license/">License</a> page, and each product page.</p>`;
 
+// A real address, marked up so a browser and a search engine both read it
+// as one. Rendered only when one is set.
+const contactAddress = hasPostalAddress()
+  ? `
+      <h2>Where we are</h2>
+      <address class="contact-address">
+${postalAddress().map((line) => '        <span>' + h(line) + '</span>').join('\n')}
+      </address>
+      <p>Post reaches us here, but email is faster for anything about an order — a
+        letter cannot be answered within two business days.</p>`
+  : '';
+
 const contact = {
   path: '/contact/',
   title: 'Contact',
@@ -443,6 +461,7 @@ const contact = {
 ${contactChannel}
       </div>
       <p>There is no contact form on this site, and there is no live chat. One channel, read by a person.</p>
+${contactAddress}
 
       <h2>How long a reply takes</h2>
       <p>Within two business days. Most messages are answered sooner. If more than two business days have passed and nothing has arrived, send the message again — occasionally one goes astray, and a second attempt is not a nuisance.</p>

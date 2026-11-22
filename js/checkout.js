@@ -11,11 +11,16 @@
  * the real thing: the licenses issued here are the licenses the Studio
  * unlocks from, and the certificates are the same ones. See PAYMENT in
  * js/cart.js for where a provider goes.
+ *
+ * The card fields are checked and then dropped. What is typed into them
+ * never reaches placeOrder, the license record, the certificate, or
+ * storage — see js/card-fields.js for why it is built that way.
  */
 
 import * as cart from './cart.js';
 import { formatPrice } from './products.js';
 import { activate, generateCode, setLicensee } from './license.js';
+import { cardFields } from './card-fields.js';
 
 function el(tag, attrs = {}, children = []) {
   const node = document.createElement(tag);
@@ -145,6 +150,8 @@ function render(host) {
     placeholder: 'Your name or business name'
   });
 
+  const card = cardFields();
+
   const status = el('p', { class: 'checkout__status', role: 'status' });
 
   const place = el('button', {
@@ -165,18 +172,31 @@ function render(host) {
           'the purchaser of the order. You can add or change it later in the Studio.'
       })
     ]),
+    card.node,
     place,
     status
   ]);
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
+
+    // Check the card first. Nothing is read out of these fields beyond
+    // this check, and they are cleared as soon as the order is placed.
+    const problem = card.check();
+    if (problem) {
+      status.textContent = problem;
+      status.className = 'checkout__status is-error';
+      card.focusFirst();
+      return;
+    }
+
     place.disabled = true;
     status.textContent = 'Placing your order…';
     status.className = 'checkout__status is-busy';
 
     try {
       const { reference } = await placeOrder({ licensee: licensee.value.trim() });
+      card.clear();
       window.location.href = cart.CHECKOUT.donePath + '?ref=' + encodeURIComponent(reference);
     } catch (error) {
       place.disabled = false;

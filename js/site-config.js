@@ -9,6 +9,12 @@
  *   "Report a problem" link) simply omits that line, and the surrounding
  *   layout stays complete. Set it to an address and those lines appear
  *   automatically as mailto links.
+ *
+ * postalAddress
+ *   The business address, one array entry per line, as it should be read.
+ *   Shown on the Contact page and carried into the Organization schema.
+ *   Works the same way as supportEmail: an empty array omits the block
+ *   and the page still reads as complete.
  */
 
 /*
@@ -28,6 +34,11 @@ export const SITE = {
   origin: 'https://tilecraft-site.vercel.app',
   licensePrefix: 'TILE',
   supportEmail: 'tilemail@tilecraftdigital.art',
+  postalAddress: [
+    '111 E Pigeon Plum Dr, Apt 102',
+    'Jupiter, FL 33458-7868',
+    'United States'
+  ],
   supportResponseTime: 'within two business days',
   refundDays: 14,
   lastUpdated: '12 November 2026'
@@ -41,6 +52,22 @@ export function hasSupportEmail() {
 /** The support address, trimmed, or an empty string when none is set. */
 export function supportEmail() {
   return hasSupportEmail() ? SITE.supportEmail.trim() : '';
+}
+
+/** True when a postal address has been configured. */
+export function hasPostalAddress() {
+  return Array.isArray(SITE.postalAddress) && postalAddress().length > 0;
+}
+
+/** The postal address as an array of non-empty lines. */
+export function postalAddress() {
+  if (!Array.isArray(SITE.postalAddress)) return [];
+  return SITE.postalAddress.map((line) => String(line).trim()).filter(Boolean);
+}
+
+/** The postal address on one line, for a schema field or a meta tag. */
+export function postalAddressLine() {
+  return postalAddress().join(', ');
 }
 
 /**
