@@ -1,7 +1,7 @@
 # Tilecraft Digital
 
 The storefront, license certificate system, and Studio framework for
-[tilecraft-site.vercel.app](https://tilecraft-site.vercel.app).
+[tilecraft-site.vercel.app](https://www.tilecraftdigital.art).
 
 Static HTML, CSS, and vanilla JavaScript. No build step is needed to serve it,
 no framework, and no runtime dependencies. Every font and every library is
@@ -137,7 +137,7 @@ rather than issuing a new one.
 ### Activation links
 
 ```
-https://tilecraft-site.vercel.app/studio/#activate=TILE-GMTR-K7N4PXBM-WC
+https://www.tilecraftdigital.art/studio/#activate=TILE-GMTR-K7N4PXBM-WC
 ```
 
 The code is in the fragment, which browsers never send to a web server. The
@@ -264,7 +264,7 @@ how to regenerate it.
 
 ## Deployment
 
-The site is hosted on Vercel at **https://tilecraft-site.vercel.app**.
+The site is hosted on Vercel at **https://www.tilecraftdigital.art**.
 
 `vercel.json` holds the whole configuration:
 

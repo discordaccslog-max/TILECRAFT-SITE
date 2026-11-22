@@ -25,13 +25,20 @@
  *   License Certificate. A certificate is a document a buyer keeps, so a
  *   link on one has to keep working. Change this only when the site really
  *   moves, then run `npm run build`.
+ *
+ *   This moved from tilecraft-site.vercel.app to the custom domain on
+ *   22 November 2026. Certificates issued before that carry activation
+ *   links on the old host, so tilecraft-site.vercel.app has to go on
+ *   serving the Studio — it is the Vercel project's own domain, and
+ *   removing it would break those certificates. Nothing needs to happen
+ *   for it to keep working; it just must not be taken away.
  */
 
 export const SITE = {
   name: 'Tilecraft Digital',
   tagline: 'Original seamless patterns and textures, delivered in a browser Studio.',
-  domain: 'tilecraft-site.vercel.app',
-  origin: 'https://tilecraft-site.vercel.app',
+  domain: 'www.tilecraftdigital.art',
+  origin: 'https://www.tilecraftdigital.art',
   licensePrefix: 'TILE',
   supportEmail: 'tilemail@tilecraftdigital.art',
   postalAddress: [

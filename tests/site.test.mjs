@@ -133,7 +133,40 @@ test('the absolute URLs point at where the site is actually served', () => {
   // certificate are all built from this, so a stale value is not cosmetic.
   const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
   assert.ok(sitemap.includes('<loc>' + SITE.origin + '/</loc>'), 'the sitemap must use the live origin');
-  assert.ok(!sitemap.includes('tilecraftdigital.art'), 'the sitemap still names the old domain');
+
+  // Every entry, not just the first, and named against the configuration
+  // rather than against a particular domain — the site has moved before
+  // and a test that hardcodes the host has to be rewritten each time.
+  const hosts = [...sitemap.matchAll(/<loc>(https?:\/\/[^/]+)/g)].map((m) => m[1]);
+  assert.ok(hosts.length > 0, 'the sitemap has no entries');
+  assert.deepEqual(
+    [...new Set(hosts)],
+    [SITE.origin],
+    'the sitemap names a host that is not the configured origin'
+  );
+});
+
+test('nothing that is served still points at a host we have left', () => {
+  /*
+   * The Studio shell is written by hand rather than generated, so its
+   * canonical and Open Graph URLs are the ones most likely to be left
+   * behind when the site moves. Checking every served file costs nothing
+   * and catches the next move too.
+   */
+  const offenders = [];
+
+  for (const file of allFiles.filter((f) => /\.(html|xml|webmanifest)$/.test(f))) {
+    const text = fs.readFileSync(file, 'utf8');
+    for (const match of text.matchAll(/https?:\/\/([a-z0-9.-]+)/gi)) {
+      const host = match[1].toLowerCase();
+      // Other people's hosts are links, not claims about where we live.
+      if (host !== SITE.domain && /tilecraft/i.test(host)) {
+        offenders.push(path.relative(root, file).replace(/\\/g, '/') + ': ' + host);
+      }
+    }
+  }
+
+  assert.deepEqual([...new Set(offenders)], [], 'a page still names a host we have moved off:');
 });
 
 /* ------------------------------------------------------------------ *
